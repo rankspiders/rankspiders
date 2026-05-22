@@ -43,7 +43,7 @@ export default function FreeSeoAudit() {
     data.append('service', formData.service);
 
     try {
-      const response = await fetch('http://localhost:8000/api/submit', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/submit`, {
         method: 'POST',
         body: data,
       });

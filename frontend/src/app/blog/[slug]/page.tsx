@@ -34,7 +34,7 @@ export default function BlogSingle() {
 
   useEffect(() => {
     if (slug) {
-      fetch(`http://localhost:8000/api/blogs/${slug}`)
+      fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/blogs/${slug}`)
         .then(res => res.json())
         .then(data => { setPost(data); setLoading(false); })
         .catch(() => setLoading(false));

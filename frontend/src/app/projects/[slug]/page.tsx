@@ -27,7 +27,7 @@ export default function ProjectSingle() {
 
   useEffect(() => {
     if (slug) {
-      fetch(`http://localhost:8000/api/projects/${slug}`)
+      fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/projects/${slug}`)
         .then(res => res.json())
         .then(data => {
           setProject(data);

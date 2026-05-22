@@ -254,7 +254,7 @@ export default function SeoAuditClient() {
     setError('');
     try {
       const res = await fetch(
-        `http://localhost:8000/api/tools/audit?url=${encodeURIComponent(target)}`
+        `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/tools/audit?url=${encodeURIComponent(target)}`
       );
       const data: AuditResult = await res.json();
       if (data.error) {
