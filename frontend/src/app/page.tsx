@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import ScrollingTicker from '@/components/ScrollingTicker';
 import MotionWrapper from '@/components/MotionWrapper';
@@ -137,7 +136,11 @@ export default function Home() {
                       <span>Organic Traffic</span>
                     </div>
                   </div>
-                  <div className="hero-glow-ring"></div>
+                  <div className="hero-image">
+                    <figure>
+                      <img src="/images/hero-image.png" alt="Rank Spiders – Digital Marketing Agency" />
+                    </figure>
+                  </div>
                   <div className="hero-float-card hero-card-2">
                     <i className="fa-solid fa-ranking-star"></i>
                     <div>
