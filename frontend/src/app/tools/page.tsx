@@ -44,52 +44,52 @@ const TOOLS: Tool[] = [
   },
   {
     name: 'Page Speed Checker',
-    slug: '#',
+    slug: '/tools/page-speed',
     icon: 'fa-gauge-high',
     description:
-      'Measure real-world load time, Time to First Byte, and Core Web Vitals for any page.',
-    checks: ['Load time', 'TTFB', 'Core Web Vitals', 'Resource sizes', 'Compression'],
-    live: false,
+      'Measure load time, compression, caching, and server configuration — with a score and actionable fix recommendations.',
+    checks: ['Load time score', 'Gzip / Brotli', 'Cache-Control', 'Response size', 'Redirect chain'],
+    live: true,
     accent: '#10B981',
   },
   {
     name: 'Keyword Density',
-    slug: '#',
+    slug: '/tools/keyword-density',
     icon: 'fa-percent',
     description:
-      'Analyze keyword frequency and density across any webpage to spot over-optimization.',
-    checks: ['Keyword frequency', 'Density %', 'Stop word filter', 'Top N-grams'],
-    live: false,
+      'Find top keywords and phrases with density %, placement in title/H1/H2, and over-optimisation warnings.',
+    checks: ['Single keywords', '2-word phrases', '3-word phrases', 'Density %', 'Title/H1/H2 check'],
+    live: true,
     accent: 'var(--accent-secondary-color)',
   },
   {
     name: 'Robots.txt Tester',
-    slug: '#',
+    slug: '/tools/robots-tester',
     icon: 'fa-robot',
     description:
-      'Validate your robots.txt rules and check whether specific URLs are blocked for crawlers.',
-    checks: ['Rule parsing', 'URL allowance', 'Sitemap detection', 'Crawl-delay'],
-    live: false,
+      'Fetch and parse any robots.txt — check Googlebot access, view all rules, test specific URL paths.',
+    checks: ['Googlebot access', 'Bingbot / others', 'Sitemap discovery', 'Path tester', 'Crawl-delay'],
+    live: true,
     accent: '#F59E0B',
   },
   {
     name: 'Sitemap Validator',
-    slug: '#',
+    slug: '/tools/sitemap-validator',
     icon: 'fa-sitemap',
     description:
-      'Parse and validate any XML sitemap — check URL count, errors, and lastmod freshness.',
-    checks: ['XML validity', 'URL count', 'lastmod age', 'Broken URLs'],
-    live: false,
+      'Validate any XML sitemap — URL count, lastmod freshness stats, missing metadata, and sitemap index support.',
+    checks: ['URL count', 'lastmod age', 'Priority / changefreq', 'Sitemap index', 'Freshness stats'],
+    live: true,
     accent: '#8B5CF6',
   },
   {
     name: 'Meta Tag Extractor',
-    slug: '#',
+    slug: '/tools/meta-tags',
     icon: 'fa-code',
     description:
-      'Extract all meta tags, structured data, and schema markup from any page at once.',
-    checks: ['All meta tags', 'Schema.org JSON-LD', 'Twitter Cards', 'Open Graph'],
-    live: false,
+      'Extract every meta tag — title, description, Open Graph, Twitter Card, JSON-LD schema, hreflang — plus an issues report.',
+    checks: ['All meta tags', 'Open Graph', 'Twitter Card', 'JSON-LD schema', 'SEO issues report'],
+    live: true,
     accent: '#EC4899',
   },
 ];
@@ -252,7 +252,6 @@ function ToolCard({ tool }: { tool: Tool }) {
 
 export default function ToolsPage() {
   const liveCount = TOOLS.filter((t) => t.live).length;
-  const totalCount = TOOLS.length;
 
   return (
     <>
@@ -284,7 +283,7 @@ export default function ToolsPage() {
                     marginBottom: 20,
                   }}
                 >
-                  {liveCount} live · {totalCount - liveCount} coming soon
+                  {liveCount} free tools — all live
                 </p>
                 <h2
                   style={{
