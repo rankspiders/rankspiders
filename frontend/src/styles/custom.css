@@ -8410,4 +8410,827 @@ header.main-header .header-sticky.active{
 	.google-map-iframe iframe{
 		height: 350px;
 	}
+
+}
+
+/* ============================================================
+   HOME PAGE — NEW SECTIONS (Clients, Process, Projects,
+   Testimonials, Blogs, Tools)
+   ============================================================ */
+
+/* --- Clients Logo Strip ---
+   WHY: Scrolling marquee = social proof without cluttering layout.
+   We duplicate the array in JS and animate translateX(-50%)
+   so when it reaches the midpoint it snaps back seamlessly.
+   ---------------------------------------------------------------- */
+.home-clients {
+  padding: 48px 0 0;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--divider-color);
+  overflow: hidden;
+}
+
+.home-clients-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.home-clients-label i {
+  color: var(--accent-color);
+  font-size: 12px;
+}
+
+.home-clients-marquee {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.home-clients-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: client-scroll 55s linear infinite;
+}
+
+@keyframes client-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.home-client-card {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 28px;
+  min-width: 170px;
+  height: 90px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-client-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.client-dark-bg {
+  background: #1a1a2e;
+  border-color: #1a1a2e;
+}
+
+.client-logo-img {
+  max-height: 42px;
+  max-width: 130px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.home-client-card:hover .client-logo-img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.client-logo-text {
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.client-industry {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* --- Process / How We Work ---
+   WHY: Numbered cards make the process tangible.
+   The ::after pseudo-element draws a connector line between steps.
+   ---------------------------------------------------------------- */
+.home-process {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+}
+
+.home-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.home-process-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 36px 28px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.home-process-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.1);
+  transform: translateY(-4px);
+}
+
+.process-step-number {
+  font-family: var(--heading-font);
+  font-size: 52px;
+  font-weight: 800;
+  color: rgba(79, 70, 229, 0.08);
+  line-height: 1;
+  margin-bottom: 16px;
+  transition: color 0.25s ease;
+}
+
+.home-process-card:hover .process-step-number {
+  color: rgba(79, 70, 229, 0.18);
+}
+
+.process-step-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: background 0.25s ease;
+}
+
+.home-process-card:hover .process-step-icon {
+  background: var(--accent-color);
+}
+
+.process-step-icon i {
+  font-size: 20px;
+  color: var(--accent-color);
+  transition: color 0.25s ease;
+}
+
+.home-process-card:hover .process-step-icon i {
+  color: #ffffff;
+}
+
+.home-process-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.home-process-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.home-process-card::after {
+  content: '';
+  position: absolute;
+  top: 54px;
+  right: -13px;
+  width: 24px;
+  height: 2px;
+  background: var(--divider-color);
+  z-index: 1;
+}
+
+.home-process-card:last-child::after {
+  display: none;
+}
+
+/* --- Featured Projects Preview ---
+   WHY: Fetched live from /api/projects. Shows skeleton while loading,
+   empty state if backend is offline. Card overflow:hidden clips the
+   image so the scale transform on hover stays inside the border-radius.
+   ---------------------------------------------------------------- */
+.home-projects {
+  padding: 100px 0;
+  background: var(--bg-color);
+}
+
+.home-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.home-project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.home-project-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.12);
+  transform: translateY(-4px);
+}
+
+.home-project-img {
+  width: 100%;
+  height: 200px;
+  background-color: var(--bg-secondary);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.home-project-card:hover .home-project-img {
+  transform: scale(1.04);
+}
+
+.home-project-body {
+  padding: 24px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-project-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-color);
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  border-radius: 100px;
+  padding: 3px 12px;
+  margin-bottom: 12px;
+}
+
+.home-project-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.home-project-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  margin-top: auto;
+}
+
+.home-project-meta i {
+  color: var(--accent-color);
+  margin-right: 4px;
+}
+
+/* Skeleton loading cards — shimmer animation */
+.home-skeleton-card {
+  height: 280px;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--divider-color) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Empty state (backend offline or no data) */
+.home-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+.home-empty-state > i {
+  font-size: 48px;
+  color: var(--text-muted);
+  opacity: 0.35;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.home-empty-state p {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* "View All" CTA link below grids */
+.home-section-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* --- Testimonials ---
+   WHY: Static data for now — real testimonials need quotes from clients.
+   Avatar uses CSS gradient initials (no image needed).
+   blockquote uses smart quotes via HTML entities.
+   ---------------------------------------------------------------- */
+.home-testimonials {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+}
+
+.home-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.home-testimonial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-testimonial-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.testimonial-stars i {
+  color: #F59E0B;
+  font-size: 15px;
+}
+
+.home-testimonial-card blockquote {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-color);
+  font-style: italic;
+  margin: 0;
+  flex: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--divider-color);
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.testimonial-author-info strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 3px;
+}
+
+.testimonial-author-info span {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* --- Recent Blog Posts ---
+   WHY: Fetched from /api/blogs. Same loading/empty pattern as projects.
+   excerpt is sliced to 120 chars to keep cards uniform height.
+   ---------------------------------------------------------------- */
+.home-blogs {
+  padding: 100px 0;
+  background: var(--bg-color);
+}
+
+.home-blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.home-blog-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.home-blog-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.12);
+  transform: translateY(-4px);
+}
+
+.home-blog-img {
+  width: 100%;
+  height: 180px;
+  background-color: var(--bg-secondary);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.home-blog-card:hover .home-blog-img {
+  transform: scale(1.04);
+}
+
+.home-blog-body {
+  padding: 24px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-blog-author {
+  font-size: 12px;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.home-blog-body h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.home-blog-body p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+/* --- Free Tools Strip ---
+   WHY: Reuses .home-service-card styles for the tool cards —
+   no extra CSS needed for the cards themselves.
+   ---------------------------------------------------------------- */
+.home-tools {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--divider-color);
+}
+
+.home-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+/* ============================================================
+   RESPONSIVE — HOME NEW SECTIONS
+   ============================================================ */
+
+@media (max-width: 1199px) {
+  .home-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-process-card::after {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .home-projects-grid,
+  .home-testimonials-grid,
+  .home-blogs-grid,
+  .home-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .home-process-grid,
+  .home-projects-grid,
+  .home-testimonials-grid,
+  .home-blogs-grid,
+  .home-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-clients-label {
+    font-size: 11px;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+
+  .home-client-card {
+    min-width: 140px;
+    padding: 12px 20px;
+  }
+
+  .home-process {
+    padding: 60px 0;
+  }
+
+  .home-projects,
+  .home-testimonials,
+  .home-blogs,
+  .home-tools {
+    padding: 60px 0;
+  }
+}
+
+/* ============================================================
+   METRICS / RESULTS — animated CSS progress bars (no library)
+   WHY: conic-gradient / CSS transitions give chart-like visuals
+   without importing Chart.js or Recharts. The IntersectionObserver
+   in page.tsx adds .metrics-active when the grid scrolls into view,
+   which triggers the CSS transition on .metric-bar-inner.
+   ============================================================ */
+.home-metrics {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-metrics::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(79, 70, 229, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.home-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.home-metric-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 36px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.home-metric-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 36px rgba(79, 70, 229, 0.12);
+  transform: translateY(-5px);
+}
+
+.metric-value {
+  font-family: var(--heading-font);
+  font-size: 52px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.metric-label {
+  font-family: var(--heading-font);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.metric-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.metric-bar-track {
+  height: 6px;
+  background: var(--divider-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.metric-bar-inner {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary-color));
+  width: 0;
+  transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Triggered by IntersectionObserver adding .metrics-active */
+.metrics-active .metric-bar-inner {
+  width: var(--bar-width);
+}
+
+/* ============================================================
+   INDUSTRIES WE SERVE — pill/chip grid
+   ============================================================ */
+.home-industries {
+  padding: 90px 0;
+  background: var(--bg-color);
+}
+
+.home-industries-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 52px;
+}
+
+.home-industry-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 50px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: default;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.home-industry-chip:hover {
+  border-color: var(--accent-color);
+  background: rgba(79, 70, 229, 0.07);
+  color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.12);
+}
+
+.home-industry-chip i {
+  font-size: 15px;
+  color: var(--accent-color);
+  transition: transform 0.25s ease;
+}
+
+.home-industry-chip:hover i {
+  transform: scale(1.2);
+}
+
+/* ============================================================
+   FAQ — native <details><summary> accordion
+   WHY: No useState, no JS — browser handles open/close natively.
+   CSS [open] selector lets us animate the chevron and styling.
+   ============================================================ */
+.home-faq {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+}
+
+.home-faq-list {
+  max-width: 820px;
+  margin: 60px auto 0;
+}
+
+.home-faq-item {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-faq-item[open] {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 24px rgba(79, 70, 229, 0.09);
+}
+
+.home-faq-question {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  cursor: pointer;
+  font-family: var(--heading-font);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.home-faq-question::-webkit-details-marker { display: none; }
+.home-faq-question::marker { display: none; }
+
+.home-faq-item[open] .home-faq-question {
+  color: var(--accent-color);
+}
+
+.home-faq-chevron {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home-faq-item[open] .home-faq-chevron {
+  transform: rotate(180deg);
+  color: var(--accent-color);
+}
+
+.home-faq-answer {
+  padding: 0 26px 24px;
+}
+
+.home-faq-answer p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE — new sections
+   ============================================================ */
+@media (max-width: 1199px) {
+  .home-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .home-metrics { padding: 60px 0; }
+  .home-metrics-grid { grid-template-columns: 1fr; }
+  .metric-value { font-size: 44px; }
+  .home-industries { padding: 60px 0; }
+  .home-faq { padding: 60px 0; }
+  .home-faq-question { font-size: 15px; padding: 18px 20px; }
+  .home-faq-answer { padding: 0 20px 20px; }
 }
