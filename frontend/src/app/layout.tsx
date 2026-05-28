@@ -9,8 +9,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Rank Spiders",
-  description: "Modern SEO Agency",
+  title: {
+    default: 'Rank Spiders | SEO & Digital Marketing Agency India',
+    template: '%s | Rank Spiders',
+  },
+  description: 'Rank Spiders is a data-driven SEO and digital marketing agency in India helping businesses rank higher, build authority, and grow revenue.',
+  metadataBase: new URL('https://www.rankspiders.com'),
 };
 
 export default function RootLayout({
