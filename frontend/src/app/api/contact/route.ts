@@ -23,15 +23,15 @@ export async function POST(req: Request) {
       port: 465,
       secure: true,
       auth: {
-        user: 'harpreetsingh.rankspiders@gmail.com',
-        pass: 'awzs rqmg oozz xxkj', // App Password from submit.php
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
     // Email content
     const mailOptions = {
-      from: '"Rank Spiders" <harpreetsingh.rankspiders@gmail.com>',
-      to: 'harpreetsingh.rankspiders@gmail.com',
+      from: `"Rank Spiders" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
       replyTo: email,
       subject: 'Rank Spiders – New Contact Form Submission',
       html: `

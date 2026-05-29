@@ -7,6 +7,7 @@ import "../styles/swiper-bundle.min.css";
 import "../styles/custom.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
 
 export const metadata: Metadata = {
   title: {
@@ -39,6 +40,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-color">
+        <Preloader />
         <Header />
         <main>{children}</main>
         <Footer />

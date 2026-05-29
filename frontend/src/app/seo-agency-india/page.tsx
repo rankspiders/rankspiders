@@ -93,7 +93,7 @@ export default function SeoAgencyIndia() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/service-strategy-img.jpg" alt="" />
+                        <img src="/images/project-highlight-image.jpg" alt="" />
                       </figure>
                     </div>
                   </div>

@@ -135,7 +135,7 @@ export default function VideoEditing() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/service-single-image.jpg" alt="" />
+                    <img src="/images/project-marketing-image.jpg" alt="" />
                   </figure>
                 </div>
 
@@ -166,7 +166,7 @@ export default function VideoEditing() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/service-strategy-img.jpg" alt="" />
+                        <img src="/images/project-highlight-image.jpg" alt="" />
                       </figure>
                     </div>
                   </div>
@@ -211,12 +211,12 @@ export default function VideoEditing() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/service-impact-img-1.jpg" alt="" />
+                          <img src="/images/gallery3.jpg" alt="" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/service-impact-img-2.jpg" alt="" />
+                          <img src="/images/gallery4.jpg" alt="" />
                         </figure>
                       </div>
                     </div>

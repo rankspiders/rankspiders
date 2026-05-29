@@ -34,7 +34,7 @@ const Footer = () => {
                   </div>
                   <div className="footer-contact-item-content">
                     <p><a href="tel:+919988357092">+91 99883-57092</a></p>
-                    <p><a href="mailto:info@rankspiders.com">info.rankspiders.com</a></p>
+                    <p><a href="mailto:info@rankspiders.com">info@rankspiders.com</a></p>
                   </div>
                 </div>
 
@@ -43,7 +43,7 @@ const Footer = () => {
                     <img src="/images/icon-location-gradiant.svg" alt="" />
                   </div>
                   <div className="footer-contact-item-content">
-                    <p>5th Floor, Veerji Tower, Office Number - 505, E-257, Phase 8B, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 140307</p>
+                    <p>Office No. 22, Ground Floor, D-152, Phase 8, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160071, India</p>
                   </div>
                 </div>
               </div>
@@ -52,24 +52,39 @@ const Footer = () => {
 
           <div className="col-lg-4">
             <div className="footer-newsletter-box">
-              <h3>Subscribe Newsletter's</h3>
+              <h3>Subscribe Newsletter&apos;s</h3>
               <div className="footer-newsletter-form">
-                <form id="newslettersForm" action="#" method="POST">
+                <form id="newslettersForm" onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget;
+                  const email = (form.elements.namedItem('mail') as HTMLInputElement).value;
+                  try {
+                    await fetch('/api/newsletter', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ email }),
+                    });
+                    alert('Thank you for subscribing!');
+                    form.reset();
+                  } catch {
+                    alert('Subscription failed. Please try again.');
+                  }
+                }}>
                   <div className="form-group">
                     <input type="email" name="mail" className="form-control" id="mail" placeholder="E-mail Address" required />
                     <button type="submit" className="btn-default">Subscribe</button>
                   </div>
                 </form>
               </div>
-              <p>* Stay updated with the latest SEO tips trends, & insights-straight to your inbox.</p>
+              <p>* Stay updated with the latest SEO tips trends, &amp; insights-straight to your inbox.</p>
               <div className="contact-social-list pt-5">
                 <h3 className="m-0">follow us:</h3>
                 <ul>
-                  <li><a target="_blank" href="#"><i className="fa-brands fa-facebook-f"></i></a></li>
-                  <li><a target="_blank" href="https://www.youtube.com/@rankspiders/"><i className="fa-brands fa-youtube yt-icon"></i></a></li>
-                  <li><a target="_blank" href="https://www.linkedin.com/company/rankspidersdigitalagency/"><i className="fa-brands fa-linkedin-in"></i></a></li>
-                  <li><a target="_blank" href="#"><i className="fa-brands fa-pinterest-p"></i></a></li>
-                  <li><a target="_blank" href="https://www.instagram.com/rankspiders.digital/"><i className="fa-brands fa-instagram insta-icon"></i></a></li>
+                  <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/rankspidersdigital"><i className="fa-brands fa-facebook-f"></i></a></li>
+                  <li><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@rankspiders/"><i className="fa-brands fa-youtube yt-icon"></i></a></li>
+                  <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/rankspidersdigitalagency/"><i className="fa-brands fa-linkedin-in"></i></a></li>
+                  <li><a target="_blank" rel="noopener noreferrer" href="https://www.pinterest.com/rankspiders"><i className="fa-brands fa-pinterest-p"></i></a></li>
+                  <li><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/rankspiders.digital/"><i className="fa-brands fa-instagram insta-icon"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -91,20 +106,20 @@ const Footer = () => {
               <div className="footer-links">
                 <h3>Resources</h3>
                 <ul>
-                  <li><Link href="/portfolio">Portfolio</Link></li>
-                  <li><Link href="/portfolio/smo">SMO Portfolios</Link></li>
-                  <li><Link href="/portfolio/seo">SEO Portfolios</Link></li>
-                  <li><Link href="/portfolio/web-dev">Website Development Portfolios</Link></li>
-                  <li><Link href="/portfolio/content">Content Writing Portfolios</Link></li>
+                  <li><Link href="/projects">Portfolio</Link></li>
+                  <li><Link href="/projects">SMO Portfolios</Link></li>
+                  <li><Link href="/projects">SEO Portfolios</Link></li>
+                  <li><Link href="/projects">Website Development Portfolios</Link></li>
+                  <li><Link href="/projects">Content Writing Portfolios</Link></li>
                 </ul>
               </div>
 
               <div className="footer-links">
                 <h3>Support</h3>
                 <ul>
-                  <li><a href="#">Help</a></li>
-                  <li><a href="#">Term's & Conditions</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
+                  <li><Link href="/help">Help</Link></li>
+                  <li><Link href="/terms-and-conditions">Term&apos;s &amp; Conditions</Link></li>
+                  <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                   <li><Link href="/contact-us">Contact us</Link></li>
                 </ul>
               </div>
@@ -133,37 +148,37 @@ const Footer = () => {
                     <div className="col-lg-3 col-12">
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
-                          <li><Link href="/free-seo-audit-agency">Free Seo Audit</Link></li>
-                          <li><Link href="/seo-agency-india">Seo</Link></li>
-                          <li><Link href="/ai-seo-agency">AI Seo</Link></li>
-                          <li><Link href="/technical-seo-agency">Technical Seo</Link></li>
+                          <li><Link href="/free-seo-audit-agency">Free SEO Audit</Link></li>
+                          <li><Link href="/seo-agency-india">SEO</Link></li>
+                          <li><Link href="/ai-seo-agency">AI SEO</Link></li>
+                          <li><Link href="/technical-seo-agency">Technical SEO</Link></li>
                         </ul>
                       </div>
                     </div>
                     <div className="col-lg-3 col-12">
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
-                          <li><Link href="/link-building-seo-agency">Link Building Seo</Link></li>
-                          <li><Link href="/saas-seo-agency">SaaS Seo</Link></li>
-                          <li><Link href="/b2b-seo-agency">B2B Seo</Link></li>
-                          <li><Link href="/local-seo-agency">Local Seo</Link></li>
+                          <li><Link href="/link-building-seo-agency">Link Building SEO</Link></li>
+                          <li><Link href="/saas-seo-agency">SaaS SEO</Link></li>
+                          <li><Link href="/b2b-seo-agency">B2B SEO</Link></li>
+                          <li><Link href="/local-seo-agency">Local SEO</Link></li>
                         </ul>
                       </div>
                     </div>
                     <div className="col-lg-3 col-12">
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
-                          <li><Link href="/ecommerce-seo-agency">Ecommerce Seo</Link></li>
-                          <li><Link href="/woocommerce-seo-agency">woocommerce seo</Link></li>
-                          <li><Link href="/shopify-seo-agency">Shopify Seo</Link></li>
-                          <li><Link href="/wordpress-seo-agency">Wordpress Seo</Link></li>
+                          <li><Link href="/ecommerce-seo-agency">Ecommerce SEO</Link></li>
+                          <li><Link href="/woocommerce-seo-agency">WooCommerce SEO</Link></li>
+                          <li><Link href="/shopify-seo-agency">Shopify SEO</Link></li>
+                          <li><Link href="/wordpress-seo-agency">WordPress SEO</Link></li>
                         </ul>
                       </div>
                     </div>
                     <div className="col-lg-3 col-12">
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
-                          <li><Link href="/seo-niche-industries">SEO Niche Industries</Link></li>
+                          <li><Link href="/web-design-and-development-niche-industries">SEO Niche Industries</Link></li>
                         </ul>
                       </div>
                     </div>
@@ -179,7 +194,7 @@ const Footer = () => {
                         <ul style={{ width: '100%' }}>
                           <li><Link href="/free-development-strategy-agency">Free Development Strategy</Link></li>
                           <li><Link href="/custom-landing-page-agency">Custom Landing Page</Link></li>
-                          <li><Link href="/wordpress-development-agency">Wordpress Development</Link></li>
+                          <li><Link href="/wordpress-development-agency">WordPress Development</Link></li>
                           <li><Link href="/shopify-development-agency">Shopify Development</Link></li>
                         </ul>
                       </div>
@@ -188,8 +203,8 @@ const Footer = () => {
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
                           <li><Link href="/website-maintenance-agency">Website Maintenance</Link></li>
-                          <li><Link href="/seo-website-migration-agency">Seo Website Migration</Link></li>
-                          <li><Link href="/web-design-and-development-agency">Web Design & Development</Link></li>
+                          <li><Link href="/seo-website-migration-agency">SEO Website Migration</Link></li>
+                          <li><Link href="/web-design-and-development-agency">Web Design &amp; Development</Link></li>
                           <li><Link href="/web-design-and-development-niche-industries">Web Design Niche Industries</Link></li>
                         </ul>
                       </div>
@@ -204,28 +219,28 @@ const Footer = () => {
                     <div className="col-lg-3 col-12">
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
-                          <li><Link href="/social-media-agency">Social Media</Link></li>
-                          <li><Link href="/free-social-media-audit-agency">Free Social Media Audit</Link></li>
+                          <li><Link href="/social-media-marketing">Social Media</Link></li>
+                          <li><Link href="/contact-us">Free Social Media Audit</Link></li>
                           <li><Link href="/graphic-design-agency">Graphic Design</Link></li>
-                          <li><Link href="/video-editing-agency">Video Editing</Link></li>
+                          <li><Link href="/video-editing">Video Editing</Link></li>
                         </ul>
                       </div>
                     </div>
                     <div className="col-lg-3 col-12">
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
-                          <li><Link href="/instagram-agency">Instagram Marketing</Link></li>
-                          <li><Link href="/facebook-agency">Facebook Marketing</Link></li>
-                          <li><Link href="/pinterest-agency">Pinterest Marketing</Link></li>
-                          <li><Link href="/youtube-agency">Youtube Marketing</Link></li>
+                          <li><Link href="/instagram-marketing-agency">Instagram Marketing</Link></li>
+                          <li><Link href="/facebook-marketing-agency">Facebook Marketing</Link></li>
+                          <li><Link href="/pinterest-marketing-agency">Pinterest Marketing</Link></li>
+                          <li><Link href="/youtube-marketing-agency">YouTube Marketing</Link></li>
                         </ul>
                       </div>
                     </div>
                     <div className="col-lg-3 col-12">
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
-                          <li><Link href="/linkdin-agency">Linkdin Marketing</Link></li>
-                          <li><Link href="/social-media-niche-industries">Social Media Niche Industries</Link></li>
+                          <li><Link href="/linkedin-agency">LinkedIn Marketing</Link></li>
+                          <li><Link href="/social-media-marketing">Social Media Niche Industries</Link></li>
                         </ul>
                       </div>
                     </div>
@@ -257,7 +272,7 @@ const Footer = () => {
                         <ul style={{ width: '100%' }}>
                           <li><Link href="/email-marketing-agency">Email Marketing</Link></li>
                           <li><Link href="/free-email-strategy-agency">Free Email Strategy</Link></li>
-                          <li><Link href="/email-niche-industries">Email Niche Industries</Link></li>
+                          <li><Link href="/email-marketing-agency">Email Niche Industries</Link></li>
                         </ul>
                       </div>
                     </div>
@@ -272,7 +287,7 @@ const Footer = () => {
                       <div className="tabs-footer-links">
                         <ul style={{ width: '100%' }}>
                           <li><Link href="/consultancy-agency">Consultancy</Link></li>
-                          <li><Link href="/seo-consultancy-agency">Seo Consultancy</Link></li>
+                          <li><Link href="/seo-consultancy-agency">SEO Consultancy</Link></li>
                           <li><Link href="/business-growth-consultancy-agency">Business Growth Consultancy</Link></li>
                           <li><Link href="/social-media-consultancy-agency">Social Media Consultancy</Link></li>
                         </ul>
@@ -298,7 +313,7 @@ const Footer = () => {
                           <li><Link href="/online-advertising-agency">Online Advertising</Link></li>
                           <li><Link href="/google-ads-agency">Google Ads</Link></li>
                           <li><Link href="/meta-ads-agency">Meta Ads</Link></li>
-                          <li><Link href="/linkdin-ads-agency">Linkdin Ads</Link></li>
+                          <li><Link href="/linkedin-ads-agency">LinkedIn Ads</Link></li>
                         </ul>
                       </div>
                     </div>
@@ -322,7 +337,7 @@ const Footer = () => {
         <div className="container">
           <div className="col-lg-12">
             <div className="footer-copyright-text">
-              <p>Copyright © 2025 All Rights Reserved.</p>
+              <p>Copyright &copy; 2025 All Rights Reserved.</p>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ const Sidebar = () => {
           <li><Link href="/b2b-seo-agency">B2B Seo</Link></li>
           <li><Link href="/wordpress-seo-agency">Wordpress Seo</Link></li>
           <li><Link href="/ecommerce-seo-agency">E-Commerce Seo</Link></li>
-          <li><Link href="/niche-seo-industries-agency">Niche Seo Industries</Link></li>
+          <li><Link href="/web-design-and-development-niche-industries">Niche Seo Industries</Link></li>
         </ul>
       </div>
 

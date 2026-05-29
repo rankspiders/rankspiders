@@ -111,7 +111,7 @@ export default function TeamSingle() {
                       </div>
                       <div className="team-contact-content">
                         <h3>Email Address</h3>
-                        <p>support@domain.com</p>
+                        <p>info@rankspiders.com</p>
                       </div>
                     </div>
 
@@ -121,7 +121,7 @@ export default function TeamSingle() {
                       </div>
                       <div className="team-contact-content">
                         <h3>Phone Number</h3>
-                        <p>+1 234 567 89</p>
+                        <p>+91 99883-57092</p>
                       </div>
                     </div>
 
@@ -141,7 +141,7 @@ export default function TeamSingle() {
                       </div>
                       <div className="team-contact-content">
                         <h3>Location</h3>
-                        <p>123 High Street, London, SWA</p>
+                        <p>Office No. 22, Ground Floor, D-152, Phase 8, Sector 74, SAS Nagar, Punjab 160071</p>
                       </div>
                     </div>
                   </div>
@@ -181,12 +181,12 @@ export default function TeamSingle() {
 
                   <div className="team-skills-list">
                     {[
-                      { title: "Search Engine Optimization", percent: "85%" },
-                      { title: "Email Marketing Strategy", percent: "92%" },
-                      { title: "Search Engine Optimization", percent: "89%" },
-                      { title: "Online Reputation Management", percent: "98%" },
-                      { title: "Search Engine Optimization", percent: "95%" },
-                      { title: "Online Reputation", percent: "93%" }
+                      { title: "Search Engine Optimization", percent: "92%" },
+                      { title: "Social Media Marketing", percent: "89%" },
+                      { title: "Email Marketing Strategy", percent: "85%" },
+                      { title: "Google & Meta Ads", percent: "88%" },
+                      { title: "Content Strategy", percent: "95%" },
+                      { title: "Online Reputation Management", percent: "90%" }
                     ].map((skill, index) => (
                       <div key={index} className="skills-progress-bar">
                         <div className="skillbar">

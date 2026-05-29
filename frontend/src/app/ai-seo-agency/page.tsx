@@ -124,7 +124,7 @@ export default function AiSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/service-single-image.jpg" alt="" />
+                    <img src="/images/digital-advantage-img-1.jpg" alt="" />
                   </figure>
                 </div>
 
@@ -154,7 +154,7 @@ export default function AiSeoAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/service-strategy-img.jpg" alt="" />
+                        <img src="/images/project-marketing-image.jpg" alt="" />
                       </figure>
                     </div>
                   </div>

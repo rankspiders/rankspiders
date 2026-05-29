@@ -8,50 +8,35 @@ import ScrollingTicker from '@/components/ScrollingTicker';
 export default function Testimonials() {
   const testimonials = [
     {
-      name: "Brooklyn Simmons",
-      role: "co.Founder",
-      content: "“ Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before highly recommend!”",
+      company: 'BrandShapers',
+      content: 'Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before — highly recommend!',
       rating: 5
     },
     {
-      name: "isabella clarke",
-      role: "chief technology officer",
-      content: "“ Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before highly recommend!”",
+      company: 'IndeedVisa',
+      content: 'Rank Spiders completely transformed our online presence. Our organic traffic grew by 230% in six months and we are now ranking on the first page for our most competitive keywords.',
       rating: 5
     },
     {
-      name: "isabella clarke",
-      role: "chief technology officer",
-      content: "“ Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before highly recommend!”",
+      company: 'Evolvedhair',
+      content: 'The social media campaigns they ran for us were exceptional. Engagement went through the roof and we saw a direct increase in bookings within the first month. Professional, creative, and results-driven.',
       rating: 5
     },
     {
-      name: "isabella clarke",
-      role: "chief technology officer",
-      content: "“ Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before highly recommend!”",
+      company: 'Navkiran Travels',
+      content: 'We had tried two other agencies before Rank Spiders and nothing worked. Within 90 days of working with them we were getting enquiries from Google organically. Brilliant work and transparent reporting.',
       rating: 5
     },
     {
-      name: "isabella clarke",
-      role: "chief technology officer",
-      content: "“ Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before highly recommend!”",
+      company: 'Dr. Ruchi Dental Clinic',
+      content: 'Our local SEO rankings improved dramatically. We now rank in the top 3 for all our key treatment searches in the area. The team is responsive, knowledgeable, and genuinely cares about our growth.',
       rating: 5
     },
     {
-      name: "isabella clarke",
-      role: "chief technology officer",
-      content: "“ Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before highly recommend!”",
+      company: 'Bellevue Roofing',
+      content: 'I was sceptical about digital marketing but the results speak for themselves. We have more than doubled our monthly enquiries since partnering with Rank Spiders. Best investment we have made in the business.',
       rating: 5
     }
-  ];
-
-  const videoTestimonials = [
-    { id: "VIDEO_ID_1" },
-    { id: "VIDEO_ID_2" },
-    { id: "VIDEO_ID_3" },
-    { id: "VIDEO_ID_4" },
-    { id: "VIDEO_ID_5" },
-    { id: "VIDEO_ID_6" }
   ];
 
   return (
@@ -81,12 +66,11 @@ export default function Testimonials() {
                   </div>                                        
                   <div className="testimonial-author">
                     <div className="author-content">
-                      <h3>{item.name}</h3>
-                      <p>{item.role}</p>
+                      <h3>{item.company}</h3>
                     </div>
                     <div className="testimonial-quate">
                       <img src="/images/testimonial-quate.svg" alt="" />
-                    </div>            
+                    </div>
                   </div>
                 </div>
               </div>
@@ -133,40 +117,10 @@ export default function Testimonials() {
       </div>
       {/* Why Choose Us Section End */}
 
-      {/* Video Testimonials Section Start */}
-      <div className="why-choose-us">
-        <div className="container">
-          <div className="row" style={{ gap: '30px 0px' }}>
-            <div className="col-lg-12">
-              <div className="why-choose-content">
-                <div className="section-title">
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Video <span>Testimonials</span></h2>
-                </div>
-              </div>
-            </div>
-
-            {videoTestimonials.map((video, index) => (
-              <div key={index} className="col-lg-4 col-md-6">
-                <div className="testimonial-item wow fadeInUp" data-wow-delay="0.8s">
-                  <div className="testimonial-content">
-                    <iframe 
-                      width="100%" 
-                      style={{ borderRadius: '10px', overflow: 'hidden' }} 
-                      height="250" 
-                      src={`https://www.youtube.com/embed/${video.id}?rel=0&showinfo=0`} 
-                      title="YouTube video player" 
-                      frameBorder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      {/* Video Testimonials Section End */}
+      {/* Video Testimonials — add back when YouTube videos are ready.
+           YouTube Shorts embed fine with the same iframe format (use portrait aspect ratio: height ~500px).
+           Pattern: <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" height="500" width="100%" ... />
+           Add videoTestimonials array above and map it here. */}
 
       {/* Our Offers Section Start */}
       <div className="our-offers">

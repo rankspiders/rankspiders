@@ -2,151 +2,146 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import PageHeader from '@/components/PageHeader';
+import ScrollingTicker from '@/components/ScrollingTicker';
+import Sidebar from '@/components/Sidebar';
 
 export default function WebDesignNicheIndustries() {
   const [openFaq, setOpenFaq] = useState<number | null>(1);
-
-  const toggleFaq = (id: number) => {
-    setOpenFaq(openFaq === id ? null : id);
-  };
+  const toggleFaq = (id: number) => setOpenFaq(openFaq === id ? null : id);
 
   const industries = [
-    "Carpet Cleaning SEO Service", "SEO For Enterprises", "SEO For Healthcare", "SEO For NGO",
-    "SEO For Salon", "SEO For Auto Repair", "SEO For Car Dealers", "SEO For Electrician",
-    "SEO For Astrology", "SEO For Law Firm", "SEO For Baby Products", "SEO For Interior Designers",
-    "SEO For Real Estate", "SEO For Dental", "SEO For Roofing", "SEO For House Cleaning"
+    { label: "Healthcare & Clinics",        icon: "fa-solid fa-stethoscope" },
+    { label: "Real Estate",                  icon: "fa-solid fa-building" },
+    { label: "Law Firms",                    icon: "fa-solid fa-scale-balanced" },
+    { label: "Dental Practices",             icon: "fa-solid fa-tooth" },
+    { label: "Salons & Beauty",              icon: "fa-solid fa-scissors" },
+    { label: "Roofing & Construction",       icon: "fa-solid fa-hard-hat" },
+    { label: "Interior Designers",           icon: "fa-solid fa-couch" },
+    { label: "Auto Repair & Dealers",        icon: "fa-solid fa-car" },
+    { label: "E-Commerce Stores",            icon: "fa-solid fa-cart-shopping" },
+    { label: "Restaurants & Food",           icon: "fa-solid fa-utensils" },
+    { label: "NGO & Non-Profit",             icon: "fa-solid fa-heart" },
+    { label: "Education & Coaching",         icon: "fa-solid fa-graduation-cap" },
+    { label: "Electricians & Trades",        icon: "fa-solid fa-bolt" },
+    { label: "Baby & Kids Products",         icon: "fa-solid fa-baby" },
+    { label: "Travel & Tourism",             icon: "fa-solid fa-plane" },
+    { label: "House Cleaning Services",      icon: "fa-solid fa-broom" },
   ];
 
   const faqs = [
     {
       id: 1,
-      question: "1. What is digital marketing, & help my business?",
-      answer: "We closely track key performance indicators (KPIs) such as website traffic, conversion rates, click-through rates (CTR), and return on investment (ROI) to evaluate campaign effectiveness."
+      question: "1. Do you build industry-specific websites or use generic templates?",
+      answer: "Every website we build is customised for your industry. We research your competitors, understand your audience's behaviour, and design layouts that match how your specific customers browse and convert — no off-the-shelf templates."
     },
     {
       id: 2,
-      question: "2. How do you measure success in a campaign?",
-      answer: "We closely track key performance indicators (KPIs) such as website traffic, conversion rates, click-through rates (CTR), and return on investment (ROI) to evaluate campaign effectiveness."
+      question: "2. Can you build websites for highly regulated industries like healthcare or law?",
+      answer: "Yes. We have experience building HIPAA-aware and compliance-conscious websites for healthcare, dental, and legal clients. We ensure privacy policies, contact forms, and data handling meet the standards your industry requires."
     },
     {
       id: 3,
-      question: "3. Can you help with both SEO and paid ads?",
-      answer: "We closely track key performance indicators (KPIs) such as website traffic, conversion rates, click-through rates (CTR), and return on investment (ROI) to evaluate campaign effectiveness."
+      question: "3. Will my website be optimised for SEO from the start?",
+      answer: "Absolutely. SEO is built into every website we develop — from site structure, page speed, and mobile responsiveness to schema markup and on-page optimisation. You won't need a separate SEO overhaul after launch."
     },
     {
       id: 4,
-      question: "4. Is there a contract or long-term commitment?",
-      answer: "We closely track key performance indicators (KPIs) such as website traffic, conversion rates, click-through rates (CTR), and return on investment (ROI) to evaluate campaign effectiveness."
-    }
+      question: "4. How long does it take to build a niche industry website?",
+      answer: "Most industry websites are delivered in 4–8 weeks depending on scope, number of pages, and integrations required. We provide a detailed timeline before work begins and keep you updated at every stage."
+    },
+    {
+      id: 5,
+      question: "5. Do you offer ongoing support and maintenance after launch?",
+      answer: "Yes. We offer monthly website maintenance packages that cover updates, security, performance monitoring, and content changes. You focus on your business — we keep your website running perfectly."
+    },
   ];
 
   return (
     <>
-      <div className="page-header">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="page-header-box">
-                <h1 className="wow fadeInUp" data-cursor="-opaque">Web Design & Development <span>Niche Industries</span></h1>
-                <nav className="wow fadeInUp" data-wow-delay="0.2s">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><Link href="/">home</Link></li>
-                    <li className="breadcrumb-item"><Link href="#">/ Web Design & Development</Link></li>
-                    <li className="breadcrumb-item active" aria-current="page"><Link href="/web-design-and-development-niche-industries"> / Web Design & Development Niche Industries</Link></li>
-                  </ol>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        title="Web Design & Development"
+        subtitle="Niche Industries"
+        breadcrumbs={[
+          { label: 'Services', href: '/services' },
+          { label: 'Web Design & Development', href: '/web-design-and-development-agency' },
+          { label: 'Niche Industries', active: true },
+        ]}
+      />
+      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
           <div className="row">
+            {/* ── Sidebar ── */}
             <div className="col-lg-4">
-              <div className="page-single-sidebar">
-                <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
-                  <div className="page-cta-header">
-                    <div className="review-images">
-                      <div className="review-image"><img src="/images/author-1.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/author-2.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/author-3.jpg" alt="" /></div>
-                    </div>
-                    <div className="review-rating-content">
-                      <p><span>2.5k</span> Positive Review in our solutions</p>
-                    </div>
-                  </div>
+              <Sidebar />
+            </div>
 
-                  <div className="page-cta-box-body">
-                    <div className="page-cta-counters">
-                      <div className="page-cta-counter-item">
-                        <h2><span className="counter">95</span></h2>
-                        <p>Client satisfaction</p>
-                      </div>
-                      <div className="page-cta-counter-item">
-                        <h2><span className="counter">1</span>+</h2>
-                        <p>Project complete</p>
-                      </div>
-                    </div>
-                    <div className="page-cta-btn">
-                      <a href="tel:+919988357092"><img src="/images/icon-phone-white.svg" alt="" /> +91 99883-57092</a>
-                    </div>
-                  </div>
+            {/* ── Main content ── */}
+            <div className="col-lg-8">
+              <div className="service-single-content">
+                <div className="page-single-image">
+                  <figure className="image-anime">
+                    <img src="/images/digital-advantage-img-3.jpg" alt="Web Design for Niche Industries" />
+                  </figure>
                 </div>
-              </div>
 
-              <div className="col-lg-8">
-                <div className="service-single-content">
-                  <div className="service-entry">
-                    <div className="service-growth-box">
-                      <h2 className="wow fadeInUp">How We Deliver Web Design & Development for Niche Industries</h2>
-                      <p className="wow fadeInUp" data-wow-delay="0.2s">Each industry has unique users, goals, and digital challenges. Our web design and development approach begins with understanding your niche—its audience behavior, competitors, and business objectives.</p>
-                      <p className="wow fadeInUp" data-wow-delay="0.2s">We design industry-specific layouts, user journeys, and site structures that align with how your customers search, browse, and convert. From custom UI/UX design and responsive development to performance optimization and secure architecture, every element is built to support scalability and long-term growth.</p>
-                      <p className="wow fadeInUp" data-wow-delay="0.2s">Our process ensures your website not only reflects your brand identity but also functions as a strategic business tool—driving engagement, conversions, and measurable results within your specific industry.</p>
+                <div className="service-entry">
+                  <p className="wow fadeInUp">Every industry has its own audience expectations, trust signals, and conversion triggers. A healthcare website needs to feel clinical and reassuring; a roofing company website needs to project reliability and speed. We build websites that speak your customers' language — not generic digital placeholders.</p>
 
-                      <ul className="wow fadeInUp" data-wow-delay="0.4s">
-                        <li>Industry-Specific Design and Development</li>
-                        <li>Conversion-Focused, Scalable Web Architecture</li>
-                      </ul>
+                  <div className="service-strategy-box">
+                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Built for Your Industry, <span>Designed to Convert</span></h2>
+                    <p className="wow fadeInUp" data-wow-delay="0.6s">Our niche-specific web development process starts with understanding your industry inside and out — then building a site around how your customers actually behave online.</p>
 
-                      <div className="service-growth-body">
-                        <div className="growth-counter-box">
-                          <div className="icon-box">
-                            <img src="/images/icon-growth-counter.svg" alt="" />
-                          </div>
-                          <div className="growth-counter-content">
-                            <h3><span className="counter">120</span>K+</h3>
-                            <p>Customer engaged that's campaign reach depend</p>
-                          </div>
+                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                      <li>Industry-Specific UX & Conversion Design</li>
+                      <li>Mobile-First, Fast-Loading Architecture</li>
+                      <li>SEO-Ready Structure from Day One</li>
+                      <li>Compliance-Aware for Regulated Industries</li>
+                    </ul>
+
+                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                      <div className="strategy-body-item">
+                        <h3>Discovery & Industry Research</h3>
+                        <p>We analyse your niche, study competitor websites, and map the user journey your customers follow — before writing a single line of code.</p>
+                      </div>
+                      <div className="strategy-body-item">
+                        <h3>Design, Build & Optimise</h3>
+                        <p>From wireframes to launch, every element is tested for speed, usability, and conversion. We don't just make sites look good — we make them work.</p>
+                      </div>
+                    </div>
+
+                    <div className="service-strategy-image">
+                      <figure className="image-anime">
+                        <img src="/images/work-image-2.jpg" alt="Web Design Strategy" />
+                      </figure>
+                    </div>
+                  </div>
+
+                  <div className="service-growth-box">
+                    <h2 className="wow fadeInUp">What Makes a Niche Website Different?</h2>
+                    <p className="wow fadeInUp" data-wow-delay="0.2s">Niche websites outperform generic ones because they are built around specific audience intent. A dental patient searching for "teeth whitening Mohali" has very different expectations than someone browsing a SaaS homepage. We match the design, tone, and structure to what your specific audience needs to see in order to trust you and enquire.</p>
+
+                    <div className="service-growth-body">
+                      <div className="growth-counter-box">
+                        <div className="icon-box">
+                          <img src="/images/icon-growth-counter.svg" alt="" />
                         </div>
+                        <div className="growth-counter-content">
+                          <h3><span className="counter">200</span>+</h3>
+                          <p>Niche websites built across industries — each one uniquely designed for its audience</p>
+                        </div>
+                      </div>
 
-                        <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
-                          <div className="service-growth-item">
-                            <h3>Strategic Planning</h3>
-                            <p>Our process begins with an in-depth understanding of your industry, business objectives, and user expectations. We analyze audience behavior, competitor websites, and market standards to define a clear web strategy aligned with your niche requirements and growth goals.</p>
-                          </div>
-                          <div className="service-growth-item">
-                            <h3>Tactical Execution</h3>
-                            <p>Based on the strategy, we design and develop industry-specific website structures, UI/UX flows, and technical frameworks. Each element—from responsive layouts and performance optimization to secure architecture—is executed with precision to deliver scalable, conversion-focused web solutions.</p>
-                          </div>
+                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                        <div className="service-growth-item">
+                          <h3>Audience-Matched Design</h3>
+                          <p>Colours, fonts, imagery, and layout are chosen based on what builds trust in your specific market — not generic design trends.</p>
+                        </div>
+                        <div className="service-growth-item">
+                          <h3>Conversion Architecture</h3>
+                          <p>Every page is structured to guide visitors toward the action you want — booking, calling, or enquiring — without friction.</p>
                         </div>
                       </div>
                     </div>
@@ -158,54 +153,79 @@ export default function WebDesignNicheIndustries() {
         </div>
       </div>
 
-      <div className="why-choose-us">
+      {/* ── Industries grid ── */}
+      <div className="niche-industries-section">
         <div className="container">
-          <div className="row" style={{ gap: '30px 0px' }}>
-            <div className="col-lg-12">
-              <div className="why-choose-content">
-                <div className="section-title">
-                  <h2 className="wow fadeInUp text-center" data-wow-delay="0.2s" data-cursor="-opaque">Industries We Serve <span>with Web Design & Development Services</span></h2>
-                </div>
-              </div>
-            </div>
+          <div className="section-title text-center section-title-center wow fadeInUp">
+            <h3>Who We Build For</h3>
+            <h2>Industries We Serve with <span>Web Design & Development</span></h2>
+            <p>We have built high-converting websites across 16+ industries. If your sector is not listed, we still build for it — every industry has unique digital needs we are ready to meet.</p>
+          </div>
 
-            {industries.map((industry, index) => (
-              <div key={index} className="col-lg-3 col-md-3 col-6">
-                <div className="service-box-link" style={{ textDecoration: 'none' }}>
-                  <div className="testimonial-item wow fadeInUp" data-wow-delay="0.8s" style={{ cursor: 'pointer' }}>
-                    <div className="service-growth-item">
-                      <h3 className="text-center" style={{ lineHeight: '30px', margin: '0px' }}>{industry}</h3>
-                    </div>
+          <div className="row g-3 mt-2">
+            {industries.map((ind, i) => (
+              <div key={i} className="col-lg-3 col-md-4 col-6">
+                <div className="niche-industry-card wow fadeInUp" data-wow-delay={`${(i % 4) * 0.1}s`}>
+                  <div className="niche-industry-icon">
+                    <i className={ind.icon}></i>
                   </div>
+                  <span>{ind.label}</span>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="text-center mt-5 wow fadeInUp">
+            <Link href="/contact-us" className="btn-default">Get a Free Website Consultation</Link>
+          </div>
         </div>
       </div>
 
+      {/* ── Our belief ── */}
+      <div className="our-belief">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <div className="our-belief-content">
+                <div className="section-title section-title-center">
+                  <h3 className="wow fadeInUp">Our Belief</h3>
+                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Your Website Should Work <span>As Hard As You Do</span></h2>
+                  <p className="wow fadeInUp" data-wow-delay="0.4s">A website that doesn't generate enquiries is just a digital brochure. We build sites that actively convert visitors into leads — through smart design, fast performance, and industry-specific trust signals.</p>
+                </div>
+                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                  <Link href="/contact-us" className="btn-default">start your project</Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="our-belief-image">
+                <img src="/images/our-belief-image.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── FAQs ── */}
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
-
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
               <div key={faq.id} className="accordion-item wow fadeInUp">
                 <h2 className="accordion-header">
-                  <button 
-                    className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 
-                    type="button" 
+                  <button
+                    className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}
+                    type="button"
                     onClick={() => toggleFaq(faq.id)}
                   >
                     {faq.question}
                   </button>
                 </h2>
                 <div className={`accordion-collapse collapse ${openFaq === faq.id ? 'show' : ''}`}>
-                  <div className="accordion-body">
-                    <p>{faq.answer}</p>
-                  </div>
+                  <div className="accordion-body"><p>{faq.answer}</p></div>
                 </div>
               </div>
             ))}

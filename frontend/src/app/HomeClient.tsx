@@ -115,23 +115,23 @@ const steps = [
 const testimonials = [
   {
     initials: 'PA',
-    name: 'Pardeep Arora',
-    role: 'Managing Director, VisionWorld Immigration',
-    text: 'Rank Spiders took us from page three to top three for "immigration consultant Khanna" in four months. Our inquiry volume tripled. They actually understand our industry — not just SEO in general.',
+    name: 'Pardeep A.',
+    role: 'Managing Director',
+    text: 'Rank Spiders took us from page three to top three for our most competitive keywords in four months. Our inquiry volume tripled. They actually understand our industry — not just SEO in general.',
     rating: 5,
   },
   {
     initials: 'CM',
-    name: 'Chandan Mehndiratta',
-    role: 'Founder, IndeedVisa Australia',
-    text: "Competing in the Australian migration market is tough. Rank Spiders built a content strategy that now drives over 60% of our leads organically. The ROI has been far better than any paid campaign we've run.",
+    name: 'Chandan M.',
+    role: 'Business Founder',
+    text: "Competing in a tough market, Rank Spiders built a content strategy that now drives over 60% of our leads organically. The ROI has been far better than any paid campaign we've run.",
     rating: 5,
   },
   {
     initials: 'NK',
-    name: 'Director',
-    role: 'Navkiran Nursing Classes, Mohali',
-    text: 'In under six months, we rank page one for NCLEX coaching keywords across India. Organic student inquiries are up 200%. The team is thorough, honest, and delivers on every promise.',
+    name: 'N. Kumar',
+    role: 'Director, Education Institute',
+    text: 'In under six months, we rank page one for our key coaching keywords across India. Organic student inquiries are up 200%. The team is thorough, honest, and delivers on every promise.',
     rating: 5,
   },
 ];
@@ -224,6 +224,7 @@ export default function HomeClient() {
   const [blogsLoading, setBlogsLoading] = useState(true);
   const metricsRef = useRef<HTMLDivElement>(null);
   const [metricsVisible, setMetricsVisible] = useState(false);
+  const heroSceneRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = metricsRef.current;
@@ -234,6 +235,28 @@ export default function HomeClient() {
     );
     observer.observe(el);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = heroSceneRef.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+      const y = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+      el.style.transition = 'transform 0.1s ease-out';
+      el.style.transform  = `perspective(1200px) rotateY(${x * 10}deg) rotateX(${-y * 7}deg) scale3d(1.03,1.03,1.03)`;
+    };
+    const onLeave = () => {
+      el.style.transition = 'transform 0.6s ease-out';
+      el.style.transform  = 'perspective(1200px) rotateY(0deg) rotateX(0deg) scale3d(1,1,1)';
+    };
+    el.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseleave', onLeave);
+    return () => {
+      el.removeEventListener('mousemove', onMove);
+      el.removeEventListener('mouseleave', onLeave);
+    };
   }, []);
 
   useEffect(() => {
@@ -256,9 +279,16 @@ export default function HomeClient() {
     <>
       {/* ==================== HERO ==================== */}
       <section className="home-hero">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-8 col-xl-7">
+        {/* Animated background orbs */}
+        <div className="hero-bg-orb hero-orb-1" aria-hidden="true" />
+        <div className="hero-bg-orb hero-orb-2" aria-hidden="true" />
+        <div className="hero-bg-orb hero-orb-3" aria-hidden="true" />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="row align-items-center g-4">
+
+            {/* Left: text */}
+            <div className="col-lg-6">
               <MotionWrapper delay={0}>
                 <div className="home-hero-badge">
                   <i className="fa-solid fa-circle-check"></i>
@@ -309,9 +339,14 @@ export default function HomeClient() {
               </MotionWrapper>
             </div>
 
-            <div className="col-lg-4 col-xl-5 d-none d-lg-block">
-              <MotionWrapper delay={0.2} variant="right">
-                <div className="home-hero-graphic">
+            {/* Right: 3D graphic */}
+            <div className="col-lg-6 d-none d-lg-flex justify-content-center">
+              <MotionWrapper delay={0.15} variant="right">
+                <div className="home-hero-graphic" ref={heroSceneRef}>
+                  {/* Glow behind illustration */}
+                  <div className="hero-img-glow" aria-hidden="true" />
+
+                  {/* Float card 1 — top left */}
                   <div className="hero-float-card hero-card-1">
                     <i className="fa-solid fa-arrow-trend-up"></i>
                     <div>
@@ -319,11 +354,13 @@ export default function HomeClient() {
                       <span>Organic Traffic</span>
                     </div>
                   </div>
-                  <div className="hero-image">
-                    <figure>
-                      <img src="/images/hero-image.png" alt="Rank Spiders – Digital Marketing Agency" />
-                    </figure>
+
+                  {/* Main illustration — full, uncropped */}
+                  <div className="hero-img-stage">
+                    <img src="/images/hero-image.png" alt="Rank Spiders – Digital Marketing Agency" />
                   </div>
+
+                  {/* Float card 2 — bottom right */}
                   <div className="hero-float-card hero-card-2">
                     <i className="fa-solid fa-ranking-star"></i>
                     <div>
@@ -331,9 +368,19 @@ export default function HomeClient() {
                       <span>On Google</span>
                     </div>
                   </div>
+
+                  {/* Float card 3 — bottom left */}
+                  <div className="hero-float-card hero-card-3">
+                    <i className="fa-solid fa-users"></i>
+                    <div>
+                      <strong>200+</strong>
+                      <span>Happy Clients</span>
+                    </div>
+                  </div>
                 </div>
               </MotionWrapper>
             </div>
+
           </div>
         </div>
       </section>
@@ -552,26 +599,84 @@ export default function HomeClient() {
               ))}
             </div>
           ) : (
-            <MotionWrapper>
-              <div className="home-empty-state">
-                <i className="fa-solid fa-folder-open"></i>
-                <p>Case studies coming soon.</p>
-                <Link href="/projects" className="btn-outline-hero">
-                  View All Projects <i className="fa-solid fa-arrow-right"></i>
-                </Link>
-              </div>
-            </MotionWrapper>
+            <div className="home-projects-grid">
+              {[
+                {
+                  tag: 'SEO + Content Strategy',
+                  icon: 'fa-solid fa-magnifying-glass-chart',
+                  industry: 'Immigration & Visa Consultancy',
+                  result: '3× organic enquiry growth',
+                  period: 'in 4 months',
+                  desc: 'Ranked top 3 for high-competition immigration keywords. Enquiry volume tripled through targeted content and technical SEO.',
+                },
+                {
+                  tag: 'Local SEO + Google Business',
+                  icon: 'fa-solid fa-location-dot',
+                  industry: 'Healthcare & Dental Practice',
+                  result: 'Top 3 across all key searches',
+                  period: 'in target city',
+                  desc: 'Local SEO overhaul boosted Google Business visibility city-wide. New patient inquiries increased significantly within 90 days.',
+                },
+                {
+                  tag: 'Social Media + Paid Ads',
+                  icon: 'fa-brands fa-instagram',
+                  industry: 'Hair Restoration Clinic',
+                  result: '40% increase in bookings',
+                  period: 'from month one',
+                  desc: 'Instagram and Facebook campaigns drove direct appointment bookings, with full ROI tracking from the very first month.',
+                },
+                {
+                  tag: 'SEO + Google Ads',
+                  icon: 'fa-solid fa-chart-line',
+                  industry: 'Home Services & Roofing',
+                  result: '2× monthly enquiries',
+                  period: 'in 90 days',
+                  desc: 'Combined organic and paid strategy made digital their number-one lead source — ahead of referrals and offline channels.',
+                },
+                {
+                  tag: 'SEO + Content Writing',
+                  icon: 'fa-solid fa-pen-nib',
+                  industry: 'Education & Coaching Centre',
+                  result: '200% more organic student leads',
+                  period: 'in 6 months',
+                  desc: 'Built a content library targeting competitive coaching keywords across India. Page 1 rankings now drive consistent inbound inquiries.',
+                },
+                {
+                  tag: 'WordPress + Web Design',
+                  icon: 'fa-solid fa-code',
+                  industry: 'Travel & Tourism Agency',
+                  result: '60% leads now come organically',
+                  period: 'post-launch',
+                  desc: 'Designed and launched a fast, SEO-optimised WordPress website that outperformed their previous paid-traffic-dependent presence.',
+                },
+              ].map((cs, i) => (
+                <MotionWrapper key={i} delay={i * 0.08}>
+                  <div className="home-project-card home-casestudy-card">
+                    <div className="home-casestudy-icon">
+                      <i className={cs.icon}></i>
+                    </div>
+                    <div className="home-project-body">
+                      <span className="home-project-tag">{cs.tag}</span>
+                      <h3>{cs.industry}</h3>
+                      <div className="home-casestudy-result">
+                        <strong>{cs.result}</strong>
+                        <span>{cs.period}</span>
+                      </div>
+                      <p className="home-casestudy-desc">{cs.desc}</p>
+                    </div>
+                  </div>
+                </MotionWrapper>
+              ))}
+            </div>
           )}
 
-          {projects.length > 0 && (
-            <MotionWrapper>
-              <div className="home-section-cta">
-                <Link href="/projects" className="btn-outline-hero">
-                  View All Case Studies <i className="fa-solid fa-arrow-right"></i>
-                </Link>
-              </div>
-            </MotionWrapper>
-          )}
+          <MotionWrapper>
+            <div className="home-section-cta">
+              <Link href="/projects" className="btn-outline-hero">
+                View All Case Studies <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+          </MotionWrapper>
         </div>
       </section>
 
