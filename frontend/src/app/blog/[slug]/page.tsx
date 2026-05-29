@@ -78,15 +78,15 @@ export default function BlogSingle() {
       <div style={{ padding: '64px 0 96px' }}>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-8">
+            <div className="col-lg-8" style={{ maxWidth: 780 }}>
 
               {/* Meta */}
               <div style={{ display: 'flex', gap: 24, marginBottom: 32, flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                <span style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
                   <i className="fa-regular fa-user" style={{ marginRight: 6, color: 'var(--accent-color)' }} />
                   {post.author}
                 </span>
-                <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                <span style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
                   <i className="fa-regular fa-calendar" style={{ marginRight: 6, color: 'var(--accent-color)' }} />
                   {formattedDate}
                 </span>
@@ -106,11 +106,6 @@ export default function BlogSingle() {
               {/* Content */}
               <div
                 className="post-entry"
-                style={{
-                  fontSize: '1.05rem',
-                  lineHeight: '1.85',
-                  color: 'var(--text-color)',
-                }}
                 dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
               />
 

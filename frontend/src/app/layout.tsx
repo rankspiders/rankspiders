@@ -40,6 +40,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-color">
+        {/* Site-wide ambient gradient orbs — CSS only, pointer-events: none */}
+        <div className="ambient-bg" aria-hidden="true">
+          <div className="ambient-orb ambient-orb-1" />
+          <div className="ambient-orb ambient-orb-2" />
+          <div className="ambient-orb ambient-orb-3" />
+        </div>
         <Preloader />
         <Header />
         <main>{children}</main>

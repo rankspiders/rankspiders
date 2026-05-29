@@ -348,12 +348,17 @@ export default function HomeClient() {
 
                   {/* Float card 1 — top left */}
                   <div className="hero-float-card hero-card-1">
-                    <i className="fa-solid fa-arrow-trend-up"></i>
+                    <div className="hero-float-icon-bg">
+                      <i className="fa-solid fa-arrow-trend-up"></i>
+                    </div>
                     <div>
                       <strong>+247%</strong>
                       <span>Organic Traffic</span>
                     </div>
                   </div>
+
+                  {/* Rotating ring around image */}
+                  <div className="hero-img-ring" aria-hidden="true" />
 
                   {/* Main illustration — full, uncropped */}
                   <div className="hero-img-stage">
@@ -362,7 +367,9 @@ export default function HomeClient() {
 
                   {/* Float card 2 — bottom right */}
                   <div className="hero-float-card hero-card-2">
-                    <i className="fa-solid fa-ranking-star"></i>
+                    <div className="hero-float-icon-bg">
+                      <i className="fa-solid fa-ranking-star"></i>
+                    </div>
                     <div>
                       <strong>#1 Rankings</strong>
                       <span>On Google</span>
@@ -371,10 +378,23 @@ export default function HomeClient() {
 
                   {/* Float card 3 — bottom left */}
                   <div className="hero-float-card hero-card-3">
-                    <i className="fa-solid fa-users"></i>
+                    <div className="hero-float-icon-bg">
+                      <i className="fa-solid fa-users"></i>
+                    </div>
                     <div>
                       <strong>200+</strong>
                       <span>Happy Clients</span>
+                    </div>
+                  </div>
+
+                  {/* Float card 4 — top right */}
+                  <div className="hero-float-card hero-card-4">
+                    <div className="hero-float-icon-bg hero-float-icon-cyan">
+                      <i className="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <div>
+                      <strong>340% ROI</strong>
+                      <span>Avg. Return</span>
                     </div>
                   </div>
                 </div>

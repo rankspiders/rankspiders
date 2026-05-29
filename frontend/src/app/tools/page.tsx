@@ -2,257 +2,87 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
 import ScrollingTicker from '@/components/ScrollingTicker';
-import MotionWrapper, { MotionCard } from '@/components/MotionWrapper';
+import MotionWrapper from '@/components/MotionWrapper';
 
 export const metadata: Metadata = {
   title: 'Free SEO Tools — Website Analysis & Optimization | Rank Spiders',
   description:
     'Access our suite of free SEO tools: on-page audit, speed checker, keyword analyzer, and more. Built by SEO experts to help you rank higher — no sign-up required.',
-  keywords:
-    'free seo tools, website seo checker, seo audit tool, keyword analyzer, page speed checker, on-page seo',
+  keywords: 'free seo tools, website seo checker, seo audit tool, keyword analyzer, page speed checker, on-page seo',
   openGraph: {
     title: 'Free SEO Tools | Rank Spiders',
     description: 'Free tools for SEO audits, speed testing, keyword analysis and more.',
     type: 'website',
     siteName: 'Rank Spiders',
   },
-  alternates: {
-    canonical: 'https://rankspiders.com/tools',
-  },
+  alternates: { canonical: 'https://rankspiders.com/tools' },
 };
 
-interface Tool {
-  name: string;
-  slug: string;
-  icon: string;
-  description: string;
-  checks: string[];
-  live: boolean;
-  accent: string;
-}
-
-const TOOLS: Tool[] = [
+const TOOLS = [
   {
     name: 'SEO Audit',
     slug: '/tools/seo-audit',
     icon: 'fa-magnifying-glass-chart',
-    description:
-      'Instant on-page analysis of any URL. Check 10 critical ranking factors in seconds.',
+    description: 'Instant on-page analysis of any URL. Check 10 critical ranking factors in seconds.',
     checks: ['Title & meta tags', 'Heading structure', 'Open Graph', 'Image alt text', 'Load time'],
-    live: true,
-    accent: 'var(--accent-color)',
+    accent: '#4F46E5',
+    tag: 'Most Used',
   },
   {
     name: 'Page Speed Checker',
     slug: '/tools/page-speed',
     icon: 'fa-gauge-high',
-    description:
-      'Measure load time, compression, caching, and server configuration — with a score and actionable fix recommendations.',
+    description: 'Measure load time, compression, caching, and server config — with a score and actionable fix list.',
     checks: ['Load time score', 'Gzip / Brotli', 'Cache-Control', 'Response size', 'Redirect chain'],
-    live: true,
     accent: '#10B981',
+    tag: null,
   },
   {
     name: 'Keyword Density',
     slug: '/tools/keyword-density',
     icon: 'fa-percent',
-    description:
-      'Find top keywords and phrases with density %, placement in title/H1/H2, and over-optimisation warnings.',
+    description: 'Find top keywords and phrases with density %, placement in title/H1/H2, and over-optimisation warnings.',
     checks: ['Single keywords', '2-word phrases', '3-word phrases', 'Density %', 'Title/H1/H2 check'],
-    live: true,
-    accent: 'var(--accent-secondary-color)',
+    accent: '#06B6D4',
+    tag: null,
   },
   {
     name: 'Robots.txt Tester',
     slug: '/tools/robots-tester',
     icon: 'fa-robot',
-    description:
-      'Fetch and parse any robots.txt — check Googlebot access, view all rules, test specific URL paths.',
+    description: 'Fetch and parse any robots.txt — check Googlebot access, view all rules, test specific URL paths.',
     checks: ['Googlebot access', 'Bingbot / others', 'Sitemap discovery', 'Path tester', 'Crawl-delay'],
-    live: true,
     accent: '#F59E0B',
+    tag: null,
   },
   {
     name: 'Sitemap Validator',
     slug: '/tools/sitemap-validator',
     icon: 'fa-sitemap',
-    description:
-      'Validate any XML sitemap — URL count, lastmod freshness stats, missing metadata, and sitemap index support.',
+    description: 'Validate any XML sitemap — URL count, lastmod freshness stats, missing metadata, and sitemap index support.',
     checks: ['URL count', 'lastmod age', 'Priority / changefreq', 'Sitemap index', 'Freshness stats'],
-    live: true,
     accent: '#8B5CF6',
+    tag: null,
   },
   {
     name: 'Meta Tag Extractor',
     slug: '/tools/meta-tags',
     icon: 'fa-code',
-    description:
-      'Extract every meta tag — title, description, Open Graph, Twitter Card, JSON-LD schema, hreflang — plus an issues report.',
+    description: 'Extract every meta tag — title, description, Open Graph, Twitter Card, JSON-LD schema, hreflang — plus an issues report.',
     checks: ['All meta tags', 'Open Graph', 'Twitter Card', 'JSON-LD schema', 'SEO issues report'],
-    live: true,
     accent: '#EC4899',
+    tag: null,
   },
 ];
 
-function ToolCard({ tool }: { tool: Tool }) {
-  const card = (
-    <div
-      style={{
-        padding: '28px',
-        background: 'var(--card-bg)',
-        border: '1px solid var(--card-border)',
-        borderRadius: 16,
-        boxShadow: 'var(--shadow-sm)',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        overflow: 'hidden',
-        opacity: tool.live ? 1 : 0.72,
-        transition: 'box-shadow 0.2s',
-      }}
-    >
-      {/* Accent top bar */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 3,
-          background: tool.live
-            ? `linear-gradient(90deg, ${tool.accent}, var(--accent-secondary-color))`
-            : 'var(--card-border)',
-          borderRadius: '16px 16px 0 0',
-        }}
-      />
-
-      {/* Status badge */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
-        <div
-          style={{
-            width: 48,
-            height: 48,
-            borderRadius: 12,
-            background: `linear-gradient(135deg, ${tool.accent}18, ${tool.accent}08)`,
-            border: `1px solid ${tool.accent}30`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <i className={`fa ${tool.icon}`} style={{ color: tool.accent, fontSize: '1.2rem' }} />
-        </div>
-        <span
-          style={{
-            padding: '4px 12px',
-            borderRadius: 999,
-            fontSize: '0.72rem',
-            fontWeight: 700,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            background: tool.live ? 'rgba(16,185,129,0.1)' : 'var(--bg-secondary)',
-            color: tool.live ? 'var(--success-color)' : 'var(--text-muted)',
-            border: tool.live ? '1px solid rgba(16,185,129,0.25)' : '1px solid var(--card-border)',
-          }}
-        >
-          {tool.live ? 'Live' : 'Coming Soon'}
-        </span>
-      </div>
-
-      <h3
-        style={{
-          fontFamily: 'var(--heading-font)',
-          fontWeight: 700,
-          fontSize: '1.15rem',
-          color: 'var(--primary-color)',
-          marginBottom: 10,
-        }}
-      >
-        {tool.name}
-      </h3>
-
-      <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: 20, flex: 1 }}>
-        {tool.description}
-      </p>
-
-      {/* Feature list */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 24 }}>
-        {tool.checks.map((check) => (
-          <span
-            key={check}
-            style={{
-              padding: '3px 10px',
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--card-border)',
-              borderRadius: 999,
-              fontSize: '0.73rem',
-              color: 'var(--text-muted)',
-            }}
-          >
-            {check}
-          </span>
-        ))}
-      </div>
-
-      {/* CTA */}
-      {tool.live ? (
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '10px 20px',
-            background: `linear-gradient(135deg, ${tool.accent}, var(--accent-secondary-color))`,
-            color: '#fff',
-            borderRadius: 8,
-            fontWeight: 600,
-            fontSize: '0.88rem',
-            alignSelf: 'flex-start',
-          }}
-        >
-          <i className="fa fa-arrow-right" style={{ fontSize: '0.8rem' }} />
-          Run Free Audit
-        </div>
-      ) : (
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '10px 20px',
-            background: 'var(--bg-secondary)',
-            color: 'var(--text-muted)',
-            borderRadius: 8,
-            fontWeight: 600,
-            fontSize: '0.88rem',
-            border: '1px solid var(--card-border)',
-            alignSelf: 'flex-start',
-          }}
-        >
-          <i className="fa fa-clock" style={{ fontSize: '0.8rem' }} />
-          Notify Me
-        </div>
-      )}
-    </div>
-  );
-
-  if (tool.live) {
-    return (
-      <MotionCard>
-        <Link href={tool.slug} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-          {card}
-        </Link>
-      </MotionCard>
-    );
-  }
-
-  return <div style={{ cursor: 'default' }}>{card}</div>;
-}
+const STATS = [
+  { value: '6', label: 'Free Tools', icon: 'fa-wrench' },
+  { value: '100%', label: 'No Sign-Up', icon: 'fa-lock-open' },
+  { value: '10+', label: 'SEO Checks', icon: 'fa-list-check' },
+  { value: 'Free', label: 'Always Free', icon: 'fa-circle-check' },
+];
 
 export default function ToolsPage() {
-  const liveCount = TOOLS.filter((t) => t.live).length;
-
   return (
     <>
       <PageHeader
@@ -262,123 +92,163 @@ export default function ToolsPage() {
       />
       <ScrollingTicker />
 
-      {/* Hero */}
-      <section style={{ padding: '72px 0 56px' }}>
-        <div className="container">
-          <div className="row justify-content-center text-center">
-            <div className="col-lg-7">
+      {/* ── Hero band ───────────────────────────────────────────────── */}
+      <section className="tools-hero-section">
+        {/* Grid dots background */}
+        <div className="tools-hero-grid" aria-hidden="true" />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="row align-items-center g-5">
+
+            {/* Left: headline */}
+            <div className="col-lg-6">
               <MotionWrapper variant="up">
-                <p
-                  style={{
-                    display: 'inline-block',
-                    background: 'var(--secondary-color)',
-                    color: 'var(--accent-color)',
-                    border: '1px solid rgba(79,70,229,0.2)',
-                    borderRadius: 999,
-                    padding: '6px 18px',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                    marginBottom: 20,
-                  }}
-                >
-                  {liveCount} free tools — all live
-                </p>
-                <h2
-                  style={{
-                    fontFamily: 'var(--heading-font)',
-                    fontWeight: 800,
-                    fontSize: 'clamp(1.75rem, 4vw, 2.6rem)',
-                    color: 'var(--primary-color)',
-                    marginBottom: 16,
-                    lineHeight: 1.2,
-                  }}
-                >
-                  Built by SEO experts. Free, forever.
+                <span className="tools-hero-badge">
+                  <i className="fa-solid fa-bolt"></i>
+                  {TOOLS.length} tools live — no account needed
+                </span>
+                <h2 className="tools-hero-heading">
+                  Professional SEO tools.<br />
+                  <span>Built for real results.</span>
                 </h2>
-                <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.7 }}>
-                  Professional-grade tools that give you the same data our team uses — no account,
-                  no credit card, no limits.
+                <p className="tools-hero-sub">
+                  The same diagnostic tools our team uses every day — now free for every website owner. No limits, no paywalls, no sign-up.
                 </p>
+                <Link href="/tools/seo-audit" className="btn-default">
+                  <i className="fa-solid fa-magnifying-glass-chart" style={{ marginRight: 8 }}></i>
+                  Run Free SEO Audit
+                </Link>
+              </MotionWrapper>
+            </div>
+
+            {/* Right: terminal window mockup */}
+            <div className="col-lg-6 d-none d-lg-block">
+              <MotionWrapper variant="right" delay={0.15}>
+                <div className="tools-terminal">
+                  <div className="tools-terminal__bar">
+                    <span className="tbar-dot tbar-red" />
+                    <span className="tbar-dot tbar-yellow" />
+                    <span className="tbar-dot tbar-green" />
+                    <span className="tbar-title">seo-audit — rank-spiders</span>
+                  </div>
+                  <div className="tools-terminal__body">
+                    <p className="tline"><span className="tprompt">$</span> <span className="tcmd">audit</span> <span className="targ">https://yoursite.com</span></p>
+                    <p className="tline tline--dim">Fetching page…</p>
+                    <p className="tline"><span className="tok">✓</span> Title tag found (54 chars)</p>
+                    <p className="tline"><span className="tok">✓</span> Meta description (158 chars)</p>
+                    <p className="tline"><span className="tok">✓</span> H1 tag — 1 found</p>
+                    <p className="tline"><span className="twarn">!</span> Canonical URL — not set</p>
+                    <p className="tline"><span className="tok">✓</span> Viewport meta — present</p>
+                    <p className="tline"><span className="terr">✗</span> 3 images missing alt text</p>
+                    <p className="tline"><span className="tok">✓</span> Load time — 840 ms</p>
+                    <p className="tline tline--dim">────────────────────────</p>
+                    <p className="tline"><span className="tscore">Score: 78/100</span> <span className="tgood">GOOD</span></p>
+                    <p className="tline tline--blink">█</p>
+                  </div>
+                </div>
               </MotionWrapper>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Tools grid */}
-      <section style={{ padding: '0 0 96px' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-              gap: 24,
-            }}
-          >
-            {TOOLS.map((tool, i) => (
-              <MotionWrapper key={tool.name} variant="up" delay={i * 0.07}>
-                <ToolCard tool={tool} />
+          {/* Stats strip */}
+          <div className="tools-stats-strip">
+            {STATS.map((s, i) => (
+              <MotionWrapper key={i} delay={i * 0.08}>
+                <div className="tools-stat">
+                  <i className={`fa-solid ${s.icon}`}></i>
+                  <strong>{s.value}</strong>
+                  <span>{s.label}</span>
+                </div>
               </MotionWrapper>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section style={{ padding: '0 0 96px' }}>
+      {/* ── Tools grid ──────────────────────────────────────────────── */}
+      <section className="tools-grid-section">
         <div className="container">
           <MotionWrapper variant="up">
-            <div
-              style={{
-                padding: '56px 48px',
-                background:
-                  'linear-gradient(135deg, rgba(79,70,229,0.06) 0%, rgba(6,182,212,0.06) 100%)',
-                border: '1px solid rgba(79,70,229,0.15)',
-                borderRadius: 20,
-                textAlign: 'center',
-              }}
-            >
-              <h3
-                style={{
-                  fontFamily: 'var(--heading-font)',
-                  fontWeight: 700,
-                  fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-                  color: 'var(--primary-color)',
-                  marginBottom: 14,
-                }}
-              >
-                Need more than a tool can show?
-              </h3>
-              <p
-                style={{
-                  color: 'var(--text-muted)',
-                  fontSize: '1rem',
-                  maxWidth: 520,
-                  margin: '0 auto 28px',
-                  lineHeight: 1.7,
-                }}
-              >
-                Our team does deep technical SEO audits, competitive analysis, and builds
-                strategies that actually move rankings.
-              </p>
-              <Link
-                href="/contact-us"
-                style={{
-                  display: 'inline-block',
-                  padding: '14px 40px',
-                  background:
-                    'linear-gradient(135deg, var(--accent-color), var(--accent-secondary-color))',
-                  color: '#fff',
-                  borderRadius: 8,
-                  fontWeight: 600,
-                  fontSize: '0.95rem',
-                  textDecoration: 'none',
-                }}
-              >
-                Talk to an SEO Expert
-              </Link>
+            <div className="section-title text-center section-title-center" style={{ marginBottom: '3rem' }}>
+              <h3>All Tools</h3>
+              <h2>Pick a Tool, Get <span>Instant Answers</span></h2>
+              <p>Every tool runs in real time against any live URL — no sample data, no demos.</p>
+            </div>
+          </MotionWrapper>
+
+          <div className="tools-card-grid">
+            {TOOLS.map((tool, i) => (
+              <MotionWrapper key={tool.name} variant="up" delay={i * 0.07}>
+                <Link
+                  href={tool.slug}
+                  className="tool-card"
+                  style={{ '--tool-accent': tool.accent } as React.CSSProperties}
+                >
+                  {/* Top accent line */}
+                  <div className="tool-card__line" />
+
+                  {/* Header row */}
+                  <div className="tool-card__header">
+                    <div className="tool-card__icon-wrap">
+                      <i className={`fa-solid ${tool.icon}`}></i>
+                    </div>
+                    {tool.tag && (
+                      <span className="tool-card__tag">{tool.tag}</span>
+                    )}
+                    <span className="tool-card__live">
+                      <span className="tool-live-dot" />
+                      Live
+                    </span>
+                  </div>
+
+                  <h3 className="tool-card__name">{tool.name}</h3>
+                  <p className="tool-card__desc">{tool.description}</p>
+
+                  {/* Check chips */}
+                  <div className="tool-card__checks">
+                    {tool.checks.map((c) => (
+                      <span key={c} className="tool-chip">{c}</span>
+                    ))}
+                  </div>
+
+                  {/* CTA row */}
+                  <div className="tool-card__cta">
+                    <span>Run Tool</span>
+                    <i className="fa-solid fa-arrow-right"></i>
+                  </div>
+
+                  {/* Hover glow overlay */}
+                  <div className="tool-card__glow" aria-hidden="true" />
+                </Link>
+              </MotionWrapper>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Bottom CTA ──────────────────────────────────────────────── */}
+      <section className="tools-cta-section">
+        <div className="container">
+          <MotionWrapper variant="up">
+            <div className="tools-cta-box">
+              <div className="tools-cta-orb tools-cta-orb--1" aria-hidden="true" />
+              <div className="tools-cta-orb tools-cta-orb--2" aria-hidden="true" />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <span className="tools-hero-badge" style={{ marginBottom: '1rem' }}>
+                  <i className="fa-solid fa-headset"></i>
+                  Expert help available
+                </span>
+                <h3 className="tools-cta-heading">
+                  Tools show you the problem.<br />
+                  <span>We fix it.</span>
+                </h3>
+                <p className="tools-cta-sub">
+                  Our team does deep technical SEO audits, competitive analysis, and builds strategies that actually move rankings — not just flag issues.
+                </p>
+                <Link href="/contact-us" className="btn-default">
+                  Talk to an SEO Expert
+                </Link>
+              </div>
             </div>
           </MotionWrapper>
         </div>
