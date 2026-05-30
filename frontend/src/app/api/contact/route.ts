@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     // Email content
     const mailOptions = {
       from: `"Rank Spiders" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER,
+      to: process.env.RECEIVER_EMAIL || 'info@rankspiders.com',
       replyTo: email,
       subject: 'Rank Spiders – New Contact Form Submission',
       html: `
