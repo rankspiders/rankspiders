@@ -19,8 +19,8 @@ export async function POST(req: Request) {
     // Create transporter
     // Note: In production, these should be in .env files
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
+      host: process.env.SMTP_HOST || 'smtp.hostinger.com',
+      port: Number(process.env.SMTP_PORT) || 465,
       secure: true,
       auth: {
         user: process.env.SMTP_USER,

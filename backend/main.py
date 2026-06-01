@@ -10,7 +10,10 @@ app = FastAPI(title="Rank Spiders API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://rankspiders.com",
+        "https://www.rankspiders.com",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
