@@ -1,11 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
@@ -19,9 +21,19 @@ const Header = () => {
     document.documentElement.setAttribute('data-theme', initial);
   }, []);
 
-  // Sticky header on scroll
+  // Sticky + hide-on-scroll-down header
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 80);
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > 80) {
+        setIsSticky(true);
+        setIsHidden(currentY > lastScrollY.current);
+      } else {
+        setIsSticky(false);
+        setIsHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -48,18 +60,19 @@ const Header = () => {
 
   return (
     <header className="main-header">
-      <div className={`header-sticky ${isSticky ? 'active' : ''}`}>
+      <div className={`header-sticky ${isSticky ? 'active' : ''} ${isHidden ? 'hide' : ''}`}>
         <nav className="navbar navbar-expand-lg">
           <div className="container">
             {/* Logo */}
             <Link className="navbar-brand" href="/">
               <Image
-                src="/images/logo.png"
+                src="/images/logo/rankspiders.png"
                 alt="Rank Spiders"
-                width={160}
-                height={44}
+                width={300}
+                height={85}
                 priority
-                style={{ height: 'auto' }}
+                className="site-logo"
+                style={{ height: '85px', width: 'auto' }}
               />
             </Link>
 

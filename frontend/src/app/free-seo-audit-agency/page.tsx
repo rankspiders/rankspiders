@@ -6,75 +6,17 @@ import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function FreeSeoAudit() {
-  const [formData, setFormData] = useState({
-    fname: '',
-    lname: '',
-    email: '',
-    phone: '',
-    url: '',
-    service: 'free seo audit',
-  });
-
-  const [status, setStatus] = useState({ type: '', message: '' });
-  const [loading, setLoading] = useState(false);
-
   const [openFaq, setOpenFaq] = useState<number | null>(1);
 
   const toggleFaq = (id: number) => {
     setOpenFaq(openFaq === id ? null : id);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatus({ type: '', message: '' });
-
-    const data = new FormData();
-    data.append('fname', formData.fname);
-    data.append('lname', formData.lname);
-    data.append('email', formData.email);
-    data.append('phone', formData.phone);
-    data.append('url', formData.url);
-    data.append('service', formData.service);
-
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/submit`, {
-        method: 'POST',
-        body: data,
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setStatus({ type: 'success', message: 'Audit request submitted successfully ✅' });
-        setFormData({
-          fname: '',
-          lname: '',
-          email: '',
-          phone: '',
-          url: '',
-          service: 'free seo audit',
-        });
-      } else {
-        setStatus({ type: 'error', message: result.detail || 'Something went wrong ❌' });
-      }
-    } catch (error) {
-      setStatus({ type: 'error', message: 'Failed to connect to the server ❌' });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const faqs = [
     {
       id: 1,
-      question: "1. What is included in Rank Spiders’ Free SEO Audit?",
-      answer: "Rank Spiders’ Free SEO Audit Services provide a detailed review of your website’s technical health, content quality, keyword alignment and overall search visibility."
+      question: "1. What is included in Rank Spiders' Free SEO Audit?",
+      answer: "Rank Spiders' Free SEO Audit Services provide a detailed review of your website's technical health, content quality, keyword alignment and overall search visibility."
     },
     {
       id: 2,
@@ -84,11 +26,11 @@ export default function FreeSeoAudit() {
     {
       id: 3,
       question: "3. Is the Free SEO Audit suitable for small and local businesses?",
-      answer: "Yes. Rank Spiders’ Free SEO Audit Services are ideal for small, local and growing businesses. We focus heavily on local SEO audit services to help brands improve visibility."
+      answer: "Yes. Rank Spiders' Free SEO Audit Services are ideal for small, local and growing businesses. We focus heavily on local SEO audit services to help brands improve visibility."
     },
     {
       id: 4,
-      question: "4. How is Rank Spiders’ SEO Audit different from automated audit tools?",
+      question: "4. How is Rank Spiders' SEO Audit different from automated audit tools?",
       answer: "Unlike automated tools that generate generic reports, Rank Spiders provides a human-led, insight-driven SEO audit."
     },
     {
@@ -119,51 +61,6 @@ export default function FreeSeoAudit() {
 
             <div className="col-lg-8">
               <div className="service-single-content">
-                <div className="contact-form-box mb-5 mt-0">
-                  <div className="contact-us-form" style={{ width: '100%' }}>
-                    <div className="section-title">
-                      <h2 className="wow fadeInUp" data-cursor="-opaque">Free audit Form</h2>
-                    </div>
-
-                    <div className="contact-form">
-                      <form onSubmit={handleSubmit} className="wow fadeInUp" data-wow-delay="0.2s">
-                        <div className="row">
-                          <div className="form-group col-md-6 mb-4">
-                            <input type="text" name="fname" value={formData.fname} onChange={handleChange} className="form-control" placeholder="First name" required />
-                          </div>
-                          <div className="form-group col-md-6 mb-4">
-                            <input type="text" name="lname" value={formData.lname} onChange={handleChange} className="form-control" placeholder="Last name" required />
-                          </div>
-                          <div className="form-group col-md-6 mb-4">
-                            <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" placeholder="E-mail" required />
-                          </div>
-                          <div className="form-group col-md-6 mb-4">
-                            <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="form-control" placeholder="Phone" required />
-                          </div>
-                          <div className="form-group col-md-6 mb-4">
-                            <select name="service" value={formData.service} onChange={handleChange} className="form-control optin_select_box">
-                              <option value="free seo audit">Free seo audit</option>
-                            </select>
-                          </div>
-                          <div className="form-group col-md-6 mb-4">
-                            <input name="url" type="url" value={formData.url} onChange={handleChange} className="form-control" placeholder="https://your-website.com" required />
-                          </div>
-                          <div className="col-md-12">
-                            <button type="submit" className="btn-default btn-highlighted" disabled={loading}>
-                              {loading ? 'Submitting...' : 'Submit'}
-                            </button>
-                          </div>
-                          {status.message && (
-                            <div className={`col-md-12 mt-3 alert ${status.type === 'success' ? 'alert-success' : 'alert-danger'}`}>
-                              {status.message}
-                            </div>
-                          )}
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="service-entry">
                   <h3 className="wow fadeInUp">Discover Hidden Growth Opportunities with a Free SEO Audit</h3>
                   <p className="wow fadeInUp">Get a clear view of how your website performs in search with a comprehensive Free SEO Audit.</p>
@@ -211,9 +108,9 @@ export default function FreeSeoAudit() {
             {faqs.map((faq) => (
               <div key={faq.id} className="accordion-item wow fadeInUp">
                 <h2 className="accordion-header">
-                  <button 
-                    className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 
-                    type="button" 
+                  <button
+                    className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}
+                    type="button"
                     onClick={() => toggleFaq(faq.id)}
                   >
                     {faq.question}

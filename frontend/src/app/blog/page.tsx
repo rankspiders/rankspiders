@@ -86,11 +86,11 @@ export default function Blog() {
                       </Link>
                     </div>
                     <div className="post-content p-4">
-                      <div className="post-meta mb-2 text-muted small">
+                      <div className="post-meta mb-2 small" style={{ color: 'var(--text-muted)' }}>
                         <span className="me-3"><i className="fa-regular fa-user"></i> {post.author}</span>
                         <span><i className="fa-regular fa-clock"></i> {formatDate(post.created_at)}</span>
                       </div>
-                      <h3><Link href={`/blog/${post.slug}`} className="text-dark">{post.title}</Link></h3>
+                      <h3><Link href={`/blog/${post.slug}`} style={{ color: 'var(--text-color)' }}>{post.title}</Link></h3>
                       <p>{post.excerpt}</p>
                       <Link href={`/blog/${post.slug}`} className="btn-default btn-sm mt-2">Read More</Link>
                     </div>

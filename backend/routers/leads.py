@@ -83,8 +83,7 @@ async def submit_lead(
         }
         supabase.table("leads").insert(data).execute()
     except Exception as e:
-        print(f"Supabase error: {e}")
-        raise HTTPException(status_code=500, detail="Failed to save lead to database")
+        print(f"Supabase error (non-fatal): {e}")
 
     send_email(lead)
 
