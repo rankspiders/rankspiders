@@ -28,7 +28,7 @@ function UrlInput({ value, onChange, onRun, loading }: { value: string; onChange
         onFocus={e => (e.currentTarget.style.borderColor = 'var(--accent-color)')}
         onBlur={e => (e.currentTarget.style.borderColor = 'var(--card-border)')} />
       <button onClick={onRun} disabled={loading || !value.trim()}
-        style={{ padding: '15px 36px', background: loading ? 'var(--card-border)' : 'linear-gradient(135deg, #10B981, #06B6D4)', color: '#fff', border: 'none', borderRadius: 10, font: '600 1rem var(--default-font)', cursor: loading ? 'wait' : 'pointer', opacity: loading || !value.trim() ? 0.7 : 1 }}>
+        style={{ padding: '15px 36px', background: loading ? 'var(--card-border)' : 'linear-gradient(135deg, #10B981, #F59E0B)', color: '#fff', border: 'none', borderRadius: 10, font: '600 1rem var(--default-font)', cursor: loading ? 'wait' : 'pointer', opacity: loading || !value.trim() ? 0.7 : 1 }}>
         {loading ? <><i className="fa fa-circle-notch fa-spin" style={{ marginRight: 8 }} />Testing…</> : <><i className="fa fa-gauge-high" style={{ marginRight: 8 }} />Test Speed</>}
       </button>
     </div>

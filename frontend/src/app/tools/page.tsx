@@ -25,7 +25,7 @@ const TOOLS = [
     icon: 'fa-magnifying-glass-chart',
     description: 'Instant on-page analysis of any URL. Check 10 critical ranking factors in seconds.',
     checks: ['Title & meta tags', 'Heading structure', 'Open Graph', 'Image alt text', 'Load time'],
-    accent: '#4F46E5',
+    accent: '#521B89',
     tag: 'Most Used',
   },
   {
@@ -43,7 +43,7 @@ const TOOLS = [
     icon: 'fa-percent',
     description: 'Find top keywords and phrases with density %, placement in title/H1/H2, and over-optimisation warnings.',
     checks: ['Single keywords', '2-word phrases', '3-word phrases', 'Density %', 'Title/H1/H2 check'],
-    accent: '#06B6D4',
+    accent: '#F59E0B',
     tag: null,
   },
   {

@@ -20,7 +20,7 @@ interface MetaResult {
 const SEV = {
   fail: { color: 'var(--error-color)', bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.2)', icon: 'fa-circle-xmark' },
   warn: { color: '#F59E0B', bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.2)', icon: 'fa-triangle-exclamation' },
-  info: { color: 'var(--accent-color)', bg: 'rgba(79,70,229,0.06)', border: 'rgba(79,70,229,0.2)', icon: 'fa-circle-info' },
+  info: { color: 'var(--accent-color)', bg: 'rgba(82,27,137,0.06)', border: 'rgba(82,27,137,0.2)', icon: 'fa-circle-info' },
 };
 
 function Section({ title, children, badge }: { title: string; children: React.ReactNode; badge?: string }) {
@@ -28,7 +28,7 @@ function Section({ title, children, badge }: { title: string; children: React.Re
     <div style={{ marginBottom: 28 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
         <h3 style={{ fontFamily: 'var(--heading-font)', fontWeight: 700, fontSize: '1rem', color: 'var(--primary-color)', margin: 0 }}>{title}</h3>
-        {badge && <span style={{ padding: '2px 10px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 700, background: 'rgba(79,70,229,0.1)', color: 'var(--accent-color)' }}>{badge}</span>}
+        {badge && <span style={{ padding: '2px 10px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 700, background: 'rgba(82,27,137,0.1)', color: 'var(--accent-color)' }}>{badge}</span>}
       </div>
       {children}
     </div>

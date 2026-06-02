@@ -260,8 +260,8 @@ export default function About() {
               style={{
                 padding: '56px 48px',
                 background:
-                  'linear-gradient(135deg, rgba(79,70,229,0.06) 0%, rgba(6,182,212,0.06) 100%)',
-                border: '1px solid rgba(79,70,229,0.15)',
+                  'linear-gradient(135deg, rgba(82,27,137,0.06) 0%, rgba(245,158,11,0.06) 100%)',
+                border: '1px solid rgba(82,27,137,0.15)',
                 borderRadius: 20,
                 textAlign: 'center',
               }}

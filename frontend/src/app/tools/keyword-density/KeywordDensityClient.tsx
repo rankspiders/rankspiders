@@ -59,7 +59,7 @@ export default function KeywordDensityClient() {
           <div className="row justify-content-center text-center">
             <div className="col-lg-8">
               <MotionWrapper variant="up">
-                <p style={{ display: 'inline-block', background: 'rgba(6,182,212,0.08)', color: 'var(--accent-secondary-color)', border: '1px solid rgba(6,182,212,0.2)', borderRadius: 999, padding: '6px 18px', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 20 }}>Free Tool — No Sign-Up</p>
+                <p style={{ display: 'inline-block', background: 'rgba(245,158,11,0.08)', color: 'var(--accent-secondary-color)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: 999, padding: '6px 18px', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 20 }}>Free Tool — No Sign-Up</p>
                 <h2 style={{ fontFamily: 'var(--heading-font)', fontWeight: 800, fontSize: 'clamp(1.75rem,4vw,2.6rem)', color: 'var(--primary-color)', marginBottom: 16 }}>Keyword Density Analyser</h2>
                 <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: 580, margin: '0 auto 40px' }}>See every keyword and phrase on a page — with density %, placement in title/H1/H2, and over-optimisation warnings.</p>
               </MotionWrapper>
