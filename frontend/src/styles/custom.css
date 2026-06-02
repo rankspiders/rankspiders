@@ -295,31 +295,6 @@ html {
   --heading-font:           'Plus Jakarta Sans', sans-serif;
 }
 
-/* =============================================
-   DESIGN TOKENS — Dark mode
-   ============================================= */
-[data-theme="dark"] {
-  --primary-color:          #E5E7EB;
-  --secondary-color:        rgba(82, 27, 137, 0.08);
-  --bg-color:               #0B1020;
-  --bg-secondary:           #111827;
-  --text-color:             #D1D5DB;
-  --text-muted:             #9CA3AF;
-  --divider-color:          #1F2937;
-  --dark-divider-color:     #374151;
-  --card-bg:                #161E31;
-  --card-border:            #1F2937;
-  --shadow-sm:              0 1px 3px rgba(0, 0, 0, 0.30);
-  --shadow-md:              0 4px 20px rgba(0, 0, 0, 0.40);
-  --shadow-lg:              0 10px 40px rgba(0, 0, 0, 0.55);
-  --header-bg:              rgba(11, 16, 32, 1);
-  /* Yellow brightens in dark mode — amber-300 reads clearly on navy */
-  --accent-secondary-color: #FBBF24;
-  --accent-yellow:          #FBBF24;
-  --accent-yellow-light:    rgba(251, 191, 36, 0.12);
-  --accent-yellow-hover:    #F59E0B;
-  /* accent-color, white-color stay the same */
-}
 
 /************************************/
 /*** 	   02. General css		  ***/
@@ -681,10 +656,6 @@ body{
 	flex-shrink: 0;
 }
 
-[data-theme="dark"] .section-title h3 {
-	background: rgba(82, 27, 137, 0.15);
-	border-color: rgba(82, 27, 137, 0.3);
-}
 
 .section-title h1{
 	font-size: 64px;
@@ -740,10 +711,7 @@ header.main-header{
 }
 
 
-/* Dark mode: logo goes white */
-[data-theme="dark"] .site-logo {
-	filter: brightness(0) invert(1);
-}
+
 
 header.main-header .header-sticky{
 	position: relative;
@@ -788,10 +756,7 @@ header.main-header .header-sticky.active.hide{
 	transition: filter 0.3s ease;
 }
 
-[data-theme="dark"] .navbar-brand img:not(.site-logo),
-[data-theme="dark"] .footer-logo img {
-	filter: brightness(0) invert(1);
-}
+
 
 .main-menu .nav-menu-wrapper{
 	flex: 1;
@@ -925,9 +890,6 @@ header.main-header .header-sticky.active.hide{
   height: 12px;
 }
 
-[data-theme="dark"] .mega-menu {
-  box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 4px 18px rgba(0,0,0,0.25);
-}
 
 .has-mega:hover > .mega-menu {
   visibility: visible;
@@ -1117,9 +1079,6 @@ header.main-header .header-sticky.active.hide{
   height: 12px;
 }
 
-[data-theme="dark"] .nav-dropdown {
-  box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 4px 18px rgba(0,0,0,0.25);
-}
 
 .nav-dropdown .mega-link {
   display: flex !important;

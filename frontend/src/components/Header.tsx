@@ -8,18 +8,8 @@ const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
-
-  // Initialise theme from localStorage / system preference
-  useEffect(() => {
-    const saved = localStorage.getItem('rs-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = saved === 'dark' || (!saved && prefersDark) ? 'dark' : 'light';
-    setTheme(initial);
-    document.documentElement.setAttribute('data-theme', initial);
-  }, []);
 
   // Sticky + hide-on-scroll-down header
   useEffect(() => {
@@ -46,13 +36,6 @@ const Header = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const toggleTheme = () => {
-    const next = theme === 'light' ? 'dark' : 'light';
-    setTheme(next);
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('rs-theme', next);
-  };
 
   const toggleSubmenu = (key: string) => {
     setOpenSubmenu(prev => (prev === key ? null : key));
@@ -226,19 +209,6 @@ const Header = () => {
 
             {/* Right actions */}
             <div className="header-actions">
-              {/* Dark mode toggle */}
-              <button
-                onClick={toggleTheme}
-                className="theme-toggle"
-                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-              >
-                {theme === 'light' ? (
-                  <i className="fa-regular fa-moon"></i>
-                ) : (
-                  <i className="fa-regular fa-sun"></i>
-                )}
-              </button>
-
               {/* CTA */}
               <Link href="/contact-us" className="btn-default d-none d-lg-inline-flex">
                 Book a Meeting
