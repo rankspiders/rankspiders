@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free SEO Audit Tool | Rank Spiders',
     description:
-      'Instant on-page SEO analysis — check 10+ ranking factors for any URL in seconds.',
+      'Instant on-page SEO analysis — check 10+ ranking factors for any URL in seconds.', 
     type: 'website',
     siteName: 'Rank Spiders',
   },
