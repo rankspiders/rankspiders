@@ -9,27 +9,34 @@ interface OpenGraph {
 interface AuditResult {
   url: string; status_code: number; load_time_ms: number; robots_allowed: boolean;
   title: string; title_length: number; meta_description: string; meta_description_length: number;
+  meta_robots?: string; is_noindex?: boolean;
   h1_tags: string[]; h2_count: number; h3_count: number; canonical: string;
   image_count: number; images_missing_alt_count: number;
   internal_links: number; external_links: number;
   open_graph: OpenGraph; has_viewport_meta: boolean;
+  lang?: string;
+  warning?: string;
   error?: string; message?: string;
 }
 type Status = 'pass' | 'warn' | 'fail';
 interface Check { label: string; status: Status; detail: string; tip: string; }
 
 function buildChecks(d: AuditResult): Check[] {
+  const og = d.open_graph ?? { og_title: '', og_description: '', og_image: '', og_type: '' };
+  const h1 = d.h1_tags ?? [];
   return [
     { label: 'Page Title', status: !d.title ? 'fail' : d.title_length >= 50 && d.title_length <= 60 ? 'pass' : 'warn', detail: d.title ? `"${d.title}" (${d.title_length} chars)` : 'Missing', tip: 'Optimal title length is 50–60 characters.' },
     { label: 'Meta Description', status: !d.meta_description ? 'fail' : d.meta_description_length >= 150 && d.meta_description_length <= 160 ? 'pass' : 'warn', detail: d.meta_description ? `${d.meta_description_length} chars` : 'Missing', tip: 'Optimal meta description length is 150–160 characters.' },
-    { label: 'H1 Tag', status: d.h1_tags.length === 1 ? 'pass' : d.h1_tags.length === 0 ? 'fail' : 'warn', detail: d.h1_tags.length === 0 ? 'No H1 found' : d.h1_tags.length > 1 ? `${d.h1_tags.length} H1 tags — use exactly one` : `"${d.h1_tags[0]}"`, tip: 'Each page should have exactly one H1 tag.' },
-    { label: 'Heading Structure', status: d.h2_count > 0 ? 'pass' : 'warn', detail: `H1: ${d.h1_tags.length} · H2: ${d.h2_count} · H3: ${d.h3_count}`, tip: 'Use a logical heading hierarchy (H1 → H2 → H3).' },
+    { label: 'Robots / Noindex', status: d.is_noindex ? 'fail' : 'pass', detail: d.is_noindex ? `noindex detected — page may be excluded from search (meta robots: "${d.meta_robots}")` : d.meta_robots ? `meta robots: "${d.meta_robots}"` : 'No noindex directive', tip: 'Make sure your page is not accidentally marked noindex.' },
+    { label: 'H1 Tag', status: h1.length === 1 ? 'pass' : h1.length === 0 ? 'fail' : 'warn', detail: h1.length === 0 ? 'No H1 found' : h1.length > 1 ? `${h1.length} H1 tags — use exactly one` : `"${h1[0]}"`, tip: 'Each page should have exactly one H1 tag.' },
+    { label: 'Heading Structure', status: d.h2_count > 0 ? 'pass' : 'warn', detail: `H1: ${h1.length} · H2: ${d.h2_count} · H3: ${d.h3_count}`, tip: 'Use a logical heading hierarchy (H1 → H2 → H3).' },
     { label: 'Canonical URL', status: d.canonical ? 'pass' : 'warn', detail: d.canonical || 'Not set', tip: 'A canonical tag prevents duplicate content issues.' },
     { label: 'Image Alt Text', status: d.image_count === 0 || d.images_missing_alt_count === 0 ? 'pass' : d.images_missing_alt_count <= 2 ? 'warn' : 'fail', detail: d.image_count === 0 ? 'No images found' : `${d.images_missing_alt_count} of ${d.image_count} missing alt`, tip: 'All images should have descriptive alt attributes.' },
-    { label: 'Viewport Meta', status: d.has_viewport_meta ? 'pass' : 'fail', detail: d.has_viewport_meta ? 'Present' : 'Missing', tip: 'Required for mobile-friendly pages (Core Web Vitals).' },
-    { label: 'Open Graph Tags', status: d.open_graph.og_title && d.open_graph.og_description ? 'pass' : d.open_graph.og_title || d.open_graph.og_description ? 'warn' : 'fail', detail: d.open_graph.og_title ? `og:title — "${d.open_graph.og_title}"` : 'og:title and og:description missing', tip: 'Open Graph controls how your page appears when shared.' },
+    { label: 'Viewport Meta', status: d.has_viewport_meta ? 'pass' : 'fail', detail: d.has_viewport_meta ? 'Present (width specified)' : 'Missing or malformed', tip: 'Required for mobile-friendly pages. Must include width=device-width.' },
+    { label: 'Open Graph Tags', status: og.og_title && og.og_description ? 'pass' : og.og_title || og.og_description ? 'warn' : 'fail', detail: og.og_title ? `og:title — "${og.og_title}"` : 'og:title and og:description missing', tip: 'Open Graph controls how your page appears when shared on social media.' },
     { label: 'Page Load Time', status: d.load_time_ms < 1000 ? 'pass' : d.load_time_ms < 3000 ? 'warn' : 'fail', detail: `${d.load_time_ms} ms`, tip: 'Pages should respond in under 1 second.' },
     { label: 'Robots.txt Access', status: d.robots_allowed ? 'pass' : 'warn', detail: d.robots_allowed ? 'Crawling allowed' : 'Blocked by robots.txt', tip: 'Search engines must be able to crawl your page to rank it.' },
+    { label: 'Language Attribute', status: d.lang ? 'pass' : 'warn', detail: d.lang ? `lang="${d.lang}"` : 'Missing lang attribute on <html>', tip: 'The lang attribute helps search engines understand your page language.' },
   ];
 }
 
@@ -47,17 +54,18 @@ const S: Record<Status, { border: string; icon: string; color: string; bg: strin
 const WHAT = [
   { icon: 'fa-heading',            label: 'Title Tags' },
   { icon: 'fa-align-left',         label: 'Meta Description' },
+  { icon: 'fa-robot',              label: 'Noindex Check' },
   { icon: 'fa-sitemap',            label: 'Heading Structure' },
   { icon: 'fa-link',               label: 'Canonical URL' },
   { icon: 'fa-image',              label: 'Image Alt Text' },
   { icon: 'fa-mobile-screen',      label: 'Viewport Meta' },
   { icon: 'fa-share-nodes',        label: 'Open Graph' },
   { icon: 'fa-gauge-high',         label: 'Load Time' },
+  { icon: 'fa-globe',              label: 'Language Attr' },
   { icon: 'fa-robot',              label: 'Robots.txt' },
   { icon: 'fa-arrow-up-right-dots',label: 'Link Analysis' },
 ];
 
-/* SVG animated score ring */
 function ScoreRing({ score, color }: { score: number; color: string }) {
   const r = 54;
   const circ = 2 * Math.PI * r;
@@ -70,11 +78,7 @@ function ScoreRing({ score, color }: { score: number; color: string }) {
         <circle
           cx="68" cy="68" r={r}
           className="score-ring-fill"
-          style={{
-            stroke: color,
-            strokeDasharray: circ,
-            strokeDashoffset: offset,
-          }}
+          style={{ stroke: color, strokeDasharray: circ, strokeDashoffset: offset, transition: 'stroke-dashoffset 0.8s ease' }}
         />
       </svg>
       <div className="audit-score-inner">
@@ -97,9 +101,13 @@ export default function SeoAuditClient() {
     if (!target) return;
     setLoading(true); setResult(null); setError('');
     try {
-      const res  = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/tools/audit?url=${encodeURIComponent(target)}`);
-      const data: AuditResult = await res.json();
-      data.error ? setError(data.message || 'Audit failed. Check the URL and try again.') : setResult(data);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/tools/audit?url=${encodeURIComponent(target)}`);
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        setError(data.message || data.detail || 'Audit failed. Check the URL and try again.');
+      } else {
+        setResult(data);
+      }
     } catch {
       setError('Could not reach the audit server. Make sure the backend is running.');
     } finally {
@@ -113,10 +121,8 @@ export default function SeoAuditClient() {
 
   return (
     <>
-      {/* ── Scanner section ─────────────────────────────────────────── */}
       <section className="tool-scanner-section">
         <div className="tool-scanner-bg" aria-hidden="true" />
-
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <MotionWrapper variant="up">
             <div className="text-center" style={{ marginBottom: '2.5rem' }}>
@@ -126,28 +132,22 @@ export default function SeoAuditClient() {
               </span>
               <h2 className="tool-page-heading">Instant On-Page <span>SEO Analysis</span></h2>
               <p className="tool-page-sub">
-                Enter any URL and get a detailed audit of <strong>10 critical SEO factors</strong> in seconds.
+                Enter any URL and get a detailed audit of <strong>12 critical SEO factors</strong> in seconds.
               </p>
             </div>
           </MotionWrapper>
 
-          {/* URL input */}
           <MotionWrapper variant="up" delay={0.1}>
             <div className="tool-input-wrap">
               <div className={`tool-input-box${loading ? ' tool-input-box--scanning' : ''}`}>
                 <div className="tool-input-bar">
-                  <span className="tbar-dot tbar-red" />
-                  <span className="tbar-dot tbar-yellow" />
-                  <span className="tbar-dot tbar-green" />
-                  <span className="tbar-url-label">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                    SEO Audit
-                  </span>
+                  <span className="tbar-dot tbar-red" /><span className="tbar-dot tbar-yellow" /><span className="tbar-dot tbar-green" />
+                  <span className="tbar-url-label"><i className="fa-solid fa-magnifying-glass"></i> SEO Audit</span>
                 </div>
                 <div className="tool-input-body">
                   <i className="fa-solid fa-link tool-input-icon"></i>
                   <input
-                    type="url"
+                    type="text"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && !loading && runAudit()}
@@ -155,41 +155,35 @@ export default function SeoAuditClient() {
                     disabled={loading}
                     className="tool-input-field"
                   />
-                  <button
-                    onClick={runAudit}
-                    disabled={loading || !url.trim()}
-                    className="tool-input-btn"
-                  >
-                    {loading ? (
-                      <><i className="fa fa-circle-notch fa-spin"></i> Scanning…</>
-                    ) : (
-                      <><i className="fa-solid fa-magnifying-glass"></i> Run Audit</>
-                    )}
+                  <button onClick={runAudit} disabled={loading || !url.trim()} className="tool-input-btn">
+                    {loading ? <><i className="fa fa-circle-notch fa-spin"></i> Scanning…</> : <><i className="fa-solid fa-magnifying-glass"></i> Run Audit</>}
                   </button>
                 </div>
                 {loading && <div className="tool-scan-line" />}
               </div>
-
-              {error && (
-                <div className="tool-error-bar">
-                  <i className="fa fa-triangle-exclamation"></i> {error}
-                </div>
-              )}
+              {error && <div className="tool-error-bar"><i className="fa fa-triangle-exclamation"></i> {error}</div>}
             </div>
           </MotionWrapper>
         </div>
       </section>
 
-      {/* ── Results ─────────────────────────────────────────────────── */}
       {result && (
         <section className="tool-results-section">
           <div className="container">
 
-            {/* Score overview */}
+            {/* Non-200 / bot-challenge warning */}
+            {(result.warning || result.status_code !== 200) && (
+              <MotionWrapper variant="up">
+                <div style={{ padding: '14px 20px', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)', borderLeft: '4px solid #F59E0B', borderRadius: 10, marginBottom: 20, fontSize: '0.9rem', color: 'var(--text-color)' }}>
+                  <i className="fa fa-triangle-exclamation" style={{ color: '#F59E0B', marginRight: 8 }} />
+                  {result.warning || `Server returned HTTP ${result.status_code}. Results may reflect a bot-challenge or error page.`}
+                </div>
+              </MotionWrapper>
+            )}
+
             <MotionWrapper variant="up">
               <div className="audit-overview-card">
                 <ScoreRing score={score} color={scoreColor} />
-
                 <div className="audit-overview-meta">
                   <p className="audit-overview-url">{result.url}</p>
                   <div className="audit-overview-stats">
@@ -205,13 +199,10 @@ export default function SeoAuditClient() {
                     ))}
                   </div>
                 </div>
-
                 <div className="audit-overview-counts">
                   {(['pass', 'warn', 'fail'] as Status[]).map((s) => (
                     <div key={s} className="audit-count-item">
-                      <span className="audit-count-num" style={{ color: S[s].color }}>
-                        {checks.filter((c) => c.status === s).length}
-                      </span>
+                      <span className="audit-count-num" style={{ color: S[s].color }}>{checks.filter((c) => c.status === s).length}</span>
                       <span className="audit-count-label">{S[s].label}ed</span>
                     </div>
                   ))}
@@ -219,20 +210,15 @@ export default function SeoAuditClient() {
               </div>
             </MotionWrapper>
 
-            {/* Check cards */}
             <div className="audit-checks-grid">
               {checks.map((check, i) => (
                 <MotionWrapper key={check.label} variant="up" delay={i * 0.04}>
                   <MotionCard>
                     <div className="audit-check-card" style={{ borderLeftColor: S[check.status].color }}>
                       <div className="audit-check-header">
-                        <span className="audit-check-badge" style={{ background: S[check.status].bg, color: S[check.status].color }}>
-                          {S[check.status].icon}
-                        </span>
+                        <span className="audit-check-badge" style={{ background: S[check.status].bg, color: S[check.status].color }}>{S[check.status].icon}</span>
                         <span className="audit-check-label">{check.label}</span>
-                        <span className="audit-check-status" style={{ color: S[check.status].color }}>
-                          {S[check.status].label}
-                        </span>
+                        <span className="audit-check-status" style={{ color: S[check.status].color }}>{S[check.status].label}</span>
                       </div>
                       <p className="audit-check-detail">{check.detail}</p>
                       <p className="audit-check-tip">{check.tip}</p>
@@ -242,7 +228,6 @@ export default function SeoAuditClient() {
               ))}
             </div>
 
-            {/* After-results CTA */}
             <MotionWrapper variant="up" delay={0.3}>
               <div className="tool-after-cta">
                 <div className="tools-cta-orb tools-cta-orb--1" aria-hidden="true" />
@@ -257,20 +242,17 @@ export default function SeoAuditClient() {
         </section>
       )}
 
-      {/* ── What we check (pre-results) ─────────────────────────────── */}
       {!result && !loading && (
         <section className="tool-what-section">
           <div className="container">
             <MotionWrapper variant="up">
-              <h3 className="tool-what-heading">10 SEO factors checked instantly</h3>
+              <h3 className="tool-what-heading">12 SEO factors checked instantly</h3>
             </MotionWrapper>
             <div className="tool-what-grid">
               {WHAT.map((item, i) => (
                 <MotionWrapper key={item.label} variant="up" delay={i * 0.05}>
                   <div className="tool-what-card">
-                    <div className="tool-what-icon">
-                      <i className={`fa-solid ${item.icon}`}></i>
-                    </div>
+                    <div className="tool-what-icon"><i className={`fa-solid ${item.icon}`}></i></div>
                     <span>{item.label}</span>
                   </div>
                 </MotionWrapper>

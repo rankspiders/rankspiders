@@ -19,7 +19,7 @@ function Badge({ text, color }: { text: string; color: string }) {
 
 function DensityBar({ density }: { density: number }) {
   const w = Math.min(density * 10, 100);
-  const color = density > 5 ? 'var(--error-color)' : density > 2.5 ? '#F59E0B' : 'var(--success-color)';
+  const color = density > 3 ? '#EF4444' : density > 1.5 ? '#F59E0B' : '#10B981';
   return (
     <div style={{ height: 6, background: 'var(--bg-secondary)', borderRadius: 999, overflow: 'hidden', marginTop: 4 }}>
       <div style={{ height: '100%', width: `${w}%`, background: color, borderRadius: 999, transition: 'width 0.5s ease' }} />
@@ -40,8 +40,12 @@ export default function KeywordDensityClient() {
     try {
       const res = await fetch(`${API}/api/tools/keywords?url=${encodeURIComponent(url.trim())}`);
       const data = await res.json();
-      if (data.error) setError(data.message || 'Analysis failed.');
-      else setResult(data);
+      if (!res.ok || data.error) {
+        // Show the backend error string directly (it's already human-readable)
+        setError(data.error || data.message || data.detail || 'Analysis failed.');
+      } else {
+        setResult(data);
+      }
     } catch { setError('Could not reach the server.'); }
     finally { setLoading(false); }
   }
@@ -51,6 +55,8 @@ export default function KeywordDensityClient() {
     background: active ? 'var(--accent-color)' : 'var(--bg-secondary)',
     color: active ? '#fff' : 'var(--text-muted)',
   });
+
+  const phrases = result ? (tab === 'bigrams' ? result.top_bigrams : result.top_trigrams) : [];
 
   return (
     <>
@@ -65,14 +71,14 @@ export default function KeywordDensityClient() {
               </MotionWrapper>
               <MotionWrapper variant="up" delay={0.1}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
-                  <input type="url" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} placeholder="https://yourwebsite.com" disabled={loading}
+                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} placeholder="https://yourwebsite.com" disabled={loading}
                     style={{ flex: '1 1 300px', maxWidth: 480, padding: '15px 20px', border: '1.5px solid var(--card-border)', borderRadius: 10, background: 'var(--card-bg)', color: 'var(--text-color)', font: '1rem var(--default-font)', outline: 'none' }}
                     onFocus={e => (e.currentTarget.style.borderColor = 'var(--accent-secondary-color)')} onBlur={e => (e.currentTarget.style.borderColor = 'var(--card-border)')} />
                   <button onClick={run} disabled={loading || !url.trim()} style={{ padding: '15px 36px', background: loading ? 'var(--card-border)' : 'linear-gradient(135deg, var(--accent-color), var(--accent-secondary-color))', color: '#fff', border: 'none', borderRadius: 10, font: '600 1rem var(--default-font)', cursor: loading ? 'wait' : 'pointer', opacity: loading || !url.trim() ? 0.7 : 1 }}>
                     {loading ? <><i className="fa fa-circle-notch fa-spin" style={{ marginRight: 8 }} />Analysing…</> : <><i className="fa fa-percent" style={{ marginRight: 8 }} />Analyse</>}
                   </button>
                 </div>
-                {error && <div style={{ marginTop: 16, padding: '12px 18px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: 8, color: 'var(--error-color)', fontSize: '0.9rem' }}>{error}</div>}
+                {error && <div style={{ marginTop: 16, padding: '12px 18px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: 8, color: '#EF4444', fontSize: '0.9rem' }}>{error}</div>}
               </MotionWrapper>
             </div>
           </div>
@@ -107,7 +113,7 @@ export default function KeywordDensityClient() {
               )}
 
               {/* Warnings */}
-              {result.warnings.length > 0 && result.warnings.map((w, i) => (
+              {(result.warnings ?? []).map((w, i) => (
                 <div key={i} style={{ display: 'flex', gap: 12, padding: '14px 18px', background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)', borderLeft: '4px solid #F59E0B', borderRadius: 10, marginBottom: 10 }}>
                   <i className="fa fa-triangle-exclamation" style={{ color: '#F59E0B', marginTop: 2 }} />
                   <span style={{ fontSize: '0.9rem', color: 'var(--text-color)' }}>{w}</span>
@@ -126,11 +132,13 @@ export default function KeywordDensityClient() {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px 100px 80px 80px 80px', padding: '12px 20px', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--card-border)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     <span>Keyword</span><span style={{ textAlign: 'center' }}>Count</span><span style={{ textAlign: 'center' }}>Density</span><span style={{ textAlign: 'center' }}>Bar</span><span style={{ textAlign: 'center' }}>Title</span><span style={{ textAlign: 'center' }}>H1</span><span style={{ textAlign: 'center' }}>H2</span>
                   </div>
-                  {result.top_keywords.map((kw, i) => (
-                    <div key={kw.keyword} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px 100px 80px 80px 80px', padding: '12px 20px', borderBottom: i < result.top_keywords.length - 1 ? '1px solid var(--card-border)' : 'none', alignItems: 'center' }}>
-                      <span style={{ fontWeight: 600, color: 'var(--text-color)', fontSize: '0.9rem' }}>{kw.keyword}</span>
+                  {result.top_keywords.length === 0 ? (
+                    <div style={{ padding: '32px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>No keywords found on this page.</div>
+                  ) : result.top_keywords.map((kw, i) => (
+                    <div key={`kw-${i}`} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px 100px 80px 80px 80px', padding: '12px 20px', borderBottom: i < result.top_keywords.length - 1 ? '1px solid var(--card-border)' : 'none', alignItems: 'center' }}>
+                      <span style={{ fontWeight: 600, color: 'var(--text-color)', fontSize: '0.9rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{kw.keyword}</span>
                       <span style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>{kw.count}</span>
-                      <span style={{ textAlign: 'center', color: kw.density > 5 ? 'var(--error-color)' : kw.density > 2.5 ? '#F59E0B' : 'var(--success-color)', fontWeight: 700, fontSize: '0.85rem' }}>{kw.density}%</span>
+                      <span style={{ textAlign: 'center', color: kw.density > 3 ? '#EF4444' : kw.density > 1.5 ? '#F59E0B' : '#10B981', fontWeight: 700, fontSize: '0.85rem' }}>{kw.density}%</span>
                       <div style={{ padding: '0 8px' }}><DensityBar density={kw.density} /></div>
                       <span style={{ textAlign: 'center', fontSize: '0.85rem' }}>{kw.in_title ? '✓' : '–'}</span>
                       <span style={{ textAlign: 'center', fontSize: '0.85rem' }}>{kw.in_h1 ? '✓' : '–'}</span>
@@ -145,12 +153,14 @@ export default function KeywordDensityClient() {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px 120px', padding: '12px 20px', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--card-border)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                     <span>Phrase</span><span style={{ textAlign: 'center' }}>Count</span><span style={{ textAlign: 'center' }}>Density</span><span>Bar</span>
                   </div>
-                  {(tab === 'bigrams' ? result.top_bigrams : result.top_trigrams).map((p, i) => (
-                    <div key={p.phrase} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px 120px', padding: '12px 20px', borderBottom: '1px solid var(--card-border)', alignItems: 'center' }}>
-                      <span style={{ fontWeight: 600, color: 'var(--text-color)', fontSize: '0.9rem' }}>{p.phrase}</span>
+                  {phrases.length === 0 ? (
+                    <div style={{ padding: '32px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>No phrases found. Page may not have enough content.</div>
+                  ) : phrases.map((p, i) => (
+                    <div key={`ph-${i}`} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px 120px', padding: '12px 20px', borderBottom: i < phrases.length - 1 ? '1px solid var(--card-border)' : 'none', alignItems: 'center' }}>
+                      <span style={{ fontWeight: 600, color: 'var(--text-color)', fontSize: '0.9rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{p.phrase}</span>
                       <span style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>{p.count}</span>
                       <span style={{ textAlign: 'center', color: 'var(--accent-color)', fontWeight: 700, fontSize: '0.85rem' }}>{p.density}%</span>
-                      <div style={{ padding: '0 8px' }}><DensityBar density={p.density * 3} /></div>
+                      <div style={{ padding: '0 8px' }}><DensityBar density={p.density} /></div>
                     </div>
                   ))}
                 </div>

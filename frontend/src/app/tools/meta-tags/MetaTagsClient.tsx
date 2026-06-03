@@ -6,19 +6,20 @@ const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 interface MetaResult {
   url: string; status_code: number; score: number;
-  basic: { title: string; title_length: number; description: string; description_length: number; keywords: string; robots: string; author: string; viewport: string; charset: string; theme_color: string; canonical: string; };
+  basic: { title: string; title_length: number; description: string; description_length: number; keywords: string; robots: string; author: string; viewport: string; charset: string; theme_color: string; canonical: string; refresh?: string; };
   open_graph: Record<string, string>;
   twitter_card: Record<string, string>;
   json_ld: object[];
   hreflang: { hreflang: string; href: string }[];
   link_tags: { rel: string; href: string }[];
+  link_tags_total?: number;
   issues: { severity: 'fail' | 'warn' | 'info'; msg: string }[];
   has_og: boolean; has_twitter: boolean; has_schema: boolean; has_hreflang: boolean;
   error?: string; message?: string;
 }
 
 const SEV = {
-  fail: { color: 'var(--error-color)', bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.2)', icon: 'fa-circle-xmark' },
+  fail: { color: '#EF4444', bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.2)', icon: 'fa-circle-xmark' },
   warn: { color: '#F59E0B', bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.2)', icon: 'fa-triangle-exclamation' },
   info: { color: 'var(--accent-color)', bg: 'rgba(82,27,137,0.06)', border: 'rgba(82,27,137,0.2)', icon: 'fa-circle-info' },
 };
@@ -39,7 +40,9 @@ function Row({ label, value, good }: { label: string; value: string; good?: bool
   return (
     <div style={{ display: 'flex', gap: 16, padding: '10px 16px', borderBottom: '1px solid var(--card-border)', alignItems: 'flex-start' }}>
       <span style={{ minWidth: 140, fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em', paddingTop: 2 }}>{label}</span>
-      <span style={{ flex: 1, fontSize: '0.88rem', color: good === false ? 'var(--error-color)' : good === true ? 'var(--success-color)' : 'var(--text-color)', wordBreak: 'break-word' }}>{value || <em style={{ color: 'var(--text-muted)' }}>Not set</em>}</span>
+      <span style={{ flex: 1, fontSize: '0.88rem', color: good === false ? '#EF4444' : good === true ? '#10B981' : 'var(--text-color)', wordBreak: 'break-word' }}>
+        {value || <em style={{ color: 'var(--text-muted)' }}>Not set</em>}
+      </span>
     </div>
   );
 }
@@ -53,12 +56,15 @@ export default function MetaTagsClient() {
 
   async function run() {
     if (!url.trim()) return;
-    setLoading(true); setResult(null); setError('');
+    setLoading(true); setResult(null); setError(''); setTab('basic');
     try {
       const res = await fetch(`${API}/api/tools/meta?url=${encodeURIComponent(url.trim())}`);
       const data = await res.json();
-      if (data.error) setError(data.message || 'Extraction failed.');
-      else setResult(data);
+      if (!res.ok || data.error) {
+        setError(data.error || data.message || data.detail || 'Extraction failed.');
+      } else {
+        setResult(data);
+      }
     } catch { setError('Could not reach the server.'); }
     finally { setLoading(false); }
   }
@@ -69,7 +75,9 @@ export default function MetaTagsClient() {
     color: active ? '#fff' : 'var(--text-muted)',
   });
 
-  const scoreColor = (s: number) => s >= 80 ? 'var(--success-color)' : s >= 50 ? '#F59E0B' : 'var(--error-color)';
+  const scoreColor = (s: number) => s >= 80 ? '#10B981' : s >= 50 ? '#F59E0B' : '#EF4444';
+
+  const linkTagsTotal = result?.link_tags_total ?? result?.link_tags?.length ?? 0;
 
   return (
     <>
@@ -84,14 +92,14 @@ export default function MetaTagsClient() {
               </MotionWrapper>
               <MotionWrapper variant="up" delay={0.1}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
-                  <input type="url" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} placeholder="https://yourwebsite.com" disabled={loading}
+                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} placeholder="https://yourwebsite.com" disabled={loading}
                     style={{ flex: '1 1 300px', maxWidth: 500, padding: '15px 20px', border: '1.5px solid var(--card-border)', borderRadius: 10, background: 'var(--card-bg)', color: 'var(--text-color)', font: '1rem var(--default-font)', outline: 'none' }}
                     onFocus={e => (e.currentTarget.style.borderColor = '#EC4899')} onBlur={e => (e.currentTarget.style.borderColor = 'var(--card-border)')} />
                   <button onClick={run} disabled={loading || !url.trim()} style={{ padding: '15px 32px', background: loading ? 'var(--card-border)' : 'linear-gradient(135deg, #EC4899, #8B5CF6)', color: '#fff', border: 'none', borderRadius: 10, font: '600 1rem var(--default-font)', cursor: loading ? 'wait' : 'pointer', opacity: loading || !url.trim() ? 0.7 : 1, whiteSpace: 'nowrap' }}>
                     {loading ? <><i className="fa fa-circle-notch fa-spin" style={{ marginRight: 8 }} />Extracting…</> : <><i className="fa fa-code" style={{ marginRight: 8 }} />Extract</>}
                   </button>
                 </div>
-                {error && <div style={{ marginTop: 16, padding: '12px 18px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: 8, color: 'var(--error-color)', fontSize: '0.9rem' }}>{error}</div>}
+                {error && <div style={{ marginTop: 16, padding: '12px 18px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: 8, color: '#EF4444', fontSize: '0.9rem' }}>{error}</div>}
               </MotionWrapper>
             </div>
           </div>
@@ -107,6 +115,10 @@ export default function MetaTagsClient() {
                 <div style={{ textAlign: 'center', minWidth: 90 }}>
                   <div style={{ fontSize: '3rem', fontWeight: 800, fontFamily: 'var(--heading-font)', color: scoreColor(result.score), lineHeight: 1 }}>{result.score}</div>
                   <div style={{ fontSize: '0.72rem', color: scoreColor(result.score), fontWeight: 600, textTransform: 'uppercase', marginTop: 4 }}>Meta Score</div>
+                  <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: 2 }}>
+                    HTTP {result.status_code}
+                    {result.status_code !== 200 && <span style={{ color: '#EF4444' }}> ⚠</span>}
+                  </div>
                 </div>
                 <div style={{ flex: 1, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                   {[
@@ -115,7 +127,7 @@ export default function MetaTagsClient() {
                     { label: 'JSON-LD Schema', ok: result.has_schema },
                     { label: 'Hreflang', ok: result.has_hreflang },
                   ].map(b => (
-                    <span key={b.label} style={{ padding: '5px 14px', borderRadius: 999, fontSize: '0.8rem', fontWeight: 600, background: b.ok ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)', color: b.ok ? 'var(--success-color)' : 'var(--error-color)', border: `1px solid ${b.ok ? 'rgba(16,185,129,0.25)' : 'rgba(239,68,68,0.25)'}` }}>
+                    <span key={b.label} style={{ padding: '5px 14px', borderRadius: 999, fontSize: '0.8rem', fontWeight: 600, background: b.ok ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)', color: b.ok ? '#10B981' : '#EF4444', border: `1px solid ${b.ok ? 'rgba(16,185,129,0.25)' : 'rgba(239,68,68,0.25)'}` }}>
                       {b.label}: {b.ok ? '✓' : '✗'}
                     </span>
                   ))}
@@ -144,7 +156,7 @@ export default function MetaTagsClient() {
                   ['og', `Open Graph${result.has_og ? ' ✓' : ''}`],
                   ['twitter', `Twitter Card${result.has_twitter ? ' ✓' : ''}`],
                   ['schema', `JSON-LD${result.has_schema ? ` (${result.json_ld.length})` : ''}`],
-                  ['links', 'Link Tags'],
+                  ['links', `Link Tags${linkTagsTotal > 30 ? ` (${linkTagsTotal})` : ''}`],
                 ] as [typeof tab, string][]).map(([key, label]) => (
                   <button key={key} style={tabStyle(tab === key)} onClick={() => setTab(key)}>{label}</button>
                 ))}
@@ -153,17 +165,19 @@ export default function MetaTagsClient() {
               <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 16, overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
                 {tab === 'basic' && (
                   <>
-                    <Row label="Title" value={result.basic.title} good={result.basic.title_length >= 30 && result.basic.title_length <= 60} />
-                    <Row label="Title Length" value={result.basic.title_length ? `${result.basic.title_length} characters` : ''} good={result.basic.title_length >= 30 && result.basic.title_length <= 60} />
+                    <Row label="Title" value={result.basic.title} good={result.basic.title_length > 0 && result.basic.title_length >= 30 && result.basic.title_length <= 60} />
+                    <Row label="Title Length" value={result.basic.title_length > 0 ? `${result.basic.title_length} characters` : '0 characters (missing)'} good={result.basic.title_length >= 30 && result.basic.title_length <= 60} />
                     <Row label="Description" value={result.basic.description} good={result.basic.description_length >= 120 && result.basic.description_length <= 160} />
-                    <Row label="Desc. Length" value={result.basic.description_length ? `${result.basic.description_length} characters` : ''} good={result.basic.description_length >= 120 && result.basic.description_length <= 160} />
+                    <Row label="Desc. Length" value={result.basic.description_length > 0 ? `${result.basic.description_length} characters` : '0 characters (missing)'} good={result.basic.description_length >= 120 && result.basic.description_length <= 160} />
                     <Row label="Keywords" value={result.basic.keywords} />
-                    <Row label="Robots" value={result.basic.robots} good={!result.basic.robots || (!result.basic.robots.includes('noindex') && !result.basic.robots.includes('nofollow'))} />
+                    {/* good=null (neutral) when robots is empty; false only for noindex/nofollow */}
+                    <Row label="Robots" value={result.basic.robots || 'Not set (default: index, follow)'} good={result.basic.robots ? (!result.basic.robots.includes('noindex') && !result.basic.robots.includes('nofollow')) : null} />
                     <Row label="Canonical" value={result.basic.canonical} good={!!result.basic.canonical} />
                     <Row label="Viewport" value={result.basic.viewport} good={!!result.basic.viewport} />
                     <Row label="Charset" value={result.basic.charset} />
                     <Row label="Author" value={result.basic.author} />
                     <Row label="Theme Color" value={result.basic.theme_color} />
+                    {result.basic.refresh && <Row label="Meta Refresh" value={result.basic.refresh} good={false} />}
                   </>
                 )}
 
@@ -192,12 +206,20 @@ export default function MetaTagsClient() {
 
                 {tab === 'links' && (
                   result.link_tags.length > 0
-                    ? result.link_tags.map((l, i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', padding: '10px 16px', borderBottom: '1px solid var(--card-border)', alignItems: 'start', gap: 12 }}>
-                        <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', paddingTop: 2 }}>{l.rel}</span>
-                        <span style={{ fontSize: '0.82rem', color: 'var(--accent-color)', wordBreak: 'break-all' }}>{l.href}</span>
-                      </div>
-                    ))
+                    ? <>
+                        {linkTagsTotal > 30 && (
+                          <div style={{ padding: '10px 16px', background: 'rgba(245,158,11,0.06)', borderBottom: '1px solid var(--card-border)', fontSize: '0.82rem', color: '#F59E0B' }}>
+                            <i className="fa fa-triangle-exclamation" style={{ marginRight: 6 }} />
+                            Showing first 30 of {linkTagsTotal} link tags.
+                          </div>
+                        )}
+                        {result.link_tags.map((l, i) => (
+                          <div key={i} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', padding: '10px 16px', borderBottom: i < result.link_tags.length - 1 ? '1px solid var(--card-border)' : 'none', alignItems: 'start', gap: 12 }}>
+                            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', paddingTop: 2 }}>{l.rel}</span>
+                            <span style={{ fontSize: '0.82rem', color: 'var(--accent-color)', wordBreak: 'break-all' }}>{l.href}</span>
+                          </div>
+                        ))}
+                      </>
                     : <div style={{ padding: '32px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>No link tags found.</div>
                 )}
               </div>
