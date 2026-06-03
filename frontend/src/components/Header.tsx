@@ -51,11 +51,11 @@ const Header = () => {
               <Image
                 src="/images/logo/rankspiders.png"
                 alt="Rank Spiders"
-                width={380}
-                height={110}
+                width={130}
+                height={80}
                 priority
                 className="site-logo"
-                style={{ height: '110px', width: 'auto' }}
+                style={{ height: '80px', width: 'auto' }}
               />
             </Link>
 
