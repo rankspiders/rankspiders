@@ -73,10 +73,19 @@ const TOOLS = [
     accent: '#EC4899',
     tag: null,
   },
+  {
+    name: 'Keyword Rank Tracker',
+    slug: '/tools/rank-tracker',
+    icon: 'fa-chart-line',
+    description: 'Track your Google keyword positions in real time. Set up a project, add keywords, and watch rankings appear live — with CSV export.',
+    checks: ['Live SERP positions', 'Competitor tracking', 'Position history', 'SERP features', 'CSV export'],
+    accent: '#521B89',
+    tag: 'New',
+  },
 ];
 
 const STATS = [
-  { value: '6', label: 'Free Tools', icon: 'fa-wrench' },
+  { value: '7', label: 'Free Tools', icon: 'fa-wrench' },
   { value: '100%', label: 'No Sign-Up', icon: 'fa-lock-open' },
   { value: '10+', label: 'SEO Checks', icon: 'fa-list-check' },
   { value: 'Free', label: 'Always Free', icon: 'fa-circle-check' },

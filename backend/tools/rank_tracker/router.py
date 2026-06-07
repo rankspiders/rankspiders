@@ -1,0 +1,334 @@
+import csv
+import io
+import json
+from datetime import date, datetime
+
+from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import JSONResponse, StreamingResponse
+from pydantic import BaseModel
+from sse_starlette.sse import EventSourceResponse
+
+from db import supabase
+from tools.rank_tracker.scraper import check_rank, suggest_competitors
+
+router = APIRouter()
+
+
+# ── Request models ────────────────────────────────────────────────────────────
+
+class CreateProjectRequest(BaseModel):
+    website_url: str
+    browser: str = "desktop"
+    country: str = "us"
+    country_name: str = "United States"
+    language: str = "en"
+
+
+class AddKeywordsRequest(BaseModel):
+    keywords: list[str]
+    brand_name: str = ""
+
+
+class AddCompetitorsRequest(BaseModel):
+    competitors: list[str]
+
+
+# ── Helper ────────────────────────────────────────────────────────────────────
+
+def _get_project_or_404(project_id: str) -> dict:
+    res = supabase.table("rank_projects").select("*").eq("id", project_id).execute()
+    if not res.data:
+        raise HTTPException(status_code=404, detail="Project not found")
+    return res.data[0]
+
+
+def _build_chart_data(history_rows: list[dict]) -> list[dict]:
+    by_date: dict[str, list[int]] = {}
+    for row in history_rows:
+        if row["position"] is None:
+            continue
+        d = str(row["check_date"])
+        by_date.setdefault(d, []).append(row["position"])
+    result = []
+    for d in sorted(by_date.keys()):
+        positions = by_date[d]
+        result.append({"date": d, "avg_position": round(sum(positions) / len(positions), 1)})
+    return result
+
+
+# ── 1. Create project ─────────────────────────────────────────────────────────
+
+@router.post("/projects")
+async def create_project(body: CreateProjectRequest):
+    url = body.website_url.strip()
+    if not url.startswith(("http://", "https://")):
+        url = "https://" + url
+    data = {
+        "website_url": url,
+        "browser": body.browser,
+        "country": body.country,
+        "country_name": body.country_name,
+        "language": body.language,
+        "status": "pending",
+        "created_at": datetime.utcnow().isoformat(),
+    }
+    res = supabase.table("rank_projects").insert(data).execute()
+    if not res.data:
+        raise HTTPException(status_code=500, detail="Failed to create project")
+    return {"project_id": res.data[0]["id"]}
+
+
+# ── 2. Suggest competitors ────────────────────────────────────────────────────
+
+@router.get("/competitors/suggest")
+async def suggest_competitors_endpoint(
+    url: str = Query(...),
+    country: str = Query("us"),
+):
+    try:
+        competitors = await suggest_competitors(url, country)
+        return JSONResponse({"competitors": competitors})
+    except ValueError as exc:
+        return JSONResponse({"error": str(exc)}, status_code=400)
+    except Exception as exc:
+        return JSONResponse({"error": "fetch_failed", "message": str(exc)}, status_code=500)
+
+
+# ── 3. Save competitors ───────────────────────────────────────────────────────
+
+@router.post("/projects/{project_id}/competitors")
+async def save_competitors(project_id: str, body: AddCompetitorsRequest):
+    _get_project_or_404(project_id)
+    rows = [
+        {"project_id": project_id, "url": c.strip(), "created_at": datetime.utcnow().isoformat()}
+        for c in body.competitors
+        if c.strip()
+    ]
+    if rows:
+        supabase.table("rank_competitors").insert(rows).execute()
+    return {"saved": len(rows)}
+
+
+# ── 4. Add keywords ───────────────────────────────────────────────────────────
+
+@router.post("/projects/{project_id}/keywords")
+async def add_keywords(project_id: str, body: AddKeywordsRequest):
+    _get_project_or_404(project_id)
+    brand_lower = body.brand_name.lower().strip()
+    filtered = [
+        kw.strip() for kw in body.keywords
+        if kw.strip() and not (brand_lower and brand_lower in kw.lower())
+    ]
+    seen: set[str] = set()
+    deduped = []
+    for kw in filtered:
+        if kw.lower() not in seen:
+            seen.add(kw.lower())
+            deduped.append(kw)
+    rows = [
+        {"project_id": project_id, "keyword": kw, "created_at": datetime.utcnow().isoformat()}
+        for kw in deduped
+    ]
+    if rows:
+        supabase.table("rank_keywords").insert(rows).execute()
+    return {"saved": len(rows), "excluded_by_brand": len(body.keywords) - len(filtered)}
+
+
+# ── 5. Get project with latest rankings ───────────────────────────────────────
+
+@router.get("/projects/{project_id}")
+async def get_project(project_id: str):
+    project = _get_project_or_404(project_id)
+    keywords_res = supabase.table("rank_keywords").select("*").eq("project_id", project_id).execute()
+    competitors_res = supabase.table("rank_competitors").select("*").eq("project_id", project_id).execute()
+    history_res = (
+        supabase.table("rank_history")
+        .select("*")
+        .eq("project_id", project_id)
+        .order("created_at", desc=True)
+        .execute()
+    )
+
+    latest: dict[str, dict] = {}
+    for row in (history_res.data or []):
+        kid = row["keyword_id"]
+        if kid not in latest:
+            latest[kid] = row
+
+    keywords_with_rank = []
+    for kw in (keywords_res.data or []):
+        h = latest.get(kw["id"])
+        keywords_with_rank.append({
+            **kw,
+            "position": h["position"] if h else None,
+            "ranked_url": h["ranked_url"] if h else None,
+            "serp_features": h["serp_features"] if h else [],
+            "check_date": h["check_date"] if h else None,
+        })
+
+    return JSONResponse({
+        "project": project,
+        "keywords": keywords_with_rank,
+        "competitors": competitors_res.data or [],
+        "chart_data": _build_chart_data(history_res.data or []),
+    })
+
+
+# ── 6. SSE streaming rank check ───────────────────────────────────────────────
+
+@router.get("/projects/{project_id}/stream")
+async def stream_rankings(project_id: str):
+    project = _get_project_or_404(project_id)
+    keywords_res = supabase.table("rank_keywords").select("*").eq("project_id", project_id).execute()
+    keywords = keywords_res.data or []
+
+    async def event_generator():
+        supabase.table("rank_projects").update({"status": "running"}).eq("id", project_id).execute()
+        total = len(keywords)
+
+        for idx, kw in enumerate(keywords, start=1):
+            # check_rank no longer throws — it returns an error field instead
+            rank_data = await check_rank(
+                keyword=kw["keyword"],
+                target_url=project["website_url"],
+                country=project["country"],
+                language=project["language"],
+                device=project["browser"],
+            )
+
+            # Only persist to history if the API call didn't error
+            if rank_data["error"] is None:
+                supabase.table("rank_history").insert({
+                    "project_id": project_id,
+                    "keyword_id": kw["id"],
+                    "keyword": kw["keyword"],
+                    "position": rank_data["position"],
+                    "ranked_url": rank_data["ranked_url"],
+                    "check_date": date.today().isoformat(),
+                    "serp_features": rank_data["serp_features"],
+                    "created_at": datetime.utcnow().isoformat(),
+                }).execute()
+
+            yield {
+                "event": "rank_result",
+                "data": json.dumps({
+                    "keyword_id": kw["id"],
+                    "keyword": kw["keyword"],
+                    "position": rank_data["position"],
+                    "ranked_url": rank_data["ranked_url"],
+                    "serp_features": rank_data["serp_features"],
+                    "organic_count": rank_data.get("organic_count", 0),
+                    "error": rank_data["error"],
+                }),
+            }
+            yield {"event": "progress", "data": json.dumps({"checked": idx, "total": total})}
+
+        supabase.table("rank_projects").update({"status": "done"}).eq("id", project_id).execute()
+        yield {"event": "done", "data": "{}"}
+
+    return EventSourceResponse(event_generator())
+
+
+# ── 7. CSV export ─────────────────────────────────────────────────────────────
+
+@router.get("/projects/{project_id}/export")
+async def export_csv(project_id: str):
+    project = _get_project_or_404(project_id)
+    keywords_res = supabase.table("rank_keywords").select("*").eq("project_id", project_id).execute()
+    history_res = (
+        supabase.table("rank_history")
+        .select("*")
+        .eq("project_id", project_id)
+        .order("created_at", desc=True)
+        .execute()
+    )
+
+    latest: dict[str, dict] = {}
+    for row in (history_res.data or []):
+        kid = row["keyword_id"]
+        if kid not in latest:
+            latest[kid] = row
+
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["Keyword", "Position", "Ranking URL", "SERP Features", "Check Date"])
+    for kw in (keywords_res.data or []):
+        h = latest.get(kw["id"])
+        writer.writerow([
+            kw["keyword"],
+            h["position"] if h and h["position"] else "Not Ranked",
+            h["ranked_url"] if h and h["ranked_url"] else "",
+            ", ".join(h["serp_features"]) if h and h["serp_features"] else "",
+            h["check_date"] if h else "",
+        ])
+
+    output.seek(0)
+    domain = project["website_url"].replace("https://", "").replace("http://", "").rstrip("/")
+    filename = f"rank-tracker-{domain}-{date.today().isoformat()}.csv"
+    return StreamingResponse(
+        iter([output.getvalue()]),
+        media_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+# ── 8. Debug / API test ───────────────────────────────────────────────────────
+
+@router.get("/debug")
+async def debug_rank_check(
+    keyword: str = Query(..., description="Keyword to check"),
+    url: str = Query(..., description="Target website URL"),
+    country: str = Query("us"),
+):
+    """
+    Test a single keyword+URL directly against Serper.dev.
+    Returns the full result including organic_count and error fields.
+    Also returns a sample of the top 5 organic results so you can verify
+    domain matching is working.
+    """
+    from tools.rank_tracker.scraper import _bare_domain
+    import os, httpx
+
+    api_key = os.environ.get("SERPER_API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "SERPER_API_KEY not set"}, status_code=400)
+
+    target_domain = _bare_domain(url)
+
+    # Make the raw Serper call so we can see the full response
+    headers = {"X-API-KEY": api_key, "Content-Type": "application/json"}
+    payload = {"q": keyword, "gl": country, "hl": "en", "num": 10}
+
+    try:
+        async with httpx.AsyncClient(timeout=20.0) as client:
+            resp = await client.post("https://google.serper.dev/search", headers=headers, json=payload)
+        raw = resp.json()
+    except Exception as exc:
+        return JSONResponse({"error": f"Request failed: {exc}"}, status_code=500)
+
+    if not resp.is_success:
+        return JSONResponse({"error": raw.get("message") or f"HTTP {resp.status_code}", "raw": raw}, status_code=resp.status_code)
+
+    organic = raw.get("organic", [])
+    top5 = [
+        {"position": item.get("position"), "domain": _bare_domain(item.get("link", "")), "link": item.get("link"), "title": item.get("title")}
+        for item in organic[:5]
+    ]
+
+    # Check if target domain appears in results
+    found_at = None
+    for item in organic:
+        d = _bare_domain(item.get("link", ""))
+        if d == target_domain or d.endswith("." + target_domain):
+            found_at = item.get("position")
+            break
+
+    return JSONResponse({
+        "target_domain": target_domain,
+        "keyword": keyword,
+        "country": country,
+        "organic_count": len(organic),
+        "credits_remaining": resp.headers.get("X-RateLimit-Remaining", "unknown"),
+        "target_found_at_position": found_at,
+        "top_5_results": top5,
+    })
