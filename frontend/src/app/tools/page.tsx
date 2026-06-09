@@ -29,6 +29,15 @@ const TOOLS = [
     tag: 'Most Used',
   },
   {
+    name: 'Keyword Rank Tracker',
+    slug: '/tools/rank-tracker',
+    icon: 'fa-chart-line',
+    description: 'Track your Google keyword positions in real time. Set up a project, add keywords, and watch rankings appear live — with CSV export.',
+    checks: ['Live SERP positions', 'Competitor tracking', 'Position history', 'SERP features', 'CSV export'],
+    accent: '#521B89',
+    tag: 'New',
+  },
+  {
     name: 'Page Speed Checker',
     slug: '/tools/page-speed',
     icon: 'fa-gauge-high',
@@ -72,15 +81,6 @@ const TOOLS = [
     checks: ['All meta tags', 'Open Graph', 'Twitter Card', 'JSON-LD schema', 'SEO issues report'],
     accent: '#EC4899',
     tag: null,
-  },
-  {
-    name: 'Keyword Rank Tracker',
-    slug: '/tools/rank-tracker',
-    icon: 'fa-chart-line',
-    description: 'Track your Google keyword positions in real time. Set up a project, add keywords, and watch rankings appear live — with CSV export.',
-    checks: ['Live SERP positions', 'Competitor tracking', 'Position history', 'SERP features', 'CSV export'],
-    accent: '#521B89',
-    tag: 'New',
   },
 ];
 

@@ -362,7 +362,7 @@ export default function HomeClient() {
 
                   {/* Main illustration — full, uncropped */}
                   <div className="hero-img-stage">
-                    <img src="/images/hero-image.png" alt="Rank Spiders – Digital Marketing Agency" />
+                    <img src="/images/sections/hero-image.png" alt="Rank Spiders – Digital Marketing Agency" />
                   </div>
 
                   {/* Float card 2 — bottom right */}

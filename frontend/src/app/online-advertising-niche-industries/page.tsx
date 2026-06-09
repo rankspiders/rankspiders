@@ -83,7 +83,7 @@ export default function OnlineAdvertisingNicheIndustries() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime">
-                    <img src="/images/project-marketing-image.jpg" alt="Online Advertising for Niche Industries" />
+                    <img src="/images/sections/project-marketing-image.jpg" alt="Online Advertising for Niche Industries" />
                   </figure>
                 </div>
 
@@ -114,7 +114,7 @@ export default function OnlineAdvertisingNicheIndustries() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime">
-                        <img src="/images/project-highlight-image.jpg" alt="Advertising Strategy" />
+                        <img src="/images/sections/project-highlight-image.jpg" alt="Advertising Strategy" />
                       </figure>
                     </div>
                   </div>
@@ -126,7 +126,7 @@ export default function OnlineAdvertisingNicheIndustries() {
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
                         <div className="icon-box">
-                          <img src="/images/icon-growth-counter.svg" alt="" />
+                          <img src="/images/icons/icon-growth-counter.svg" alt="" />
                         </div>
                         <div className="growth-counter-content">
                           <h3><span className="counter">150</span>+</h3>
@@ -199,7 +199,7 @@ export default function OnlineAdvertisingNicheIndustries() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="" />
               </div>
             </div>
           </div>

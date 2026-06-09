@@ -94,6 +94,16 @@ export default function Help() {
 
             <div className="col-lg-4">
               <div className="service-sidebar" style={{ position: 'sticky', top: '100px' }}>
+                <div style={{ marginBottom: '1.5rem', borderRadius: 12, overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+                  <img
+                    src="/images/sections/faqs-image.jpg"
+                    alt="Rank Spiders support team ready to answer your questions"
+                    width={400}
+                    height={260}
+                    style={{ width: '100%', height: 220, objectFit: 'cover', display: 'block' }}
+                    loading="lazy"
+                  />
+                </div>
                 <div className="sidebar-cta-box">
                   <h3>Still have questions?</h3>
                   <p>Our team is happy to help. Reach out and we&apos;ll get back to you within 24 hours.</p>

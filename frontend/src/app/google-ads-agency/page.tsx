@@ -55,7 +55,7 @@ export default function GoogleAdsAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/project-marketing-image.jpg" alt="Google Ads Agency" />
+                    <img src="/images/sections/project-marketing-image.jpg" alt="Google Ads Agency" />
                   </figure>
                 </div>
                 <div className="service-entry">
@@ -81,7 +81,7 @@ export default function GoogleAdsAgency() {
                     </div>
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/project-highlight-image.jpg" alt="" />
+                        <img src="/images/sections/project-highlight-image.jpg" alt="" />
                       </figure>
                     </div>
                   </div>
@@ -109,7 +109,7 @@ export default function GoogleAdsAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="" />
               </div>
             </div>
           </div>

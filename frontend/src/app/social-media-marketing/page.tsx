@@ -57,7 +57,7 @@ export default function SocialMediaMarketing() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime">
-                    <img src="/images/digital-advantage-img-2.jpg" alt="Social Media Marketing Agency" />
+                    <img src="/images/sections/digital-advantage-img-2.jpg" alt="Social Media Marketing Agency" />
                   </figure>
                 </div>
 
@@ -88,7 +88,7 @@ export default function SocialMediaMarketing() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime">
-                        <img src="/images/work-image-1.jpg" alt="Social Media Strategy" />
+                        <img src="/images/sections/work-image-1.jpg" alt="Social Media Strategy" />
                       </figure>
                     </div>
                   </div>
@@ -107,7 +107,7 @@ export default function SocialMediaMarketing() {
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
                         <div className="icon-box">
-                          <img src="/images/icon-growth-counter.svg" alt="" />
+                          <img src="/images/icons/icon-growth-counter.svg" alt="" />
                         </div>
                         <div className="growth-counter-content">
                           <h3><span className="counter">200</span>+</h3>
@@ -135,12 +135,12 @@ export default function SocialMediaMarketing() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime">
-                          <img src="/images/gallery1.jpg" alt="" />
+                          <img src="/images/gallery/gallery1.jpg" alt="" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime">
-                          <img src="/images/gallery2.jpg" alt="" />
+                          <img src="/images/gallery/gallery2.jpg" alt="" />
                         </figure>
                       </div>
                     </div>
@@ -186,7 +186,7 @@ export default function SocialMediaMarketing() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="" />
               </div>
             </div>
           </div>

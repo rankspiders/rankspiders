@@ -68,11 +68,11 @@ export default function WoocommerceSeoAgency() {
       <div className="our-scrolling-ticker">
         <div className="scrolling-ticker-box">
           <div className="scrolling-content">
-            <span><img src="/images/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function WoocommerceSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/project-3.jpg" alt="" />
+                    <img src="/images/projects/project-3.jpg" alt="" />
                   </figure>
                 </div>
                 
@@ -120,7 +120,7 @@ export default function WoocommerceSeoAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/project-4.jpg" alt="" />
+                        <img src="/images/projects/project-4.jpg" alt="" />
                       </figure>
                     </div>
                   </div>
@@ -137,7 +137,7 @@ export default function WoocommerceSeoAgency() {
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
                         <div className="icon-box">
-                          <img src="/images/icon-growth-counter.svg" alt="" />
+                          <img src="/images/icons/icon-growth-counter.svg" alt="" />
                         </div>
                         <div className="growth-counter-content">
                           <h3><span className="counter">120</span>K+</h3>
@@ -165,12 +165,12 @@ export default function WoocommerceSeoAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/project-3.jpg" alt="" />
+                          <img src="/images/projects/project-3.jpg" alt="" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/project-4.jpg" alt="" />
+                          <img src="/images/projects/project-4.jpg" alt="" />
                         </figure>
                       </div>
                     </div>
@@ -212,7 +212,7 @@ export default function WoocommerceSeoAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="" />
               </div>
             </div>
           </div>

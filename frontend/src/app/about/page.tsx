@@ -7,31 +7,31 @@ import MotionWrapper from '@/components/MotionWrapper';
 
 const missionItems = [
   {
-    img: '/images/mission.png',
+    img: '/images/sections/mission.png',
     title: 'Our Mission',
     text: 'To empower businesses with cutting-edge SEO and digital marketing strategies that drive measurable, sustainable growth in an ever-evolving online landscape.',
   },
   {
-    img: '/images/vision.png',
+    img: '/images/sections/vision.png',
     title: 'Our Vision',
     text: 'To become the world\'s most trusted digital marketing partner — recognized for transforming brands through innovation, integrity, and results that actually matter.',
   },
   {
-    img: '/images/values.png',
+    img: '/images/sections/values.png',
     title: 'Our Values',
     text: 'Transparency, accountability, continuous learning, and a client-first mindset. These aren\'t just words — they define how we work every single day.',
   },
 ];
 
 const teamMembers = [
-  { img: '/images/team-1.png', name: 'Harpreet Singh', role: 'Founder & CEO' },
-  { img: '/images/team-2.png', name: 'Brooklyn Simmons', role: 'SEO Strategist' },
-  { img: '/images/team-3.png', name: 'Rahul Sharma', role: 'Content Head' },
-  { img: '/images/team-4.png', name: 'Priya Mehra', role: 'PPC Manager' },
-  { img: '/images/team-5.png', name: 'Arjun Nair', role: 'Social Media Lead' },
-  { img: '/images/team-6.png', name: 'Sneha Kapoor', role: 'Web Designer' },
-  { img: '/images/team-7.png', name: 'Vikram Joshi', role: 'Link Building Expert' },
-  { img: '/images/team-8.png', name: 'Anjali Verma', role: 'Analytics Manager' },
+  { img: '/images/team/team-1.png', name: 'Harpreet Singh', role: 'Founder & CEO' },
+  { img: '/images/team/team-2.png', name: 'Brooklyn Simmons', role: 'SEO Strategist' },
+  { img: '/images/team/team-3.png', name: 'Rahul Sharma', role: 'Content Head' },
+  { img: '/images/team/team-4.png', name: 'Priya Mehra', role: 'PPC Manager' },
+  { img: '/images/team/team-5.png', name: 'Arjun Nair', role: 'Social Media Lead' },
+  { img: '/images/team/team-6.png', name: 'Sneha Kapoor', role: 'Web Designer' },
+  { img: '/images/team/team-7.png', name: 'Vikram Joshi', role: 'Link Building Expert' },
+  { img: '/images/team/team-8.png', name: 'Anjali Verma', role: 'Analytics Manager' },
 ];
 
 export default function About() {
@@ -51,7 +51,7 @@ export default function About() {
               <div className="about-image">
                 <figure className="image-anime reveal">
                   <Image
-                    src="/images/about-us-image-1.png"
+                    src="/images/sections/about-us-image-1.png"
                     alt="About Rank Spiders"
                     width={560}
                     height={620}
@@ -81,7 +81,7 @@ export default function About() {
                 <div className="about-details wow fadeInUp" data-wow-delay="0.6s">
                   <div className="about-item">
                     <div className="icon-box">
-                      <img src="/images/icon-about-counter-1.svg" alt="" />
+                      <img src="/images/icons/icon-about-counter-1.svg" alt="" />
                     </div>
                     <div className="about-text">
                       <h3>Our Mission</h3>
@@ -90,7 +90,7 @@ export default function About() {
                   </div>
                   <div className="about-item">
                     <div className="icon-box">
-                      <img src="/images/icon-about-counter-2.svg" alt="" />
+                      <img src="/images/icons/icon-about-counter-2.svg" alt="" />
                     </div>
                     <div className="about-text">
                       <h3>Our Vision</h3>
@@ -174,7 +174,7 @@ export default function About() {
             <div className="col-lg-6">
               <div className="why-choose-img wow fadeInUp" data-wow-delay="0.2s">
                 <figure>
-                  <img src="/images/why-choose-image.png" alt="" />
+                  <img src="/images/sections/why-choose-image.png" alt="" />
                 </figure>
               </div>
             </div>

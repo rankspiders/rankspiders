@@ -10,42 +10,42 @@ const servicesList = [
     title: "SEO Optimisation",
     description: "Position your brand as a credible, high-trust authority across search ecosystems. Technical, on-page, and off-page SEO that compounds over time.",
     link: "/seo-agency-india",
-    image: "/images/service-circle-img-1.png",
+    image: "/images/sections/service-circle-img-1.png",
     icon: "fa-solid fa-magnifying-glass-chart",
   },
   {
     title: "Web Design & Development",
     description: "Build fast, scalable, and conversion-focused websites tailored to your brand. WordPress, Shopify, and custom builds.",
     link: "/web-design-and-development-agency",
-    image: "/images/service-circle-img-2.png",
+    image: "/images/sections/service-circle-img-2.png",
     icon: "fa-solid fa-code",
   },
   {
     title: "Social Media Marketing",
     description: "Amplify your brand voice, grow an engaged audience, and turn social followers into paying customers across every platform.",
     link: "/social-media-marketing",
-    image: "/images/service-circle-img-3.png",
+    image: "/images/sections/service-circle-img-3.png",
     icon: "fa-brands fa-instagram",
   },
   {
     title: "Paid Advertising",
     description: "Drive targeted traffic and accelerate conversions with precision Google Ads, Meta Ads, and LinkedIn ad campaigns.",
     link: "/online-advertising-agency",
-    image: "/images/service-circle-img-4.png",
+    image: "/images/sections/service-circle-img-4.png",
     icon: "fa-solid fa-chart-line",
   },
   {
     title: "Content Marketing",
     description: "Build brand authority with strategic content — blog posts, landing pages, and articles engineered to rank and convert.",
     link: "/content-marketing-agency",
-    image: "/images/service-circle-img-5.png",
+    image: "/images/sections/service-circle-img-5.png",
     icon: "fa-solid fa-pen-nib",
   },
   {
     title: "Consultancy",
     description: "Get expert guidance on your digital strategy. We audit, advise, and roadmap your growth — whether you need SEO, ads, or full-funnel consulting.",
     link: "/consultancy-agency",
-    image: "/images/service-circle-img-6.png",
+    image: "/images/sections/service-circle-img-6.png",
     icon: "fa-solid fa-handshake",
   },
 ];
@@ -193,7 +193,7 @@ export default function Services() {
             <div className="col-lg-6">
               <div className="offer-image-box wow fadeInUp" data-wow-delay="0.2s">
                 <figure>
-                  <img src="/images/offer-image.png" alt="Digital Marketing Services" />
+                  <img src="/images/sections/offer-image.png" alt="Digital Marketing Services" />
                 </figure>
               </div>
             </div>

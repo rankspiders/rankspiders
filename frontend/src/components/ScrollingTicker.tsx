@@ -15,7 +15,7 @@ const ScrollingTicker = () => {
         <div className="scrolling-content">
           {items.concat(items).map((item, index) => (
             <span key={index}>
-              <img src="/images/icon-sparkle.svg" alt="" />
+              <img src="/images/icons/icon-sparkle.svg" alt="" />
               {item}
             </span>
           ))}
@@ -23,7 +23,7 @@ const ScrollingTicker = () => {
         <div className="scrolling-content">
           {items.concat(items).map((item, index) => (
             <span key={index}>
-              <img src="/images/icon-sparkle.svg" alt="" />
+              <img src="/images/icons/icon-sparkle.svg" alt="" />
               {item}
             </span>
           ))}

@@ -24,13 +24,13 @@ const Sidebar = () => {
         <div className="page-cta-header">
           <div className="review-images">
             <div className="review-image">
-              <img src="/images/author-1.jpg" alt="" />
+              <img src="/images/authors/author-1.jpg" alt="" />
             </div>
             <div className="review-image">
-              <img src="/images/author-2.jpg" alt="" />
+              <img src="/images/authors/author-2.jpg" alt="" />
             </div>
             <div className="review-image">
-              <img src="/images/author-3.jpg" alt="" />
+              <img src="/images/authors/author-3.jpg" alt="" />
             </div>
           </div>
           <div className="review-rating-content">
@@ -51,7 +51,7 @@ const Sidebar = () => {
           </div>
           <div className="page-cta-btn">
             <a href="tel:+919988357092">
-              <img src="/images/icon-phone-white.svg" alt="" /> +91 99883-57092
+              <img src="/images/icons/icon-phone-white.svg" alt="" /> +91 99883-57092
             </a>
           </div>
         </div>

@@ -4,6 +4,9 @@ import { useCallback, useRef, useState } from 'react';
 import {
   LineChart,
   Line,
+  BarChart,
+  Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -30,6 +33,37 @@ interface Keyword {
 interface ChartPoint {
   date: string;
   avg_position: number;
+}
+
+interface SuggestedKeyword {
+  phrase: string;
+  type: 'single' | 'bigram' | 'trigram';
+  count: number;
+  density: number;
+  in_title?: boolean;
+  in_h1?: boolean;
+  in_h2?: boolean;
+  score: number;
+}
+
+interface KeywordSuggestions {
+  single: SuggestedKeyword[];
+  bigram: SuggestedKeyword[];
+  trigram: SuggestedKeyword[];
+}
+
+interface ReportBreakdown {
+  top3: number;
+  top10: number;
+  top30: number;
+  top100: number;
+  not_ranked: number;
+  total: number;
+}
+
+interface ReportData {
+  score: number;
+  breakdown: ReportBreakdown;
 }
 
 type Mode = 'wizard' | 'tracking' | 'dashboard';
@@ -91,6 +125,30 @@ const badgeStyle: React.CSSProperties = {
   letterSpacing: 0.2,
 };
 
+function VisibilityScoreRing({ score, color }: { score: number; color: string }) {
+  const r = 54;
+  const circ = 2 * Math.PI * r;
+  const offset = circ * (1 - score / 100);
+  const label = score >= 80 ? 'Strong' : score >= 50 ? 'Building' : 'Weak';
+  return (
+    <div className="audit-score-ring">
+      <svg width="136" height="136" viewBox="0 0 136 136">
+        <circle cx="68" cy="68" r={r} className="score-ring-track" />
+        <circle
+          cx="68" cy="68" r={r}
+          className="score-ring-fill"
+          style={{ stroke: color, strokeDasharray: circ, strokeDashoffset: offset, transition: 'stroke-dashoffset 0.8s ease' }}
+        />
+      </svg>
+      <div className="audit-score-inner">
+        <span className="audit-score-num" style={{ color }}>{score}</span>
+        <span className="audit-score-label" style={{ color }}>{label}</span>
+        <span className="audit-score-sub">/ 100</span>
+      </div>
+    </div>
+  );
+}
+
 // ── Main component ─────────────────────────────────────────────────────────────
 
 export default function RankTrackerClient() {
@@ -116,6 +174,13 @@ export default function RankTrackerClient() {
   const [excludeBrand, setExcludeBrand] = useState(false);
   const [brandName, setBrandName] = useState('');
 
+  // Step 3 — keyword suggestions
+  const [keywordSuggestions, setKeywordSuggestions] = useState<KeywordSuggestions | null>(null);
+  const [selectedSuggestions, setSelectedSuggestions] = useState<Set<string>>(new Set());
+  const [loadingSuggestions, setLoadingSuggestions] = useState(false);
+  const [suggestionsError, setSuggestionsError] = useState('');
+  const [suggestionsFetched, setSuggestionsFetched] = useState(false);
+
   // Tracking / dashboard
   const [keywords, setKeywords] = useState<Keyword[]>([]);
   const [checked, setChecked] = useState(0);
@@ -123,6 +188,8 @@ export default function RankTrackerClient() {
   const [chartData, setChartData] = useState<ChartPoint[]>([]);
   const [competitors, setCompetitors] = useState<string[]>([]);
   const [projectUrl, setProjectUrl] = useState('');
+  const [reportData, setReportData] = useState<ReportData | null>(null);
+  const [dashboardTab, setDashboardTab] = useState<'overview' | 'report'>('overview');
 
   // Filters & sort for dashboard table
   const [posFilter, setPosFilter] = useState<'all' | 'top3' | 'top10' | 'top30' | 'top100' | 'unranked'>('all');
@@ -187,6 +254,42 @@ export default function RankTrackerClient() {
       if (next.has(domain)) next.delete(domain); else next.add(domain);
       return next;
     });
+  };
+
+  // ── Keyword suggestions (Step 3) ─────────────────────────────────────────────
+
+  const fetchKeywordSuggestions = async () => {
+    setLoadingSuggestions(true);
+    setSuggestionsError('');
+    try {
+      const res = await fetch(`${API}/api/tools/rank/projects/${projectId}/keywords/suggest`);
+      const data = await res.json();
+      if (!res.ok || data.error) { setSuggestionsError(data.message || 'Could not generate suggestions for this site.'); return; }
+      setKeywordSuggestions(data.suggestions);
+    } catch {
+      setSuggestionsError('Could not reach the server.');
+    } finally {
+      setLoadingSuggestions(false);
+      setSuggestionsFetched(true);
+    }
+  };
+
+  const toggleSuggestion = (phrase: string) => {
+    setSelectedSuggestions(prev => {
+      const next = new Set(prev);
+      if (next.has(phrase)) next.delete(phrase); else next.add(phrase);
+      return next;
+    });
+  };
+
+  const addSelectedSuggestions = () => {
+    if (selectedSuggestions.size === 0) return;
+    setKeywordsText(prev => {
+      const existing = prev.trim() ? prev.trim().split('\n') : [];
+      const merged = [...new Set([...existing, ...selectedSuggestions])];
+      return merged.join('\n');
+    });
+    setSelectedSuggestions(new Set());
   };
 
   const addManualCompetitor = () => {
@@ -324,6 +427,7 @@ export default function RankTrackerClient() {
       if (res.ok) {
         setChartData(data.chart_data || []);
         setCompetitors((data.competitors || []).map((c: { url: string }) => c.url));
+        setReportData(data.report || null);
       }
     } finally {
       setMode('dashboard');
@@ -338,6 +442,24 @@ export default function RankTrackerClient() {
   const top10 = keywords.filter(k => k.position !== null && k.position <= 10).length;
   const top30 = keywords.filter(k => k.position !== null && k.position <= 30).length;
   const notRanked = keywords.filter(k => k.position === null).length;
+
+  // ── Visibility report — derived presentation data ────────────────────────────
+
+  const reportScoreColor = reportData
+    ? (reportData.score >= 80 ? '#10B981' : reportData.score >= 50 ? '#F59E0B' : '#EF4444')
+    : '#9CA3AF';
+
+  const reportTiers = reportData ? ([
+    { key: 'top3' as const, label: 'Top 3', icon: 'fa-trophy', color: '#059669', note: 'Prime real estate — these keywords drive the bulk of your organic clicks.' },
+    { key: 'top10' as const, label: 'Top 10', icon: 'fa-medal', color: '#2563EB', note: 'On page one. A focused push could move these into the top 3.' },
+    { key: 'top30' as const, label: 'Top 30', icon: 'fa-star', color: '#D97706', note: 'On page two or three. On-page and content improvements can lift these further.' },
+    { key: 'top100' as const, label: 'Top 100', icon: 'fa-magnifying-glass', color: '#7C3AED', note: 'Ranking, but buried beyond page three. Needs stronger content and links to climb.' },
+    { key: 'not_ranked' as const, label: 'Not Ranked', icon: 'fa-circle-xmark', color: '#9CA3AF', note: 'Outside the top 100 — or not yet indexed for these terms.' },
+  ]).map(t => ({
+    ...t,
+    count: reportData.breakdown[t.key],
+    pct: reportData.breakdown.total ? Math.round((reportData.breakdown[t.key] / reportData.breakdown.total) * 100) : 0,
+  })) : [];
 
   const filteredKeywords = keywords
     .filter(k => {
@@ -386,9 +508,16 @@ export default function RankTrackerClient() {
     setKeywordsText('');
     setExcludeBrand(false);
     setBrandName('');
+    setKeywordSuggestions(null);
+    setSelectedSuggestions(new Set());
+    setLoadingSuggestions(false);
+    setSuggestionsError('');
+    setSuggestionsFetched(false);
     setKeywords([]);
     setChartData([]);
     setCompetitors([]);
+    setReportData(null);
+    setDashboardTab('overview');
     setError('');
   };
 
@@ -596,6 +725,86 @@ export default function RankTrackerClient() {
                 <p style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 20 }}>
                   Type one keyword per line, or import from a CSV file.
                 </p>
+
+                {/* Auto keyword suggestions */}
+                <div style={{ marginBottom: 20 }}>
+                  {!keywordSuggestions && !loadingSuggestions && !suggestionsError && (
+                    <button onClick={fetchKeywordSuggestions} style={{ ...ghostBtnStyle, width: '100%' }}>
+                      <i className="fa-solid fa-wand-magic-sparkles" style={{ marginRight: 6 }}></i>
+                      Get keyword suggestions from your homepage
+                    </button>
+                  )}
+
+                  {loadingSuggestions && (
+                    <div style={{ textAlign: 'center', padding: '1.25rem 0', color: 'var(--text-muted)', background: 'var(--bg-secondary)', borderRadius: 10, fontSize: 14 }}>
+                      <span style={{ ...spinnerStyle, border: '2.5px solid var(--accent-color)', borderTopColor: 'transparent', width: 16, height: 16, marginRight: 8 }}></span>
+                      Analyzing your homepage content...
+                    </div>
+                  )}
+
+                  {suggestionsError && !loadingSuggestions && (
+                    <div style={{ background: '#FEF2F2', border: '1px solid #FECACA', color: '#DC2626', padding: '10px 14px', borderRadius: 8, fontSize: 13 }}>
+                      <i className="fa-solid fa-circle-exclamation" style={{ marginRight: 8 }}></i>{suggestionsError}
+                    </div>
+                  )}
+
+                  {keywordSuggestions && !loadingSuggestions && (
+                    (keywordSuggestions.single.length + keywordSuggestions.bigram.length + keywordSuggestions.trigram.length) === 0 ? (
+                      <div style={{ color: 'var(--text-muted)', fontSize: 13, padding: '12px 14px', background: 'var(--bg-secondary)', borderRadius: 8 }}>
+                        No strong keyword candidates found on this page — try adding keywords manually below.
+                      </div>
+                    ) : (
+                      <div style={{ border: '1px solid var(--card-border)', borderRadius: 12, padding: 16, background: 'var(--bg-secondary)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+                          <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-color)' }}>
+                            <i className="fa-solid fa-wand-magic-sparkles" style={{ marginRight: 6, color: 'var(--accent-color)' }}></i>
+                            Suggested from your homepage
+                          </span>
+                          {selectedSuggestions.size > 0 && (
+                            <button onClick={addSelectedSuggestions} style={{ ...primaryBtnStyle, padding: '7px 14px', fontSize: 12 }}>
+                              <i className="fa-solid fa-plus" style={{ marginRight: 6 }}></i>
+                              Add {selectedSuggestions.size} selected
+                            </button>
+                          )}
+                        </div>
+                        {(['single', 'bigram', 'trigram'] as const).map(type => {
+                          const items = keywordSuggestions[type];
+                          if (items.length === 0) return null;
+                          const groupLabel = type === 'single' ? 'Single Keywords' : type === 'bigram' ? '2-Word Phrases' : '3-Word Phrases';
+                          return (
+                            <div key={type} style={{ marginBottom: 14 }}>
+                              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 0.4, color: 'var(--text-muted)', marginBottom: 8 }}>
+                                {groupLabel}
+                              </div>
+                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                {items.map(s => (
+                                  <label key={`${type}-${s.phrase}`} style={{
+                                    display: 'inline-flex', alignItems: 'center', gap: 7, padding: '7px 12px',
+                                    background: selectedSuggestions.has(s.phrase) ? 'rgba(82,27,137,0.06)' : 'var(--card-bg)',
+                                    border: `1.5px solid ${selectedSuggestions.has(s.phrase) ? 'var(--accent-color)' : 'var(--card-border)'}`,
+                                    borderRadius: 20, cursor: 'pointer', transition: 'all 0.15s',
+                                  }}>
+                                    <input
+                                      type="checkbox"
+                                      checked={selectedSuggestions.has(s.phrase)}
+                                      onChange={() => toggleSuggestion(s.phrase)}
+                                      style={{ accentColor: 'var(--accent-color)', width: 14, height: 14, flexShrink: 0 }}
+                                    />
+                                    <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-color)' }}>{s.phrase}</span>
+                                    <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>{s.density}%</span>
+                                    {s.in_title && <span style={{ fontSize: 10, fontWeight: 700, color: '#2563EB', background: '#EFF6FF', padding: '1px 6px', borderRadius: 8 }}>Title</span>}
+                                    {s.in_h1 && <span style={{ fontSize: 10, fontWeight: 700, color: '#2563EB', background: '#EFF6FF', padding: '1px 6px', borderRadius: 8 }}>H1</span>}
+                                    {s.in_h2 && <span style={{ fontSize: 10, fontWeight: 700, color: '#2563EB', background: '#EFF6FF', padding: '1px 6px', borderRadius: 8 }}>H2</span>}
+                                  </label>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )
+                  )}
+                </div>
 
                 <div style={{ position: 'relative', marginBottom: 8 }}>
                   <textarea
@@ -806,6 +1015,27 @@ export default function RankTrackerClient() {
               </div>
             </div>
 
+            {/* Dashboard tab switcher */}
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
+              {([
+                ['overview', 'Overview', 'fa-table-cells-large'],
+                ['report', 'Visibility Report', 'fa-chart-pie'],
+              ] as const).map(([key, label, icon]) => (
+                <button key={key} onClick={() => setDashboardTab(key)} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '9px 18px', borderRadius: 20, fontSize: 14, fontWeight: 700, cursor: 'pointer', border: 'none',
+                  background: dashboardTab === key ? 'var(--accent-color)' : 'var(--bg-secondary)',
+                  color: dashboardTab === key ? '#fff' : 'var(--text-muted)',
+                  transition: 'all 0.15s',
+                }}>
+                  <i className={`fa-solid ${icon}`}></i>
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            {dashboardTab === 'overview' && (
+              <>
             {/* API error banner */}
             {keywords.some(k => k.errorMsg) && (
               <div style={{ background: '#FEF2F2', border: '1px solid #FECACA', color: '#DC2626', padding: '12px 16px', borderRadius: 10, marginBottom: 20, fontSize: 14 }}>
@@ -988,6 +1218,81 @@ export default function RankTrackerClient() {
                   ))}
                 </div>
               </div>
+            )}
+              </>
+            )}
+
+            {dashboardTab === 'report' && (
+              <>
+                {!reportData || reportData.breakdown.total === 0 ? (
+                  <div style={{ ...cardStyle, textAlign: 'center', padding: '2.5rem' }}>
+                    <i className="fa-solid fa-chart-pie" style={{ fontSize: 28, color: 'var(--card-border)', marginBottom: 8, display: 'block' }}></i>
+                    <p style={{ color: 'var(--text-muted)', fontSize: 14, margin: 0 }}>
+                      {reportData ? 'Add keywords and track them to generate your visibility report.' : 'Run a tracking pass to generate your visibility report.'}
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    {/* Score hero */}
+                    <div className="audit-overview-card">
+                      <VisibilityScoreRing score={reportData.score} color={reportScoreColor} />
+                      <div className="audit-overview-meta">
+                        <p className="audit-overview-url">Visibility Score</p>
+                        <p style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6, maxWidth: 480, marginBottom: 12 }}>
+                          Based on {reportData.breakdown.total} tracked keyword{reportData.breakdown.total === 1 ? '' : 's'} — top-3 rankings count fully, top-10 at 60%, top-30 at 30%, top-100 at 10%, and unranked keywords count for nothing.
+                        </p>
+                        <div className="audit-overview-stats">
+                          <span className="audit-stat-chip" style={{ color: '#059669' }}>
+                            <i className="fa-solid fa-trophy"></i> {reportData.breakdown.top3} in Top 3
+                          </span>
+                          <span className="audit-stat-chip" style={{ color: 'var(--text-muted)' }}>
+                            <i className="fa-solid fa-chart-line"></i> Avg position {avgPos !== null ? `#${avgPos}` : '—'}
+                          </span>
+                          <span className="audit-stat-chip" style={{ color: '#2563EB' }}>
+                            <i className="fa-solid fa-magnifying-glass-chart"></i> Live Google SERP data — checked against the top 10 organic results per keyword, refreshed every run
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Position distribution chart */}
+                    <div style={{ ...cardStyle, marginBottom: 24 }}>
+                      <h3 style={sectionHeadingStyle}><i className="fa-solid fa-chart-simple" style={{ marginRight: 8, color: 'var(--accent-color)' }}></i>Position Distribution</h3>
+                      <p style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 16 }}>How your tracked keywords are spread across Google&apos;s ranking tiers.</p>
+                      <ResponsiveContainer width="100%" height={220}>
+                        <BarChart data={reportTiers} margin={{ top: 4, right: 16, left: 0, bottom: 4 }}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="var(--card-border)" vertical={false} />
+                          <XAxis dataKey="label" tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
+                          <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
+                          <Tooltip
+                            contentStyle={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 8, fontSize: 13 }}
+                            formatter={(v) => [`${v} keyword${v === 1 ? '' : 's'}`, 'Count']}
+                          />
+                          <Bar dataKey="count" radius={[6, 6, 0, 0]}>
+                            {reportTiers.map(t => <Cell key={t.label} fill={t.color} />)}
+                          </Bar>
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+
+                    {/* Tier breakdown cards */}
+                    <div className="audit-checks-grid">
+                      {reportTiers.map(tier => (
+                        <div key={tier.label} className="audit-check-card" style={{ borderLeftColor: tier.color }}>
+                          <div className="audit-check-header">
+                            <span className="audit-check-badge" style={{ background: tier.color + '20', color: tier.color }}>
+                              <i className={`fa-solid ${tier.icon}`}></i>
+                            </span>
+                            <span className="audit-check-label">{tier.label}</span>
+                            <span className="audit-check-status" style={{ color: tier.color }}>{tier.count} · {tier.pct}%</span>
+                          </div>
+                          <p className="audit-check-detail">{tier.note}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </>
             )}
 
           </div>

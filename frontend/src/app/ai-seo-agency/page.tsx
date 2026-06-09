@@ -59,11 +59,11 @@ export default function AiSeoAgency() {
       <div className="our-scrolling-ticker">
         <div className="scrolling-ticker-box">
           <div className="scrolling-content">
-            <span><img src="/images/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
           </div>
         </div>
       </div>
@@ -92,9 +92,9 @@ export default function AiSeoAgency() {
                 <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
                   <div className="page-cta-header">
                     <div className="review-images">
-                      <div className="review-image"><img src="/images/author-1.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/author-2.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/author-3.jpg" alt="" /></div>
+                      <div className="review-image"><img src="/images/authors/author-1.jpg" alt="" /></div>
+                      <div className="review-image"><img src="/images/authors/author-2.jpg" alt="" /></div>
+                      <div className="review-image"><img src="/images/authors/author-3.jpg" alt="" /></div>
                     </div>
                     <div className="review-rating-content">
                       <p><span>2.5k</span> Positive Review in our solutions</p>
@@ -113,7 +113,7 @@ export default function AiSeoAgency() {
                       </div>
                     </div>
                     <div className="page-cta-btn">
-                      <a href="tel:+919988357092"><img src="/images/icon-phone-white.svg" alt="" /> +91 99883-57092</a>
+                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="" /> +91 99883-57092</a>
                     </div>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function AiSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/digital-advantage-img-1.jpg" alt="" />
+                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="" />
                   </figure>
                 </div>
 
@@ -154,7 +154,7 @@ export default function AiSeoAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/project-marketing-image.jpg" alt="" />
+                        <img src="/images/sections/project-marketing-image.jpg" alt="" />
                       </figure>
                     </div>
                   </div>
@@ -166,7 +166,7 @@ export default function AiSeoAgency() {
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
                         <div className="icon-box">
-                          <img src="/images/icon-growth-counter.svg" alt="" />
+                          <img src="/images/icons/icon-growth-counter.svg" alt="" />
                         </div>
                         <div className="growth-counter-content">
                           <h3><span className="counter">120</span>K+</h3>
@@ -210,7 +210,7 @@ export default function AiSeoAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="" />
               </div>
             </div>
           </div>

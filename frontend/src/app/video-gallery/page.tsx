@@ -5,15 +5,15 @@ import PageHeader from '@/components/PageHeader';
 
 export default function VideoGallery() {
   const videos = [
-    { src: 'https://rankspiders.com/images/video1.mp4', poster: '/images/gallery1.jpg', delay: '0.2s' },
-    { src: 'https://rankspiders.com/images/video2.mp4', poster: '/images/gallery2.jpg', delay: '0.4s' },
-    { src: 'https://rankspiders.com/images/video3.mp4', poster: '/images/gallery3.jpg', delay: '0.6s' },
-    { src: 'https://rankspiders.com/images/video4.mp4', poster: '/images/gallery4.jpg', delay: '0.8s' },
-    { src: 'https://rankspiders.com/images/video5.mp4', poster: '/images/gallery5.jpg', delay: '1s' },
-    { src: 'https://rankspiders.com/images/video6.mp4', poster: '/images/gallery6.jpg', delay: '1.2s' },
-    { src: 'https://rankspiders.com/images/video7.mp4', poster: '/images/gallery7.jpg', delay: '1.4s' },
-    { src: 'https://rankspiders.com/images/video8.mp4', poster: '/images/gallery8.jpg', delay: '1.6s' },
-    { src: 'https://rankspiders.com/images/video9.mp4', poster: '/images/gallery9.jpg', delay: '1.8s' }
+    { src: 'https://rankspiders.com/images/videos/video1.mp4', poster: '/images/gallery/gallery1.jpg', delay: '0.2s' },
+    { src: 'https://rankspiders.com/images/videos/video2.mp4', poster: '/images/gallery/gallery2.jpg', delay: '0.4s' },
+    { src: 'https://rankspiders.com/images/videos/video3.mp4', poster: '/images/gallery/gallery3.jpg', delay: '0.6s' },
+    { src: 'https://rankspiders.com/images/videos/video4.mp4', poster: '/images/gallery/gallery4.jpg', delay: '0.8s' },
+    { src: 'https://rankspiders.com/images/videos/video5.mp4', poster: '/images/gallery/gallery5.jpg', delay: '1s' },
+    { src: 'https://rankspiders.com/images/videos/video6.mp4', poster: '/images/gallery/gallery6.jpg', delay: '1.2s' },
+    { src: 'https://rankspiders.com/images/videos/video7.mp4', poster: '/images/gallery/gallery7.jpg', delay: '1.4s' },
+    { src: 'https://rankspiders.com/images/videos/video8.mp4', poster: '/images/gallery/gallery8.jpg', delay: '1.6s' },
+    { src: 'https://rankspiders.com/images/videos/video9.mp4', poster: '/images/gallery/gallery9.jpg', delay: '1.8s' }
   ];
 
   return (
@@ -30,11 +30,11 @@ export default function VideoGallery() {
       <div className="our-scrolling-ticker">
         <div className="scrolling-ticker-box">
           <div className="scrolling-content">
-            <span><img src="/images/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
+            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
           </div>
         </div>
       </div>

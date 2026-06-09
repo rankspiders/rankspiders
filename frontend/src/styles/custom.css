@@ -1376,14 +1376,14 @@ header.main-header .header-sticky.active.hide{
 
 .hero{
 	position: relative;
-	background: url('/images/hero-section-bg.png') no-repeat top center;
+	background: url('/images/backgrounds/hero-section-bg.png') no-repeat top center;
 	background-size: cover;
 	padding: 210px 0 0;
 }
 
 .hero.hero-bg-image{
 	position: relative;
-	background: url('/images/hero-bg.jpg') no-repeat;
+	background: url('/images/backgrounds/hero-bg.jpg') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	border: none;
@@ -1537,7 +1537,7 @@ header.main-header .header-sticky.active.hide{
 	top: -40%;
 	left: 0;
 	right: 0;
-	background: url('/images/hero-image-bg.png') no-repeat top center;
+	background: url('/images/backgrounds/hero-image-bg.png') no-repeat top center;
 	background-size: cover;
     width: 620px;
     height: 620px;
@@ -1738,13 +1738,13 @@ header.main-header .header-sticky.active.hide{
 }
 
 .about-title-box .section-title h2 .about-title-img-1 img{
-	mask-image: url('/images/about-title-img-mask-1.svg');
-    background-image: url('/images/about-title-img-mask-1.svg');
+	mask-image: url('/images/icons/about-title-img-mask-1.svg');
+    background-image: url('/images/icons/about-title-img-mask-1.svg');
 }
 
 .about-title-box .section-title h2 .about-title-img-2 img{
-	mask-image: url('/images/about-title-img-mask-2.svg');
-    background-image: url('/images/about-title-img-mask-2.svg');
+	mask-image: url('/images/icons/about-title-img-mask-2.svg');
+    background-image: url('/images/icons/about-title-img-mask-2.svg');
 }
 
 .about-us-btn{
@@ -1752,7 +1752,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .about-us-item{
-	background: var(--secondary-color) url('/images/about-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/about-item-bg.png') no-repeat;
 	background-size: auto;
 	background-position: top left;
 	border-radius: 30px;
@@ -2370,7 +2370,7 @@ header.main-header .header-sticky.active.hide{
 /************************************/
 
 .ready-to-talk-section.bg-section{
-	background: var(--secondary-color) url('/images/ready-to-talk-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/ready-to-talk-bg.png') no-repeat;
     background-position: center center;
     background-size: cover;
 	padding: 130px 60px;
@@ -2518,7 +2518,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .benefit-item-list{
-	background: var(--secondary-color) url('/images/benefit-box-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/benefit-box-bg.png') no-repeat;
     background-size: cover;
     background-position: center center;
 	border: 1px solid var(--divider-color);
@@ -2611,7 +2611,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .fact-box-1{
-	background: var(--secondary-color) url('/images/benefit-box-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/benefit-box-bg.png') no-repeat;
     background-size: cover;
     background-position: center center;
 	border: 1px solid var(--divider-color);
@@ -2652,7 +2652,7 @@ header.main-header .header-sticky.active.hide{
 	position: absolute;
 	top: -120px;
 	left: 50px;
-	background: url('/images/fact-image-bg.png') no-repeat top center;
+	background: url('/images/backgrounds/fact-image-bg.png') no-repeat top center;
 	background-size: cover;
 	width: 400px;
 	height: 400px;
@@ -2814,7 +2814,7 @@ header.main-header .header-sticky.active.hide{
 	width: 75px;
     height: 40px;
     --bs-form-check-bg: var(--accent-color);
-	--bs-form-switch-bg: url('/images/pricing-swich-circle.svg');
+	--bs-form-switch-bg: url('/images/icons/pricing-swich-circle.svg');
 	background-size: 28px auto;
 	background-position: left 5px center;
 	border-radius: 100px;
@@ -2834,7 +2834,7 @@ header.main-header .header-sticky.active.hide{
 .pricing-item{
 	position: relative;
     border: 1px solid var(--divider-color);
-    background: var(--secondary-color) url('/images/pricing-item-bg.png') no-repeat;
+    background: var(--secondary-color) url('/images/backgrounds/pricing-item-bg.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
     border-radius: 30px;
@@ -3139,7 +3139,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .testimonials-content-box{
-	background: var(--secondary-color) url('/images/benefit-box-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/benefit-box-bg.png') no-repeat;
     background-size: cover;
     background-position: center center;
     border: 1px solid var(--divider-color);
@@ -3241,7 +3241,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .testimonial-item{
-	background: var(--secondary-color) url('/images/testimonial-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/testimonial-item-bg.png') no-repeat;
     background-size: cover;
     background-position: center center;
     border: 1px solid var(--divider-color);
@@ -3423,7 +3423,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .cta-section{
-	background: var(--secondary-color) url('/images/cta-box-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/cta-box-bg.png') no-repeat;
     background-size: cover;
     background-position: center center;
     border: 1px solid var(--divider-color);
@@ -3449,13 +3449,13 @@ header.main-header .header-sticky.active.hide{
 }
 
 .cta-box-content .section-title h2 .cta-title-img-1 img{
-	mask-image: url('/images/about-title-img-mask-1.svg');
-    background-image: url('/images/about-title-img-mask-1.svg');
+	mask-image: url('/images/icons/about-title-img-mask-1.svg');
+    background-image: url('/images/icons/about-title-img-mask-1.svg');
 }
 
 .cta-box-content .section-title h2 .cta-title-img-2 img{
-	mask-image: url('/images/about-title-img-mask-2.svg');
-    background-image: url('/images/about-title-img-mask-2.svg');
+	mask-image: url('/images/icons/about-title-img-mask-2.svg');
+    background-image: url('/images/icons/about-title-img-mask-2.svg');
 }
 
 .cta-box-form{
@@ -5007,7 +5007,7 @@ header.main-header .header-sticky.active.hide{
 .mission-vision-item{
 	position: relative;
 	width: calc(50% - 15px);
-	background: var(--secondary-color) url('/images/mission-vision-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/mission-vision-item-bg.png') no-repeat;
 	background-position: top left;
 	background-size: auto;
 	border: 1px solid var(--divider-color);
@@ -5067,7 +5067,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .digital-advantage-item{
-	background: var(--secondary-color) url('/images/digital-advantage-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/digital-advantage-item-bg.png') no-repeat;
 	background-position: top left;
 	background-size: auto;
 	border: 1px solid var(--divider-color);
@@ -5135,7 +5135,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .team-image{
-	background: var(--secondary-color) url('/images/team-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/team-item-bg.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	border: 1px solid var(--divider-color);
@@ -5356,7 +5356,7 @@ header.main-header .header-sticky.active.hide{
 .promise-counter-item{
 	position: relative;
 	width: calc(33.33% - 20px);
-	background: var(--secondary-color) url('/images/promise-counter-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/promise-counter-item-bg.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	border: 1px solid var(--divider-color);
@@ -6457,7 +6457,7 @@ header.main-header .header-sticky.active.hide{
 
 .page-services .service-item{
 	width: 100%;
-	background: var(--secondary-color) url('/images/service-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/service-item-bg.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	border: 1px solid var(--divider-color);
@@ -6706,7 +6706,7 @@ header.main-header .header-sticky.active.hide{
 
 .growth-counter-box{
 	width: calc(37% - 40px);
-	background: var(--secondary-color) url('/images/growth-counter-box-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/growth-counter-box-bg.png') no-repeat;
 	background-position: top left;
 	background-size: auto;
 	border: 1px solid var(--divider-color);
@@ -7007,7 +7007,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .post-entry blockquote{
-	background: url('/images/icon-blockquote.svg'), var(--secondary-color);
+	background: url('/images/icons/icon-blockquote.svg'), var(--secondary-color);
 	background-repeat: no-repeat;
 	background-position: 30px 30px;
     background-size: 45px;
@@ -7300,7 +7300,7 @@ header.main-header .header-sticky.active.hide{
 	width: calc(50% - 15px);
 	border-radius: 30px;
 	background-color: var(--secondary-color);
-	background-image: url('/images/project-result-item-bg.png');
+	background-image: url('/images/backgrounds/project-result-item-bg.png');
 	background-repeat: no-repeat;
 	border: 1px solid var(--divider-color);
 	background-position: center center;
@@ -7475,7 +7475,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .team-single-image{
-	background: var(--secondary-color) url('/images/team-single-image-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/team-single-image-bg.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	border: 1px solid var(--divider-color);
@@ -7511,7 +7511,7 @@ header.main-header .header-sticky.active.hide{
 
 .team-contact-item{
 	width: calc(50% - 15px);
-	background: var(--secondary-color) url('/images/team-contact-item-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/team-contact-item-bg.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	border: 1px solid var(--divider-color);
@@ -7974,7 +7974,7 @@ header.main-header .header-sticky.active.hide{
 
 .contact-us-form{
 	width: 50%;
-	background: var(--secondary-color) url('/images/contact-us-form-bg.png') no-repeat;
+	background: var(--secondary-color) url('/images/backgrounds/contact-us-form-bg.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	padding: 40px;
@@ -10344,7 +10344,7 @@ header.main-header .header-sticky.active.hide{
 	.project-result-item:nth-child(4n - 3),
 	.project-result-item:nth-child(4n){
 		background-color: var(--secondary-color);
-		background-image: url('/images/project-result-item-bg.png');
+		background-image: url('/images/backgrounds/project-result-item-bg.png');
 		border: 1px solid var(--divider-color);
 	}
 

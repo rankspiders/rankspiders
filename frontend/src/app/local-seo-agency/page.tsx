@@ -65,7 +65,7 @@ export default function LocalSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/promise-image.jpg" alt="" />
+                    <img src="/images/sections/promise-image.jpg" alt="" />
                   </figure>
                 </div>
 
@@ -99,7 +99,7 @@ export default function LocalSeoAgency() {
 
                       <div className="service-strategy-image">
                         <figure className="image-anime reveal">
-                          <img src="/images/approach-image.jpg" alt="" />
+                          <img src="/images/sections/approach-image.jpg" alt="" />
                         </figure>
                       </div>
                     </div>
@@ -112,7 +112,7 @@ export default function LocalSeoAgency() {
                       <div className="service-growth-body">
                         <div className="growth-counter-box">
                           <div className="icon-box">
-                            <img src="/images/icon-growth-counter.svg" alt="" />
+                            <img src="/images/icons/icon-growth-counter.svg" alt="" />
                           </div>
                           <div className="growth-counter-content">
                             <h3><span className="counter">120</span>K+</h3>
@@ -164,12 +164,12 @@ export default function LocalSeoAgency() {
                       <div className="service-impact-images">
                         <div className="service-impact-img">
                           <figure className="image-anime reveal">
-                            <img src="/images/gallery7.jpg" alt="" />
+                            <img src="/images/gallery/gallery7.jpg" alt="" />
                           </figure>
                         </div>
                         <div className="service-impact-img">
                           <figure className="image-anime reveal">
-                            <img src="/images/gallery8.jpg" alt="" />
+                            <img src="/images/gallery/gallery8.jpg" alt="" />
                           </figure>
                         </div>
                       </div>
@@ -234,12 +234,12 @@ export default function LocalSeoAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
                   <div className="icon-box">
-                    <img src="/images/icon-belief-fund.svg" alt="" />
+                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
                   </div>
                   <div className="belief-fund-content">
                     <p>Total fund</p>
@@ -247,7 +247,7 @@ export default function LocalSeoAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="" />
                 </div>
               </div>
             </div>

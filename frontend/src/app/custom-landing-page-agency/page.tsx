@@ -30,7 +30,7 @@ export default function CustomLandingPageAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/digital-advantage-img-3.jpg" alt="" />
+                    <img src="/images/sections/digital-advantage-img-3.jpg" alt="" />
                   </figure>
                 </div>
                 <div className="service-entry">
@@ -61,7 +61,7 @@ export default function CustomLandingPageAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/work-image-2.jpg" alt="" />
+                        <img src="/images/sections/work-image-2.jpg" alt="" />
                       </figure>
                     </div>
                   </div>
@@ -78,7 +78,7 @@ export default function CustomLandingPageAgency() {
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
                         <div className="icon-box">
-                          <img src="/images/icon-growth-counter.svg" alt="" />
+                          <img src="/images/icons/icon-growth-counter.svg" alt="" />
                         </div>
                         <div className="growth-counter-content">
                           <h3><span className="counter">120</span>K+</h3>
@@ -106,12 +106,12 @@ export default function CustomLandingPageAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/project-3.jpg" alt="" />
+                          <img src="/images/projects/project-3.jpg" alt="" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/project-4.jpg" alt="" />
+                          <img src="/images/projects/project-4.jpg" alt="" />
                         </figure>
                       </div>
                     </div>
@@ -188,12 +188,12 @@ export default function CustomLandingPageAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
                   <div className="icon-box">
-                    <img src="/images/icon-belief-fund.svg" alt="" />
+                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
                   </div>
                   <div className="belief-fund-content">
                     <p>Total fund</p>
@@ -201,7 +201,7 @@ export default function CustomLandingPageAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="" />
                 </div>
               </div>
             </div>

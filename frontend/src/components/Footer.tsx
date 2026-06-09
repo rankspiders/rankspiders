@@ -30,7 +30,7 @@ const Footer = () => {
               <div className="footer-contact-details">
                 <div className="footer-contact-item">
                   <div className="icon-box">
-                    <img src="/images/icon-headset-gradiant.svg" alt="" />
+                    <img src="/images/icons/icon-headset-gradiant.svg" alt="" />
                   </div>
                   <div className="footer-contact-item-content">
                     <p><a href="tel:+919988357092">+91 99883-57092</a></p>
@@ -40,7 +40,7 @@ const Footer = () => {
 
                 <div className="footer-contact-item">
                   <div className="icon-box">
-                    <img src="/images/icon-location-gradiant.svg" alt="" />
+                    <img src="/images/icons/icon-location-gradiant.svg" alt="" />
                   </div>
                   <div className="footer-contact-item-content">
                     <p>Office No. 22, Ground Floor, D-152, Phase 8, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160071, India</p>

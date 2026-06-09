@@ -62,7 +62,7 @@ export default function SeoAgencyIndia() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/service-single-image.jpg" alt="" />
+                    <img src="/images/sections/service-single-image.jpg" alt="" />
                   </figure>
                 </div>
 
@@ -93,7 +93,7 @@ export default function SeoAgencyIndia() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/project-highlight-image.jpg" alt="" />
+                        <img src="/images/sections/project-highlight-image.jpg" alt="" />
                       </figure>
                     </div>
                   </div>
@@ -121,7 +121,7 @@ export default function SeoAgencyIndia() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="" />
               </div>
             </div>
           </div>

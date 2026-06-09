@@ -85,7 +85,7 @@ export default function ProjectSingle() {
               <div className="project-single-content">
                 <div className="page-single-image mb-4">
                   <figure className="image-anime reveal">
-                    <img src={project.image_url || '/images/project-2.jpg'} alt={project.title} className="img-fluid rounded shadow" />
+                    <img src={project.image_url || '/images/projects/project-2.jpg'} alt={project.title} className="img-fluid rounded shadow" />
                   </figure>
                 </div>
                 

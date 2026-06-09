@@ -69,7 +69,7 @@ export default function Testimonials() {
                       <h3>{item.company}</h3>
                     </div>
                     <div className="testimonial-quate">
-                      <img src="/images/testimonial-quate.svg" alt="" />
+                      <img src="/images/icons/testimonial-quate.svg" alt="" />
                     </div>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export default function Testimonials() {
             <div className="col-lg-6">
               <div className="why-choose-img wow fadeInUp" data-wow-delay="0.2s">
                 <figure>
-                  <img src="/images/why-choose-image.png" alt="" />
+                  <img src="/images/sections/why-choose-image.png" alt="" />
                 </figure>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function Testimonials() {
                 <div className="offer-body wow fadeInUp" data-wow-delay="0.6s">
                   <div className="offer-body-item">
                     <div className="icon-box">
-                      <img src="/images/icon-offer-body-1.svg" alt="" />
+                      <img src="/images/icons/icon-offer-body-1.svg" alt="" />
                     </div>
                     <div className="offer-body-item-content">
                       <h3>Google & Social Media Ads</h3>
@@ -146,7 +146,7 @@ export default function Testimonials() {
 
                   <div className="offer-body-item">
                     <div className="icon-box">
-                      <img src="/images/icon-offer-body-2.svg" alt="" />
+                      <img src="/images/icons/icon-offer-body-2.svg" alt="" />
                     </div>
                     <div className="offer-body-item-content">
                       <h3>Website Design & Development</h3>
@@ -155,7 +155,7 @@ export default function Testimonials() {
 
                   <div className="offer-body-item">
                     <div className="icon-box">
-                      <img src="/images/icon-offer-body-3.svg" alt="" />
+                      <img src="/images/icons/icon-offer-body-3.svg" alt="" />
                     </div>
                     <div className="offer-body-item-content">
                       <h3>Conversion Rate Optimization</h3>
@@ -172,7 +172,7 @@ export default function Testimonials() {
             <div className="col-lg-6">
               <div className="offer-image-box wow fadeInUp" data-wow-delay="0.2s">
                 <figure>
-                  <img src="/images/offer-image.png" alt="" />
+                  <img src="/images/sections/offer-image.png" alt="" />
                 </figure>
               </div>
             </div>
