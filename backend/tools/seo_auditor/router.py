@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from fastapi import APIRouter, Query
 from fastapi.responses import JSONResponse
 
-from tools.seo_auditor.scraper import check_robots, extract_seo
+from tools.seo_auditor.scraper import check_robots, check_sitemap, extract_seo
 
 router = APIRouter()
 
@@ -18,7 +18,6 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
 
-    # SSRF guard is handled inside the scraper's check_robots; guard here too
     parsed = urlparse(url)
     hostname = parsed.hostname or ""
     if hostname.lower() == "localhost" or hostname.startswith("127.") or hostname.startswith("192.168.") or hostname.startswith("10."):
@@ -26,7 +25,7 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
 
     try:
         async with httpx.AsyncClient(
-            timeout=10.0,
+            timeout=15.0,
             follow_redirects=True,
             headers=_HEADERS,
         ) as client:
@@ -34,12 +33,14 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
             response = await client.get(url)
             load_time_ms = round((time.perf_counter() - t_start) * 1000, 1)
 
-            # Recompute base_url and path from the FINAL URL after all redirects
             final_parsed = urlparse(str(response.url))
             base_url = f"{final_parsed.scheme}://{final_parsed.netloc}"
             path = final_parsed.path or "/"
 
-            robots_allowed = await check_robots(client, base_url, path)
+            robots_allowed, sitemap_exists = await _parallel(
+                check_robots(client, base_url, path),
+                check_sitemap(client, base_url),
+            )
 
         content_type = response.headers.get("content-type", "")
         if "text/html" not in content_type and "application/xhtml+xml" not in content_type:
@@ -48,15 +49,15 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
                 status_code=422,
             )
 
-        # Pass raw bytes so BeautifulSoup handles charset detection itself
         soup = BeautifulSoup(response.content, "html.parser")
-        seo = extract_seo(soup, base_url, str(response.url))
+        seo  = extract_seo(soup, base_url, str(response.url), response.content)
 
         result = {
-            "url": str(response.url),
-            "status_code": response.status_code,
-            "load_time_ms": load_time_ms,
+            "url":            str(response.url),
+            "status_code":    response.status_code,
+            "load_time_ms":   load_time_ms,
             "robots_allowed": robots_allowed,
+            "sitemap_exists": sitemap_exists,
             **seo,
         }
 
@@ -70,7 +71,7 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
 
     except httpx.TimeoutException:
         return JSONResponse(
-            {"error": "timeout", "message": "Request timed out after 10 seconds. The site may be slow or blocking automated requests."},
+            {"error": "timeout", "message": "Request timed out after 15 seconds. The site may be slow or blocking automated requests."},
             status_code=408,
         )
     except httpx.RequestError as exc:
@@ -80,3 +81,8 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
         )
     except ValueError as exc:
         return JSONResponse({"error": "invalid_url", "message": str(exc)}, status_code=400)
+
+
+async def _parallel(*coros):
+    import asyncio
+    return await asyncio.gather(*coros)
