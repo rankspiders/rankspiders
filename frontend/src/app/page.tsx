@@ -3,7 +3,7 @@ import HomeClient from './HomeClient';
 
 export const metadata: Metadata = {
   title: 'Rank Spiders | SEO & Digital Marketing Agency India',
-  description: 'Data-driven SEO and digital marketing agency in India. We help local businesses, startups, and enterprise brands rank higher, build authority, and convert traffic into revenue — with transparent strategies that deliver measurable results.',
+  description: 'Data-driven SEO and digital marketing agency in India. Rank higher, attract qualified traffic, and grow revenue with transparent, measurable strategies.',
   alternates: {
     canonical: 'https://www.rankspiders.com/',
   },

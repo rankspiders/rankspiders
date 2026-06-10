@@ -13,8 +13,7 @@ const ScrollingTicker = () => (
     <div className="scrolling-ticker-box">
       <div className="scrolling-content">
         {[...items, ...items].map((item, i) => (
-          <span key={i}>
-            <img src="/images/icons/icon-sparkle.svg" alt="" />
+          <span key={i} className="ticker-item">
             {item}
           </span>
         ))}

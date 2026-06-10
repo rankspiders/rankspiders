@@ -1697,6 +1697,16 @@ header.main-header .header-sticky.active.hide{
 	color: #ffffff;
 }
 
+.scrolling-content span::before{
+	content: '';
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 20px;
+	flex-shrink: 0;
+	background: url('/images/icons/icon-sparkle.svg') no-repeat center / contain;
+}
+
 .scrolling-content span img{
 	width: 100%;
 	max-width: 20px;
@@ -9788,8 +9798,9 @@ header.main-header .header-sticky.active.hide{
         font-size: 22px;
     }
 
-	.scrolling-content span img{
-		max-width: 18px;
+	.scrolling-content span::before{
+		width: 18px;
+		height: 18px;
 		margin-right: 15px;
 	}
 
