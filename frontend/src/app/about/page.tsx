@@ -9,12 +9,12 @@ const missionItems = [
   {
     img: '/images/sections/mission.png',
     title: 'Our Mission',
-    text: 'To empower businesses with cutting-edge SEO and digital marketing strategies that drive measurable, sustainable growth in an ever-evolving online landscape.',
+    text: 'To empower businesses with cutting-edge SEO solutions and digital marketing strategies that drive measurable, sustainable organic growth in an ever-evolving online landscape.',
   },
   {
     img: '/images/sections/vision.png',
     title: 'Our Vision',
-    text: 'To become the world\'s most trusted digital marketing partner — recognized for transforming brands through innovation, integrity, and results that actually matter.',
+    text: 'To become the world\'s most trusted digital marketing partner — recognized for building dominant online presences through innovation, integrity, and results that actually matter.',
   },
   {
     img: '/images/sections/values.png',
@@ -72,10 +72,15 @@ export default function About() {
                     Your Partner in <span>Digital Growth</span>
                   </h2>
                   <p className="wow fadeInUp" data-wow-delay="0.4s">
-                    Rank Spiders is a premier digital marketing agency dedicated to helping
-                    businesses navigate the complexities of the online world. We combine creative
-                    innovation with data-driven strategies to deliver measurable results that
-                    propel your brand forward.
+                    Rank Spiders is a premier{' '}
+                    <strong><Link href="/seo-agency-india">SEO and digital marketing agency in India</Link></strong>
+                    {' '}dedicated to helping businesses grow online. We deliver{' '}
+                    <strong><Link href="/technical-seo-agency">technical SEO</Link></strong>,{' '}
+                    <strong><Link href="/content-marketing-agency">content marketing</Link></strong>,{' '}
+                    <strong><Link href="/social-media-marketing">social media management</Link></strong>, and{' '}
+                    <strong><Link href="/google-ads-agency">Google Ads campaigns</Link></strong>
+                    {' '}— combining data-driven strategy with creative execution to build
+                    sustainable organic growth for brands across India, Australia, and the US.
                   </p>
                 </div>
                 <div className="about-details wow fadeInUp" data-wow-delay="0.6s">
@@ -85,7 +90,7 @@ export default function About() {
                     </div>
                     <div className="about-text">
                       <h3>Our Mission</h3>
-                      <p>To empower businesses with cutting-edge SEO and digital marketing solutions that drive sustainable organic growth.</p>
+                      <p>To empower businesses with cutting-edge <strong><Link href="/seo-agency-india">SEO solutions</Link></strong> and <strong><Link href="/services">digital marketing strategies</Link></strong> that drive sustainable organic growth.</p>
                     </div>
                   </div>
                   <div className="about-item">
@@ -94,7 +99,7 @@ export default function About() {
                     </div>
                     <div className="about-text">
                       <h3>Our Vision</h3>
-                      <p>To be the world's most trusted partner for brands seeking to establish a dominant and authentic digital presence.</p>
+                      <p>To be the world&apos;s most trusted partner for brands seeking a dominant <strong><Link href="/web-design-and-development-agency">digital presence</Link></strong> built on innovation, integrity, and results that matter.</p>
                     </div>
                   </div>
                 </div>
@@ -162,11 +167,11 @@ export default function About() {
                 <div className="why-choose-item-list wow fadeInUp" data-wow-delay="0.6s">
                   <div className="why-choose-item">
                     <h3>Certified Marketing Experts</h3>
-                    <p>Our team is professionally certified in SEO, Google Ads, and social media marketing.</p>
+                    <p>Our team is professionally certified in <strong><Link href="/seo-agency-india">SEO</Link></strong>, <strong><Link href="/google-ads-agency">Google Ads</Link></strong>, and <strong><Link href="/social-media-marketing">social media marketing</Link></strong>.</p>
                   </div>
                   <div className="why-choose-item">
                     <h3>Data-Driven Strategies</h3>
-                    <p>We leverage analytics and market insights to ensure every campaign delivers ROI.</p>
+                    <p>We leverage analytics and market insights to ensure every <strong><Link href="/seo-agency-india">SEO campaign</Link></strong> and <strong><Link href="/online-advertising-agency">paid ads campaign</Link></strong> delivers measurable ROI.</p>
                   </div>
                 </div>
               </div>
@@ -197,57 +202,70 @@ export default function About() {
           </MotionWrapper>
 
           <div className="row g-4">
-            {teamMembers.map((member, i) => (
-              <div key={member.name} className="col-lg-3 col-md-4 col-sm-6">
-                <MotionWrapper variant="up" delay={i * 0.06}>
-                  <div
-                    className="team-item"
+            {teamMembers.map((member, i) => {
+              const profileHref = member.name === 'Brooklyn Simmons' ? '/team/brooklyn-simmons' : null;
+              const CardInner = (
+                <div
+                  className="team-item"
+                  style={{
+                    textAlign: 'center',
+                    padding: '24px 16px',
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
+                    borderRadius: 16,
+                    boxShadow: 'var(--shadow-sm)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    display: 'block',
+                  }}
+                >
+                  <figure style={{ marginBottom: 16 }}>
+                    <img
+                      src={member.img}
+                      alt={member.name}
+                      style={{
+                        width: 90,
+                        height: 90,
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        border: '3px solid var(--accent-color)',
+                      }}
+                    />
+                  </figure>
+                  <h4
                     style={{
-                      textAlign: 'center',
-                      padding: '24px 16px',
-                      background: 'var(--card-bg)',
-                      border: '1px solid var(--card-border)',
-                      borderRadius: 16,
-                      boxShadow: 'var(--shadow-sm)',
+                      fontFamily: 'var(--heading-font)',
+                      fontWeight: 700,
+                      fontSize: '1rem',
+                      color: 'var(--text-color)',
+                      marginBottom: 4,
                     }}
                   >
-                    <figure style={{ marginBottom: 16 }}>
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        style={{
-                          width: 90,
-                          height: 90,
-                          borderRadius: '50%',
-                          objectFit: 'cover',
-                          border: '3px solid var(--accent-color)',
-                        }}
-                      />
-                    </figure>
-                    <h4
-                      style={{
-                        fontFamily: 'var(--heading-font)',
-                        fontWeight: 700,
-                        fontSize: '1rem',
-                        color: 'var(--text-color)',
-                        marginBottom: 4,
-                      }}
-                    >
-                      {member.name}
-                    </h4>
-                    <p
-                      style={{
-                        fontSize: '0.82rem',
-                        color: 'var(--text-muted)',
-                        marginBottom: 0,
-                      }}
-                    >
-                      {member.role}
-                    </p>
-                  </div>
-                </MotionWrapper>
-              </div>
-            ))}
+                    {member.name}
+                  </h4>
+                  <p
+                    style={{
+                      fontSize: '0.82rem',
+                      color: 'var(--text-muted)',
+                      marginBottom: 0,
+                    }}
+                  >
+                    {member.role}
+                  </p>
+                </div>
+              );
+              return (
+                <div key={member.name} className="col-lg-3 col-md-4 col-sm-6">
+                  <MotionWrapper variant="up" delay={i * 0.06}>
+                    {profileHref ? (
+                      <Link href={profileHref} style={{ textDecoration: 'none' }}>
+                        {CardInner}
+                      </Link>
+                    ) : CardInner}
+                  </MotionWrapper>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -284,15 +302,17 @@ export default function About() {
                   margin: '0 auto 28px',
                 }}
               >
-                Let's talk about your goals and build a digital strategy that delivers
+                Let&apos;s talk about your goals and build a digital strategy that delivers
                 real, measurable results.
               </p>
-              <Link
-                href="/contact-us"
-                className="btn-default"
-              >
-                Start a Conversation
-              </Link>
+              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
+                <Link href="/contact-us" className="btn-default">
+                  Start a Conversation
+                </Link>
+                <Link href="/services" className="btn-outline-hero">
+                  View Our Services <i className="fa-solid fa-arrow-right"></i>
+                </Link>
+              </div>
             </div>
           </MotionWrapper>
         </div>

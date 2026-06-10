@@ -140,12 +140,11 @@ export default function SeoAuditClient() {
           <MotionWrapper variant="up" delay={0.1}>
             <div className="tool-input-wrap">
               <div className={`tool-input-box${loading ? ' tool-input-box--scanning' : ''}`}>
-                <div className="tool-input-bar">
-                  <span className="tbar-dot tbar-red" /><span className="tbar-dot tbar-yellow" /><span className="tbar-dot tbar-green" />
-                  <span className="tbar-url-label"><i className="fa-solid fa-magnifying-glass"></i> SEO Audit</span>
-                </div>
+                {/* URL scheme prefix + input + button in one clean row */}
                 <div className="tool-input-body">
-                  <i className="fa-solid fa-link tool-input-icon"></i>
+                  <span className="tool-input-prefix">
+                    <i className="fa-solid fa-globe"></i>
+                  </span>
                   <input
                     type="text"
                     value={url}
@@ -154,13 +153,20 @@ export default function SeoAuditClient() {
                     placeholder="https://yourwebsite.com"
                     disabled={loading}
                     className="tool-input-field"
+                    autoComplete="url"
                   />
                   <button onClick={runAudit} disabled={loading || !url.trim()} className="tool-input-btn">
-                    {loading ? <><i className="fa fa-circle-notch fa-spin"></i> Scanning…</> : <><i className="fa-solid fa-magnifying-glass"></i> Run Audit</>}
+                    {loading
+                      ? <><i className="fa fa-circle-notch fa-spin"></i><span>Scanning…</span></>
+                      : <><i className="fa-solid fa-magnifying-glass"></i><span>Analyse</span></>}
                   </button>
                 </div>
                 {loading && <div className="tool-scan-line" />}
               </div>
+              <p className="tool-input-hint">
+                <i className="fa-solid fa-lock"></i>
+                Works on any public URL · No sign-up · Results in ~5 seconds
+              </p>
               {error && <div className="tool-error-bar"><i className="fa fa-triangle-exclamation"></i> {error}</div>}
             </div>
           </MotionWrapper>

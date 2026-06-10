@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import ScrollingTicker from '@/components/ScrollingTicker';
-import MotionWrapper from '@/components/MotionWrapper';
+import MotionWrapper, { MotionStagger, MotionItem } from '@/components/MotionWrapper';
 
 const stats = [
   { number: '10+', label: 'Years of Experience' },
@@ -12,42 +12,54 @@ const stats = [
   { number: '1K+', label: 'Projects Completed' },
 ];
 
+const auditTrustBadges = [
+  { icon: 'fa-solid fa-credit-card', text: 'No credit card' },
+  { icon: 'fa-solid fa-bolt',        text: 'Results in 60 sec' },
+  { icon: 'fa-solid fa-lock-open',   text: '100% free' },
+];
+
 const services = [
   {
     icon: 'fa-solid fa-magnifying-glass-chart',
     title: 'SEO Optimization',
     description: 'Rank higher, convert better. Data-driven SEO strategies that build long-term organic authority and drive qualified traffic to your business.',
     href: '/seo-agency-india',
+    linkLabel: 'Explore SEO Services India',
   },
   {
     icon: 'fa-solid fa-robot',
     title: 'AI-Powered SEO',
     description: 'Future-proof your search presence with AI-assisted keyword intelligence, content optimization, and predictive ranking strategies.',
     href: '/ai-seo-agency',
+    linkLabel: 'See AI SEO Strategy',
   },
   {
     icon: 'fa-brands fa-meta',
     title: 'Social Media Marketing',
     description: 'Build an engaged audience across every platform. From content creation to paid ads — we grow your brand where your customers spend time.',
     href: '/social-media-marketing',
+    linkLabel: 'View Social Media Packages',
   },
   {
     icon: 'fa-solid fa-code',
     title: 'Web Design & Development',
     description: 'Fast, beautiful, conversion-optimized websites built on modern stacks. Designed to impress, built to rank.',
     href: '/web-design-and-development-niche-industries',
+    linkLabel: 'See Web Design Services',
   },
   {
     icon: 'fa-solid fa-envelope-open-text',
     title: 'Email Marketing',
     description: 'Nurture leads and retain customers with automated, personalized email sequences that deliver real ROI.',
     href: '/email-marketing-agency',
+    linkLabel: 'View Email Marketing Plans',
   },
   {
     icon: 'fa-solid fa-chart-line',
     title: 'PPC & Paid Ads',
     description: 'Maximize every rupee of ad spend. Google Ads, Meta Ads and LinkedIn campaigns managed for performance, not vanity metrics.',
     href: '/meta-ads-agency',
+    linkLabel: 'Explore Google & Meta Ads',
   },
 ];
 
@@ -69,17 +81,62 @@ const reasons = [
   },
 ];
 
+const comparisonRows = [
+  {
+    feature: 'Dedicated SEO Focus',
+    rankspiders: { status: 'yes',   note: 'SEO-only specialists' },
+    freelancer:  { status: 'maybe', note: 'Varies by individual' },
+    bigAgency:   { status: 'no',    note: 'One service of many' },
+  },
+  {
+    feature: 'Custom Strategy Per Client',
+    rankspiders: { status: 'yes',   note: 'Tailored 90-day roadmap' },
+    freelancer:  { status: 'maybe', note: 'Sometimes templated' },
+    bigAgency:   { status: 'no',    note: 'Package-based approach' },
+  },
+  {
+    feature: 'Transparent Monthly Reporting',
+    rankspiders: { status: 'yes',   note: 'Open dashboards included' },
+    freelancer:  { status: 'maybe', note: 'Inconsistent' },
+    bigAgency:   { status: 'maybe', note: 'PDFs, not live data' },
+  },
+  {
+    feature: 'AI & AEO Expertise',
+    rankspiders: { status: 'yes', note: 'Built into every campaign' },
+    freelancer:  { status: 'no',  note: 'Rarely up to date' },
+    bigAgency:   { status: 'no',  note: 'Extra cost add-on' },
+  },
+  {
+    feature: 'Scalable Campaigns',
+    rankspiders: { status: 'yes', note: 'Grows with your business' },
+    freelancer:  { status: 'no',  note: 'Capacity limits growth' },
+    bigAgency:   { status: 'yes', note: 'But at premium prices' },
+  },
+  {
+    feature: 'Fast Communication',
+    rankspiders: { status: 'yes',   note: 'Direct team access, <4hr' },
+    freelancer:  { status: 'maybe', note: 'Depends on workload' },
+    bigAgency:   { status: 'no',    note: 'Account manager layers' },
+  },
+  {
+    feature: 'Pricing Clarity',
+    rankspiders: { status: 'yes',   note: 'Fixed retainers, no hidden fees' },
+    freelancer:  { status: 'maybe', note: 'Scope-creep risk' },
+    bigAgency:   { status: 'no',    note: 'Complex billing structures' },
+  },
+];
+
 const clients = [
   { name: 'BrandShapers', industry: 'Performance Marketing', logo: '/images/client/brandshapers.png' },
   { name: 'VisionWorld Immigration', industry: 'Immigration Consulting', logo: '/images/client/visionworld.png' },
   { name: 'Bellevue Receptions', industry: 'Hospitality & Events', logo: '/images/client/bellevue.png' },
   { name: 'Dr. Ruchi Psychologist', industry: 'Healthcare', logo: '/images/client/drruchi.png' },
-  { name: 'Evolved Hair', industry: 'Hair Restoration', logo: '/images/client/evolvedhair.png' },
+  { name: 'Evolved Hair', industry: 'Hair Restoration', logo: '/images/client/evolvedhair.svg', darkBg: true },
   { name: 'IndeedVisa', industry: 'Migration Agency', logo: '/images/client/indeedvisa.png' },
   { name: 'Navkiran Nursing', industry: 'Education & Coaching', logo: '/images/client/navkiran.png' },
   { name: 'Arrow Roofing', industry: 'Roofing Services', logo: '/images/client/arrowroofing.png' },
   { name: 'Study Master', industry: 'Visa Consulting', logo: '/images/client/studymaster.png' },
-  { name: 'LevelUp PR', industry: 'Public Relations', logo: '/images/client/leveluppr.png' },
+  { name: 'LevelUp PR', industry: 'Public Relations', logo: '/images/client/leveluppr.svg' },
   { name: 'Rana Infracon', industry: 'Real Estate', logo: '/images/client/ranainfracon.png' },
   { name: 'Gadott', industry: 'Luxury Bathware', logo: '/images/client/gadott.png', darkBg: true },
   { name: 'Vivacite', industry: 'Architecture & Windows', logo: '/images/client/vivacite.jpg' },
@@ -110,6 +167,19 @@ const steps = [
     title: 'Report & Scale',
     description: 'Monthly reports in plain English. Traffic, rankings, conversions — tracked openly. We double down on what works, every single month.',
   },
+];
+
+const toolsStack = [
+  { icon: 'fa-solid fa-magnifying-glass-chart', name: 'Ahrefs',              category: 'SEO Intelligence' },
+  { icon: 'fa-solid fa-chart-simple',           name: 'SEMrush',             category: 'Competitive Analysis' },
+  { icon: 'fa-brands fa-google',                name: 'Google Analytics',    category: 'Traffic Analytics' },
+  { icon: 'fa-solid fa-binoculars',             name: 'Search Console',      category: 'Search Performance' },
+  { icon: 'fa-solid fa-frog',                   name: 'Screaming Frog',      category: 'Technical Audit' },
+  { icon: 'fa-solid fa-eye',                    name: 'Hotjar',              category: 'UX & Behaviour' },
+  { icon: 'fa-solid fa-tower-broadcast',        name: 'Moz Pro',             category: 'Link Intelligence' },
+  { icon: 'fa-solid fa-envelope-open-text',     name: 'Mailchimp',           category: 'Email Automation' },
+  { icon: 'fa-brands fa-meta',                  name: 'Meta Business Suite', category: 'Social Advertising' },
+  { icon: 'fa-brands fa-google',                name: 'Google Ads',          category: 'Paid Search' },
 ];
 
 const testimonials = [
@@ -173,44 +243,46 @@ const metrics = [
 ];
 
 const industries = [
-  { icon: 'fa-solid fa-cart-shopping', name: 'E-Commerce' },
-  { icon: 'fa-solid fa-hospital-user', name: 'Healthcare' },
-  { icon: 'fa-solid fa-building', name: 'Real Estate' },
-  { icon: 'fa-solid fa-graduation-cap', name: 'Education' },
-  { icon: 'fa-solid fa-plane-departure', name: 'Immigration & Visa' },
-  { icon: 'fa-solid fa-concierge-bell', name: 'Hospitality' },
-  { icon: 'fa-solid fa-landmark', name: 'Finance' },
-  { icon: 'fa-solid fa-scale-balanced', name: 'Legal Services' },
-  { icon: 'fa-solid fa-spa', name: 'Beauty & Wellness' },
-  { icon: 'fa-solid fa-helmet-safety', name: 'Construction' },
-  { icon: 'fa-solid fa-microchip', name: 'SaaS & Tech' },
-  { icon: 'fa-solid fa-film', name: 'Media & Entertainment' },
+  { icon: 'fa-solid fa-cart-shopping', name: 'E-Commerce', href: '/ecommerce-seo-agency' },
+  { icon: 'fa-solid fa-hospital-user', name: 'Healthcare', href: '/local-seo-agency' },
+  { icon: 'fa-solid fa-building', name: 'Real Estate', href: '/local-seo-agency' },
+  { icon: 'fa-solid fa-graduation-cap', name: 'Education', href: '/content-marketing-agency' },
+  { icon: 'fa-solid fa-plane-departure', name: 'Immigration & Visa', href: '/seo-agency-india' },
+  { icon: 'fa-solid fa-concierge-bell', name: 'Hospitality', href: '/local-seo-agency' },
+  { icon: 'fa-solid fa-landmark', name: 'Finance', href: '/b2b-seo-agency' },
+  { icon: 'fa-solid fa-scale-balanced', name: 'Legal Services', href: '/local-seo-agency' },
+  { icon: 'fa-solid fa-spa', name: 'Beauty & Wellness', href: '/local-seo-agency' },
+  { icon: 'fa-solid fa-helmet-safety', name: 'Construction', href: '/local-seo-agency' },
+  { icon: 'fa-solid fa-microchip', name: 'SaaS & Tech', href: '/saas-seo-agency' },
+  { icon: 'fa-solid fa-film', name: 'Media & Entertainment', href: '/content-marketing-agency' },
 ];
 
-const faqs = [
+type FAQ = { q: string; a: React.ReactNode };
+
+const faqs: FAQ[] = [
   {
     q: 'How long does SEO take to show results?',
-    a: 'Most clients see measurable movement — keyword rankings improving, traffic climbing — within 60 to 90 days. Significant, compounding growth typically builds from month four onwards. SEO is a long-term investment: the results compound over time and continue working even when ad budgets stop.',
+    a: <>Most clients see measurable movement — keyword rankings improving, traffic climbing — within 60 to 90 days. Significant, compounding growth typically builds from month four onwards. SEO is a long-term investment: the results compound over time and continue working even when ad budgets stop. Get a <strong><Link href="/free-seo-audit-agency">free SEO audit</Link></strong> to see exactly where your site stands today.</>,
   },
   {
     q: 'What is the difference between SEO and paid ads (PPC)?',
-    a: "Paid ads put you at the top instantly — but the moment you stop paying, the traffic stops. SEO builds organic authority that keeps driving traffic for months or years with no per-click cost. We typically recommend a mix: PPC for quick wins and lead flow while SEO builds your long-term competitive moat.",
+    a: <>Paid ads put you at the top instantly — but the moment you stop paying, the traffic stops. SEO builds organic authority that keeps driving traffic for months or years with no per-click cost. We typically recommend a mix: <strong><Link href="/google-ads-agency">Google Ads</Link></strong> and <strong><Link href="/meta-ads-agency">Meta Ads</Link></strong> for quick wins and lead flow while SEO builds your long-term competitive moat.</>,
   },
   {
     q: 'Do you work with small businesses and startups?',
-    a: "Yes — and we enjoy it. Small businesses and startups are our sweet spot. We've helped solopreneurs, local service businesses, and early-stage SaaS companies outrank much larger competitors. We don't sell cookie-cutter packages — we build strategies around your actual goals and budget.",
+    a: <>Yes — and we enjoy it. Small businesses and startups are our sweet spot. We&apos;ve helped solopreneurs, local service businesses, and early-stage SaaS companies outrank much larger competitors. We don&apos;t sell cookie-cutter packages — we build strategies around your actual goals and budget.</>,
   },
   {
     q: 'How much does SEO cost in India?',
-    a: "Our retainers start at ₹15,000/month for local SEO and scale up based on scope — number of target keywords, content production, link building, and reporting depth. Every engagement starts with a free audit so you know exactly what you're getting before committing.",
+    a: <>Our retainers start at ₹15,000/month for <strong><Link href="/local-seo-agency">local SEO</Link></strong> and scale up based on scope — number of target keywords, content production, link building, and reporting depth. Every engagement starts with a <strong><Link href="/free-seo-audit-agency">free SEO audit</Link></strong> so you know exactly what you&apos;re getting before committing.</>,
   },
   {
     q: 'What is Answer Engine Optimization (AEO)?',
-    a: "AEO is the practice of optimizing your content to appear in AI-generated answer boxes, featured snippets, People Also Ask sections, and voice search results. As users shift to asking questions directly in Google, ChatGPT, and Gemini, AEO ensures your brand is the one cited in those answers.",
+    a: <>AEO is the practice of optimizing your content to appear in AI-generated answer boxes, featured snippets, People Also Ask sections, and voice search results. As users shift to asking questions directly in Google, ChatGPT, and Gemini, <strong><Link href="/ai-seo-agency">AI-powered SEO and AEO</Link></strong> ensures your brand is the one cited in those answers.</>,
   },
   {
     q: 'Will you need to make changes to my website?',
-    a: "Usually yes — technical SEO improvements (site speed, structured data, crawlability fixes) require changes to your site. We provide a detailed technical audit first, and all changes are either implemented by our team or handed to your developer as a prioritized checklist with exact specifications.",
+    a: <>Usually yes — <strong><Link href="/technical-seo-agency">technical SEO</Link></strong> improvements (site speed, structured data, crawlability fixes) require changes to your site. We provide a detailed technical audit first, and all changes are either implemented by our team or handed to your developer as a prioritized checklist with exact specifications.</>,
   },
 ];
 
@@ -225,6 +297,8 @@ export default function HomeClient() {
   const metricsRef = useRef<HTMLDivElement>(null);
   const [metricsVisible, setMetricsVisible] = useState(false);
   const heroSceneRef = useRef<HTMLDivElement>(null);
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const heroCanvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const el = metricsRef.current;
@@ -259,6 +333,99 @@ export default function HomeClient() {
     };
   }, []);
 
+
+  /* Particle constellation canvas */
+  useEffect(() => {
+    const canvas = heroCanvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let raf: number;
+    let mx = -9999, my = -9999;
+
+    const resize = () => {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+
+    type P = { x: number; y: number; vx: number; vy: number; r: number; a: number; da: number };
+    const pts: P[] = Array.from({ length: 65 }, () => ({
+      x:  Math.random() * canvas.width,
+      y:  Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.42,
+      vy: (Math.random() - 0.5) * 0.42,
+      r:  Math.random() * 1.6 + 0.4,
+      a:  Math.random() * 0.45 + 0.15,
+      da: (Math.random() - 0.5) * 0.006,
+    }));
+
+    const onMM = (e: MouseEvent) => {
+      const r = canvas.getBoundingClientRect();
+      mx = e.clientX - r.left;
+      my = e.clientY - r.top;
+    };
+    const onML = () => { mx = -9999; my = -9999; };
+    const parent = canvas.parentElement!;
+    parent.addEventListener('mousemove', onMM);
+    parent.addEventListener('mouseleave', onML);
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const p of pts) {
+        const dx = p.x - mx, dy = p.y - my;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < 110 && d > 0) {
+          const f = (110 - d) / 110;
+          p.x += (dx / d) * f * 1.9;
+          p.y += (dy / d) * f * 1.9;
+        }
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.a  += p.da;
+        if (p.a <= 0.1 || p.a >= 0.7) p.da *= -1;
+        if (p.x < 0) p.x = canvas.width;
+        else if (p.x > canvas.width)  p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        else if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(139,92,246,${p.a})`;
+        ctx.fill();
+      }
+
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx   = pts[i].x - pts[j].x;
+          const dy   = pts[i].y - pts[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 128) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(139,92,246,${(1 - dist / 128) * 0.18})`;
+            ctx.lineWidth   = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+
+    window.addEventListener('resize', resize);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('resize', resize);
+      parent.removeEventListener('mousemove', onMM);
+      parent.removeEventListener('mouseleave', onML);
+    };
+  }, []);
+
   useEffect(() => {
     const api = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -278,11 +445,13 @@ export default function HomeClient() {
   return (
     <>
       {/* ==================== HERO ==================== */}
-      <section className="home-hero">
+      <section className="home-hero" ref={heroSectionRef}>
         {/* Animated background orbs */}
         <div className="hero-bg-orb hero-orb-1" aria-hidden="true" />
         <div className="hero-bg-orb hero-orb-2" aria-hidden="true" />
         <div className="hero-bg-orb hero-orb-3" aria-hidden="true" />
+        {/* Particle canvas + cursor spotlight */}
+        <canvas className="hero-particle-canvas" ref={heroCanvasRef} aria-hidden="true" />
 
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="row align-items-center g-4">
@@ -304,7 +473,14 @@ export default function HomeClient() {
 
               <MotionWrapper delay={0.2}>
                 <p className="home-hero-sub">
-                  Rank Spiders helps local businesses, startups, and enterprise brands dominate search rankings, build authority, and convert traffic into revenue — with transparent strategies that deliver measurable growth.
+                  Rank Spiders is a leading{' '}
+                  <strong><Link href="/seo-agency-india" className="hero-inline-link">SEO agency in India</Link></strong>
+                  {' '}helping local businesses, startups, and enterprise brands dominate search
+                  rankings, build authority through{' '}
+                  <strong><Link href="/technical-seo-agency" className="hero-inline-link">technical SEO</Link></strong>
+                  {' '}and{' '}
+                  <strong><Link href="/link-building-seo-agency" className="hero-inline-link">link building</Link></strong>
+                  , and convert traffic into revenue — with transparent strategies that deliver measurable growth.
                 </p>
               </MotionWrapper>
 
@@ -449,6 +625,48 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* ==================== FREE AUDIT CTA STRIP ==================== */}
+      <section className="home-audit-strip">
+        <div className="container">
+          <MotionWrapper variant="up">
+            <div className="home-audit-strip-box">
+              <div className="home-audit-strip-orb home-audit-strip-orb-1" aria-hidden="true" />
+              <div className="home-audit-strip-orb home-audit-strip-orb-2" aria-hidden="true" />
+              <div className="home-audit-strip-content">
+                <p className="home-audit-strip-eyebrow">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                  Free Website Analysis
+                </p>
+                <h2 className="home-audit-strip-heading">
+                  Is Your Website <span>Invisible to Google?</span>
+                </h2>
+                <p className="home-audit-strip-sub">
+                  Most websites have 10–30 technical SEO issues silently killing their rankings.
+                  Get a full audit in 60 seconds — no forms, no calls, no obligation.
+                </p>
+                <div className="home-audit-strip-badges">
+                  {auditTrustBadges.map((b, i) => (
+                    <span key={i} className="home-audit-strip-badge">
+                      <i className={b.icon}></i>
+                      {b.text}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="home-audit-strip-action">
+                <Link href="/tools/seo-audit" className="home-audit-strip-btn">
+                  Get My Free SEO Audit
+                  <i className="fa-solid fa-arrow-right"></i>
+                </Link>
+                <p className="home-audit-strip-disclaimer">
+                  Instant results &nbsp;·&nbsp; No sign-up required
+                </p>
+              </div>
+            </div>
+          </MotionWrapper>
+        </div>
+      </section>
+
       {/* ==================== SERVICES ==================== */}
       <section className="home-services">
         <div className="container">
@@ -470,7 +688,7 @@ export default function HomeClient() {
                   <h3>{svc.title}</h3>
                   <p>{svc.description}</p>
                   <span className="home-service-link">
-                    Learn More <i className="fa-solid fa-arrow-right"></i>
+                    {svc.linkLabel} <i className="fa-solid fa-arrow-right"></i>
                   </span>
                 </Link>
               </MotionWrapper>
@@ -504,6 +722,42 @@ export default function HomeClient() {
               </MotionWrapper>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ==================== TOOLS & TECHNOLOGY STACK ==================== */}
+      <section className="home-tools-stack">
+        <div className="home-tools-stack-orb home-tools-stack-orb-1" aria-hidden="true" />
+        <div className="home-tools-stack-orb home-tools-stack-orb-2" aria-hidden="true" />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <MotionWrapper variant="up">
+            <div className="section-title text-center section-title-center home-tools-stack-title">
+              <h3>Our Tech Stack</h3>
+              <h2>Backed by <span>Industry-Leading Tools</span></h2>
+              <p>Every decision is backed by data from the platforms professional SEO teams worldwide trust. No guesswork — just actionable intelligence.</p>
+            </div>
+          </MotionWrapper>
+          <MotionStagger className="home-tools-stack-grid" delayStart={0.05} stagger={0.07}>
+            {toolsStack.map((tool, i) => (
+              <MotionItem key={i} className="home-tools-stack-pill">
+                <div className="home-tools-stack-pill-icon">
+                  <i className={tool.icon}></i>
+                </div>
+                <div className="home-tools-stack-pill-info">
+                  <span className="home-tools-stack-pill-name">{tool.name}</span>
+                  <span className="home-tools-stack-pill-cat">{tool.category}</span>
+                </div>
+              </MotionItem>
+            ))}
+          </MotionStagger>
+          <MotionWrapper delay={0.2}>
+            <p className="home-tools-stack-footnote">
+              <i className="fa-solid fa-circle-info"></i>
+              Combined with our own{' '}
+              <Link href="/tools" className="home-tools-stack-footnote-link">free SEO tools</Link>
+              {' '}— built in-house for rapid diagnostics.
+            </p>
+          </MotionWrapper>
         </div>
       </section>
 
@@ -545,6 +799,69 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* ==================== SPECIALIST COMPARISON ==================== */}
+      <section className="home-compare">
+        <div className="container">
+          <MotionWrapper>
+            <div className="section-title text-center section-title-center">
+              <h3>Why a Specialist?</h3>
+              <h2>Why We Beat <span>the Alternatives</span></h2>
+              <p>Generic agencies spread thin. Freelancers hit capacity ceilings. Rank Spiders does one thing — and does it at a level most agencies never reach.</p>
+            </div>
+          </MotionWrapper>
+          <MotionWrapper variant="up" delay={0.1}>
+            <div className="home-compare-wrapper">
+              <div className="home-compare-table" role="table" aria-label="Agency comparison">
+                <div className="home-compare-head" role="row">
+                  <div className="home-compare-cell home-compare-cell--feature" role="columnheader">Feature</div>
+                  <div className="home-compare-cell home-compare-cell--us" role="columnheader">
+                    <div className="home-compare-col-label">
+                      <i className="fa-solid fa-spider"></i> Rank Spiders
+                    </div>
+                  </div>
+                  <div className="home-compare-cell home-compare-cell--alt" role="columnheader">
+                    <i className="fa-solid fa-user-tie"></i> Freelancer
+                  </div>
+                  <div className="home-compare-cell home-compare-cell--alt" role="columnheader">
+                    <i className="fa-solid fa-building-columns"></i> Big Agency
+                  </div>
+                </div>
+                {comparisonRows.map((row, i) => (
+                  <div key={i} className="home-compare-row" role="row">
+                    <div className="home-compare-cell home-compare-cell--feature" role="cell">{row.feature}</div>
+                    <div className="home-compare-cell home-compare-cell--us" role="cell">
+                      <span className="home-compare-check home-compare-check--yes">
+                        <i className="fa-solid fa-circle-check"></i>
+                      </span>
+                      <span className="home-compare-note">{row.rankspiders.note}</span>
+                    </div>
+                    <div className="home-compare-cell home-compare-cell--alt" role="cell">
+                      <span className={`home-compare-check home-compare-check--${row.freelancer.status}`}>
+                        <i className={row.freelancer.status === 'yes' ? 'fa-solid fa-circle-check' : row.freelancer.status === 'maybe' ? 'fa-solid fa-triangle-exclamation' : 'fa-solid fa-circle-xmark'}></i>
+                      </span>
+                      <span className="home-compare-note">{row.freelancer.note}</span>
+                    </div>
+                    <div className="home-compare-cell home-compare-cell--alt" role="cell">
+                      <span className={`home-compare-check home-compare-check--${row.bigAgency.status}`}>
+                        <i className={row.bigAgency.status === 'yes' ? 'fa-solid fa-circle-check' : row.bigAgency.status === 'maybe' ? 'fa-solid fa-triangle-exclamation' : 'fa-solid fa-circle-xmark'}></i>
+                      </span>
+                      <span className="home-compare-note">{row.bigAgency.note}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </MotionWrapper>
+          <MotionWrapper delay={0.2}>
+            <div className="home-section-cta">
+              <Link href="/free-seo-audit-agency" className="btn-default">
+                See What a Specialist Delivers <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+          </MotionWrapper>
+        </div>
+      </section>
+
       {/* ==================== METRICS / RESULTS ==================== */}
       <section className="home-metrics">
         <div className="container">
@@ -576,6 +893,14 @@ export default function HomeClient() {
               </MotionWrapper>
             ))}
           </div>
+
+          <MotionWrapper>
+            <div className="home-section-cta">
+              <Link href="/projects" className="btn-outline-hero">
+                View Our Case Studies <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+          </MotionWrapper>
         </div>
       </section>
 
@@ -732,6 +1057,14 @@ export default function HomeClient() {
               </MotionWrapper>
             ))}
           </div>
+
+          <MotionWrapper>
+            <div className="home-section-cta">
+              <Link href="/testimonials" className="btn-outline-hero">
+                Read More Client Reviews <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+          </MotionWrapper>
         </div>
       </section>
 
@@ -749,10 +1082,10 @@ export default function HomeClient() {
           <div className="home-industries-grid">
             {industries.map((ind, i) => (
               <MotionWrapper key={i} delay={Math.floor(i / 4) * 0.08 + (i % 4) * 0.05}>
-                <div className="home-industry-chip">
+                <Link href={ind.href} className="home-industry-chip">
                   <i className={ind.icon}></i>
                   <span>{ind.name}</span>
-                </div>
+                </Link>
               </MotionWrapper>
             ))}
           </div>

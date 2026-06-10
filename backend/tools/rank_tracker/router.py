@@ -10,6 +10,7 @@ from sse_starlette.sse import EventSourceResponse
 
 from db import supabase
 from tools.rank_tracker.scraper import check_rank, suggest_competitors
+from tools.keyword_density.scraper import check_keywords
 
 router = APIRouter()
 
@@ -40,6 +41,41 @@ def _get_project_or_404(project_id: str) -> dict:
     if not res.data:
         raise HTTPException(status_code=404, detail="Project not found")
     return res.data[0]
+
+
+def _visibility_weight(position: int | None) -> float:
+    if position is None:
+        return 0.0
+    if position <= 3:
+        return 1.0
+    if position <= 10:
+        return 0.6
+    if position <= 30:
+        return 0.3
+    if position <= 100:
+        return 0.1
+    return 0.0
+
+
+def _compute_visibility_report(keywords: list[dict]) -> dict:
+    total = len(keywords)
+    breakdown = {"top3": 0, "top10": 0, "top30": 0, "top100": 0, "not_ranked": 0, "total": total}
+    weight_sum = 0.0
+    for kw in keywords:
+        pos = kw["position"]
+        weight_sum += _visibility_weight(pos)
+        if pos is None:
+            breakdown["not_ranked"] += 1
+        elif pos <= 3:
+            breakdown["top3"] += 1
+        elif pos <= 10:
+            breakdown["top10"] += 1
+        elif pos <= 30:
+            breakdown["top30"] += 1
+        else:
+            breakdown["top100"] += 1
+    score = round((weight_sum / total) * 100) if total else 0
+    return {"score": score, "breakdown": breakdown}
 
 
 def _build_chart_data(history_rows: list[dict]) -> list[dict]:
@@ -92,6 +128,71 @@ async def suggest_competitors_endpoint(
         return JSONResponse({"error": str(exc)}, status_code=400)
     except Exception as exc:
         return JSONResponse({"error": "fetch_failed", "message": str(exc)}, status_code=500)
+
+
+# ── 2b. Suggest keywords (content-based, derived from the site itself) ───────
+
+_SINGLE_LIMIT = 15
+_PHRASE_LIMIT = {"bigram": 10, "trigram": 8}
+
+
+def _build_keyword_suggestions(analysis: dict) -> dict:
+    singles = []
+    for kw in analysis.get("top_keywords", []):
+        score = kw["count"] + kw["in_title"] * 5 + kw["in_h1"] * 3 + kw["in_h2"] * 1
+        singles.append({
+            "phrase": kw["keyword"],
+            "type": "single",
+            "count": kw["count"],
+            "density": kw["density"],
+            "in_title": kw["in_title"],
+            "in_h1": kw["in_h1"],
+            "in_h2": kw["in_h2"],
+            "score": score,
+        })
+    singles.sort(key=lambda s: s["score"], reverse=True)
+
+    # Bigrams/trigrams carry no placement flags from check_keywords (it only
+    # computes those for single words), so we rank them by raw count/density
+    # rather than reaching into keyword_density's internals to add them.
+    phrases: dict[str, list[dict]] = {}
+    for ptype, key in (("bigram", "top_bigrams"), ("trigram", "top_trigrams")):
+        items = []
+        for p in analysis.get(key, []):
+            items.append({
+                "phrase": p["phrase"],
+                "type": ptype,
+                "count": p["count"],
+                "density": p["density"],
+                "score": p["count"],
+            })
+        items.sort(key=lambda s: s["score"], reverse=True)
+        phrases[ptype] = items[:_PHRASE_LIMIT[ptype]]
+
+    return {
+        "single": singles[:_SINGLE_LIMIT],
+        "bigram": phrases["bigram"],
+        "trigram": phrases["trigram"],
+    }
+
+
+@router.get("/projects/{project_id}/keywords/suggest")
+async def suggest_keywords_endpoint(project_id: str):
+    project = _get_project_or_404(project_id)
+    try:
+        analysis = await check_keywords(project["website_url"])
+    except ValueError as exc:
+        return JSONResponse({"error": str(exc)}, status_code=400)
+    except Exception as exc:
+        return JSONResponse({"error": "fetch_failed", "message": str(exc)}, status_code=500)
+
+    if "error" in analysis:
+        return JSONResponse({"error": "analysis_failed", "message": analysis["error"]}, status_code=400)
+
+    return JSONResponse({
+        "source_url": analysis["url"],
+        "suggestions": _build_keyword_suggestions(analysis),
+    })
 
 
 # ── 3. Save competitors ───────────────────────────────────────────────────────
@@ -171,6 +272,7 @@ async def get_project(project_id: str):
         "keywords": keywords_with_rank,
         "competitors": competitors_res.data or [],
         "chart_data": _build_chart_data(history_res.data or []),
+        "report": _compute_visibility_report(keywords_with_rank),
     })
 
 

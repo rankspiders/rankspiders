@@ -47,6 +47,9 @@ async def check_rank(
         "q": keyword,
         "gl": country,
         "hl": language,
+        # Serper's organic results are capped at 10 regardless of `num`
+        # (verified empirically — num:20/50/100 and page:2/3 all return the
+        # same top-10 set), so positions are always 1-10 or "not in top 10".
         "num": 10,
         "device": device,
     }
