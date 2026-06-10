@@ -25,23 +25,6 @@ export default function TeamSingle() {
         </div>
       </div>
 
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
-
       <div className="page-team-single">
         <div className="container">
           <div className="row">
@@ -49,7 +32,7 @@ export default function TeamSingle() {
               <div className="page-single-sidebar">
                 <div className="team-single-image wow fadeInUp">
                   <figure>
-                    <img src="/images/team/team-2.png" alt="" />
+                    <img src="/images/team/team-2.png" alt="Brooklyn Simmons - Digital Marketing Specialist at Rank Spiders" />
                   </figure>
                 </div>
 
@@ -58,17 +41,17 @@ export default function TeamSingle() {
                     <div className="review-images">
                       <div className="review-image">
                         <figure className="image-anime">
-                          <img src="/images/authors/author-1.jpg" alt="" />
+                          <img src="/images/authors/author-1.jpg" alt="Client testimonial - Rank Spiders digital marketing agency India" />
                         </figure>
                       </div>
                       <div className="review-image">
                         <figure className="image-anime">
-                          <img src="/images/authors/author-2.jpg" alt="" />
+                          <img src="/images/authors/author-2.jpg" alt="Happy client review - Rank Spiders digital marketing results" />
                         </figure>
                       </div>
                       <div className="review-image">
                         <figure className="image-anime">
-                          <img src="/images/authors/author-3.jpg" alt="" />
+                          <img src="/images/authors/author-3.jpg" alt="Verified client success story - Rank Spiders India" />
                         </figure>
                       </div>
                     </div>
@@ -89,7 +72,7 @@ export default function TeamSingle() {
                       </div>
                     </div>
                     <div className="page-cta-btn">
-                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="" /> +91 99883-57092</a>
+                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="Call Rank Spiders" /> +91 99883-57092</a>
                     </div>
                   </div>
                 </div>
@@ -107,7 +90,7 @@ export default function TeamSingle() {
                   <div className="team-contact-list wow fadeInUp" data-wow-delay="0.4s">
                     <div className="team-contact-item">
                       <div className="icon-box">
-                        <img src="/images/icons/icon-mail.svg" alt="" />
+                        <img src="/images/icons/icon-mail.svg" alt="Email address" />
                       </div>
                       <div className="team-contact-content">
                         <h3>Email Address</h3>
@@ -117,7 +100,7 @@ export default function TeamSingle() {
 
                     <div className="team-contact-item">
                       <div className="icon-box">
-                        <img src="/images/icons/icon-phone.svg" alt="" />
+                        <img src="/images/icons/icon-phone.svg" alt="Phone" />
                       </div>
                       <div className="team-contact-content">
                         <h3>Phone Number</h3>
@@ -127,7 +110,7 @@ export default function TeamSingle() {
 
                     <div className="team-contact-item">
                       <div className="icon-box">
-                        <img src="/images/icons/icon-position.svg" alt="" />
+                        <img src="/images/icons/icon-position.svg" alt="Job position" />
                       </div>
                       <div className="team-contact-content">
                         <h3>Position</h3>
@@ -137,7 +120,7 @@ export default function TeamSingle() {
 
                     <div className="team-contact-item">
                       <div className="icon-box">
-                        <img src="/images/icons/icon-location.svg" alt="" />
+                        <img src="/images/icons/icon-location.svg" alt="Office location" />
                       </div>
                       <div className="team-contact-content">
                         <h3>Location</h3>

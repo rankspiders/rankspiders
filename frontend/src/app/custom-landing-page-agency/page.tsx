@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function CustomLandingPageAgency() {
           { label: 'Custom Landing Page', active: true }
         ]} 
       />
-      <ScrollingTicker />
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -30,7 +28,7 @@ export default function CustomLandingPageAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/digital-advantage-img-3.jpg" alt="" />
+                    <img src="/images/sections/digital-advantage-img-3.jpg" alt="Advanced technical SEO and web development expertise at Rank Spiders" />
                   </figure>
                 </div>
                 <div className="service-entry">
@@ -61,7 +59,7 @@ export default function CustomLandingPageAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/work-image-2.jpg" alt="" />
+                        <img src="/images/sections/work-image-2.jpg" alt="Web development and digital marketing strategy implementation at Rank Spiders" />
                       </figure>
                     </div>
                   </div>
@@ -106,12 +104,12 @@ export default function CustomLandingPageAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/projects/project-3.jpg" alt="" />
+                          <img src="/images/projects/project-3.jpg" alt="Rank Spiders web development and custom landing page project" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/projects/project-4.jpg" alt="" />
+                          <img src="/images/projects/project-4.jpg" alt="Rank Spiders landing page design and conversion rate optimisation" />
                         </figure>
                       </div>
                     </div>
@@ -188,7 +186,7 @@ export default function CustomLandingPageAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -201,7 +199,7 @@ export default function CustomLandingPageAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

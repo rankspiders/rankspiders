@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function InstagramMarketingAgency() {
@@ -45,7 +44,6 @@ export default function InstagramMarketingAgency() {
         subtitle="Marketing Agency"
         breadcrumbs={[{ label: 'Services', href: '/services' }, { label: 'Instagram Marketing', active: true }]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
@@ -151,7 +149,7 @@ export default function InstagramMarketingAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

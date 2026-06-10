@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 
 const SITE_URL = 'https://rankspiders.com';
 const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
@@ -188,8 +187,6 @@ export default async function BlogSingle({
           { label: post.title.length > 40 ? post.title.slice(0, 40) + '…' : post.title, active: true },
         ]}
       />
-
-      <ScrollingTicker />
 
       <div style={{ padding: '64px 0 96px' }}>
         <div className="container">

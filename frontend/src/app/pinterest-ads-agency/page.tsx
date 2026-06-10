@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function PinterestAdsAgency() {
@@ -52,8 +51,6 @@ export default function PinterestAdsAgency() {
         ]} 
       />
 
-      <ScrollingTicker />
-
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -65,7 +62,7 @@ export default function PinterestAdsAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/project-marketing-image.jpg" alt="" />
+                    <img src="/images/sections/project-marketing-image.jpg" alt="Rank Spiders client digital marketing campaign results" />
                   </figure>
                 </div>
 
@@ -98,7 +95,7 @@ export default function PinterestAdsAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/project-highlight-image.jpg" alt="" />
+                        <img src="/images/sections/project-highlight-image.jpg" alt="Rank Spiders project highlights and client case study results" />
                       </figure>
                     </div>
                   </div>
@@ -143,12 +140,12 @@ export default function PinterestAdsAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/projects/project-5.jpg" alt="" />
+                          <img src="/images/projects/project-5.jpg" alt="Rank Spiders Meta Ads and PPC campaign case study" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/projects/project-6.jpg" alt="" />
+                          <img src="/images/projects/project-6.jpg" alt="Rank Spiders paid advertising ROI and performance tracking project" />
                         </figure>
                       </div>
                     </div>
@@ -229,7 +226,7 @@ export default function PinterestAdsAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -242,7 +239,7 @@ export default function PinterestAdsAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

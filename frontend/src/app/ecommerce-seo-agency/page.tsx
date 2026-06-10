@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function EcommerceSeoAgency() {
@@ -45,7 +44,6 @@ export default function EcommerceSeoAgency() {
         subtitle="SEO Agency"
         breadcrumbs={[{ label: 'Services', href: '/services' }, { label: 'E-Commerce SEO', active: true }]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
@@ -83,7 +81,7 @@ export default function EcommerceSeoAgency() {
                     </div>
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/project-marketing-image.jpg" alt="" />
+                        <img src="/images/sections/project-marketing-image.jpg" alt="Rank Spiders client digital marketing campaign results" />
                       </figure>
                     </div>
                   </div>
@@ -111,7 +109,7 @@ export default function EcommerceSeoAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

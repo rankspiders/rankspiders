@@ -56,17 +56,6 @@ export default function AiSeoAgency() {
       </div>
 
       {/* Scrolling Ticker Section Start */}
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
 
       {/* Page Service Single Start */}
       <div className="page-service-single">
@@ -92,9 +81,9 @@ export default function AiSeoAgency() {
                 <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
                   <div className="page-cta-header">
                     <div className="review-images">
-                      <div className="review-image"><img src="/images/authors/author-1.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/authors/author-2.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/authors/author-3.jpg" alt="" /></div>
+                      <div className="review-image"><img src="/images/authors/author-1.jpg" alt="Client testimonial - Rank Spiders digital marketing agency India" /></div>
+                      <div className="review-image"><img src="/images/authors/author-2.jpg" alt="Happy client review - Rank Spiders digital marketing results" /></div>
+                      <div className="review-image"><img src="/images/authors/author-3.jpg" alt="Verified client success story - Rank Spiders India" /></div>
                     </div>
                     <div className="review-rating-content">
                       <p><span>2.5k</span> Positive Review in our solutions</p>
@@ -113,7 +102,7 @@ export default function AiSeoAgency() {
                       </div>
                     </div>
                     <div className="page-cta-btn">
-                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="" /> +91 99883-57092</a>
+                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="Call Rank Spiders" /> +91 99883-57092</a>
                     </div>
                   </div>
                 </div>
@@ -124,7 +113,7 @@ export default function AiSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="" />
+                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="Rank Spiders digital marketing strategy and campaign execution" />
                   </figure>
                 </div>
 
@@ -154,7 +143,7 @@ export default function AiSeoAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/project-marketing-image.jpg" alt="" />
+                        <img src="/images/sections/project-marketing-image.jpg" alt="Rank Spiders client digital marketing campaign results" />
                       </figure>
                     </div>
                   </div>
@@ -210,7 +199,7 @@ export default function AiSeoAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

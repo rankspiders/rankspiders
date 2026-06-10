@@ -16,7 +16,9 @@ interface Project {
 
 export default function ProjectSingle() {
   const params = useParams();
-  const slug = params.slug;
+  const slug = params.slug as string;
+  const slugIdx = (slug?.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % 6) + 1;
+  const fallbackImg = `/images/projects/project-${slugIdx}.jpg`;
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(1);
@@ -85,7 +87,12 @@ export default function ProjectSingle() {
               <div className="project-single-content">
                 <div className="page-single-image mb-4">
                   <figure className="image-anime reveal">
-                    <img src={project.image_url || '/images/projects/project-2.jpg'} alt={project.title} className="img-fluid rounded shadow" />
+                    <img
+                      src={project.image_url || fallbackImg}
+                      onError={(e) => { e.currentTarget.src = fallbackImg; }}
+                      alt={project.title}
+                      className="img-fluid rounded shadow"
+                    />
                   </figure>
                 </div>
                 

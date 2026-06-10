@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function FreeDemoContentAgency() {
           { label: 'Free Demo Content', active: true }
         ]} 
       />
-      <ScrollingTicker />
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -30,7 +28,7 @@ export default function FreeDemoContentAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/approach-image.jpg" alt="" />
+                    <img src="/images/sections/approach-image.jpg" alt="Rank Spiders strategic approach to digital marketing and business growth" />
                   </figure>
                 </div>
                 <div className="service-entry">
@@ -61,7 +59,7 @@ export default function FreeDemoContentAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/digital-advantage-img-1.jpg" alt="" />
+                        <img src="/images/sections/digital-advantage-img-1.jpg" alt="Rank Spiders digital marketing strategy and campaign execution" />
                       </figure>
                     </div>
                   </div>
@@ -101,12 +99,12 @@ export default function FreeDemoContentAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery3.jpg" alt="" />
+                          <img src="/images/gallery/gallery3.jpg" alt="Rank Spiders content marketing and SEO project sample" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery4.jpg" alt="" />
+                          <img src="/images/gallery/gallery4.jpg" alt="Rank Spiders video and content production work" />
                         </figure>
                       </div>
                     </div>
@@ -179,7 +177,7 @@ export default function FreeDemoContentAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -192,7 +190,7 @@ export default function FreeDemoContentAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

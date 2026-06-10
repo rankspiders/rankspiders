@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function OnlineAdvertisingNicheIndustries() {
@@ -68,7 +67,6 @@ export default function OnlineAdvertisingNicheIndustries() {
           { label: 'Niche Industries', active: true },
         ]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
@@ -199,7 +197,7 @@ export default function OnlineAdvertisingNicheIndustries() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

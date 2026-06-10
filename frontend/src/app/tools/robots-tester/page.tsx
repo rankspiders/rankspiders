@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import RobotsTesterClient from './RobotsTesterClient';
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ export default function RobotsTesterPage() {
   return (
     <>
       <PageHeader title="Robots.txt" subtitle="Tester" breadcrumbs={[{ label: 'Tools', href: '/tools' }, { label: 'Robots.txt Tester', active: true }]} />
-      <ScrollingTicker />
       <RobotsTesterClient />
     </>
   );

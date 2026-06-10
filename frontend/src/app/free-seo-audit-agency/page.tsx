@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function FreeSeoAudit() {
@@ -50,7 +49,6 @@ export default function FreeSeoAudit() {
           { label: 'Free Seo Audit', active: true }
         ]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
@@ -87,7 +85,7 @@ export default function FreeSeoAudit() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/digital-advantage-img-2.jpg" alt="" />
+                        <img src="/images/sections/digital-advantage-img-2.jpg" alt="SEO and social media marketing performance metrics dashboard" />
                       </figure>
                     </div>
                   </div>

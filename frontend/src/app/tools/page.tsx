@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import MotionWrapper from '@/components/MotionWrapper';
 
 export const metadata: Metadata = {
@@ -99,7 +98,6 @@ export default function ToolsPage() {
         subtitle="Tools"
         breadcrumbs={[{ label: 'Tools', active: true }]}
       />
-      <ScrollingTicker />
 
       {/* ── Hero band ───────────────────────────────────────────────── */}
       <section className="tools-hero-section">

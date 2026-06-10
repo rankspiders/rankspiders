@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 
 const serviceChips = [
   { value: 'SEO Services',                  label: 'SEO',           icon: 'fa-solid fa-magnifying-glass-chart' },
@@ -64,8 +63,6 @@ export default function ContactUs() {
         subtitle="Us"
         breadcrumbs={[{ label: 'Contact Us', active: true }]}
       />
-
-      <ScrollingTicker />
 
       {/* ── Main contact section ── */}
       <section className="contact-v2">

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function OrganicGrowthConsultancyAgency() {
@@ -45,7 +44,6 @@ export default function OrganicGrowthConsultancyAgency() {
         subtitle="Consultancy Agency"
         breadcrumbs={[{ label: 'Services', href: '/services' }, { label: 'Organic Growth Consultancy', active: true }]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
@@ -81,7 +79,7 @@ export default function OrganicGrowthConsultancyAgency() {
                     </div>
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/approach-image.jpg" alt="" />
+                        <img src="/images/sections/approach-image.jpg" alt="Rank Spiders strategic approach to digital marketing and business growth" />
                       </figure>
                     </div>
                   </div>
@@ -109,7 +107,7 @@ export default function OrganicGrowthConsultancyAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

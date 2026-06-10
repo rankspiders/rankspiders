@@ -39,28 +39,24 @@ export default function Projects() {
         breadcrumbs={[{ label: 'Projects', active: true }]} 
       />
 
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
-
       <div className="page-projects py-5">
         <div className="container">
           <div className="row">
-            {projects.map((project) => (
+            {projects.map((project) => {
+              const slugIdx = (project.slug?.split('').reduce((a: number, c: string) => a + c.charCodeAt(0), 0) % 6) + 1;
+              const fallbackImg = `/images/projects/project-${slugIdx}.jpg`;
+              return (
               <div key={project.id} className="col-lg-4 col-md-6 mb-4">
                 <div className="project-item wow fadeInUp shadow-sm rounded overflow-hidden">
                   <div className="project-image">
                     <Link href={`/projects/${project.slug}`}>
                       <figure className="image-anime">
-                        <img src={project.image_url} alt={project.title} className="img-fluid" />
+                        <img
+                          src={project.image_url || fallbackImg}
+                          onError={(e) => { e.currentTarget.src = fallbackImg; }}
+                          alt={project.title}
+                          className="img-fluid"
+                        />
                       </figure>
                     </Link>
                   </div>
@@ -71,7 +67,8 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

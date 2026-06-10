@@ -921,12 +921,19 @@ export default function HomeClient() {
             </div>
           ) : projects.length > 0 ? (
             <div className="home-projects-grid">
-              {projects.map((p, i) => (
+              {projects.map((p, i) => {
+                const slugIdx = (p.slug?.split('').reduce((a: number, c: string) => a + c.charCodeAt(0), 0) % 6) + 1;
+                const fallbackImg = `/images/projects/project-${slugIdx}.jpg`;
+                return (
                 <MotionWrapper key={p.id} delay={i * 0.1}>
                   <Link href={`/projects/${p.slug}`} className="home-project-card">
-                    {p.image_url && (
-                      <div className="home-project-img" style={{ backgroundImage: `url(${p.image_url})` }} />
-                    )}
+                    <div className="home-project-img">
+                      <img
+                        src={p.image_url || fallbackImg}
+                        onError={(e) => { e.currentTarget.src = fallbackImg; }}
+                        alt={p.title}
+                      />
+                    </div>
                     <div className="home-project-body">
                       {p.category && <span className="home-project-tag">{p.category}</span>}
                       <h3>{p.title}</h3>
@@ -941,7 +948,8 @@ export default function HomeClient() {
                     </div>
                   </Link>
                 </MotionWrapper>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="home-projects-grid">

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 
 export default function Help() {
   const [openFaq, setOpenFaq] = useState<number | null>(1);
@@ -59,7 +58,6 @@ export default function Help() {
         subtitle="Centre"
         breadcrumbs={[{ label: 'Help', active: true }]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single" style={{ padding: '80px 0' }}>
         <div className="container">

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function SocialMediaMarketing() {
@@ -45,7 +44,6 @@ export default function SocialMediaMarketing() {
         subtitle="Marketing"
         breadcrumbs={[{ label: 'Services', href: '/services' }, { label: 'Social Media Marketing', active: true }]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
@@ -135,12 +133,12 @@ export default function SocialMediaMarketing() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime">
-                          <img src="/images/gallery/gallery1.jpg" alt="" />
+                          <img src="/images/gallery/gallery1.jpg" alt="Rank Spiders social media marketing campaign work sample" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime">
-                          <img src="/images/gallery/gallery2.jpg" alt="" />
+                          <img src="/images/gallery/gallery2.jpg" alt="Rank Spiders Facebook and Instagram marketing project results" />
                         </figure>
                       </div>
                     </div>
@@ -186,7 +184,7 @@ export default function SocialMediaMarketing() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

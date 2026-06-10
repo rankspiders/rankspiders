@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function SaasSeoAgency() {
@@ -52,8 +51,6 @@ export default function SaasSeoAgency() {
         ]} 
       />
 
-      <ScrollingTicker />
-
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -65,7 +62,7 @@ export default function SaasSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="" />
+                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="Rank Spiders digital marketing strategy and campaign execution" />
                   </figure>
                 </div>
 
@@ -100,7 +97,7 @@ export default function SaasSeoAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/work-image-2.jpg" alt="" />
+                        <img src="/images/sections/work-image-2.jpg" alt="Web development and digital marketing strategy implementation at Rank Spiders" />
                       </figure>
                     </div>
                   </div>
@@ -165,12 +162,12 @@ export default function SaasSeoAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery9.jpg" alt="" />
+                          <img src="/images/gallery/gallery9.jpg" alt="Rank Spiders SaaS and local business SEO case study" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/sections/work-image-1.jpg" alt="" />
+                          <img src="/images/sections/work-image-1.jpg" alt="Digital marketing team working on client SEO and social media campaigns" />
                         </figure>
                       </div>
                     </div>
@@ -231,7 +228,7 @@ export default function SaasSeoAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -244,7 +241,7 @@ export default function SaasSeoAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

@@ -65,17 +65,6 @@ export default function WoocommerceSeoAgency() {
       />
 
       {/* Scrolling Ticker Section Start */}
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
       {/* Scrolling Ticker Section End */}
 
       <div className="page-service-single">
@@ -89,7 +78,7 @@ export default function WoocommerceSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/projects/project-3.jpg" alt="" />
+                    <img src="/images/projects/project-3.jpg" alt="Rank Spiders web development and custom landing page project" />
                   </figure>
                 </div>
                 
@@ -120,7 +109,7 @@ export default function WoocommerceSeoAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/projects/project-4.jpg" alt="" />
+                        <img src="/images/projects/project-4.jpg" alt="Rank Spiders landing page design and conversion rate optimisation" />
                       </figure>
                     </div>
                   </div>
@@ -165,12 +154,12 @@ export default function WoocommerceSeoAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/projects/project-3.jpg" alt="" />
+                          <img src="/images/projects/project-3.jpg" alt="Rank Spiders web development and custom landing page project" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/projects/project-4.jpg" alt="" />
+                          <img src="/images/projects/project-4.jpg" alt="Rank Spiders landing page design and conversion rate optimisation" />
                         </figure>
                       </div>
                     </div>
@@ -212,7 +201,7 @@ export default function WoocommerceSeoAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

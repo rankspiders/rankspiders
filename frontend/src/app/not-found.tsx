@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 
 export default function NotFound() {
   return (
@@ -10,13 +9,12 @@ export default function NotFound() {
         subtitle="found"
         breadcrumbs={[{ label: '404 error page', active: true }]}
       />
-      <ScrollingTicker />
       <div className="error-page">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="error-page-image wow fadeInUp">
-                <img src="/images/404-error-img.png" alt="" />
+                <img src="/images/404-error-img.png" alt="404 - Page not found on Rank Spiders website" />
               </div>
               <div className="error-page-content">
                 <div className="section-title">

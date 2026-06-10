@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 
 const servicesList = [
   {
@@ -109,7 +108,6 @@ export default function Services() {
         subtitle="Services"
         breadcrumbs={[{ label: 'Services', active: true }]}
       />
-      <ScrollingTicker />
 
       {/* ── Featured service cards ── */}
       <div className="services-featured-section">

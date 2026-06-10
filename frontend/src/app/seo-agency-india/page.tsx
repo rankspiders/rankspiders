@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function SeoAgencyIndia() {
@@ -49,8 +48,6 @@ export default function SeoAgencyIndia() {
         breadcrumbs={[{ label: 'Services', href: '/services' }, { label: 'Seo Optimization', active: true }]}
       />
 
-      <ScrollingTicker />
-
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -62,7 +59,7 @@ export default function SeoAgencyIndia() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/service-single-image.jpg" alt="" />
+                    <img src="/images/sections/service-single-image.jpg" alt="Rank Spiders SEO audit and digital marketing services India" />
                   </figure>
                 </div>
 
@@ -93,7 +90,7 @@ export default function SeoAgencyIndia() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/project-highlight-image.jpg" alt="" />
+                        <img src="/images/sections/project-highlight-image.jpg" alt="Rank Spiders project highlights and client case study results" />
                       </figure>
                     </div>
                   </div>
@@ -121,7 +118,7 @@ export default function SeoAgencyIndia() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

@@ -58,23 +58,6 @@ export default function FreeEmailStrategyAgency() {
         </div>
       </div>
 
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
-
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -93,17 +76,17 @@ export default function FreeEmailStrategyAgency() {
                     <div className="review-images">
                       <div className="review-image">
                         <figure className="image-anime">
-                          <img src="/images/authors/author-1.jpg" alt="" />
+                          <img src="/images/authors/author-1.jpg" alt="Client testimonial - Rank Spiders digital marketing agency India" />
                         </figure>
                       </div>
                       <div className="review-image">
                         <figure className="image-anime">
-                          <img src="/images/authors/author-2.jpg" alt="" />
+                          <img src="/images/authors/author-2.jpg" alt="Happy client review - Rank Spiders digital marketing results" />
                         </figure>
                       </div>
                       <div className="review-image">
                         <figure className="image-anime">
-                          <img src="/images/authors/author-3.jpg" alt="" />
+                          <img src="/images/authors/author-3.jpg" alt="Verified client success story - Rank Spiders India" />
                         </figure>
                       </div>
                     </div>
@@ -124,7 +107,7 @@ export default function FreeEmailStrategyAgency() {
                       </div>
                     </div>
                     <div className="page-cta-btn">
-                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="" /> +91 99883-57092</a>
+                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="Call Rank Spiders" /> +91 99883-57092</a>
                     </div>
                   </div>
                 </div>
@@ -135,7 +118,7 @@ export default function FreeEmailStrategyAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/promise-image.jpg" alt="" />
+                    <img src="/images/sections/promise-image.jpg" alt="Rank Spiders commitment to transparent and measurable digital marketing results" />
                   </figure>
                 </div>
 
@@ -167,7 +150,7 @@ export default function FreeEmailStrategyAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/digital-advantage-img-2.jpg" alt="" />
+                        <img src="/images/sections/digital-advantage-img-2.jpg" alt="SEO and social media marketing performance metrics dashboard" />
                       </figure>
                     </div>
                   </div>
@@ -212,12 +195,12 @@ export default function FreeEmailStrategyAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery5.jpg" alt="" />
+                          <img src="/images/gallery/gallery5.jpg" alt="Rank Spiders email marketing campaign design and results" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery6.jpg" alt="" />
+                          <img src="/images/gallery/gallery6.jpg" alt="Rank Spiders email strategy and newsletter design work" />
                         </figure>
                       </div>
                     </div>
@@ -296,7 +279,7 @@ export default function FreeEmailStrategyAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -309,7 +292,7 @@ export default function FreeEmailStrategyAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

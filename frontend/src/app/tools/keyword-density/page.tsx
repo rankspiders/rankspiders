@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import KeywordDensityClient from './KeywordDensityClient';
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ export default function KeywordDensityPage() {
   return (
     <>
       <PageHeader title="Keyword Density" subtitle="Analyser" breadcrumbs={[{ label: 'Tools', href: '/tools' }, { label: 'Keyword Density', active: true }]} />
-      <ScrollingTicker />
       <KeywordDensityClient />
     </>
   );

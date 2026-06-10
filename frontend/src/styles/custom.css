@@ -10770,12 +10770,18 @@ header.main-header .header-sticky.active.hide{
   width: 100%;
   height: 200px;
   background-color: var(--bg-secondary);
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+}
+
+.home-project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
-.home-project-card:hover .home-project-img {
+.home-project-card:hover .home-project-img img {
   transform: scale(1.04);
 }
 
@@ -11331,7 +11337,7 @@ header.main-header .header-sticky.active.hide{
 
 .home-industry-chip:hover {
   border-color: var(--accent-color);
-  background: rgba(82, 27, 137, 0.07);
+background: rgba(82, 27, 137, 0.07);
   color: var(--accent-color);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(82, 27, 137, 0.12);
@@ -11890,4 +11896,83 @@ header.main-header .header-sticky.active.hide{
   .home-compare-table       { min-width: 480px; }
   .home-compare-cell--feature { font-size: 13px; }
   .home-compare-note        { display: none; }
+}
+/* ── About Us Page ───────────────────────────────────────────────────────── */
+
+/* Intro section image wrapper */
+.about-image {
+  position: relative;
+}
+
+.about-experience {
+  position: absolute;
+  bottom: 24px;
+  right: -16px;
+  background: var(--accent-color);
+  color: #fff;
+  border-radius: 14px;
+  padding: 16px 24px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(79,70,229,0.35);
+}
+
+.about-experience h3 {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+}
+
+.about-experience p {
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Bullet list */
+.about-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.about-bullet-list li i {
+  color: var(--accent-color);
+  font-size: 1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Value card hover */
+.about-value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+@media (max-width: 991px) {
+  .about-experience {
+    right: 8px;
+    bottom: 8px;
+  }
+}
+
+@media (max-width: 575px) {
+  .about-experience {
+    position: static;
+    display: inline-block;
+    margin-top: 16px;
+  }
 }

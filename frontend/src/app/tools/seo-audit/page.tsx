@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import SeoAuditClient from './SeoAuditClient';
 
 export const metadata: Metadata = {
@@ -32,7 +31,6 @@ export default function SeoAuditPage() {
           { label: 'SEO Audit', active: true },
         ]}
       />
-      <ScrollingTicker />
       <SeoAuditClient />
     </>
   );

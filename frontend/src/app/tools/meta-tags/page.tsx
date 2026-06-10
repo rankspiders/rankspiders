@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import MetaTagsClient from './MetaTagsClient';
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ export default function MetaTagsPage() {
   return (
     <>
       <PageHeader title="Meta Tag" subtitle="Extractor" breadcrumbs={[{ label: 'Tools', href: '/tools' }, { label: 'Meta Tags', active: true }]} />
-      <ScrollingTicker />
       <MetaTagsClient />
     </>
   );

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function LocalSeoAgency() {
@@ -52,8 +51,6 @@ export default function LocalSeoAgency() {
         ]} 
       />
 
-      <ScrollingTicker />
-
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -65,7 +62,7 @@ export default function LocalSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/promise-image.jpg" alt="" />
+                    <img src="/images/sections/promise-image.jpg" alt="Rank Spiders commitment to transparent and measurable digital marketing results" />
                   </figure>
                 </div>
 
@@ -99,7 +96,7 @@ export default function LocalSeoAgency() {
 
                       <div className="service-strategy-image">
                         <figure className="image-anime reveal">
-                          <img src="/images/sections/approach-image.jpg" alt="" />
+                          <img src="/images/sections/approach-image.jpg" alt="Rank Spiders strategic approach to digital marketing and business growth" />
                         </figure>
                       </div>
                     </div>
@@ -164,12 +161,12 @@ export default function LocalSeoAgency() {
                       <div className="service-impact-images">
                         <div className="service-impact-img">
                           <figure className="image-anime reveal">
-                            <img src="/images/gallery/gallery7.jpg" alt="" />
+                            <img src="/images/gallery/gallery7.jpg" alt="Rank Spiders link building and off-page SEO project" />
                           </figure>
                         </div>
                         <div className="service-impact-img">
                           <figure className="image-anime reveal">
-                            <img src="/images/gallery/gallery8.jpg" alt="" />
+                            <img src="/images/gallery/gallery8.jpg" alt="Rank Spiders backlink acquisition and SEO authority building" />
                           </figure>
                         </div>
                       </div>
@@ -234,7 +231,7 @@ export default function LocalSeoAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -247,7 +244,7 @@ export default function LocalSeoAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

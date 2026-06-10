@@ -1,6 +1,5 @@
 import React from 'react';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function TermsAndConditions() {
         subtitle="Conditions"
         breadcrumbs={[{ label: "Terms & Conditions", active: true }]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single" style={{ padding: '80px 0' }}>
         <div className="container">

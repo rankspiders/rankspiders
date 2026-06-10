@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function EmailMarketingAgency() {
           { label: 'Email Marketing', active: true }
         ]} 
       />
-      <ScrollingTicker />
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -30,7 +28,7 @@ export default function EmailMarketingAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/promise-image.jpg" alt="" />
+                    <img src="/images/sections/promise-image.jpg" alt="Rank Spiders commitment to transparent and measurable digital marketing results" />
                   </figure>
                 </div>
                 <div className="service-entry">
@@ -60,7 +58,7 @@ export default function EmailMarketingAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/digital-advantage-img-2.jpg" alt="" />
+                        <img src="/images/sections/digital-advantage-img-2.jpg" alt="SEO and social media marketing performance metrics dashboard" />
                       </figure>
                     </div>
                   </div>
@@ -105,12 +103,12 @@ export default function EmailMarketingAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery5.jpg" alt="" />
+                          <img src="/images/gallery/gallery5.jpg" alt="Rank Spiders email marketing campaign design and results" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery6.jpg" alt="" />
+                          <img src="/images/gallery/gallery6.jpg" alt="Rank Spiders email strategy and newsletter design work" />
                         </figure>
                       </div>
                     </div>
@@ -167,7 +165,7 @@ export default function EmailMarketingAgency() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -180,7 +178,7 @@ export default function EmailMarketingAgency() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

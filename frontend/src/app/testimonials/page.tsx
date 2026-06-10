@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 
 export default function Testimonials() {
   const testimonials = [
@@ -46,8 +45,6 @@ export default function Testimonials() {
         subtitle="Testimonials" 
         breadcrumbs={[{ label: 'Our Testimonials', active: true }]} 
       />
-
-      <ScrollingTicker />
 
       {/* Page Testimonials Start */}
       <div className="page-testimonials">
@@ -108,7 +105,7 @@ export default function Testimonials() {
             <div className="col-lg-6">
               <div className="why-choose-img wow fadeInUp" data-wow-delay="0.2s">
                 <figure>
-                  <img src="/images/sections/why-choose-image.png" alt="" />
+                  <img src="/images/sections/why-choose-image.png" alt="Why choose Rank Spiders as your digital marketing agency in India" />
                 </figure>
               </div>
             </div>
@@ -137,7 +134,7 @@ export default function Testimonials() {
                 <div className="offer-body wow fadeInUp" data-wow-delay="0.6s">
                   <div className="offer-body-item">
                     <div className="icon-box">
-                      <img src="/images/icons/icon-offer-body-1.svg" alt="" />
+                      <img src="/images/icons/icon-offer-body-1.svg" alt="Free digital marketing consultation" />
                     </div>
                     <div className="offer-body-item-content">
                       <h3>Google & Social Media Ads</h3>
@@ -146,7 +143,7 @@ export default function Testimonials() {
 
                   <div className="offer-body-item">
                     <div className="icon-box">
-                      <img src="/images/icons/icon-offer-body-2.svg" alt="" />
+                      <img src="/images/icons/icon-offer-body-2.svg" alt="Flexible no-contract marketing plans" />
                     </div>
                     <div className="offer-body-item-content">
                       <h3>Website Design & Development</h3>
@@ -155,7 +152,7 @@ export default function Testimonials() {
 
                   <div className="offer-body-item">
                     <div className="icon-box">
-                      <img src="/images/icons/icon-offer-body-3.svg" alt="" />
+                      <img src="/images/icons/icon-offer-body-3.svg" alt="Proven results-driven marketing strategies" />
                     </div>
                     <div className="offer-body-item-content">
                       <h3>Conversion Rate Optimization</h3>
@@ -172,7 +169,7 @@ export default function Testimonials() {
             <div className="col-lg-6">
               <div className="offer-image-box wow fadeInUp" data-wow-delay="0.2s">
                 <figure>
-                  <img src="/images/sections/offer-image.png" alt="" />
+                  <img src="/images/sections/offer-image.png" alt="Rank Spiders free digital marketing consultation and service offers" />
                 </figure>
               </div>
             </div>

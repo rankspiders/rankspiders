@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import Sidebar from '@/components/Sidebar';
 
 export default function OnlineAdvertisingAgency() {
@@ -45,7 +44,6 @@ export default function OnlineAdvertisingAgency() {
         subtitle="Advertising Agency"
         breadcrumbs={[{ label: 'Services', href: '/services' }, { label: 'Online Advertising', active: true }]}
       />
-      <ScrollingTicker />
 
       <div className="page-service-single">
         <div className="container">
@@ -81,7 +79,7 @@ export default function OnlineAdvertisingAgency() {
                     </div>
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/project-highlight-image.jpg" alt="" />
+                        <img src="/images/sections/project-highlight-image.jpg" alt="Rank Spiders project highlights and client case study results" />
                       </figure>
                     </div>
                   </div>
@@ -109,7 +107,7 @@ export default function OnlineAdvertisingAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

@@ -64,23 +64,6 @@ export default function VideoEditing() {
         </div>
       </div>
 
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
-
       <div className="page-service-single">
         <div className="container">
           <div className="row">
@@ -103,9 +86,9 @@ export default function VideoEditing() {
                 <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
                   <div className="page-cta-header">
                     <div className="review-images">
-                      <div className="review-image"><img src="/images/authors/author-1.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/authors/author-2.jpg" alt="" /></div>
-                      <div className="review-image"><img src="/images/authors/author-3.jpg" alt="" /></div>
+                      <div className="review-image"><img src="/images/authors/author-1.jpg" alt="Client testimonial - Rank Spiders digital marketing agency India" /></div>
+                      <div className="review-image"><img src="/images/authors/author-2.jpg" alt="Happy client review - Rank Spiders digital marketing results" /></div>
+                      <div className="review-image"><img src="/images/authors/author-3.jpg" alt="Verified client success story - Rank Spiders India" /></div>
                     </div>
                     <div className="review-rating-content">
                       <p><span>2.5k</span> Positive Review in our solutions</p>
@@ -124,7 +107,7 @@ export default function VideoEditing() {
                       </div>
                     </div>
                     <div className="page-cta-btn">
-                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="" /> +91 99883-57092</a>
+                      <a href="tel:+919988357092"><img src="/images/icons/icon-phone-white.svg" alt="Call Rank Spiders" /> +91 99883-57092</a>
                     </div>
                   </div>
                 </div>
@@ -135,7 +118,7 @@ export default function VideoEditing() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/project-marketing-image.jpg" alt="" />
+                    <img src="/images/sections/project-marketing-image.jpg" alt="Rank Spiders client digital marketing campaign results" />
                   </figure>
                 </div>
 
@@ -166,7 +149,7 @@ export default function VideoEditing() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/project-highlight-image.jpg" alt="" />
+                        <img src="/images/sections/project-highlight-image.jpg" alt="Rank Spiders project highlights and client case study results" />
                       </figure>
                     </div>
                   </div>
@@ -211,12 +194,12 @@ export default function VideoEditing() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery3.jpg" alt="" />
+                          <img src="/images/gallery/gallery3.jpg" alt="Rank Spiders content marketing and SEO project sample" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery4.jpg" alt="" />
+                          <img src="/images/gallery/gallery4.jpg" alt="Rank Spiders video and content production work" />
                         </figure>
                       </div>
                     </div>
@@ -287,7 +270,7 @@ export default function VideoEditing() {
               <div className="our-belief-image">
                 <div className="our-belief-img">
                   <figure>
-                    <img src="/images/sections/our-belief-image.png" alt="" />
+                    <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
                 </div>
                 <div className="belief-fund-box">
@@ -300,7 +283,7 @@ export default function VideoEditing() {
                   </div>
                 </div>
                 <div className="belief-graph-image">
-                  <img src="/images/sections/belief-graph-imge.png" alt="" />
+                  <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
                 </div>
               </div>
             </div>

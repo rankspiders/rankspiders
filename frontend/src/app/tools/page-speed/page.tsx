@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import PageSpeedClient from './PageSpeedClient';
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ export default function PageSpeedPage() {
   return (
     <>
       <PageHeader title="Page Speed" subtitle="Checker" breadcrumbs={[{ label: 'Tools', href: '/tools' }, { label: 'Page Speed', active: true }]} />
-      <ScrollingTicker />
       <PageSpeedClient />
     </>
   );

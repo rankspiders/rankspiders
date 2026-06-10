@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import RankTrackerClient from './RankTrackerClient';
 
 export const metadata: Metadata = {
@@ -28,7 +27,6 @@ export default function RankTrackerPage() {
           { label: 'Rank Tracker', active: true },
         ]}
       />
-      <ScrollingTicker />
       <RankTrackerClient />
     </>
   );

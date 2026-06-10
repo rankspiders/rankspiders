@@ -65,17 +65,6 @@ export default function SocialMediaConsultancyAgency() {
       />
 
       {/* Scrolling Ticker Section Start */}
-      <div className="our-scrolling-ticker">
-        <div className="scrolling-ticker-box">
-          <div className="scrolling-content">
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Social Media Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Search Engine Optimization</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Email Marketing</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Web Design</span>
-            <span><img src="/images/icons/icon-sparkle.svg" alt="" />Mobile Marketing Solutions</span>
-          </div>
-        </div>
-      </div>
       {/* Scrolling Ticker Section End */}
 
       <div className="page-service-single">
@@ -99,7 +88,7 @@ export default function SocialMediaConsultancyAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="" />
+                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="Rank Spiders digital marketing strategy and campaign execution" />
                   </figure>
                 </div>
                 
@@ -131,7 +120,7 @@ export default function SocialMediaConsultancyAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/approach-image.jpg" alt="" />
+                        <img src="/images/sections/approach-image.jpg" alt="Rank Spiders strategic approach to digital marketing and business growth" />
                       </figure>
                     </div>
                   </div>
@@ -176,12 +165,12 @@ export default function SocialMediaConsultancyAgency() {
                     <div className="service-impact-images">
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery7.jpg" alt="" />
+                          <img src="/images/gallery/gallery7.jpg" alt="Rank Spiders link building and off-page SEO project" />
                         </figure>
                       </div>
                       <div className="service-impact-img">
                         <figure className="image-anime reveal">
-                          <img src="/images/gallery/gallery8.jpg" alt="" />
+                          <img src="/images/gallery/gallery8.jpg" alt="Rank Spiders backlink acquisition and SEO authority building" />
                         </figure>
                       </div>
                     </div>
@@ -223,7 +212,7 @@ export default function SocialMediaConsultancyAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
               </div>
             </div>
           </div>

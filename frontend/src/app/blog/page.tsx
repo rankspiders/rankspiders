@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import ScrollingTicker from '@/components/ScrollingTicker';
 import BlogListClient from './BlogListClient';
 
 export const metadata: Metadata = {
@@ -33,7 +32,6 @@ export default function BlogPage() {
         subtitle="Blog"
         breadcrumbs={[{ label: 'Blog', active: true }]}
       />
-      <ScrollingTicker />
       <BlogListClient />
     </>
   );
