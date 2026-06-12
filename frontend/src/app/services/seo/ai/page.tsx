@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -66,14 +66,14 @@ export default function AiSeoAgency() {
                 <div className="page-category-list wow fadeInUp">
                   <h3>Discover Our More Services</h3>
                   <ul>
-                    <li><Link href="/free-seo-audit-agency">Free Seo Audit</Link></li>
-                    <li><Link href="/technical-seo-agency">Technical Seo</Link></li>
-                    <li><Link href="/local-seo-agency">Local Seo</Link></li>
-                    <li><Link href="/link-building-seo-agency">Link Building Seo</Link></li>
-                    <li><Link href="/saas-seo-agency">Saas Seo</Link></li>
-                    <li><Link href="/b2b-seo-agency">B2B Seo</Link></li>
-                    <li><Link href="/wordpress-seo-agency">Wordpress Seo</Link></li>
-                    <li><Link href="/ecommerce-seo-agency">E-Commerce Seo</Link></li>
+                    <li><Link href="/free/seo-audit">Free Seo Audit</Link></li>
+                    <li><Link href="/services/seo/technical">Technical Seo</Link></li>
+                    <li><Link href="/services/seo/local">Local Seo</Link></li>
+                    <li><Link href="/services/seo/link-building">Link Building Seo</Link></li>
+                    <li><Link href="/services/seo/saas">Saas Seo</Link></li>
+                    <li><Link href="/services/seo/b2b">B2B Seo</Link></li>
+                    <li><Link href="/services/seo/wordpress">Wordpress Seo</Link></li>
+                    <li><Link href="/services/seo/ecommerce">E-Commerce Seo</Link></li>
                     <li><Link href="/niche-seo-industries-agency">Niche Seo Industries</Link></li>
                   </ul>
                 </div>

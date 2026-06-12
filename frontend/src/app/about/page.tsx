@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageHeader from '@/components/PageHeader';
@@ -141,12 +141,12 @@ export default function About() {
                   </h2>
                   <p className="wow fadeInUp" data-wow-delay="0.3s">
                     Rank Spiders is a premier{' '}
-                    <strong><Link href="/seo-agency-india">SEO and digital marketing agency in India</Link></strong>{' '}
+                    <strong><Link href="/services/seo">SEO and digital marketing agency in India</Link></strong>{' '}
                     dedicated to helping businesses grow online. We deliver{' '}
-                    <strong><Link href="/technical-seo-agency">technical SEO</Link></strong>,{' '}
-                    <strong><Link href="/content-marketing-agency">content marketing</Link></strong>,{' '}
-                    <strong><Link href="/social-media-marketing">social media management</Link></strong>, and{' '}
-                    <strong><Link href="/google-ads-agency">Google Ads campaigns</Link></strong>{' '}
+                    <strong><Link href="/services/seo/technical">technical SEO</Link></strong>,{' '}
+                    <strong><Link href="/services/content">content marketing</Link></strong>,{' '}
+                    <strong><Link href="/services/social-media">social media management</Link></strong>, and{' '}
+                    <strong><Link href="/services/paid-ads/google-ads">Google Ads campaigns</Link></strong>{' '}
                     — combining data-driven strategy with creative execution to build sustainable organic growth for brands across India, Australia, and the US.
                   </p>
                   <p className="wow fadeInUp" data-wow-delay="0.4s">

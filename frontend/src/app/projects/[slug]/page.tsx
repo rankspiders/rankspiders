@@ -1,49 +1,32 @@
-'use client';
+import React from 'react';
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+import projects from '@/data/projects';
+import ProjectFaq from './ProjectFaq';
 
-import React, { useEffect, useState } from 'react';
-import PageHeader from '@/components/PageHeader';
-import { useParams } from 'next/navigation';
-
-interface Project {
-  title: string;
-  client: string;
-  category: string;
-  location: string;
-  date: string;
-  image_url: string;
-  content: string;
+interface Props {
+  params: Promise<{ slug: string }>;
 }
 
-export default function ProjectSingle() {
-  const params = useParams();
-  const slug = params.slug as string;
-  const slugIdx = (slug?.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % 6) + 1;
-  const fallbackImg = `/images/projects/project-${slugIdx}.jpg`;
-  const [project, setProject] = useState<Project | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [openFaq, setOpenFaq] = useState<number | null>(1);
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
 
-  const toggleFaq = (id: number) => {
-    setOpenFaq(openFaq === id ? null : id);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+  return {
+    title: `${project.title} | Rank Spiders`,
+    description: `${project.category} project for ${project.client} — ${project.location}.`,
   };
+}
 
-  useEffect(() => {
-    if (slug) {
-      fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/projects/${slug}`)
-        .then(res => res.json())
-        .then(data => {
-          setProject(data);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error("Error fetching project:", err);
-          setLoading(false);
-        });
-    }
-  }, [slug]);
+export default async function ProjectSingle({ params }: Props) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
 
-  if (loading) return <div className="py-5 text-center">Loading...</div>;
-  if (!project) return <div className="py-5 text-center">Project not found.</div>;
+  if (!project) notFound();
 
   return (
     <>
@@ -52,7 +35,7 @@ export default function ProjectSingle() {
           <div className="row">
             <div className="col-lg-12">
               <div className="page-header-box">
-                <h1 className="wow fadeInUp" data-cursor="-opaque">{project.title}</h1>                        
+                <h1 className="wow fadeInUp" data-cursor="-opaque">{project.title}</h1>
                 <nav className="wow fadeInUp" data-wow-delay="0.2s">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><a href="/">home</a></li>
@@ -88,46 +71,19 @@ export default function ProjectSingle() {
                 <div className="page-single-image mb-4">
                   <figure className="image-anime reveal">
                     <img
-                      src={project.image_url || fallbackImg}
-                      onError={(e) => { e.currentTarget.src = fallbackImg; }}
+                      src={project.image}
                       alt={project.title}
                       className="img-fluid rounded shadow"
                     />
                   </figure>
                 </div>
-                
-                <div className="project-entry" dangerouslySetInnerHTML={{ __html: project.content }}>
-                </div>
 
-                <div className="page-single-faqs mt-5">
-                  <div className="section-title">
-                    <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
-                  </div>
+                <div
+                  className="project-entry"
+                  dangerouslySetInnerHTML={{ __html: project.content }}
+                />
 
-                  <div className="faq-accordion mt-4" id="accordion">
-                    {[1, 2, 3, 4].map((id) => (
-                      <div key={id} className="accordion-item wow fadeInUp border mb-2 rounded">
-                        <h2 className="accordion-header">
-                          <button 
-                            className={`accordion-button ${openFaq === id ? '' : 'collapsed'} py-3`} 
-                            type="button" 
-                            onClick={() => toggleFaq(id)}
-                          >
-                            {id === 1 && "1. What is digital marketing, & help my business?"}
-                            {id === 2 && "2. How do you measure success in a campaign?"}
-                            {id === 3 && "3. Can you help with both SEO and paid ads?"}
-                            {id === 4 && "4. Is there a contract or long-term commitment?"}
-                          </button>
-                        </h2>
-                        <div className={`accordion-collapse collapse ${openFaq === id ? 'show' : ''}`}>
-                          <div className="accordion-body bg-light">
-                            <p>We closely track key performance indicators (KPIs) such as website traffic, conversion rates, click-through rates (CTR), and return on investment (ROI) to evaluate campaign effectiveness.</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <ProjectFaq />
               </div>
             </div>
           </div>

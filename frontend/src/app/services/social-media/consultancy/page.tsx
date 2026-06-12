@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -75,9 +75,9 @@ export default function SocialMediaConsultancyAgency() {
                 <div className="page-category-list wow fadeInUp">
                   <h3>Discover Our More Services</h3>
                   <ul>
-                    <li><Link href="/seo-consultancy-agency">Seo Consultancy</Link></li>
-                    <li><Link href="/business-growth-consultancy-agency">Business Growth Consultancy</Link></li>
-                    <li><Link href="/organic-growth-consultancy-agency">organic Growth Consultancy</Link></li>
+                    <li><Link href="/services/seo/consultancy">Seo Consultancy</Link></li>
+                    <li><Link href="/services/consultancy/business-growth">Business Growth Consultancy</Link></li>
+                    <li><Link href="/services/consultancy/organic-growth">organic Growth Consultancy</Link></li>
                   </ul>
                 </div>
                 <Sidebar />

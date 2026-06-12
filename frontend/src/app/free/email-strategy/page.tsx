@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -66,7 +66,7 @@ export default function FreeEmailStrategyAgency() {
                 <div className="page-category-list wow fadeInUp">
                   <h3>Discover Our More Services</h3>
                   <ul>
-                    <li><Link href="/free-demo-content-agency">Free Demo Content</Link></li>
+                    <li><Link href="/free/demo-content">Free Demo Content</Link></li>
                     <li><Link href="/niche-industries-agency">Niche Industries</Link></li>
                   </ul>
                 </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -73,12 +73,12 @@ export default function VideoEditing() {
                   <h3>Discover Our More Services</h3>
                   <ul>
                     <li><Link href="/free-social-media-audit-agency">Free Social Media Audit</Link></li>
-                    <li><Link href="/instagram-marketing-agency">Instagram Marketing</Link></li>
+                    <li><Link href="/services/social-media/instagram">Instagram Marketing</Link></li>
                     <li><Link href="/linkdin-marketing-agency">Linkdin Marketing</Link></li>
-                    <li><Link href="/facebook-marketing-agency">Facebook Marketing</Link></li>
-                    <li><Link href="/pinterest-marketing-agency">Pinterest Marketing</Link></li>
-                    <li><Link href="/graphic-design-agency">Graphic Deisgn</Link></li>
-                    <li><Link href="/youtube-marketing-agency">Youtube Marketing</Link></li>
+                    <li><Link href="/services/social-media/facebook">Facebook Marketing</Link></li>
+                    <li><Link href="/services/social-media/pinterest">Pinterest Marketing</Link></li>
+                    <li><Link href="/services/content/graphic-design">Graphic Deisgn</Link></li>
+                    <li><Link href="/services/social-media/youtube">Youtube Marketing</Link></li>
                     <li><Link href="/niche-industries-agency">Niche Industries</Link></li>
                   </ul>
                 </div>

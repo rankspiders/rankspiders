@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
@@ -23,42 +23,42 @@ const services = [
     icon: 'fa-solid fa-magnifying-glass-chart',
     title: 'SEO Optimization',
     description: 'Rank higher, convert better. Data-driven SEO strategies that build long-term organic authority and drive qualified traffic to your business.',
-    href: '/seo-agency-india',
+    href: '/services/seo',
     linkLabel: 'Explore SEO Services India',
   },
   {
     icon: 'fa-solid fa-robot',
     title: 'AI-Powered SEO',
     description: 'Future-proof your search presence with AI-assisted keyword intelligence, content optimization, and predictive ranking strategies.',
-    href: '/ai-seo-agency',
+    href: '/services/seo/ai',
     linkLabel: 'See AI SEO Strategy',
   },
   {
     icon: 'fa-brands fa-meta',
     title: 'Social Media Marketing',
     description: 'Build an engaged audience across every platform. From content creation to paid ads — we grow your brand where your customers spend time.',
-    href: '/social-media-marketing',
+    href: '/services/social-media',
     linkLabel: 'View Social Media Packages',
   },
   {
     icon: 'fa-solid fa-code',
     title: 'Web Design & Development',
     description: 'Fast, beautiful, conversion-optimized websites built on modern stacks. Designed to impress, built to rank.',
-    href: '/web-design-and-development-niche-industries',
+    href: '/services/web-development/niche-industries',
     linkLabel: 'See Web Design Services',
   },
   {
     icon: 'fa-solid fa-envelope-open-text',
     title: 'Email Marketing',
     description: 'Nurture leads and retain customers with automated, personalized email sequences that deliver real ROI.',
-    href: '/email-marketing-agency',
+    href: '/services/content/email-marketing',
     linkLabel: 'View Email Marketing Plans',
   },
   {
     icon: 'fa-solid fa-chart-line',
     title: 'PPC & Paid Ads',
     description: 'Maximize every rupee of ad spend. Google Ads, Meta Ads and LinkedIn campaigns managed for performance, not vanity metrics.',
-    href: '/meta-ads-agency',
+    href: '/services/paid-ads/meta-ads',
     linkLabel: 'Explore Google & Meta Ads',
   },
 ];
@@ -243,18 +243,18 @@ const metrics = [
 ];
 
 const industries = [
-  { icon: 'fa-solid fa-cart-shopping', name: 'E-Commerce', href: '/ecommerce-seo-agency' },
-  { icon: 'fa-solid fa-hospital-user', name: 'Healthcare', href: '/local-seo-agency' },
-  { icon: 'fa-solid fa-building', name: 'Real Estate', href: '/local-seo-agency' },
-  { icon: 'fa-solid fa-graduation-cap', name: 'Education', href: '/content-marketing-agency' },
-  { icon: 'fa-solid fa-plane-departure', name: 'Immigration & Visa', href: '/seo-agency-india' },
-  { icon: 'fa-solid fa-concierge-bell', name: 'Hospitality', href: '/local-seo-agency' },
-  { icon: 'fa-solid fa-landmark', name: 'Finance', href: '/b2b-seo-agency' },
-  { icon: 'fa-solid fa-scale-balanced', name: 'Legal Services', href: '/local-seo-agency' },
-  { icon: 'fa-solid fa-spa', name: 'Beauty & Wellness', href: '/local-seo-agency' },
-  { icon: 'fa-solid fa-helmet-safety', name: 'Construction', href: '/local-seo-agency' },
-  { icon: 'fa-solid fa-microchip', name: 'SaaS & Tech', href: '/saas-seo-agency' },
-  { icon: 'fa-solid fa-film', name: 'Media & Entertainment', href: '/content-marketing-agency' },
+  { icon: 'fa-solid fa-cart-shopping', name: 'E-Commerce', href: '/services/seo/ecommerce' },
+  { icon: 'fa-solid fa-hospital-user', name: 'Healthcare', href: '/services/seo/local' },
+  { icon: 'fa-solid fa-building', name: 'Real Estate', href: '/services/seo/local' },
+  { icon: 'fa-solid fa-graduation-cap', name: 'Education', href: '/services/content' },
+  { icon: 'fa-solid fa-plane-departure', name: 'Immigration & Visa', href: '/services/seo' },
+  { icon: 'fa-solid fa-concierge-bell', name: 'Hospitality', href: '/services/seo/local' },
+  { icon: 'fa-solid fa-landmark', name: 'Finance', href: '/services/seo/b2b' },
+  { icon: 'fa-solid fa-scale-balanced', name: 'Legal Services', href: '/services/seo/local' },
+  { icon: 'fa-solid fa-spa', name: 'Beauty & Wellness', href: '/services/seo/local' },
+  { icon: 'fa-solid fa-helmet-safety', name: 'Construction', href: '/services/seo/local' },
+  { icon: 'fa-solid fa-microchip', name: 'SaaS & Tech', href: '/services/seo/saas' },
+  { icon: 'fa-solid fa-film', name: 'Media & Entertainment', href: '/services/content' },
 ];
 
 type FAQ = { q: string; a: React.ReactNode };
@@ -262,11 +262,11 @@ type FAQ = { q: string; a: React.ReactNode };
 const faqs: FAQ[] = [
   {
     q: 'How long does SEO take to show results?',
-    a: <>Most clients see measurable movement — keyword rankings improving, traffic climbing — within 60 to 90 days. Significant, compounding growth typically builds from month four onwards. SEO is a long-term investment: the results compound over time and continue working even when ad budgets stop. Get a <strong><Link href="/free-seo-audit-agency">free SEO audit</Link></strong> to see exactly where your site stands today.</>,
+    a: <>Most clients see measurable movement — keyword rankings improving, traffic climbing — within 60 to 90 days. Significant, compounding growth typically builds from month four onwards. SEO is a long-term investment: the results compound over time and continue working even when ad budgets stop. Get a <strong><Link href="/free/seo-audit">free SEO audit</Link></strong> to see exactly where your site stands today.</>,
   },
   {
     q: 'What is the difference between SEO and paid ads (PPC)?',
-    a: <>Paid ads put you at the top instantly — but the moment you stop paying, the traffic stops. SEO builds organic authority that keeps driving traffic for months or years with no per-click cost. We typically recommend a mix: <strong><Link href="/google-ads-agency">Google Ads</Link></strong> and <strong><Link href="/meta-ads-agency">Meta Ads</Link></strong> for quick wins and lead flow while SEO builds your long-term competitive moat.</>,
+    a: <>Paid ads put you at the top instantly — but the moment you stop paying, the traffic stops. SEO builds organic authority that keeps driving traffic for months or years with no per-click cost. We typically recommend a mix: <strong><Link href="/services/paid-ads/google-ads">Google Ads</Link></strong> and <strong><Link href="/services/paid-ads/meta-ads">Meta Ads</Link></strong> for quick wins and lead flow while SEO builds your long-term competitive moat.</>,
   },
   {
     q: 'Do you work with small businesses and startups?',
@@ -274,15 +274,15 @@ const faqs: FAQ[] = [
   },
   {
     q: 'How much does SEO cost in India?',
-    a: <>Our retainers start at ₹15,000/month for <strong><Link href="/local-seo-agency">local SEO</Link></strong> and scale up based on scope — number of target keywords, content production, link building, and reporting depth. Every engagement starts with a <strong><Link href="/free-seo-audit-agency">free SEO audit</Link></strong> so you know exactly what you&apos;re getting before committing.</>,
+    a: <>Our retainers start at ₹15,000/month for <strong><Link href="/services/seo/local">local SEO</Link></strong> and scale up based on scope — number of target keywords, content production, link building, and reporting depth. Every engagement starts with a <strong><Link href="/free/seo-audit">free SEO audit</Link></strong> so you know exactly what you&apos;re getting before committing.</>,
   },
   {
     q: 'What is Answer Engine Optimization (AEO)?',
-    a: <>AEO is the practice of optimizing your content to appear in AI-generated answer boxes, featured snippets, People Also Ask sections, and voice search results. As users shift to asking questions directly in Google, ChatGPT, and Gemini, <strong><Link href="/ai-seo-agency">AI-powered SEO and AEO</Link></strong> ensures your brand is the one cited in those answers.</>,
+    a: <>AEO is the practice of optimizing your content to appear in AI-generated answer boxes, featured snippets, People Also Ask sections, and voice search results. As users shift to asking questions directly in Google, ChatGPT, and Gemini, <strong><Link href="/services/seo/ai">AI-powered SEO and AEO</Link></strong> ensures your brand is the one cited in those answers.</>,
   },
   {
     q: 'Will you need to make changes to my website?',
-    a: <>Usually yes — <strong><Link href="/technical-seo-agency">technical SEO</Link></strong> improvements (site speed, structured data, crawlability fixes) require changes to your site. We provide a detailed technical audit first, and all changes are either implemented by our team or handed to your developer as a prioritized checklist with exact specifications.</>,
+    a: <>Usually yes — <strong><Link href="/services/seo/technical">technical SEO</Link></strong> improvements (site speed, structured data, crawlability fixes) require changes to your site. We provide a detailed technical audit first, and all changes are either implemented by our team or handed to your developer as a prioritized checklist with exact specifications.</>,
   },
 ];
 
@@ -474,19 +474,19 @@ export default function HomeClient() {
               <MotionWrapper delay={0.2}>
                 <p className="home-hero-sub">
                   Rank Spiders is a leading{' '}
-                  <strong><Link href="/seo-agency-india" className="hero-inline-link">SEO agency in India</Link></strong>
+                  <strong><Link href="/services/seo" className="hero-inline-link">SEO agency in India</Link></strong>
                   {' '}helping local businesses, startups, and enterprise brands dominate search
                   rankings, build authority through{' '}
-                  <strong><Link href="/technical-seo-agency" className="hero-inline-link">technical SEO</Link></strong>
+                  <strong><Link href="/services/seo/technical" className="hero-inline-link">technical SEO</Link></strong>
                   {' '}and{' '}
-                  <strong><Link href="/link-building-seo-agency" className="hero-inline-link">link building</Link></strong>
+                  <strong><Link href="/services/seo/link-building" className="hero-inline-link">link building</Link></strong>
                   , and convert traffic into revenue — with transparent strategies that deliver measurable growth.
                 </p>
               </MotionWrapper>
 
               <MotionWrapper delay={0.3}>
                 <div className="home-hero-actions">
-                  <Link href="/free-seo-audit-agency" className="btn-default">
+                  <Link href="/free/seo-audit" className="btn-default">
                     Get Free SEO Audit
                   </Link>
                   <Link href="/projects" className="btn-outline-hero">
@@ -854,7 +854,7 @@ export default function HomeClient() {
           </MotionWrapper>
           <MotionWrapper delay={0.2}>
             <div className="home-section-cta">
-              <Link href="/free-seo-audit-agency" className="btn-default">
+              <Link href="/free/seo-audit" className="btn-default">
                 See What a Specialist Delivers <i className="fa-solid fa-arrow-right"></i>
               </Link>
             </div>

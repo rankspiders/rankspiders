@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -63,7 +63,7 @@ export default function OnlineAdvertisingNicheIndustries() {
         subtitle="Niche Industries"
         breadcrumbs={[
           { label: 'Services', href: '/services' },
-          { label: 'Online Advertising', href: '/online-advertising-agency' },
+          { label: 'Online Advertising', href: '/services/paid-ads' },
           { label: 'Niche Industries', active: true },
         ]}
       />

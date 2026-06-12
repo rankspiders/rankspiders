@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import PageHeader from '@/components/PageHeader';
@@ -45,7 +45,7 @@ export default function FreeSeoAudit() {
         title="Free"
         subtitle="Seo Audit"
         breadcrumbs={[
-          { label: 'Seo Optimization', href: '/seo-agency-india' },
+          { label: 'Seo Optimization', href: '/services/seo' },
           { label: 'Free Seo Audit', active: true }
         ]}
       />

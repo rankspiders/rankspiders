@@ -75,42 +75,42 @@ const Header = () => {
                       <div className="mega-services">
                         <div className="mega-col">
                           <p className="mega-col-label">SEO Optimization</p>
-                          <Link href="/free-seo-audit-agency" className="mega-link">
+                          <Link href="/free/seo-audit" className="mega-link">
                             <i className="fa-solid fa-magnifying-glass"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Free SEO Audit</span>
                               <span className="mega-link-sub">Full report, zero cost</span>
                             </span>
                           </Link>
-                          <Link href="/ai-seo-agency" className="mega-link">
+                          <Link href="/services/seo/ai" className="mega-link">
                             <i className="fa-solid fa-robot"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">AI SEO</span>
                               <span className="mega-link-sub">Smart AI-driven ranking</span>
                             </span>
                           </Link>
-                          <Link href="/technical-seo-agency" className="mega-link">
+                          <Link href="/services/seo/technical" className="mega-link">
                             <i className="fa-solid fa-gear"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Technical SEO</span>
                               <span className="mega-link-sub">Speed & site structure</span>
                             </span>
                           </Link>
-                          <Link href="/local-seo-agency" className="mega-link">
+                          <Link href="/services/seo/local" className="mega-link">
                             <i className="fa-solid fa-location-dot"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Local SEO</span>
                               <span className="mega-link-sub">Dominate your area</span>
                             </span>
                           </Link>
-                          <Link href="/link-building-seo-agency" className="mega-link">
+                          <Link href="/services/seo/link-building" className="mega-link">
                             <i className="fa-solid fa-link"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Link Building</span>
                               <span className="mega-link-sub">Authority & backlinks</span>
                             </span>
                           </Link>
-                          <Link href="/woocommerce-seo-agency" className="mega-link">
+                          <Link href="/services/seo/woocommerce" className="mega-link">
                             <i className="fa-brands fa-wordpress"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">WooCommerce SEO</span>
@@ -120,28 +120,28 @@ const Header = () => {
                         </div>
                         <div className="mega-col">
                           <p className="mega-col-label">Social Media</p>
-                          <Link href="/facebook-marketing-agency" className="mega-link">
+                          <Link href="/services/social-media/facebook" className="mega-link">
                             <i className="fa-brands fa-facebook-f"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Facebook Marketing</span>
                               <span className="mega-link-sub">Ads & community growth</span>
                             </span>
                           </Link>
-                          <Link href="/pinterest-marketing-agency" className="mega-link">
+                          <Link href="/services/social-media/pinterest" className="mega-link">
                             <i className="fa-brands fa-pinterest-p"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Pinterest Marketing</span>
                               <span className="mega-link-sub">Visual reach & traffic</span>
                             </span>
                           </Link>
-                          <Link href="/youtube-marketing-agency" className="mega-link">
+                          <Link href="/services/social-media/youtube" className="mega-link">
                             <i className="fa-brands fa-youtube"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Youtube Marketing</span>
                               <span className="mega-link-sub">Video SEO & growth</span>
                             </span>
                           </Link>
-                          <Link href="/social-media-consultancy-agency" className="mega-link">
+                          <Link href="/services/social-media/consultancy" className="mega-link">
                             <i className="fa-solid fa-seedling"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Organic Growth</span>
@@ -149,14 +149,14 @@ const Header = () => {
                             </span>
                           </Link>
                           <p className="mega-col-label" style={{marginTop: '14px'}}>Web & Content</p>
-                          <Link href="/web-design-and-development-niche-industries" className="mega-link">
+                          <Link href="/services/web-development/niche-industries" className="mega-link">
                             <i className="fa-solid fa-laptop-code"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Web Design & Dev</span>
                               <span className="mega-link-sub">Sites built to convert</span>
                             </span>
                           </Link>
-                          <Link href="/content-marketing-agency" className="mega-link">
+                          <Link href="/services/content" className="mega-link">
                             <i className="fa-solid fa-pen-nib"></i>
                             <span className="mega-link-text">
                               <span className="mega-link-name">Content Marketing</span>
@@ -169,7 +169,7 @@ const Header = () => {
                         <span className="mega-featured-tag">Free</span>
                         <h5 className="mega-featured-title">Get Your Free<br/>SEO Report</h5>
                         <p className="mega-featured-body">A full analysis of your site&apos;s SEO health — rankings, speed, and fixes — in minutes.</p>
-                        <Link href="/free-seo-audit-agency" className="mega-featured-btn">
+                        <Link href="/free/seo-audit" className="mega-featured-btn">
                           Claim Free Audit <i className="fa-solid fa-arrow-right"></i>
                         </Link>
                       </div>
@@ -240,13 +240,13 @@ const Header = () => {
                 </button>
                 {openSubmenu === 'services' && (
                   <ul>
-                    <li><Link href="/seo-agency-india" onClick={() => setMobileOpen(false)}>SEO Optimization</Link></li>
-                    <li><Link href="/ai-seo-agency" onClick={() => setMobileOpen(false)}>AI SEO</Link></li>
-                    <li><Link href="/technical-seo-agency" onClick={() => setMobileOpen(false)}>Technical SEO</Link></li>
-                    <li><Link href="/local-seo-agency" onClick={() => setMobileOpen(false)}>Local SEO</Link></li>
-                    <li><Link href="/social-media-marketing" onClick={() => setMobileOpen(false)}>Social Media Marketing</Link></li>
-                    <li><Link href="/web-design-and-development-niche-industries" onClick={() => setMobileOpen(false)}>Web Design & Development</Link></li>
-                    <li><Link href="/content-marketing-agency" onClick={() => setMobileOpen(false)}>Content Marketing</Link></li>
+                    <li><Link href="/services/seo" onClick={() => setMobileOpen(false)}>SEO Optimization</Link></li>
+                    <li><Link href="/services/seo/ai" onClick={() => setMobileOpen(false)}>AI SEO</Link></li>
+                    <li><Link href="/services/seo/technical" onClick={() => setMobileOpen(false)}>Technical SEO</Link></li>
+                    <li><Link href="/services/seo/local" onClick={() => setMobileOpen(false)}>Local SEO</Link></li>
+                    <li><Link href="/services/social-media" onClick={() => setMobileOpen(false)}>Social Media Marketing</Link></li>
+                    <li><Link href="/services/web-development/niche-industries" onClick={() => setMobileOpen(false)}>Web Design & Development</Link></li>
+                    <li><Link href="/services/content" onClick={() => setMobileOpen(false)}>Content Marketing</Link></li>
                   </ul>
                 )}
               </li>

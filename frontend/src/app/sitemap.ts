@@ -21,99 +21,95 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     // ── Homepage ────────────────────────────────────────────────────
-    { url: `${BASE}/`,                                    priority: 1.0,  changeFrequency: 'weekly',  lastModified: now },
+    { url: `${BASE}/`,                                             priority: 1.0,  changeFrequency: 'weekly',  lastModified: now },
 
-    // ── Core SEO service pages (highest-traffic) ────────────────────
-    { url: `${BASE}/seo-agency-india`,                    priority: 0.95, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/free-seo-audit-agency`,               priority: 0.95, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/technical-seo-agency`,                priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/ai-seo-agency`,                       priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/local-seo-agency`,                    priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/link-building-seo-agency`,            priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/ecommerce-seo-agency`,                priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/b2b-seo-agency`,                      priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/saas-seo-agency`,                     priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/shopify-seo-agency`,                  priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/woocommerce-seo-agency`,              priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/wordpress-seo-agency`,                priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/small-business-seo-agency`,           priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/seo-website-migration-agency`,        priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    // ── SEO ─────────────────────────────────────────────────────────
+    { url: `${BASE}/services/seo`,                                 priority: 0.95, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/free/seo-audit`,                               priority: 0.95, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/technical`,                       priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/ai`,                              priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/local`,                           priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/link-building`,                   priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/ecommerce`,                       priority: 0.9,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/b2b`,                             priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/saas`,                            priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/shopify`,                         priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/woocommerce`,                     priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/wordpress`,                       priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/small-business`,                  priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/website-migration`,               priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/seo/consultancy`,                     priority: 0.85, changeFrequency: 'monthly', lastModified: now },
 
     // ── Social Media ────────────────────────────────────────────────
-    { url: `${BASE}/social-media-marketing`,              priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/instagram-marketing-agency`,          priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/facebook-marketing-agency`,           priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/youtube-marketing-agency`,            priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/pinterest-marketing-agency`,          priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/linkedin-agency`,                     priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/graphic-design-agency`,               priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/smo`,                                 priority: 0.75, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/video-editing`,                       priority: 0.75, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media`,                        priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media/instagram`,              priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media/facebook`,               priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media/youtube`,                priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media/pinterest`,              priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media/linkedin`,               priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media/smo`,                    priority: 0.75, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/social-media/consultancy`,            priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+
+    // ── Content ──────────────────────────────────────────────────────
+    { url: `${BASE}/services/content`,                             priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/content/writing`,                     priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/content/graphic-design`,              priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/content/video-editing`,               priority: 0.75, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/content/email-marketing`,             priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/free/demo-content`,                            priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/free/email-strategy`,                          priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
 
     // ── Web Development ─────────────────────────────────────────────
-    { url: `${BASE}/web-design-and-development-agency`,   priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/wordpress-development-agency`,        priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/shopify-development-agency`,          priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/website-maintenance-agency`,          priority: 0.75, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/custom-landing-page-agency`,          priority: 0.75, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/free-development-strategy-agency`,    priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/web-design-and-development-niche-industries`, priority: 0.7, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/web-development`,                     priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/web-development/wordpress`,           priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/web-development/shopify`,             priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/web-development/maintenance`,         priority: 0.75, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/web-development/landing-page`,        priority: 0.75, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/free/development-strategy`,                    priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/web-development/niche-industries`,    priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
 
-    // ── Content Marketing ────────────────────────────────────────────
-    { url: `${BASE}/content-marketing-agency`,            priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/content-writing-agency`,              priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/free-demo-content-agency`,            priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
-
-    // ── Email Marketing ──────────────────────────────────────────────
-    { url: `${BASE}/email-marketing-agency`,              priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/free-email-strategy-agency`,          priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
-
-    // ── Online Advertising / PPC ─────────────────────────────────────
-    { url: `${BASE}/online-advertising-agency`,           priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/google-ads-agency`,                   priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/meta-ads-agency`,                     priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/linkedin-ads-agency`,                 priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/pinterest-ads-agency`,                priority: 0.75, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/online-advertising-niche-industries`, priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
+    // ── Paid Ads ─────────────────────────────────────────────────────
+    { url: `${BASE}/services/paid-ads`,                            priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/paid-ads/google-ads`,                 priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/paid-ads/meta-ads`,                   priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/paid-ads/linkedin-ads`,               priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/paid-ads/pinterest-ads`,              priority: 0.75, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/paid-ads/niche-industries`,           priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
 
     // ── Consultancy ──────────────────────────────────────────────────
-    { url: `${BASE}/consultancy-agency`,                  priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/seo-consultancy-agency`,              priority: 0.85, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/business-growth-consultancy-agency`,  priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/organic-growth-consultancy-agency`,   priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/social-media-consultancy-agency`,     priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-
-    // ── ORM ──────────────────────────────────────────────────────────
-    { url: `${BASE}/orm-agency`,                          priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/consultancy`,                         priority: 0.85, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/consultancy/business-growth`,         priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/consultancy/organic-growth`,          priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services/consultancy/orm`,                     priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
 
     // ── Main nav / informational pages ───────────────────────────────
-    { url: `${BASE}/about`,                               priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/services`,                            priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/blog`,                                priority: 0.8,  changeFrequency: 'daily',   lastModified: now },
-    { url: `${BASE}/projects`,                            priority: 0.75, changeFrequency: 'weekly',  lastModified: now },
-    { url: `${BASE}/contact-us`,                          priority: 0.75, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/testimonials`,                        priority: 0.65, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/about`,                                        priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/services`,                                     priority: 0.8,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/blog`,                                         priority: 0.8,  changeFrequency: 'daily',   lastModified: now },
+    { url: `${BASE}/projects`,                                     priority: 0.75, changeFrequency: 'weekly',  lastModified: now },
+    { url: `${BASE}/contact-us`,                                   priority: 0.75, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/testimonials`,                                 priority: 0.65, changeFrequency: 'monthly', lastModified: now },
 
     // ── Tools ────────────────────────────────────────────────────────
-    { url: `${BASE}/tools`,                               priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/tools/seo-audit`,                     priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/tools/page-speed`,                    priority: 0.65, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/tools/keyword-density`,               priority: 0.65, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/tools/robots-tester`,                 priority: 0.65, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/tools/sitemap-validator`,             priority: 0.65, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/tools/meta-tags`,                     priority: 0.65, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/tools`,                                        priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/tools/seo-audit`,                              priority: 0.7,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/tools/page-speed`,                             priority: 0.65, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/tools/keyword-density`,                        priority: 0.65, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/tools/robots-tester`,                          priority: 0.65, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/tools/sitemap-validator`,                      priority: 0.65, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/tools/meta-tags`,                              priority: 0.65, changeFrequency: 'monthly', lastModified: now },
 
     // ── Gallery ──────────────────────────────────────────────────────
-    { url: `${BASE}/image-gallery`,                       priority: 0.6,  changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE}/video-gallery`,                       priority: 0.6,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/image-gallery`,                                priority: 0.6,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/video-gallery`,                                priority: 0.6,  changeFrequency: 'monthly', lastModified: now },
 
     // ── Team ─────────────────────────────────────────────────────────
-    { url: `${BASE}/team/brooklyn-simmons`,               priority: 0.5,  changeFrequency: 'yearly',  lastModified: now },
+    { url: `${BASE}/team/brooklyn-simmons`,                        priority: 0.5,  changeFrequency: 'yearly',  lastModified: now },
 
     // ── Legal / utility ──────────────────────────────────────────────
-    { url: `${BASE}/terms-and-conditions`,                priority: 0.4,  changeFrequency: 'yearly',  lastModified: now },
-    { url: `${BASE}/privacy-policy`,                      priority: 0.4,  changeFrequency: 'yearly',  lastModified: now },
-    { url: `${BASE}/help`,                                priority: 0.4,  changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE}/terms-and-conditions`,                         priority: 0.4,  changeFrequency: 'yearly',  lastModified: now },
+    { url: `${BASE}/privacy-policy`,                               priority: 0.4,  changeFrequency: 'yearly',  lastModified: now },
+    { url: `${BASE}/help`,                                         priority: 0.4,  changeFrequency: 'monthly', lastModified: now },
   ]
 
   // ── Dynamic blog posts ──────────────────────────────────────────────
