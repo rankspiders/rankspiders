@@ -1,29 +1,65 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import MotionWrapper, { MotionCard } from '@/components/MotionWrapper';
 import AuditResults, { buildChecks, computeScore, GROUPS, GROUP_ICONS, type AuditResult } from '@/components/AuditResults';
 
 /* ── Main component ─────────────────────────────────────────────────────── */
 export default function SeoAuditClient() {
-  const [url,     setUrl]     = useState('');
-  const [loading, setLoading] = useState(false);
-  const [result,  setResult]  = useState<AuditResult | null>(null);
-  const [error,   setError]   = useState('');
+  const [url,      setUrl]      = useState('');
+  const [loading,  setLoading]  = useState(false);
+  const [result,   setResult]   = useState<AuditResult | null>(null);
+  const [error,    setError]    = useState('');
+  const [progress, setProgress] = useState(0);
+  const [stage,    setStage]    = useState('');
+  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const STAGES = [
+    'Connecting to server…',
+    'Fetching page content…',
+    'Checking title & meta tags…',
+    'Analysing headings & structure…',
+    'Scanning images & links…',
+    'Checking Open Graph & Schema…',
+    'Finalising report…',
+  ];
+
+  function startProgress() {
+    let p = 0;
+    setProgress(0);
+    setStage(STAGES[0]);
+    progressRef.current = setInterval(() => {
+      p = Math.min(p + Math.random() * 3 + 1, 88);
+      setProgress(Math.round(p));
+      setStage(STAGES[Math.min(Math.floor((p / 88) * STAGES.length), STAGES.length - 1)]);
+    }, 500);
+  }
+
+  function stopProgress() {
+    if (progressRef.current) clearInterval(progressRef.current);
+    setProgress(100);
+    setStage('Report ready!');
+  }
+
+  useEffect(() => () => { if (progressRef.current) clearInterval(progressRef.current); }, []);
 
   async function runAudit() {
     const target = url.trim();
     if (!target) return;
     setLoading(true); setResult(null); setError('');
+    startProgress();
     try {
       const res  = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/tools/audit?url=${encodeURIComponent(target)}`);
       const data = await res.json();
       if (!res.ok || data.error) {
+        stopProgress();
         setError(data.message || data.detail || 'Audit failed. Check the URL and try again.');
       } else {
+        stopProgress();
         setResult(data);
       }
     } catch {
+      stopProgress();
       setError('Could not reach the audit server. Make sure the backend is running.');
     } finally {
       setLoading(false);
@@ -70,7 +106,17 @@ export default function SeoAuditClient() {
                       : <><i className="fa-solid fa-magnifying-glass"></i><span>Audit Now</span></>}
                   </button>
                 </div>
-                {loading && <div className="tool-scan-line" />}
+                {loading && (
+                  <div className="audit-progress-inline">
+                    <div className="audit-progress-track">
+                      <div className="audit-progress-fill" style={{ width: `${progress}%` }} />
+                    </div>
+                    <div className="audit-progress-meta">
+                      <span className="audit-progress-stage">{stage}</span>
+                      <span className="audit-progress-pct">{progress}%</span>
+                    </div>
+                  </div>
+                )}
               </div>
               <p className="tool-input-hint">
                 <i className="fa-solid fa-lock"></i>

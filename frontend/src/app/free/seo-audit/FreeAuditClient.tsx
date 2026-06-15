@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import MotionWrapper from '@/components/MotionWrapper';
 import AuditResults, { buildChecks, computeScore, type AuditResult } from '@/components/AuditResults';
 
@@ -14,6 +14,38 @@ export default function FreeAuditClient() {
   const [result,     setResult]     = useState<AuditResult | null>(null);
   const [error,      setError]      = useState('');
   const [leadId,     setLeadId]     = useState<string | null>(null);
+  const [progress,   setProgress]   = useState(0);
+  const [stage,      setStage]      = useState('');
+  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const STAGES = [
+    'Connecting to server…',
+    'Fetching page content…',
+    'Checking title & meta tags…',
+    'Analysing headings & structure…',
+    'Scanning images & links…',
+    'Checking Open Graph & Schema…',
+    'Finalising report…',
+  ];
+
+  function startProgress() {
+    let p = 0;
+    setProgress(0);
+    setStage(STAGES[0]);
+    progressRef.current = setInterval(() => {
+      p = Math.min(p + Math.random() * 3 + 1, 88);
+      setProgress(Math.round(p));
+      setStage(STAGES[Math.min(Math.floor((p / 88) * STAGES.length), STAGES.length - 1)]);
+    }, 500);
+  }
+
+  function stopProgress() {
+    if (progressRef.current) clearInterval(progressRef.current);
+    setProgress(100);
+    setStage('Report ready!');
+  }
+
+  useEffect(() => () => { if (progressRef.current) clearInterval(progressRef.current); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -22,6 +54,7 @@ export default function FreeAuditClient() {
     if (!trimmedEmail || !trimmedUrl) return;
     setStep('scanning');
     setError('');
+    startProgress();
 
     const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -51,11 +84,13 @@ export default function FreeAuditClient() {
     setLeadId(savedLeadId);
 
     if (!auditResult || !auditResult.ok || auditResult.data.error) {
+      stopProgress();
       setError(auditResult?.data?.message || auditResult?.data?.detail || 'Audit failed. Please check the URL and try again.');
       setStep('error');
       return;
     }
 
+    stopProgress();
     setResult(auditResult.data);
     setStep('result');
 
@@ -104,11 +139,17 @@ export default function FreeAuditClient() {
 
             {step === 'scanning' ? (
               <MotionWrapper variant="up" delay={0.1}>
-                <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                  <i className="fa fa-circle-notch fa-spin" style={{ fontSize: 40, color: 'var(--accent-color)' }}></i>
-                  <p style={{ marginTop: 18, color: 'var(--text-muted)', fontSize: '1rem' }}>
-                    Scanning <strong style={{ color: 'var(--text-color)' }}>{websiteUrl}</strong> across 25 SEO factors…
+                <div className="audit-progress-wrap">
+                  <p className="audit-progress-url">
+                    Scanning <strong>{websiteUrl}</strong> across 25 SEO factors
                   </p>
+                  <div className="audit-progress-track">
+                    <div className="audit-progress-fill" style={{ width: `${progress}%` }} />
+                  </div>
+                  <div className="audit-progress-meta">
+                    <span className="audit-progress-stage">{stage}</span>
+                    <span className="audit-progress-pct">{progress}%</span>
+                  </div>
                 </div>
               </MotionWrapper>
             ) : (
