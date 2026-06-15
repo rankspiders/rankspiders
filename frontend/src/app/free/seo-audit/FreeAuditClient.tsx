@@ -25,51 +25,48 @@ export default function FreeAuditClient() {
 
     const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
-    // Save lead first — non-blocking on error
-    let savedLeadId: string | null = null;
-    try {
-      const payload = new URLSearchParams({
-        fname:       trimmedEmail.split('@')[0],
-        lname:       '',
-        email:       trimmedEmail,
-        phone:       phone.trim(),
-        service:     'Free SEO Audit',
-        message:     `Free audit request for ${trimmedUrl}`,
-        source:      'free_seo_audit',
-        website_url: trimmedUrl,
-      });
-      const leadRes  = await fetch(`${API}/api/submit`, { method: 'POST', body: payload });
-      const leadData = await leadRes.json();
-      savedLeadId    = leadData.lead_id ?? null;
-      setLeadId(savedLeadId);
-    } catch {
-      // non-fatal — continue to audit regardless
+    const leadPayload = new URLSearchParams({
+      fname:       trimmedEmail.split('@')[0],
+      lname:       '',
+      email:       trimmedEmail,
+      phone:       phone.trim(),
+      service:     'Free SEO Audit',
+      message:     `Free audit request for ${trimmedUrl}`,
+      source:      'free_seo_audit',
+      website_url: trimmedUrl,
+    });
+
+    // Fire lead save and audit in parallel — don't let lead save block the audit
+    const leadPromise = fetch(`${API}/api/submit`, { method: 'POST', body: leadPayload })
+      .then(r => r.json())
+      .catch(() => null);
+
+    const auditPromise = fetch(`${API}/api/tools/audit?url=${encodeURIComponent(trimmedUrl)}`)
+      .then(r => r.json().then(data => ({ ok: r.ok, data })))
+      .catch(() => null);
+
+    const [leadData, auditResult] = await Promise.all([leadPromise, auditPromise]);
+
+    const savedLeadId = leadData?.lead_id ?? null;
+    setLeadId(savedLeadId);
+
+    if (!auditResult || !auditResult.ok || auditResult.data.error) {
+      setError(auditResult?.data?.message || auditResult?.data?.detail || 'Audit failed. Please check the URL and try again.');
+      setStep('error');
+      return;
     }
 
-    // Run SEO audit
-    try {
-      const auditRes  = await fetch(`${API}/api/tools/audit?url=${encodeURIComponent(trimmedUrl)}`);
-      const auditData = await auditRes.json();
-      if (!auditRes.ok || auditData.error) {
-        setError(auditData.message || auditData.detail || 'Audit failed. Please check the URL and try again.');
-        setStep('error');
-        return;
-      }
-      setResult(auditData);
-      setStep('result');
+    setResult(auditResult.data);
+    setStep('result');
 
-      // Patch audit score back to lead (fire-and-forget)
-      if (savedLeadId) {
-        const auditScore = computeScore(buildChecks(auditData));
-        fetch(`${API}/api/leads/${savedLeadId}/score`, {
-          method:  'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ audit_score: auditScore }),
-        }).catch(() => {});
-      }
-    } catch {
-      setError('Could not reach the audit server. Please try again shortly.');
-      setStep('error');
+    // Patch audit score back to lead (fire-and-forget)
+    if (savedLeadId) {
+      const auditScore = computeScore(buildChecks(auditResult.data));
+      fetch(`${API}/api/leads/${savedLeadId}/score`, {
+        method:  'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ audit_score: auditScore }),
+      }).catch(() => {});
     }
   }
 
