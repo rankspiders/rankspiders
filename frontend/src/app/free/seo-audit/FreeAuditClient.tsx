@@ -33,9 +33,13 @@ export default function FreeAuditClient() {
     setProgress(0);
     setStage(STAGES[0]);
     progressRef.current = setInterval(() => {
-      p = Math.min(p + Math.random() * 3 + 1, 88);
+      // Fast up to 70%, then slow to 90%, then crawl to 97% — never freezes
+      const increment = p < 70 ? Math.random() * 4 + 2
+                      : p < 90 ? Math.random() * 1 + 0.3
+                      :          Math.random() * 0.2 + 0.05;
+      p = Math.min(p + increment, 97);
       setProgress(Math.round(p));
-      setStage(STAGES[Math.min(Math.floor((p / 88) * STAGES.length), STAGES.length - 1)]);
+      setStage(STAGES[Math.min(Math.floor((p / 97) * STAGES.length), STAGES.length - 1)]);
     }, 500);
   }
 
