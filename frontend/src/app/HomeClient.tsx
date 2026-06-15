@@ -1250,7 +1250,7 @@ export default function HomeClient() {
                 <p>Get a free, no-obligation SEO audit and discover exactly what&apos;s holding your website back.</p>
               </div>
               <div className="home-cta-actions">
-                <Link href="/contact-us" className="btn-default">Book a Free Consultation</Link>
+                <a href="https://koalendar.com/e/meet-with-rank-spiders?month=2026-06&duration=30&date=2026-06-15" target="_blank" rel="noopener noreferrer" className="btn-default">Book a Free Consultation</a>
                 <a href="tel:+919988357092" className="home-cta-phone">
                   <i className="fa-solid fa-phone"></i>
                   +91 99883-57092

@@ -210,9 +210,9 @@ const Header = () => {
             {/* Right actions */}
             <div className="header-actions">
               {/* CTA */}
-              <Link href="/contact-us" className="btn-default d-none d-lg-inline-flex">
+              <a href="https://koalendar.com/e/meet-with-rank-spiders?month=2026-06&duration=30&date=2026-06-15" target="_blank" rel="noopener noreferrer" className="btn-default d-none d-lg-inline-flex">
                 Book a Meeting
-              </Link>
+              </a>
 
               {/* Mobile hamburger */}
               <button
@@ -265,7 +265,7 @@ const Header = () => {
               </li>
               <li><Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link></li>
               <li className="mobile-cta">
-                <Link href="/contact-us" className="btn-default" onClick={() => setMobileOpen(false)}>Book a Meeting</Link>
+                <a href="https://koalendar.com/e/meet-with-rank-spiders?month=2026-06&duration=30&date=2026-06-15" target="_blank" rel="noopener noreferrer" className="btn-default" onClick={() => setMobileOpen(false)}>Book a Meeting</a>
               </li>
             </ul>
           </div>
