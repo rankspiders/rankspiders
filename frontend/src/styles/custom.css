@@ -4181,7 +4181,7 @@ header.main-header .header-sticky.active.hide{
 
 /* --- Services grid --- */
 .home-services {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-secondary);
 }
 
@@ -4267,7 +4267,7 @@ header.main-header .header-sticky.active.hide{
 
 /* --- Why Choose Us --- */
 .home-why {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-color);
 }
 
@@ -4330,7 +4330,7 @@ header.main-header .header-sticky.active.hide{
 
 /* --- CTA Banner --- */
 .home-cta {
-  padding: 80px 0;
+  padding: 60px 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--divider-color);
 }
@@ -10647,7 +10647,7 @@ header.main-header .header-sticky.active.hide{
    The ::after pseudo-element draws a connector line between steps.
    ---------------------------------------------------------------- */
 .home-process {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-secondary);
 }
 
@@ -10749,7 +10749,7 @@ header.main-header .header-sticky.active.hide{
    image so the scale transform on hover stays inside the border-radius.
    ---------------------------------------------------------------- */
 .home-projects {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-color);
 }
 
@@ -10986,7 +10986,7 @@ header.main-header .header-sticky.active.hide{
    blockquote uses smart quotes via HTML entities.
    ---------------------------------------------------------------- */
 .home-testimonials {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-secondary);
 }
 
@@ -11074,7 +11074,7 @@ header.main-header .header-sticky.active.hide{
    excerpt is sliced to 120 chars to keep cards uniform height.
    ---------------------------------------------------------------- */
 .home-blogs {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-color);
 }
 
@@ -11153,7 +11153,7 @@ header.main-header .header-sticky.active.hide{
    no extra CSS needed for the cards themselves.
    ---------------------------------------------------------------- */
 .home-tools {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--divider-color);
 }
@@ -11229,7 +11229,7 @@ header.main-header .header-sticky.active.hide{
    which triggers the CSS transition on .metric-bar-inner.
    ============================================================ */
 .home-metrics {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
@@ -11318,7 +11318,7 @@ header.main-header .header-sticky.active.hide{
    INDUSTRIES WE SERVE — pill/chip grid
    ============================================================ */
 .home-industries {
-  padding: 90px 0;
+  padding: 70px 0;
   background: var(--bg-color);
 }
 
@@ -11370,7 +11370,7 @@ background: rgba(82, 27, 137, 0.07);
    CSS [open] selector lets us animate the chevron and styling.
    ============================================================ */
 .home-faq {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-secondary);
 }
 
@@ -11812,7 +11812,7 @@ background: rgba(82, 27, 137, 0.07);
    SPECIALIST COMPARISON TABLE
    ══════════════════════════════════════════════════════════════ */
 .home-compare {
-  padding: 100px 0;
+  padding: 70px 0;
   background: var(--bg-secondary);
 }
 
@@ -12564,7 +12564,7 @@ background: rgba(82, 27, 137, 0.07);
    HOME CONTACT SECTION
 ============================================================ */
 .home-contact-section {
-  padding: 100px 0;
+  padding: 20px 0 70px;
   background: var(--bg-secondary);
 }
 
