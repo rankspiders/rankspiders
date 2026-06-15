@@ -26,7 +26,7 @@ app.include_router(leads_router, prefix="/api")
 app.include_router(tools_router, prefix="/api/tools", tags=["Tools"])
 
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def read_root():
     return {"message": "Rank Spiders API is running"}
 
