@@ -14,23 +14,43 @@ export default function AiSeoAgency() {
     {
       id: 1,
       question: "1. How is AI SEO different from traditional SEO?",
-      answer: "AI SEO uses machine learning, real-time data analysis, and automation to optimize content, keywords, and rankings faster and more accurately than manual, traditional SEO methods."
+      answer: "Traditional SEO relies on manual keyword research, human-written content briefs, and periodic audits — all limited by the time available. AI SEO uses machine learning to analyze millions of data points in real-time: search trend velocity, SERP feature patterns, competitor content gaps, backlink velocity, and user behavior signals. The result is faster, more accurate optimization decisions that would take a traditional team weeks to surface. At Rank Spiders, AI tools handle the data analysis and pattern recognition while our experts apply strategic judgment and creative direction."
     },
     {
       id: 2,
       question: "2. Can AI improve my website’s rankings faster?",
-      answer: "Yes. AI identifies opportunities, predicts search trends, and automates optimization—helping your website rank quicker by targeting the right keywords and user intent with precision."
+      answer: "Yes, meaningfully. AI accelerates ranking improvements in three specific ways: (1) It identifies high-intent, realistic keyword opportunities faster than manual research; (2) it diagnoses technical SEO issues and prioritizes them by ranking impact so you fix the right things first; and (3) AI content intelligence reveals the exact content depth, format, and entity coverage Google expects for a given query. Most of our AI SEO clients see meaningful traffic improvements within 60–90 days versus the 6-month wait typical of traditional SEO engagements."
     },
     {
       id: 3,
-      question: "3. Does AI SEO work for all types of businesses?",
-      answer: "Absolutely. Whether you're a startup, agency, or enterprise, AI adapts to your audience, industry, and goals—delivering scalable, data-backed SEO growth."
+      question: "3. What is AEO and GEO — and why do they matter?",
+      answer: "Answer Engine Optimization (AEO) is the practice of structuring your content so AI assistants like ChatGPT, Siri, Alexa, and Perplexity serve it as direct answers to user queries. Generative Engine Optimization (GEO) focuses specifically on appearing in Google AI Overviews and Google SGE (Search Generative Experience) results. As AI-powered search engines increasingly answer queries directly without clicks, brands that appear in those answers capture enormous trust and visibility. Rank Spiders builds AEO and GEO strategies into every AI SEO campaign."
     },
     {
       id: 4,
-      question: "4. Will AI-generated insights replace human SEO experts?",
-      answer: "Not at all. AI enhances the strategy, while human expertise ensures creativity, relevance, and brand alignment. Together, they deliver the most powerful SEO results."
-    }
+      question: "4. Does AI SEO work for all types of businesses?",
+      answer: "Yes. The AI-driven methodology adapts to your industry, audience, and business model — whether you’re a local business targeting nearby customers, a SaaS company building product-led SEO, an e-commerce store optimising thousands of product pages, or an enterprise brand managing international SEO. The core advantage of AI is its ability to process large-scale data and surface insights specific to your competitive landscape — which means it becomes MORE powerful the larger and more complex your website and market are."
+    },
+    {
+      id: 5,
+      question: "5. How does Rank Spiders use AI for content optimization?",
+      answer: "We use AI content intelligence tools to analyze the top 20 ranking pages for any target keyword — identifying the ideal content length, heading structure, key entities and topics to cover, readability level, and semantic keyword density. This creates a data-backed content brief that our specialist writers use to produce content engineered for rankings from the first draft. We also use AI to audit existing content and identify pages with high ranking potential that need optimization — a much faster route to traffic growth than creating new content."
+    },
+    {
+      id: 6,
+      question: "6. Will AI-generated insights replace human SEO experts?",
+      answer: "No — and this is an important distinction. AI is exceptional at processing data, identifying patterns, and automating repetitive tasks. It is not good at brand judgment, creative direction, relationship-based link building, understanding business context, or navigating the nuances of what a specific audience responds to. At Rank Spiders, AI tools handle the data-heavy analysis that would otherwise take days — while our certified SEO experts apply strategic thinking, creativity, and quality control that no algorithm can replicate. The combination outperforms either alone."
+    },
+    {
+      id: 7,
+      question: "7. How do you measure the success of an AI SEO campaign?",
+      answer: "We track a comprehensive set of performance metrics: keyword ranking improvements (position tracking for target keywords), organic traffic growth (total sessions from search), organic lead and revenue attribution, Click-Through Rate improvements, Core Web Vitals scores, page crawl health, and domain authority growth. All metrics are delivered in a clear, monthly reporting dashboard with plain-English commentary. We also track AI-specific metrics — ChatGPT citation appearances and Google AI Overview inclusion rates — which are emerging indicators of brand authority in AI search."
+    },
+    {
+      id: 8,
+      question: "8. How do I get started with Rank Spiders’ AI SEO services?",
+      answer: "The best starting point is our Free SEO Audit — a human-reviewed analysis of your website across 10+ performance categories, delivered in 24–48 hours. It reveals your current ranking blockers, keyword opportunities, and the areas where AI-powered optimization will have the fastest impact. From there, our team will walk you through a custom AI SEO strategy tailored to your goals and budget. No obligation, no hard sell — just clarity on what it takes to grow your organic traffic."
+    },
   ];
 
   return (
@@ -113,64 +133,104 @@ export default function AiSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="Rank Spiders digital marketing strategy and campaign execution" />
+                    <img
+                      src="/images/services/seo/ai-seo-banner.png"
+                      alt="AI SEO Agency India — Smarter SEO, Better Rankings — Rank Spiders AI-powered SEO services, AEO, GEO, ChatGPT visibility, Google SGE optimization"
+                      title="AI SEO Agency India — Rank Spiders AI-Powered SEO Services"
+                      loading="lazy"
+                    />
                   </figure>
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Unlock the future of search with AI-driven SEO strategies engineered for precision, performance, and scalable growth. Our advanced AI systems analyze search patterns, competitor activity, and audience behavior to deliver hyper-targeted optimizations that put your brand ahead of the curve.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">We don’t do generic SEO. Every campaign is intelligently crafted, combining predictive analytics, automated content insights, and strategic on-page enhancements to drive higher visibility, smarter traffic, and measurable conversions.</p>
+                  <p className="wow fadeInUp">
+                    AI-Powered SEO represents the evolution of search optimization — combining machine learning, real-time data analysis, and advanced automation with proven SEO fundamentals. Instead of relying on gut instinct or outdated manual techniques, our AI-driven approach analyzes billions of search signals, user behavior patterns, and competitor movements to make smarter, faster, more accurate marketing decisions.
+                  </p>
+                  <p className="wow fadeInUp" data-wow-delay="0.2s">
+                    At Rank Spiders, we go beyond keyword rankings. Our AI SEO services include Answer Engine Optimization (AEO) for voice search and AI assistants like ChatGPT, Generative Engine Optimization (GEO) for Google SGE and AI Overviews, and predictive content strategies that position your brand at the forefront of how search is evolving. Whether you&apos;re targeting Google, Bing, or AI-powered answer engines, we ensure your brand is the answer.
+                  </p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Your Brand with<span>AI-Powered SEO</span></h2>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
-                      <li>Customized AI Campaigns for Maximum Impact</li>
-                      <li>Consistent Cross-Platform Visibility</li>
-                      <li>Audience Engagement That Converts</li>
-                      <li>Measurable Growth Through Smart Analytics</li>
+                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Your Brand with <span>AI-Powered SEO</span></h2>
+                    <ul className="wow fadeInUp" data-wow-delay="0.6s">
+                      <li><strong>Increase Online Visibility</strong> — reach more customers across traditional search engines and AI answer platforms</li>
+                      <li><strong>Target the Right Audience</strong> — precision AI keyword research reveals high-intent, low-competition opportunities your competitors miss</li>
+                      <li><strong>Create Better Content</strong> — AI content intelligence identifies exactly what depth, format, and angle earns top rankings</li>
+                      <li><strong>Stay Ahead of Competitors</strong> — real-time AI competitor analysis spots gaps and opportunities before they&apos;re obvious</li>
+                      <li><strong>Improve Website Performance</strong> — AI-led technical SEO audits prioritize fixes by their actual ranking impact</li>
+                      <li><strong>Optimize for AI Answer Engines</strong> — AEO and GEO strategies for ChatGPT, Google SGE, and Perplexity visibility</li>
+                      <li><strong>Drive More Qualified Leads</strong> — intent-matched content brings visitors who are ready to convert, not just browse</li>
+                      <li><strong>Maximize Long-Term ROI</strong> — compound organic growth that reduces your cost-per-acquisition month over month</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="0.8s">
                       <div className="strategy-body-item">
-                        <h3>Certified Marketing Experts</h3>
-                        <p>Professionally Certified Experts in SEO Strategies</p>
+                        <h3>Certified AI SEO Experts</h3>
+                        <p>Professionally certified specialists combining AI intelligence with proven on-page, technical, and off-page SEO strategies for maximum organic growth and brand visibility</p>
                       </div>
                       <div className="strategy-body-item">
                         <h3>Intelligent, Data-Driven Strategies</h3>
-                        <p>AI-Driven Analytics Ensures Precise, Scalable Campaigns.</p>
+                        <p>AI-driven analytics delivers precise, scalable campaigns — including AEO for voice search, GEO for Google SGE, and predictive content strategies built for the future of search</p>
                       </div>
                     </div>
+                  </div>
 
-                    <div className="service-strategy-image">
-                      <figure className="image-anime reveal">
-                        <img src="/images/sections/project-marketing-image.jpg" alt="Rank Spiders client digital marketing campaign results" />
-                      </figure>
+                  {/* How AI SEO Works */}
+                  <div className="service-growth-box wow fadeInUp" data-wow-delay="0.2s">
+                    <h2>How Our <span>AI SEO Process Works</span></h2>
+                    <p className="wow fadeInUp" data-wow-delay="0.2s">
+                      Our AI SEO methodology follows a structured, four-phase process that builds compounding organic growth:
+                    </p>
+                    <div className="service-growth-body">
+                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.4s">
+                        {[
+                          { step: "Phase 1", title: "AI-Powered Discovery & Audit", desc: "We crawl your website, analyze your current rankings, audit your content quality, and benchmark against your top 10 competitors using AI tools — identifying every gap and opportunity in under 48 hours." },
+                          { step: "Phase 2", title: "Intelligent Strategy Design", desc: "We build a keyword universe, content strategy, and technical SEO roadmap informed by AI search trend predictions — targeting keywords with high intent, realistic difficulty, and strong business value." },
+                          { step: "Phase 3", title: "On-Page & Technical Execution", desc: "Our team optimizes title tags, meta descriptions, content structure, Core Web Vitals, schema markup, internal linking, and page experience signals — all prioritized by AI impact scoring." },
+                          { step: "Phase 4", title: "Measure, Learn & Scale", desc: "We track rankings, organic traffic, conversions, and ROI in real-time. AI dashboards surface what&apos;s working fastest, allowing us to double down on winning strategies and compound your results." },
+                        ].map((s, i) => (
+                          <div key={i} className="service-growth-item">
+                            <h3><span style={{color: 'var(--accent-color)', marginRight: '6px'}}>{s.step}:</span>{s.title}</h3>
+                            <p>{s.desc}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Data-Driven Growth with<span>AI Insights</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Harness the power of AI-powered analytics to track search performance, understand user intent, and optimize SEO strategies in real time.</p>
+                    <h2 className="wow fadeInUp">Transform Data Into <span>Business Growth</span></h2>
+                    <p className="wow fadeInUp" data-wow-delay="0.2s">
+                      Harness the power of AI-powered analytics to increase organic website traffic, improve search engine rankings, build brand authority and trust, and deliver measurable, long-term results that compound over time.
+                    </p>
 
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
                         <div className="icon-box">
-                          <img src="/images/icons/icon-growth-counter.svg" alt="" />
+                          <img src="/images/icons/icon-growth-counter.svg" alt="Rank Spiders AI SEO campaign reach and results counter" />
                         </div>
                         <div className="growth-counter-content">
                           <h3><span className="counter">120</span>K+</h3>
-                          <p>Customer engaged that's campaign reach depend</p>
+                          <p>Keywords tracked across active AI SEO campaigns</p>
                         </div>
                       </div>
 
                       <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
                         <div className="service-growth-item">
                           <h3>AI SEO Strategy</h3>
-                          <p>We start by analyzing your brand, audience behavior, and digital footprint using advanced AI insights.</p>
+                          <p>We analyze your brand, audience behavior, search intent patterns, and digital footprint using advanced AI tools — then build a strategy around your highest-value opportunities.</p>
                         </div>
                         <div className="service-growth-item">
-                          <h3>Smart Analytics</h3>
-                          <p>Leveraging AI analytics and market intelligence, we design tactical plans that optimize content.</p>
+                          <h3>Smart Content Intelligence</h3>
+                          <p>AI-driven content analysis identifies exactly what depth, format, word count, and structure Google rewards in your niche — so every page we create is engineered to rank.</p>
+                        </div>
+                        <div className="service-growth-item">
+                          <h3>Predictive Keyword Research</h3>
+                          <p>Machine learning models surface emerging keyword trends 3–6 months before they peak — giving your brand a first-mover advantage in growing search categories.</p>
+                        </div>
+                        <div className="service-growth-item">
+                          <h3>AI-Powered Link Intelligence</h3>
+                          <p>We identify the exact backlink opportunities that will move the needle for your domain authority — not generic link outreach, but targeted acquisition informed by competitor gap analysis.</p>
                         </div>
                       </div>
                     </div>
@@ -189,8 +249,8 @@ export default function AiSeoAgency() {
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
                   <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Powering Growth Through<span>Intelligent AI SEO</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We blend AI-driven insights, predictive analytics, and advanced SEO innovation to elevate your brand’s visibility.</p>
+                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Powering Sustainable Growth Through <span>SEO Optimization</span></h2>
+                  <p className="wow fadeInUp" data-wow-delay="0.4s">We blend AI-driven insights, predictive analytics, and advanced SEO innovation to increase organic traffic, improve search engine rankings, build brand authority and trust, and deliver measurable, long-term results.</p>
                 </div>
                 <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
@@ -199,7 +259,7 @@ export default function AiSeoAgency() {
             </div>
             <div className="col-lg-6">
               <div className="our-belief-image">
-                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
+                <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core belief — AI-powered SEO, data-driven digital marketing, sustainable organic growth for businesses India" title="Rank Spiders AI SEO Core Values" loading="lazy" />
               </div>
             </div>
           </div>

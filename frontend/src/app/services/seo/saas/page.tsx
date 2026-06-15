@@ -62,7 +62,10 @@ export default function SaasSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/digital-advantage-img-1.jpg" alt="Rank Spiders digital marketing strategy and campaign execution" />
+                    <img
+                      src="/images/services/seo/saas-seo-banner.png"
+                      alt="SaaS SEO Agency India — Discover, Optimize, Grow — Rank Spiders SaaS SEO services"
+                    />
                   </figure>
                 </div>
 

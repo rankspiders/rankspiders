@@ -62,7 +62,10 @@ export default function TechnicalSeoAgency() {
               <div className="service-single-content">
                 <div className="page-single-image">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/digital-advantage-img-3.jpg" alt="Advanced technical SEO and web development expertise at Rank Spiders" />
+                    <img
+                      src="/images/services/seo/technical-seo-banner.png"
+                      alt="Technical SEO Agency India — Build a Strong Foundation, Rank Higher — site speed, crawlability, indexing, Core Web Vitals"
+                    />
                   </figure>
                 </div>
 
