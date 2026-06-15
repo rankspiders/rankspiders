@@ -12569,37 +12569,77 @@ background: rgba(82, 27, 137, 0.07);
   align-items: stretch;
 }
 
+/* Normalise the phone number input — static label is above, so no
+   need for the floating-label top padding */
+.phone-group .cf-input,
+.phone-group .hc-input {
+  flex: 1;
+  min-width: 0;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+/* ── Country-code select ── */
 .phone-code-select {
   flex-shrink: 0;
-  width: 136px;
-  padding: 0 10px;
-  background: var(--bg-color);
-  border: 1.5px solid var(--card-border);
-  border-radius: 10px;
-  font-size: 13px;
+  width: 148px;
+  padding: 0 32px 0 14px;
+  /* Accent-tinted gradient so it stands out from a plain input */
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.08) 0%,
+    rgba(6, 182, 212, 0.05) 100%
+  );
+  border: 1.5px solid var(--accent-color);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text-color);
   font-family: var(--default-font);
   cursor: pointer;
   outline: none;
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%236b7280' d='M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3E%3C/svg%3E");
+  /* Accent-coloured chevron */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%234F46E5' d='M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 8px center;
+  background-position: right 10px center;
   background-size: 16px;
-  padding-right: 28px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  /* Subtle left-side accent stripe */
+  box-shadow: inset 3px 0 0 var(--accent-color), 0 1px 4px rgba(79, 70, 229, 0.08);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .phone-code-select:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+  box-shadow: inset 3px 0 0 var(--accent-color), 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.13) 0%,
+    rgba(6, 182, 212, 0.07) 100%
+  );
 }
 
-.phone-group .cf-input,
-.phone-group .hc-input {
-  flex: 1;
-  min-width: 0;
+.phone-code-select:hover:not(:focus) {
+  border-color: var(--accent-color);
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.11) 0%,
+    rgba(6, 182, 212, 0.06) 100%
+  );
+}
+
+/* Dark mode: bump up opacity slightly so the tint stays visible */
+[data-theme="dark"] .phone-code-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%2306B6D4' d='M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3E%3C/svg%3E");
+  background-color: rgba(79, 70, 229, 0.12);
+  border-color: var(--accent-secondary-color);
+  box-shadow: inset 3px 0 0 var(--accent-secondary-color), 0 1px 4px rgba(6, 182, 212, 0.1);
+}
+
+[data-theme="dark"] .phone-code-select:focus {
+  border-color: var(--accent-secondary-color);
+  box-shadow: inset 3px 0 0 var(--accent-secondary-color), 0 0 0 3px rgba(6, 182, 212, 0.18);
 }
 
 .cf-label--phone {
@@ -12608,16 +12648,16 @@ background: rgba(82, 27, 137, 0.07);
 
 .cf-phone-label {
   display: block;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 700;
   color: var(--text-muted);
   margin-bottom: 8px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 @media (max-width: 400px) {
-  .phone-code-select { width: 110px; font-size: 12px; }
+  .phone-code-select { width: 118px; font-size: 12.5px; }
 }
 
 /* ============================================================
