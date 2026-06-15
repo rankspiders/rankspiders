@@ -47,8 +47,20 @@ export async function POST(req: Request) {
     // Send email
     await transporter.sendMail(mailOptions);
 
-    // Note: Database insertion is skipped for now as we are focusing on the email logic.
-    // In a full production setup, you would connect to a DB (like Prisma/MongoDB) here.
+    // Save lead to Supabase via FastAPI — non-fatal
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    const payload = new URLSearchParams({
+      fname,
+      lname: lname || '',
+      email,
+      phone,
+      service: service || 'General Enquiry',
+      message: message || '',
+      source: 'contact_form',
+      website_url: '',
+    });
+    fetch(`${apiBase}/api/submit`, { method: 'POST', body: payload })
+      .catch(err => console.error('Lead DB save failed (non-fatal):', err));
 
     return NextResponse.json({ message: 'Form submitted successfully' }, { status: 200 });
   } catch (error: any) {

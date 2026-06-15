@@ -1,8 +1,9 @@
 ﻿'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PageHeader from '@/components/PageHeader';
 import Sidebar from '@/components/Sidebar';
+import FreeAuditClient from './FreeAuditClient';
 
 export default function FreeSeoAudit() {
   const [openFaq, setOpenFaq] = useState<number | null>(1);
@@ -64,6 +65,8 @@ export default function FreeSeoAudit() {
           { label: 'Free Seo Audit', active: true }
         ]}
       />
+
+      <FreeAuditClient />
 
       <div className="page-service-single">
         <div className="container">
