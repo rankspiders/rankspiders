@@ -7,9 +7,10 @@ import AuditResults, { buildChecks, computeScore, type AuditResult } from '@/com
 type Step = 'form' | 'scanning' | 'result' | 'error';
 
 export default function FreeAuditClient() {
-  const [email,      setEmail]      = useState('');
-  const [phone,      setPhone]      = useState('');
-  const [websiteUrl, setWebsiteUrl] = useState('');
+  const [email,       setEmail]       = useState('');
+  const [phone,       setPhone]       = useState('');
+  const [countryCode, setCountryCode] = useState('+91');
+  const [websiteUrl,  setWebsiteUrl]  = useState('');
   const [step,       setStep]       = useState<Step>('form');
   const [result,     setResult]     = useState<AuditResult | null>(null);
   const [error,      setError]      = useState('');
@@ -62,7 +63,13 @@ export default function FreeAuditClient() {
     e.preventDefault();
     const trimmedUrl   = websiteUrl.trim();
     const trimmedEmail = email.trim();
+    const trimmedPhone = phone.trim();
     if (!trimmedEmail || !trimmedUrl) return;
+    if (!trimmedPhone) {
+      setError('Please enter your phone number.');
+      setStep('error');
+      return;
+    }
     if (!isValidUrl(trimmedUrl)) {
       setError('Please enter a valid URL — e.g. https://example.com');
       setStep('error');
@@ -79,7 +86,7 @@ export default function FreeAuditClient() {
       fname:       trimmedEmail.split('@')[0],
       lname:       '',
       email:       trimmedEmail,
-      phone:       phone.trim(),
+      phone:       `${countryCode} ${trimmedPhone}`,
       service:     'Free SEO Audit',
       message:     `Free audit request for ${normalizedUrl}`,
       source:      'free_seo_audit',
@@ -188,16 +195,40 @@ export default function FreeAuditClient() {
                     </div>
 
                     {/* Phone */}
-                    <div className="cf-field" style={{ marginBottom: 16 }}>
-                      <input
-                        type="tel"
-                        className="cf-input"
-                        placeholder=" "
-                        value={phone}
-                        onChange={e => setPhone(e.target.value)}
-                        autoComplete="tel"
-                      />
-                      <label className="cf-label">Phone number (optional)</label>
+                    <div style={{ marginBottom: 16 }}>
+                      <label className="cf-phone-label">Phone number *</label>
+                      <div className="phone-group">
+                        <select
+                          className="phone-code-select"
+                          value={countryCode}
+                          onChange={e => setCountryCode(e.target.value)}
+                        >
+                          <option value="+91">+91 (India)</option>
+                          <option value="+1">+1 (US/CA)</option>
+                          <option value="+44">+44 (UK)</option>
+                          <option value="+61">+61 (AU)</option>
+                          <option value="+971">+971 (UAE)</option>
+                          <option value="+65">+65 (SG)</option>
+                          <option value="+60">+60 (MY)</option>
+                          <option value="+92">+92 (PK)</option>
+                          <option value="+880">+880 (BD)</option>
+                          <option value="+94">+94 (LK)</option>
+                          <option value="+49">+49 (DE)</option>
+                          <option value="+33">+33 (FR)</option>
+                          <option value="+81">+81 (JP)</option>
+                          <option value="+86">+86 (CN)</option>
+                          <option value="+55">+55 (BR)</option>
+                        </select>
+                        <input
+                          type="tel"
+                          className="cf-input"
+                          placeholder="98765 43210"
+                          value={phone}
+                          onChange={e => setPhone(e.target.value)}
+                          required
+                          autoComplete="tel"
+                        />
+                      </div>
                     </div>
 
                     {/* Website URL */}

@@ -12606,6 +12606,16 @@ background: rgba(82, 27, 137, 0.07);
   margin-top: 6px;
 }
 
+.cf-phone-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 400px) {
   .phone-code-select { width: 110px; font-size: 12px; }
 }

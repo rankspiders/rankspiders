@@ -194,7 +194,8 @@ export default function ContactUs() {
                           </div>
                         </div>
                         <div className="col-sm-6">
-                          <div className="cf-field">
+                          <div>
+                            <label className="cf-phone-label">Phone number *</label>
                             <div className="phone-group">
                               <select name="countryCode" className="phone-code-select" value={formData.countryCode} onChange={handleChange}>
                                 <option value="+91">+91 (India)</option>
@@ -220,7 +221,6 @@ export default function ContactUs() {
                                 className="cf-input"
                               />
                             </div>
-                            <label htmlFor="phone" className="cf-label cf-label--phone">Phone number *</label>
                           </div>
                         </div>
                       </div>
