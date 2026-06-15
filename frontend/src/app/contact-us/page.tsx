@@ -97,13 +97,13 @@ export default function ContactUs() {
                       </div>
                     </a>
 
-                    <a href="mailto:info@rankspiders.com" className="contact-panel__info-item">
+                    <a href="mailto:info.rankspiders@gmail.com" className="contact-panel__info-item">
                       <div className="contact-panel__info-icon">
                         <i className="fa-solid fa-envelope"></i>
                       </div>
                       <div>
                         <span className="contact-panel__info-label">Email us</span>
-                        <span className="contact-panel__info-value">info@rankspiders.com</span>
+                        <span className="contact-panel__info-value">info.rankspiders@gmail.com</span>
                       </div>
                     </a>
 

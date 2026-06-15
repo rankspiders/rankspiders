@@ -59,7 +59,7 @@ export default function TermsAndConditions() {
                 <p className="wow fadeInUp" data-wow-delay="0.2s">These terms are governed by the laws of India. Any disputes arising from these terms or our services shall be subject to the exclusive jurisdiction of the courts of Punjab, India.</p>
 
                 <h2 className="wow fadeInUp" data-wow-delay="0.4s" style={{ marginTop: '2rem' }}>10. Contact</h2>
-                <p className="wow fadeInUp" data-wow-delay="0.5s">For questions about these terms, contact us at <a href="mailto:info@rankspiders.com">info@rankspiders.com</a> or call <a href="tel:+919988357092">+91 99883-57092</a>.</p>
+                <p className="wow fadeInUp" data-wow-delay="0.5s">For questions about these terms, contact us at <a href="mailto:info.rankspiders@gmail.com">info.rankspiders@gmail.com</a> or call <a href="tel:+919988357092">+91 99883-57092</a>.</p>
               </div>
             </div>
           </div>

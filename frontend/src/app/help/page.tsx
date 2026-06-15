@@ -12,7 +12,7 @@ export default function Help() {
     {
       id: 1,
       question: "How do I get started with Rank Spiders?",
-      answer: "Getting started is easy. Fill out our contact form at /contact-us, call us on +91 99883-57092, or email info@rankspiders.com. We'll schedule a free discovery call to understand your business goals and recommend the right services."
+      answer: "Getting started is easy. Fill out our contact form at /contact-us, call us on +91 99883-57092, or email info.rankspiders@gmail.com. We'll schedule a free discovery call to understand your business goals and recommend the right services."
     },
     {
       id: 2,
@@ -42,7 +42,7 @@ export default function Help() {
     {
       id: 7,
       question: "How do I report a problem with the website?",
-      answer: "If you encounter any issues with our website or tools, please email info@rankspiders.com or use our contact form. We aim to address reported issues within 24 hours."
+      answer: "If you encounter any issues with our website or tools, please email info.rankspiders@gmail.com or use our contact form. We aim to address reported issues within 24 hours."
     },
     {
       id: 8,
@@ -110,7 +110,7 @@ export default function Help() {
                   </Link>
                   <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--card-border)' }}>
                     <p><strong>Phone:</strong><br /><a href="tel:+919988357092">+91 99883-57092</a></p>
-                    <p style={{ marginTop: '0.5rem' }}><strong>Email:</strong><br /><a href="mailto:info@rankspiders.com">info@rankspiders.com</a></p>
+                    <p style={{ marginTop: '0.5rem' }}><strong>Email:</strong><br /><a href="mailto:info.rankspiders@gmail.com">info.rankspiders@gmail.com</a></p>
                   </div>
                 </div>
               </div>

@@ -94,7 +94,7 @@ export default function TeamSingle() {
                       </div>
                       <div className="team-contact-content">
                         <h3>Email Address</h3>
-                        <p>info@rankspiders.com</p>
+                        <p>info.rankspiders@gmail.com</p>
                       </div>
                     </div>
 

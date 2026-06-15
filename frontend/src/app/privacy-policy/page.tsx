@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
                 <h2 className="wow fadeInUp" data-wow-delay="0.4s" style={{ marginTop: '2rem' }}>8. Contact Us</h2>
                 <p className="wow fadeInUp" data-wow-delay="0.5s">If you have any questions about this privacy policy or our handling of your personal data, please contact us:</p>
                 <ul className="wow fadeInUp" data-wow-delay="0.6s">
-                  <li>Email: <a href="mailto:info@rankspiders.com">info@rankspiders.com</a></li>
+                  <li>Email: <a href="mailto:info.rankspiders@gmail.com">info.rankspiders@gmail.com</a></li>
                   <li>Phone: <a href="tel:+919988357092">+91 99883-57092</a></li>
                   <li>Address: Office No. 22, Ground Floor, D-152, Phase 8, Industrial Area, Sector 74, SAS Nagar, Punjab 160071, India</li>
                 </ul>
