@@ -51,11 +51,24 @@ export default function FreeAuditClient() {
 
   useEffect(() => () => { if (progressRef.current) clearInterval(progressRef.current); }, []);
 
+  function isValidUrl(input: string): boolean {
+    try {
+      const u = new URL(input.startsWith('http') ? input : `https://${input}`);
+      return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(u.hostname);
+    } catch { return false; }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const trimmedUrl   = websiteUrl.trim();
     const trimmedEmail = email.trim();
     if (!trimmedEmail || !trimmedUrl) return;
+    if (!isValidUrl(trimmedUrl)) {
+      setError('Please enter a valid URL — e.g. https://example.com');
+      setStep('error');
+      return;
+    }
+    const normalizedUrl = trimmedUrl.startsWith('http') ? trimmedUrl : `https://${trimmedUrl}`;
     setStep('scanning');
     setError('');
     startProgress();
@@ -68,9 +81,9 @@ export default function FreeAuditClient() {
       email:       trimmedEmail,
       phone:       phone.trim(),
       service:     'Free SEO Audit',
-      message:     `Free audit request for ${trimmedUrl}`,
+      message:     `Free audit request for ${normalizedUrl}`,
       source:      'free_seo_audit',
-      website_url: trimmedUrl,
+      website_url: normalizedUrl,
     });
 
     // Fire lead save and audit in parallel — don't let lead save block the audit
@@ -78,7 +91,7 @@ export default function FreeAuditClient() {
       .then(r => r.json())
       .catch(() => null);
 
-    const auditPromise = fetch(`${API}/api/tools/audit?url=${encodeURIComponent(trimmedUrl)}`)
+    const auditPromise = fetch(`${API}/api/tools/audit?url=${encodeURIComponent(normalizedUrl)}`)
       .then(r => r.json().then(data => ({ ok: r.ok, data })))
       .catch(() => null);
 

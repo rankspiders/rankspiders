@@ -46,9 +46,21 @@ export default function SeoAuditClient() {
 
   useEffect(() => () => { if (progressRef.current) clearInterval(progressRef.current); }, []);
 
+  function isValidUrl(input: string): boolean {
+    try {
+      const u = new URL(input.startsWith('http') ? input : `https://${input}`);
+      return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(u.hostname);
+    } catch { return false; }
+  }
+
   async function runAudit() {
-    const target = url.trim();
-    if (!target) return;
+    const raw = url.trim();
+    if (!raw) return;
+    if (!isValidUrl(raw)) {
+      setError('Please enter a valid URL — e.g. https://example.com');
+      return;
+    }
+    const target = raw.startsWith('http') ? raw : `https://${raw}`;
     setLoading(true); setResult(null); setError('');
     startProgress();
     try {

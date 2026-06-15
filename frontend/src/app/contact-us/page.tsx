@@ -18,12 +18,12 @@ const serviceChips = [
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
-    fname: '', lname: '', email: '', phone: '', service: '', message: '',
+    fname: '', lname: '', email: '', phone: '', countryCode: '+91', service: '', message: '',
   });
   const [status,  setStatus]  = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errMsg,  setErrMsg]  = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -34,18 +34,19 @@ export default function ContactUs() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.service) { setErrMsg('Please select a service.'); return; }
+    if (!formData.phone.trim()) { setErrMsg('Please enter your phone number.'); return; }
     setErrMsg('');
     setStatus('loading');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, phone: `${formData.countryCode} ${formData.phone}` }),
       });
       const data = await res.json();
       if (res.ok) {
         setStatus('success');
-        setFormData({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
+        setFormData({ fname: '', lname: '', email: '', phone: '', countryCode: '+91', service: '', message: '' });
       } else {
         setErrMsg(data.error || 'Something went wrong.');
         setStatus('error');
@@ -194,13 +195,32 @@ export default function ContactUs() {
                         </div>
                         <div className="col-sm-6">
                           <div className="cf-field">
-                            <input
-                              type="tel" name="phone" id="phone"
-                              value={formData.phone} onChange={handleChange}
-                              placeholder=" " required
-                              className="cf-input"
-                            />
-                            <label htmlFor="phone" className="cf-label">Phone number *</label>
+                            <div className="phone-group">
+                              <select name="countryCode" className="phone-code-select" value={formData.countryCode} onChange={handleChange}>
+                                <option value="+91">+91 (India)</option>
+                                <option value="+1">+1 (US/CA)</option>
+                                <option value="+44">+44 (UK)</option>
+                                <option value="+61">+61 (AU)</option>
+                                <option value="+971">+971 (UAE)</option>
+                                <option value="+65">+65 (SG)</option>
+                                <option value="+60">+60 (MY)</option>
+                                <option value="+92">+92 (PK)</option>
+                                <option value="+880">+880 (BD)</option>
+                                <option value="+94">+94 (LK)</option>
+                                <option value="+49">+49 (DE)</option>
+                                <option value="+33">+33 (FR)</option>
+                                <option value="+81">+81 (JP)</option>
+                                <option value="+86">+86 (CN)</option>
+                                <option value="+55">+55 (BR)</option>
+                              </select>
+                              <input
+                                type="tel" name="phone" id="phone"
+                                value={formData.phone} onChange={handleChange}
+                                placeholder="98765 43210" required
+                                className="cf-input"
+                              />
+                            </div>
+                            <label htmlFor="phone" className="cf-label cf-label--phone">Phone number *</label>
                           </div>
                         </div>
                       </div>

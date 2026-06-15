@@ -12561,6 +12561,56 @@ background: rgba(82, 27, 137, 0.07);
 }
 
 /* ============================================================
+   PHONE GROUP (country code + number)
+============================================================ */
+.phone-group {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.phone-code-select {
+  flex-shrink: 0;
+  width: 136px;
+  padding: 0 10px;
+  background: var(--bg-color);
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-color);
+  font-family: var(--default-font);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%236b7280' d='M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 28px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.phone-code-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.phone-group .cf-input,
+.phone-group .hc-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.cf-label--phone {
+  margin-top: 6px;
+}
+
+@media (max-width: 400px) {
+  .phone-code-select { width: 110px; font-size: 12px; }
+}
+
+/* ============================================================
    AUDIT PROGRESS BAR
 ============================================================ */
 .audit-progress-wrap {

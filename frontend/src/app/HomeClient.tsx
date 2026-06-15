@@ -300,7 +300,7 @@ export default function HomeClient() {
   const heroSectionRef = useRef<HTMLElement>(null);
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
 
-  const [hcForm, setHcForm] = useState({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
+  const [hcForm, setHcForm] = useState({ fname: '', lname: '', email: '', phone: '', countryCode: '+91', service: '', message: '' });
   const [hcStatus, setHcStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [hcErr, setHcErr] = useState('');
 
@@ -312,18 +312,19 @@ export default function HomeClient() {
   const handleHcSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!hcForm.service) { setHcErr('Please select a service.'); return; }
+    if (!hcForm.phone.trim()) { setHcErr('Please enter your phone number.'); return; }
     setHcErr('');
     setHcStatus('loading');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(hcForm),
+        body: JSON.stringify({ ...hcForm, phone: `${hcForm.countryCode} ${hcForm.phone}` }),
       });
       const data = await res.json();
       if (res.ok) {
         setHcStatus('success');
-        setHcForm({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
+        setHcForm({ fname: '', lname: '', email: '', phone: '', countryCode: '+91', service: '', message: '' });
       } else {
         setHcErr(data.error || 'Something went wrong.');
         setHcStatus('error');
@@ -1313,7 +1314,26 @@ export default function HomeClient() {
                       </div>
                       <div className="col-sm-6">
                         <label className="hc-label">Phone number *</label>
-                        <input type="tel" name="phone" className="hc-input" value={hcForm.phone} onChange={handleHcChange} required placeholder="+91 98765 43210" />
+                        <div className="phone-group">
+                          <select name="countryCode" className="phone-code-select hc-select" value={hcForm.countryCode} onChange={handleHcChange}>
+                            <option value="+91">+91 (India)</option>
+                            <option value="+1">+1 (US/CA)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+61">+61 (AU)</option>
+                            <option value="+971">+971 (UAE)</option>
+                            <option value="+65">+65 (SG)</option>
+                            <option value="+60">+60 (MY)</option>
+                            <option value="+92">+92 (PK)</option>
+                            <option value="+880">+880 (BD)</option>
+                            <option value="+94">+94 (LK)</option>
+                            <option value="+49">+49 (DE)</option>
+                            <option value="+33">+33 (FR)</option>
+                            <option value="+81">+81 (JP)</option>
+                            <option value="+86">+86 (CN)</option>
+                            <option value="+55">+55 (BR)</option>
+                          </select>
+                          <input type="tel" name="phone" className="hc-input" value={hcForm.phone} onChange={handleHcChange} required placeholder="98765 43210" />
+                        </div>
                       </div>
                       <div className="col-12">
                         <label className="hc-label">Service needed *</label>
