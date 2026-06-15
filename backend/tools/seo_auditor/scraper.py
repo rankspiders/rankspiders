@@ -45,7 +45,7 @@ def extract_seo(soup: BeautifulSoup, base_url: str, original_url: str, html_byte
     is_noindex      = "noindex" in meta_robots
 
     # ── Headings ───────────────────────────────────────────────────────────
-    h1_tags  = [h.get_text(strip=True) for h in soup.find_all("h1")]
+    h1_tags  = [h.get_text(separator=" ", strip=True) for h in soup.find_all("h1")]
     h2_count = len(soup.find_all("h2"))
     h3_count = len(soup.find_all("h3"))
 
