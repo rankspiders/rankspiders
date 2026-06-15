@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import ScrollingTicker from '@/components/ScrollingTicker';
 import MotionWrapper, { MotionStagger, MotionItem } from '@/components/MotionWrapper';
@@ -299,6 +299,40 @@ export default function HomeClient() {
   const heroSceneRef = useRef<HTMLDivElement>(null);
   const heroSectionRef = useRef<HTMLElement>(null);
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
+
+  const [hcForm, setHcForm] = useState({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
+  const [hcStatus, setHcStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [hcErr, setHcErr] = useState('');
+
+  const handleHcChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setHcForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleHcSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!hcForm.service) { setHcErr('Please select a service.'); return; }
+    setHcErr('');
+    setHcStatus('loading');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(hcForm),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setHcStatus('success');
+        setHcForm({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
+      } else {
+        setHcErr(data.error || 'Something went wrong.');
+        setHcStatus('error');
+      }
+    } catch {
+      setHcErr('Could not reach the server. Please try again.');
+      setHcStatus('error');
+    }
+  };
 
   useEffect(() => {
     const el = metricsRef.current;
@@ -1237,6 +1271,136 @@ export default function HomeClient() {
               </Link>
             </div>
           </MotionWrapper>
+        </div>
+      </section>
+
+      {/* ==================== HOME CONTACT ==================== */}
+      <section className="home-contact-section">
+        <div className="container">
+          <MotionWrapper>
+            <div className="text-center mb-5">
+              <span className="hc-eyebrow">Get In Touch</span>
+              <h2>Talk to Us — <span>We&apos;d Love to Help</span></h2>
+              <p className="hc-sub">Fill in your details and we&apos;ll get back to you within 2 hours on business days.</p>
+            </div>
+          </MotionWrapper>
+
+          <div className="row g-4 align-items-start">
+            {/* ── Form ── */}
+            <div className="col-lg-7">
+              <MotionWrapper>
+                {hcStatus === 'success' ? (
+                  <div className="hc-success">
+                    <div className="hc-success-icon"><i className="fa-solid fa-circle-check"></i></div>
+                    <h3>Message Sent!</h3>
+                    <p>Thanks for reaching out. Our team will contact you within <strong>24 hours</strong> with a tailored strategy.</p>
+                    <button className="btn-default" onClick={() => setHcStatus('idle')}>Send another message</button>
+                  </div>
+                ) : (
+                  <form className="hc-form-card" onSubmit={handleHcSubmit} noValidate>
+                    <div className="row g-3">
+                      <div className="col-sm-6">
+                        <label className="hc-label">First name *</label>
+                        <input type="text" name="fname" className="hc-input" value={hcForm.fname} onChange={handleHcChange} required placeholder="John" />
+                      </div>
+                      <div className="col-sm-6">
+                        <label className="hc-label">Last name</label>
+                        <input type="text" name="lname" className="hc-input" value={hcForm.lname} onChange={handleHcChange} placeholder="Doe" />
+                      </div>
+                      <div className="col-sm-6">
+                        <label className="hc-label">Email address *</label>
+                        <input type="email" name="email" className="hc-input" value={hcForm.email} onChange={handleHcChange} required placeholder="john@company.com" />
+                      </div>
+                      <div className="col-sm-6">
+                        <label className="hc-label">Phone number *</label>
+                        <input type="tel" name="phone" className="hc-input" value={hcForm.phone} onChange={handleHcChange} required placeholder="+91 98765 43210" />
+                      </div>
+                      <div className="col-12">
+                        <label className="hc-label">Service needed *</label>
+                        <select name="service" className="hc-select" value={hcForm.service} onChange={handleHcChange}>
+                          <option value="">— Select a service —</option>
+                          <option value="SEO Services">SEO Services</option>
+                          <option value="Web Design & Development">Web Design &amp; Development</option>
+                          <option value="Social Media Marketing">Social Media Marketing</option>
+                          <option value="Content Writing Services">Content Writing Services</option>
+                          <option value="Email Marketing">Email Marketing</option>
+                          <option value="PPC Services">PPC Services</option>
+                          <option value="Graphic Designing Services">Graphic Designing Services</option>
+                          <option value="Digital Marketing Services">Digital Marketing Services</option>
+                          <option value="Consultancy">Consultancy</option>
+                        </select>
+                      </div>
+                      <div className="col-12">
+                        <label className="hc-label">Message (optional)</label>
+                        <textarea name="message" className="hc-textarea" value={hcForm.message} onChange={handleHcChange} placeholder="Tell us about your project, goals, or any questions you have…" rows={4} />
+                      </div>
+                      {(hcStatus === 'error' || hcErr) && (
+                        <div className="col-12">
+                          <div className="hc-error">
+                            <i className="fa-solid fa-triangle-exclamation"></i>
+                            {hcErr || 'Something went wrong. Please try again.'}
+                          </div>
+                        </div>
+                      )}
+                      <div className="col-12">
+                        <button type="submit" className="btn-default hc-submit" disabled={hcStatus === 'loading'}>
+                          {hcStatus === 'loading'
+                            ? <><i className="fa fa-circle-notch fa-spin"></i> Sending…</>
+                            : <><i className="fa-solid fa-paper-plane"></i> Send Message</>
+                          }
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                )}
+              </MotionWrapper>
+            </div>
+
+            {/* ── Right: info cards + map ── */}
+            <div className="col-lg-5">
+              <MotionWrapper>
+                <div className="hc-info-stack">
+                  <div className="hc-info-card">
+                    <div className="hc-info-icon"><i className="fa-solid fa-phone"></i></div>
+                    <div>
+                      <span className="hc-info-label">Call us</span>
+                      <span className="hc-info-value"><a href="tel:+919988357092">+91 99883-57092</a></span>
+                    </div>
+                  </div>
+                  <div className="hc-info-card">
+                    <div className="hc-info-icon"><i className="fa-solid fa-envelope"></i></div>
+                    <div>
+                      <span className="hc-info-label">Email us</span>
+                      <span className="hc-info-value"><a href="mailto:info.rankspiders@gmail.com">info.rankspiders@gmail.com</a></span>
+                    </div>
+                  </div>
+                  <div className="hc-info-card">
+                    <div className="hc-info-icon"><i className="fa-solid fa-clock"></i></div>
+                    <div>
+                      <span className="hc-info-label">Business hours</span>
+                      <span className="hc-info-value">Mon – Sat, 9 AM – 7 PM IST</span>
+                    </div>
+                  </div>
+                  <div className="hc-info-card">
+                    <div className="hc-info-icon"><i className="fa-solid fa-location-dot"></i></div>
+                    <div>
+                      <span className="hc-info-label">Office</span>
+                      <span className="hc-info-value">Office No. 22, Phase 8, Sector 74, SAS Nagar, Punjab</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="hc-map-wrap">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.551612311209!2d76.69078777544946!3d30.707954374602444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fef33c7cf9df7%3A0x9d6b5e6e713ec28!2sD-151%2C%20Ground%20Floor%2C%20Phase%208%2C%20Industrial%20Area%2C%20Sector%2071%2C%20Sahibzada%20Ajit%20Singh%20Nagar%2C%20Punjab%20160071!5e0!3m2!1sen!2sin!4v1703158537552!5m2!1sen!2sin"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Rank Spiders Office Location"
+                  />
+                </div>
+              </MotionWrapper>
+            </div>
+          </div>
         </div>
       </section>
 
