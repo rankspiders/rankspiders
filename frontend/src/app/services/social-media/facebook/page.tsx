@@ -5,6 +5,24 @@ import Sidebar from '@/components/Sidebar';
 export const metadata: Metadata = {
   title: "Facebook Marketing Services | Rank Spiders",
   description: "Grow your business with expert Facebook marketing services — page management, content creation, Facebook Ads, audience targeting, lead generation, and performance tracking.",
+  alternates: {
+    canonical: "https://www.rankspiders.com/services/social-media/facebook",
+  },
+  openGraph: {
+    title: "Facebook Marketing Services | Rank Spiders",
+    description: "Grow your business with expert Facebook marketing services — page management, content creation, Facebook Ads, audience targeting, lead generation, and performance tracking.",
+    url: "https://www.rankspiders.com/services/social-media/facebook",
+    siteName: "Rank Spiders",
+    type: "website",
+    images: [
+      {
+        url: "https://www.rankspiders.com/images/services/facebook/facebook-marketing.png",
+        width: 1200,
+        height: 630,
+        alt: "Rank Spiders Facebook Marketing Services",
+      },
+    ],
+  },
 };
 
 export default function FacebookMarketingAgency() {

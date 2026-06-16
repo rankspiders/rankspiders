@@ -5,6 +5,24 @@ import Sidebar from '@/components/Sidebar';
 export const metadata: Metadata = {
   title: "Content Marketing Services | Rank Spiders",
   description: "Grow your brand with data-driven content marketing — SEO blogs, social media content, video scripts, email campaigns, and strategic content distribution that drives traffic, engagement, and conversions.",
+  alternates: {
+    canonical: "https://www.rankspiders.com/services/content",
+  },
+  openGraph: {
+    title: "Content Marketing Services | Rank Spiders",
+    description: "Grow your brand with data-driven content marketing — SEO blogs, social media content, video scripts, email campaigns, and strategic content distribution that drives traffic, engagement, and conversions.",
+    url: "https://www.rankspiders.com/services/content",
+    siteName: "Rank Spiders",
+    type: "website",
+    images: [
+      {
+        url: "https://www.rankspiders.com/images/services/content/content-writing.png",
+        width: 1200,
+        height: 630,
+        alt: "Rank Spiders Content Marketing Services",
+      },
+    ],
+  },
 };
 
 export default function ContentMarketingAgency() {
@@ -48,11 +66,11 @@ export default function ContentMarketingAgency() {
                     <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified Content Marketing Experts</h3>
-                        <p>Certified experts in content marketing and SEO.</p>
+                        <p>Our certified content marketers and SEO specialists craft every piece of content with a clear purpose — to attract the right audience, build authority, and convert readers into customers through compelling, strategically optimized writing.</p>
                       </div>
                       <div className="strategy-body-item">
                         <h3>Data-Driven Content Strategies</h3>
-                        <p>Data-driven strategies to boost content performance.</p>
+                        <p>We use real audience data, keyword research, and performance analytics to guide every content decision — ensuring your investment produces measurable improvements in traffic, engagement, and lead generation over time.</p>
                       </div>
                     </div>
 
@@ -240,7 +258,7 @@ export default function ContentMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+            <div className="accordion-item wow fadeInUp" data-wow-delay="0.8s">
               <h2 className="accordion-header" id="heading5">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
                   5. Do you provide content calendars?
