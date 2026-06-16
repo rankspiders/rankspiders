@@ -57,18 +57,20 @@ export default function FreeSeoAudit() {
 
   return (
     <>
-      <PageHeader
-        title="Free"
-        subtitle="Seo Audit"
-        breadcrumbs={[
-          { label: 'Seo Optimization', href: '/services/seo' },
-          { label: 'Free Seo Audit', active: true }
-        ]}
-      />
+      <div className="screen-only">
+        <PageHeader
+          title="Free"
+          subtitle="Seo Audit"
+          breadcrumbs={[
+            { label: 'Seo Optimization', href: '/services/seo' },
+            { label: 'Free Seo Audit', active: true }
+          ]}
+        />
+      </div>
 
       <FreeAuditClient />
 
-      <div className="page-service-single">
+      <div className="screen-only page-service-single">
         <div className="container">
           <div className="row">
             <div className="col-lg-4">
@@ -178,7 +180,7 @@ export default function FreeSeoAudit() {
         </div>
       </div>
 
-      <div className="container">
+      <div className="screen-only container">
         <div className="page-single-faqs">
           <div className="section-title">
             <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>

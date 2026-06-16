@@ -149,7 +149,7 @@ export default function SeoAuditClient() {
           result={result}
           checks={checks}
           score={score}
-          showPdfButton={false}
+          showPdfButton={true}
         />
       )}
 

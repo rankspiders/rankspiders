@@ -12950,46 +12950,280 @@ background: rgba(82, 27, 137, 0.07);
 }
 
 
+/* ── Audit Category Breakdown ────────────────────────────────────────────── */
+.audit-category-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.audit-category-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--heading-font);
+}
+.audit-category-heading i { color: var(--accent-color); }
+.audit-cat-grid { display: flex; flex-direction: column; gap: 13px; }
+.audit-cat-row { display: flex; align-items: center; gap: 14px; }
+.audit-cat-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 152px;
+  flex-shrink: 0;
+}
+.audit-cat-name {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+.audit-cat-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--bg-secondary);
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+}
+.audit-cat-bar-pass {
+  height: 100%;
+  background: #10B981;
+  border-radius: 999px 0 0 999px;
+  transition: width 0.9s ease;
+  flex-shrink: 0;
+}
+.audit-cat-bar-warn {
+  height: 100%;
+  background: #F59E0B;
+  transition: width 0.9s ease;
+  flex-shrink: 0;
+}
+.audit-cat-counts {
+  display: flex;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  width: 84px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+.audit-cat-counts small { font-size: 0.65rem; font-weight: 400; opacity: 0.65; margin-left: 1px; }
+.audit-cat-pct {
+  width: 40px;
+  text-align: right;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+@media (max-width: 575px) {
+  .audit-cat-label { width: 110px; }
+  .audit-cat-name  { font-size: 0.78rem; }
+  .audit-cat-counts { display: none; }
+}
+
+/* ── Print-only elements hidden on screen ────────────────────────────────── */
+.print-only { display: none !important; }
+
 /* ═══════════════════════════════════════════════════════
-   PRINT / SAVE AS PDF
-   Applies when user presses Ctrl+P or clicks "Print / Save as PDF"
+   PRINT / SAVE AS PDF  — 2-page compact layout
    ═══════════════════════════════════════════════════════ */
 @media print {
-  /* ── Hide page chrome ──────────────────────────────── */
-  header, footer,
-  .scrolling-ticker,
-  .page-header-section,
-  .tool-input-section,
-  .tool-form-section,
-  .audit-group-tabs,
-  .tool-after-cta,
-  .audit-fix-toggle { display: none !important; }
+  /* ── Page setup ──────────────────────────────────────── */
+  @page { size: A4 portrait; margin: 0 0 20pt 0; }
 
-  /* ── Reset backgrounds & shadows ──────────────────── */
+  /* ── Hide site chrome ────────────────────────────────── */
+  .main-header, .main-footer, .our-scrolling-ticker,
+  .rs-preloader, .ambient-bg,
+  .tool-scanner-section, .free-audit-form-section { display: none !important; }
+
+  /* ── Swap screen / print ─────────────────────────────── */
+  .screen-only { display: none !important; }
+  .print-only  { display: block !important; }
+
+  /* ── Global reset ────────────────────────────────────── */
   *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
     box-shadow: none !important;
     text-shadow: none !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
   }
-  body, html { background: #fff !important; }
+  html, body {
+    background: #fff !important; color: #111 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 10pt; margin: 0; padding: 0;
+  }
 
-  /* ── Typography ────────────────────────────────────── */
-  body { font-size: 11pt; color: #111; }
-  .audit-overview-url { font-size: 10pt; word-break: break-all; }
+  /* ── Root ────────────────────────────────────────────── */
+  .pr-root { padding: 16pt 20pt 50pt; background: #fff; color: #111; position: relative; }
 
-  /* ── Force all "How to fix" sections visible ───────── */
-  .audit-fix-body { display: block !important; margin-top: 8pt; font-size: 10pt; }
+  /* ── Watermark ───────────────────────────────────────── */
+  .pr-watermark {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-22deg);
+    width: 55%; opacity: 0.05; z-index: 0;
+    pointer-events: none; filter: grayscale(100%);
+  }
 
-  /* ── Stack the multi-col grid to 1 column ───────────── */
-  .audit-checks-grid { display: block !important; }
+  /* ── Fixed page footer ───────────────────────────────── */
+  .pr-page-footer {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex !important; justify-content: space-between; align-items: center;
+    padding: 4pt 20pt; font-size: 7pt; color: #999;
+    border-top: 0.5pt solid #e5e7eb; background: #fff;
+  }
 
-  /* ── Page-break rules ───────────────────────────────── */
-  .audit-check-card,
-  .audit-overview-card,
-  .audit-issues-panel,
-  .audit-group-section { page-break-inside: avoid; break-inside: avoid; }
+  /* ── PAGE 1 HEADER ───────────────────────────────────── */
+  .pr-header {
+    display: flex !important; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 6pt;
+  }
+  .pr-header-left  { display: flex !important; align-items: center; gap: 11pt; }
+  .pr-logo         { height: 30pt; width: auto; display: block; }
+  .pr-header-info  { display: flex !important; flex-direction: column; gap: 2pt; }
+  .pr-report-title { font-size: 13pt; font-weight: 800; color: #111; line-height: 1.2; }
+  .pr-report-url   { font-size: 8pt; color: #4F46E5; word-break: break-all; }
+  .pr-report-date  { font-size: 7pt; color: #777; }
+  .pr-score-badge  { border: 2pt solid; border-radius: 8pt; padding: 5pt 11pt; text-align: center; min-width: 52pt; }
+  .pr-score-num    { display: block; font-size: 24pt; font-weight: 900; line-height: 1; }
+  .pr-score-label  { display: block; font-size: 7pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; margin-top: 1pt; }
+  .pr-score-sub    { display: block; font-size: 6.5pt; color: #999; margin-top: 1pt; }
+  .pr-divider      { border: none; border-top: 1.5pt solid; margin: 5pt 0 9pt; }
 
-  .audit-check-card   { margin-bottom: 10pt; }
-  .audit-group-section { page-break-before: auto; break-before: auto; margin-top: 16pt; }
+  /* ── METRICS STRIP ───────────────────────────────────── */
+  .pr-metrics-strip {
+    display: flex !important; border: 0.75pt solid #e5e7eb;
+    border-radius: 6pt; overflow: hidden; margin-bottom: 10pt;
+  }
+  .pr-metric-cell {
+    flex: 1; text-align: center; padding: 5pt 2pt;
+    border-right: 0.75pt solid #e5e7eb;
+    display: flex !important; flex-direction: column; align-items: center; gap: 2pt;
+  }
+  .pr-metric-cell:last-child { border-right: none; }
+  .pr-metric-val   { font-size: 12pt; font-weight: 800; line-height: 1; }
+  .pr-metric-label { font-size: 6.5pt; color: #666; text-transform: uppercase; letter-spacing: 0.3pt; }
+
+  /* ── 3×2 MAIN GRID ──────────────────────────────────── */
+  .pr-main-grid {
+    display: grid !important; grid-template-columns: 1fr 1fr;
+    gap: 9pt; margin-bottom: 10pt;
+  }
+  .pr-panel { border: 0.75pt solid #e5e7eb; border-radius: 5pt; padding: 8pt 10pt; }
+  .pr-panel-heading {
+    font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4pt;
+    color: #333; margin-bottom: 7pt; padding-bottom: 4pt;
+    border-bottom: 0.75pt solid #e5e7eb;
+    display: flex !important; align-items: center; gap: 5pt;
+  }
+  .pr-panel-subheading {
+    font-size: 7pt; font-weight: 700; color: #555; margin: 7pt 0 4pt;
+    display: flex !important; align-items: center; gap: 4pt;
+  }
+
+  /* Category bars (inside panel) */
+  .pr-cat-list { display: flex !important; flex-direction: column; gap: 5pt; }
+  .pr-cat-row  { display: flex !important; align-items: center; gap: 6pt; }
+  .pr-cat-label { display: flex !important; align-items: center; width: 82pt; flex-shrink: 0; }
+  .pr-cat-name       { font-size: 8pt; font-weight: 500; color: #111; }
+  .pr-cat-bar-track  { flex: 1; height: 8pt; background: #f0f0f0; border-radius: 99pt; overflow: hidden; display: flex !important; }
+  .pr-cat-bar-pass   { height: 100%; background: #10B981; border-radius: 99pt 0 0 99pt; flex-shrink: 0; }
+  .pr-cat-bar-warn   { height: 100%; background: #F59E0B; flex-shrink: 0; }
+  .pr-cat-pct        { width: 24pt; text-align: right; font-size: 8pt; font-weight: 700; flex-shrink: 0; }
+  .pr-cat-counts     { width: 58pt; font-size: 7pt; text-align: right; flex-shrink: 0; }
+
+  /* Key signals (inside panel) */
+  .pr-signals-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 4pt; margin-bottom: 0; }
+  .pr-signal { display: flex !important; align-items: center; gap: 5pt; padding: 3.5pt 6pt; border-radius: 3pt; }
+  .pr-signal--pass { background: rgba(16,185,129,0.08); color: #047857; }
+  .pr-signal--fail { background: rgba(239,68,68,0.08);  color: #B91C1C; }
+  .pr-signal-icon  { font-size: 8pt; font-weight: 800; flex-shrink: 0; }
+  .pr-signal-label { font-size: 7.5pt; font-weight: 500; }
+
+  /* Top critical callouts */
+  .pr-top-issue { display: flex !important; align-items: center; gap: 6pt; padding: 3pt 0; font-size: 8pt; color: #444; border-bottom: 0.2pt solid #f5f5f5; }
+  .pr-top-issue-dot { width: 5pt; height: 5pt; border-radius: 50%; background: #EF4444; flex-shrink: 0; }
+  .pr-top-more { font-size: 7pt; color: #aaa; margin-top: 4pt; font-style: italic; }
+
+  /* Insight data rows (inside panels) */
+  .pr-irow { display: flex !important; justify-content: space-between; align-items: baseline; padding: 3pt 0; border-bottom: 0.25pt solid #f0f0f0; }
+  .pr-ikey { font-size: 7.5pt; color: #555; }
+  .pr-ival { font-size: 8pt; font-weight: 700; color: #111; max-width: 55%; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pr-iv--pass { color: #059669 !important; }
+  .pr-iv--warn { color: #B45309 !important; }
+  .pr-iv--fail { color: #B91C1C !important; }
+
+  /* ── CHECKS GRID (3 columns) ─────────────────────────── */
+  .pr-checks-heading {
+    font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5pt;
+    color: #333; margin-bottom: 5pt; padding-bottom: 4pt;
+    border-bottom: 0.75pt solid #e5e7eb;
+    display: flex !important; align-items: center; gap: 5pt;
+  }
+  .pr-checks-cols { display: grid !important; grid-template-columns: 1fr 1fr 1fr; gap: 0 12pt; }
+  .pr-check-row   { display: flex !important; align-items: center; gap: 6pt; padding: 2.5pt 0; border-bottom: 0.3pt solid #f0f0f0; }
+  .pr-check-dot   { width: 5.5pt; height: 5.5pt; border-radius: 50%; flex-shrink: 0; }
+  .pr-check-name  { flex: 1; font-size: 8pt; color: #222; font-weight: 500; }
+  .pr-check-status { font-size: 7.5pt; font-weight: 700; flex-shrink: 0; white-space: nowrap; }
+
+  /* ── PAGE 2 HEADER ───────────────────────────────────── */
+  .pr-break-before { page-break-before: always; break-before: always; }
+  .pr-p2-header { padding-top: 22pt; margin-bottom: 6pt; }
+  .pr-p2-title {
+    font-size: 12pt; font-weight: 800; color: #111;
+    display: flex !important; align-items: center; gap: 6pt; margin-bottom: 2pt;
+  }
+  .pr-p2-meta { display: flex !important; justify-content: space-between; font-size: 7pt; color: #777; }
+
+  /* ── RECS INTRO + ALL-PASS ───────────────────────────── */
+  .pr-recs-intro { font-size: 8pt; color: #555; margin: 0 0 8pt; line-height: 1.5; }
+  .pr-all-pass   { font-size: 10pt; font-weight: 700; color: #10B981; padding: 16pt 0; text-align: center; }
+
+  /* ── RECOMMENDATION BLOCKS ───────────────────────────── */
+  .pr-recs-block { margin-bottom: 6pt; }
+  .pr-recs-group {
+    font-size: 7pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5pt;
+    padding: 3.5pt 8pt; border-radius: 3pt; margin-bottom: 4pt;
+    display: flex !important; align-items: center; gap: 5pt;
+  }
+  .pr-recs-group--fail { background: rgba(239,68,68,0.09);  color: #B91C1C; }
+  .pr-recs-group--warn { background: rgba(245,158,11,0.09); color: #92400E; }
+
+  .pr-rec {
+    display: flex !important; gap: 8pt; align-items: flex-start;
+    padding: 6pt 8pt; margin-bottom: 4pt; border-radius: 4pt;
+    page-break-inside: avoid; break-inside: avoid;
+  }
+  .pr-rec--fail { background: rgba(239,68,68,0.03);  border: 0.5pt solid rgba(239,68,68,0.18);  border-left: 3pt solid #EF4444; }
+  .pr-rec--warn { background: rgba(245,158,11,0.03); border: 0.5pt solid rgba(245,158,11,0.18); border-left: 3pt solid #F59E0B; }
+
+  .pr-rec-num {
+    width: 15pt; height: 15pt; border-radius: 50%; background: #eee;
+    display: flex !important; align-items: center; justify-content: center;
+    font-size: 6.5pt; font-weight: 800; color: #444; flex-shrink: 0; margin-top: 1pt;
+  }
+  .pr-rec-body    { flex: 1; }
+  .pr-rec-row     { display: flex !important; align-items: baseline; gap: 6pt; margin-bottom: 2pt; }
+  .pr-rec-title   { font-size: 8.5pt; font-weight: 700; color: #111; }
+  .pr-rec-cat     { font-size: 6.5pt; color: #aaa; margin-left: auto; flex-shrink: 0; }
+  .pr-rec-finding { font-size: 7.5pt; color: #666; margin: 0 0 3pt; font-style: italic; }
+  .pr-rec-fix     { font-size: 7.5pt; color: #333; line-height: 1.5; white-space: pre-wrap; }
+  .pr-rec-fix-label { font-weight: 700; color: #111; }
+
+  /* ── CLOSING CTA ─────────────────────────────────────── */
+  .pr-cta-closer {
+    margin-top: 14pt; border-top: 1.5pt solid #4F46E5; padding-top: 10pt;
+    text-align: center; page-break-inside: avoid; break-inside: avoid;
+  }
+  .pr-cta-logo     { height: 24pt; width: auto; display: block; margin: 0 auto 6pt; }
+  .pr-cta-heading  { font-size: 10pt; font-weight: 800; color: #111; margin: 0 0 4pt; }
+  .pr-cta-body     { font-size: 7.5pt; color: #555; max-width: 340pt; margin: 0 auto 7pt; line-height: 1.5; }
+  .pr-cta-contacts { display: flex !important; justify-content: center; gap: 18pt; font-size: 7.5pt; font-weight: 600; color: #4F46E5; }
 }

@@ -274,7 +274,7 @@ export default function FreeAuditClient() {
       {step === 'result' && result && (
         <>
           {/* Compact re-audit bar */}
-          <div style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--card-border)', padding: '12px 0' }}>
+          <div className="screen-only" style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--card-border)', padding: '12px 0' }}>
             <div className="container" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                 <i className="fa-solid fa-circle-check" style={{ color: '#10B981', marginRight: 6 }}></i>
@@ -294,7 +294,6 @@ export default function FreeAuditClient() {
             checks={buildChecks(result)}
             score={computeScore(buildChecks(result))}
             showPdfButton={true}
-            pdfFilename={pdfName}
           />
         </>
       )}

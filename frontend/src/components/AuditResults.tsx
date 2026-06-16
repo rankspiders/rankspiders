@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import MotionWrapper, { MotionCard } from '@/components/MotionWrapper';
 
 /* ── Types ──────────────────────────────────────────────────────────────── */
@@ -296,25 +296,406 @@ function CheckCard({ check }: { check: Check }) {
             <i className={`fa-solid fa-${open ? 'chevron-up' : 'wrench'}`}></i>
             {open ? 'Hide fix' : 'How to fix'}
           </button>
-          {open && (
-            <div className="audit-fix-body">
-              <i className="fa-solid fa-circle-info" style={{ color: s.color, marginRight: 8 }}></i>
-              {check.fix}
-            </div>
-          )}
+          <div className="audit-fix-body" style={{ display: open ? undefined : 'none' }}>
+            <i className="fa-solid fa-circle-info" style={{ color: s.color, marginRight: 8 }}></i>
+            {check.fix}
+          </div>
         </div>
       )}
     </div>
   );
 }
 
+/* ── CategoryBreakdown ──────────────────────────────────────────────────── */
+function CategoryBreakdown({ checks }: { checks: Check[] }) {
+  return (
+    <div className="audit-category-panel">
+      <h3 className="audit-category-heading">
+        <i className="fa-solid fa-chart-bar" /> Score by Category
+      </h3>
+      <div className="audit-cat-grid">
+        {GROUPS.map(group => {
+          const gc      = checks.filter(c => c.group === group);
+          const pass    = gc.filter(c => c.status === 'pass').length;
+          const warn    = gc.filter(c => c.status === 'warn').length;
+          const fail    = gc.filter(c => c.status === 'fail').length;
+          const total   = gc.length;
+          const passPct = total ? Math.round((pass / total) * 100) : 0;
+          const warnPct = total ? Math.round((warn / total) * 100) : 0;
+          const color   = passPct >= 80 ? '#10B981' : passPct >= 50 ? '#F59E0B' : '#EF4444';
+          return (
+            <div key={group} className="audit-cat-row">
+              <div className="audit-cat-label">
+                <i className={`fa-solid ${GROUP_ICONS[group]}`} style={{ color, width: 16 }} />
+                <span className="audit-cat-name">{group}</span>
+              </div>
+              <div className="audit-cat-bar-track">
+                <div className="audit-cat-bar-pass" style={{ width: `${passPct}%` }} />
+                <div className="audit-cat-bar-warn" style={{ width: `${warnPct}%` }} />
+              </div>
+              <div className="audit-cat-counts">
+                <span style={{ color: '#10B981' }}>{pass}<small>P</small></span>
+                <span style={{ color: '#F59E0B' }}>{warn}<small>W</small></span>
+                <span style={{ color: '#EF4444' }}>{fail}<small>F</small></span>
+              </div>
+              <span className="audit-cat-pct" style={{ color }}>{passPct}%</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/* ── PrintReport ─────────────────────────────────────────────────────────── */
+function PrintReport({ result, checks, score }: { result: AuditResult; checks: Check[]; score: number }) {
+  const fails      = checks.filter(c => c.status === 'fail');
+  const warns      = checks.filter(c => c.status === 'warn');
+  const passes     = checks.filter(c => c.status === 'pass');
+  const issues     = [...fails, ...warns];
+  const failCnt    = fails.length;
+  const warnCnt    = warns.length;
+  const passCnt    = passes.length;
+  const scoreColor = score >= 80 ? '#10B981' : score >= 50 ? '#F59E0B' : '#EF4444';
+  const scoreLabel = score >= 80 ? 'Good' : score >= 50 ? 'Needs Work' : 'Poor';
+  const dateStr    = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  const loadSt   = result.load_time_ms < 1000 ? 'pass' : result.load_time_ms < 3000 ? 'warn' : 'fail';
+  const wordSt   = !result.word_count ? 'warn' : result.word_count >= 500 ? 'pass' : result.word_count >= 300 ? 'warn' : 'fail';
+  const sizeSt   = !result.html_size_kb ? 'pass' : result.html_size_kb < 100 ? 'pass' : result.html_size_kb < 200 ? 'warn' : 'fail';
+  const titleSt  = !result.title ? 'fail' : (result.title_length >= 50 && result.title_length <= 60) ? 'pass' : 'warn';
+  const metaSt   = !result.meta_description ? 'fail' : (result.meta_description_length >= 150 && result.meta_description_length <= 160) ? 'pass' : 'warn';
+  const h1St     = (result.h1_tags?.length ?? 0) === 1 ? 'pass' : (result.h1_tags?.length ?? 0) === 0 ? 'fail' : 'warn';
+  const ratioSt  = !result.text_html_ratio ? 'warn' : result.text_html_ratio >= 15 ? 'pass' : result.text_html_ratio >= 8 ? 'warn' : 'fail';
+  const imgAltSt = result.image_count === 0 || result.images_missing_alt_count === 0 ? 'pass' : result.images_missing_alt_count <= 2 ? 'warn' : 'fail';
+
+  const keySignals = [
+    { label: 'HTTPS Active',    ok: !!result.is_https },
+    { label: 'Mobile Ready',    ok: result.has_viewport_meta },
+    { label: 'Canonical Set',   ok: !!result.canonical },
+    { label: 'Robots OK',       ok: result.robots_allowed },
+    { label: 'Sitemap Found',   ok: !!result.sitemap_exists },
+    { label: 'Structured Data', ok: !!result.has_schema },
+    { label: 'OG Tags Set',     ok: !!(result.open_graph?.og_title && result.open_graph?.og_image) },
+    { label: 'Favicon',         ok: !!result.has_favicon },
+  ];
+
+  return (
+    <div className="print-only pr-root">
+
+      {/* Watermark — fixed = faint logo on every page */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="pr-watermark" src="/images/logo/rankspiders.png" alt="" aria-hidden="true" />
+
+      {/* Fixed footer — repeats on every page */}
+      <div className="pr-page-footer">
+        <span>Rank Spiders · rankspiders.com</span>
+        <span>Confidential SEO Audit · {dateStr}</span>
+      </div>
+
+      {/* ════════════ PAGE 1 — Overview & Analysis ════════════ */}
+
+      {/* Header */}
+      <header className="pr-header">
+        <div className="pr-header-left">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/logo/rankspiders.png" alt="Rank Spiders" className="pr-logo" />
+          <div className="pr-header-info">
+            <div className="pr-report-title">SEO Audit Report</div>
+            <div className="pr-report-url">{result.url}</div>
+            <div className="pr-report-date">Generated {dateStr}</div>
+          </div>
+        </div>
+        <div className="pr-score-badge" style={{ borderColor: scoreColor }}>
+          <span className="pr-score-num" style={{ color: scoreColor }}>{score}</span>
+          <span className="pr-score-label" style={{ color: scoreColor }}>{scoreLabel}</span>
+          <span className="pr-score-sub">/ 100</span>
+        </div>
+      </header>
+      <div className="pr-divider" style={{ borderColor: scoreColor }} />
+
+      {/* Metrics strip */}
+      <div className="pr-metrics-strip">
+        {[
+          { label: 'SEO Score',  val: `${score}/100`,                                                    color: scoreColor },
+          { label: 'Passed',     val: String(passCnt),                                                   color: '#10B981' },
+          { label: 'Warnings',   val: String(warnCnt),                                                   color: '#F59E0B' },
+          { label: 'Failed',     val: String(failCnt),                                                   color: '#EF4444' },
+          { label: 'Load Time',  val: `${result.load_time_ms} ms`,                                      color: S[loadSt].color },
+          { label: 'Page Size',  val: result.html_size_kb ? `${result.html_size_kb} KB` : 'N/A',        color: S[sizeSt].color },
+          { label: 'Words',      val: result.word_count ? result.word_count.toLocaleString() : 'N/A',   color: S[wordSt].color },
+          { label: 'HTTPS',      val: result.is_https ? 'Yes ✓' : 'No ✗',                               color: result.is_https ? '#10B981' : '#EF4444' },
+        ].map(({ label, val, color }) => (
+          <div key={label} className="pr-metric-cell">
+            <span className="pr-metric-val" style={{ color }}>{val}</span>
+            <span className="pr-metric-label">{label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* ── 3×2 main info grid ──────────────────────────────────── */}
+      <div className="pr-main-grid">
+
+        {/* Row 1, Col 1 — Category Breakdown */}
+        <div className="pr-panel">
+          <div className="pr-panel-heading"><i className="fa-solid fa-chart-bar" /> Category Breakdown</div>
+          <div className="pr-cat-list">
+            {GROUPS.map(group => {
+              const gc      = checks.filter(c => c.group === group);
+              const pass    = gc.filter(c => c.status === 'pass').length;
+              const warn    = gc.filter(c => c.status === 'warn').length;
+              const fail    = gc.filter(c => c.status === 'fail').length;
+              const passPct = gc.length ? Math.round((pass / gc.length) * 100) : 0;
+              const warnPct = gc.length ? Math.round((warn / gc.length) * 100) : 0;
+              const color   = passPct >= 80 ? '#10B981' : passPct >= 50 ? '#F59E0B' : '#EF4444';
+              return (
+                <div key={group} className="pr-cat-row">
+                  <div className="pr-cat-label">
+                    <i className={`fa-solid ${GROUP_ICONS[group]}`} style={{ color, width: 10, marginRight: 5 }} />
+                    <span className="pr-cat-name">{group}</span>
+                  </div>
+                  <div className="pr-cat-bar-track">
+                    <div className="pr-cat-bar-pass" style={{ width: `${passPct}%` }} />
+                    <div className="pr-cat-bar-warn" style={{ width: `${warnPct}%` }} />
+                  </div>
+                  <span className="pr-cat-pct" style={{ color }}>{passPct}%</span>
+                  <span className="pr-cat-counts">
+                    <span style={{ color: '#10B981' }}>{pass}P</span>{' · '}
+                    <span style={{ color: '#F59E0B' }}>{warn}W</span>{' · '}
+                    <span style={{ color: '#EF4444' }}>{fail}F</span>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Row 1, Col 2 — Key Signals */}
+        <div className="pr-panel">
+          <div className="pr-panel-heading"><i className="fa-solid fa-signal" /> Key Signals</div>
+          <div className="pr-signals-grid">
+            {keySignals.map(({ label, ok }) => (
+              <div key={label} className={`pr-signal pr-signal--${ok ? 'pass' : 'fail'}`}>
+                <span className="pr-signal-icon">{ok ? '✓' : '✗'}</span>
+                <span className="pr-signal-label">{label}</span>
+              </div>
+            ))}
+          </div>
+          {failCnt > 0 && (
+            <>
+              <div className="pr-panel-subheading">
+                <i className="fa-solid fa-fire" style={{ color: '#EF4444' }} /> Top Critical Issues
+              </div>
+              {fails.slice(0, 3).map(f => (
+                <div key={f.label} className="pr-top-issue">
+                  <span className="pr-top-issue-dot" />
+                  <span>{f.label}</span>
+                </div>
+              ))}
+              {failCnt > 3 && <div className="pr-top-more">+{failCnt - 3} more — see page 2</div>}
+            </>
+          )}
+        </div>
+
+        {/* Row 2, Col 1 — On-Page SEO */}
+        <div className="pr-panel">
+          <div className="pr-panel-heading"><i className="fa-solid fa-file-lines" /> On-Page SEO</div>
+          {[
+            { key: 'Title Length',   val: result.title ? `${result.title_length} chars` : 'Missing',                        st: titleSt },
+            { key: 'Meta Desc',      val: result.meta_description ? `${result.meta_description_length} chars` : 'Missing',  st: metaSt  },
+            { key: 'H1 / H2 / H3',  val: `${result.h1_tags?.length ?? 0} / ${result.h2_count} / ${result.h3_count}`,       st: h1St    },
+            { key: 'Canonical URL',  val: result.canonical ? 'Set ✓' : 'Missing',                                           st: result.canonical ? 'pass' : 'warn' },
+            { key: 'Noindex Risk',   val: result.is_noindex ? 'BLOCKED ✗' : 'Safe ✓',                                       st: result.is_noindex ? 'fail' : 'pass' },
+            { key: 'Lang Attribute', val: result.lang ?? 'Missing',                                                          st: result.lang ? 'pass' : 'warn' },
+          ].map(({ key, val, st }) => (
+            <div key={key} className="pr-irow">
+              <span className="pr-ikey">{key}</span>
+              <span className={`pr-ival pr-iv--${st}`}>{val}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2, Col 2 — Technical Health */}
+        <div className="pr-panel">
+          <div className="pr-panel-heading"><i className="fa-solid fa-gear" /> Technical Health</div>
+          {[
+            { key: 'HTTP Status',  val: String(result.status_code),                                       st: result.status_code === 200 ? 'pass' : 'fail' },
+            { key: 'Load Time',    val: `${result.load_time_ms} ms`,                                     st: loadSt  },
+            { key: 'Page Size',    val: result.html_size_kb ? `${result.html_size_kb} KB` : 'N/A',      st: sizeSt  },
+            { key: 'URL Length',   val: result.url_length ? `${result.url_length} chars` : 'N/A',       st: (result.url_length ?? 0) < 80 ? 'pass' : 'warn' },
+            { key: 'Sitemap',      val: result.sitemap_exists ? 'Found ✓' : 'Missing',                  st: result.sitemap_exists ? 'pass' : 'warn' },
+            { key: 'Robots.txt',   val: result.robots_allowed ? 'Crawl OK ✓' : 'Blocked ✗',            st: result.robots_allowed ? 'pass' : 'warn' },
+          ].map(({ key, val, st }) => (
+            <div key={key} className="pr-irow">
+              <span className="pr-ikey">{key}</span>
+              <span className={`pr-ival pr-iv--${st}`}>{val}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 3, Col 1 — Content & Links */}
+        <div className="pr-panel">
+          <div className="pr-panel-heading"><i className="fa-solid fa-link" /> Content &amp; Links</div>
+          {[
+            { key: 'Word Count',      val: result.word_count ? result.word_count.toLocaleString() : 'N/A',   st: wordSt  },
+            { key: 'Text/HTML Ratio', val: result.text_html_ratio ? `${result.text_html_ratio}%` : 'N/A',    st: ratioSt },
+            { key: 'Internal Links',  val: String(result.internal_links),                                     st: result.internal_links >= 3 ? 'pass' : result.internal_links >= 1 ? 'warn' : 'fail' },
+            { key: 'External Links',  val: String(result.external_links),                                     st: 'pass' as const },
+            { key: 'Total Images',    val: String(result.image_count),                                        st: 'pass' as const },
+            { key: 'Images No Alt',   val: `${result.images_missing_alt_count} of ${result.image_count}`,    st: imgAltSt },
+          ].map(({ key, val, st }) => (
+            <div key={key} className="pr-irow">
+              <span className="pr-ikey">{key}</span>
+              <span className={`pr-ival pr-iv--${st}`}>{val}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 3, Col 2 — Social & Schema */}
+        <div className="pr-panel">
+          <div className="pr-panel-heading"><i className="fa-solid fa-share-nodes" /> Social &amp; Schema</div>
+          {(() => {
+            const og = result.open_graph ?? { og_title: '', og_description: '', og_image: '', og_type: '', og_site_name: '' };
+            const tw = result.twitter   ?? { card: '', title: '', description: '', image: '' };
+            return [
+              { key: 'OG Title',       val: og.og_title       ? 'Set ✓' : 'Missing',                                  st: og.og_title       ? 'pass' : 'fail' },
+              { key: 'OG Description', val: og.og_description ? 'Set ✓' : 'Missing',                                  st: og.og_description ? 'pass' : 'fail' },
+              { key: 'OG Image',       val: og.og_image       ? 'Set ✓' : 'Missing',                                  st: og.og_image       ? 'pass' : 'warn' },
+              { key: 'Twitter Card',   val: tw.card           ? tw.card : 'Missing',                                   st: tw.card           ? 'pass' : 'warn' },
+              { key: 'Schema (JSON-LD)', val: result.has_schema ? (result.schema_types?.join(', ') || 'Detected ✓') : 'None found', st: result.has_schema ? 'pass' : 'warn' },
+              { key: 'Nofollow Links', val: result.nofollow_links != null ? String(result.nofollow_links) : 'N/A',    st: 'pass' as const },
+            ].map(({ key, val, st }) => (
+              <div key={key} className="pr-irow">
+                <span className="pr-ikey">{key}</span>
+                <span className={`pr-ival pr-iv--${st}`}>{val}</span>
+              </div>
+            ));
+          })()}
+        </div>
+
+      </div>
+
+      {/* Checks Overview — compact 3-column grid */}
+      <div className="pr-checks-heading">
+        <i className="fa-solid fa-list-check" /> Checks Overview &mdash; {checks.length} Points Analysed
+      </div>
+      <div className="pr-checks-cols">
+        {[checks.slice(0, 8), checks.slice(8, 16), checks.slice(16)].map((col, ci) => (
+          <div key={ci} className="pr-checks-col">
+            {col.map(check => (
+              <div key={check.label} className="pr-check-row">
+                <span className="pr-check-dot" style={{ background: S[check.status].color }} />
+                <span className="pr-check-name">{check.label}</span>
+                <span className="pr-check-status" style={{ color: S[check.status].color }}>
+                  {S[check.status].icon} {S[check.status].label}
+                </span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* ════════════ PAGE 2 — Recommendations ═══════════════ */}
+
+      <div className="pr-p2-header pr-break-before">
+        <div className="pr-p2-title">
+          <i className="fa-solid fa-clipboard-list" /> Recommendations &amp; Action Plan
+        </div>
+        <div className="pr-p2-meta">
+          <span>{result.url}</span>
+          <span style={{ color: failCnt > 0 ? '#EF4444' : '#F59E0B' }}>
+            {failCnt > 0 ? `${failCnt} Critical · ` : ''}{warnCnt} Warning{warnCnt !== 1 ? 's' : ''}
+          </span>
+        </div>
+      </div>
+      <div className="pr-divider" style={{ borderColor: scoreColor }} />
+
+      {issues.length === 0 ? (
+        <div className="pr-all-pass">
+          <i className="fa-solid fa-circle-check" style={{ color: '#10B981', marginRight: 8 }} />
+          All {checks.length} checks passed — outstanding SEO health!
+        </div>
+      ) : (
+        <>
+          <p className="pr-recs-intro">
+            {failCnt > 0 && warnCnt > 0
+              ? `${failCnt} critical issue${failCnt > 1 ? 's' : ''} and ${warnCnt} warning${warnCnt !== 1 ? 's' : ''} require attention. Resolve critical items first for maximum ranking impact.`
+              : failCnt > 0
+              ? `${failCnt} critical issue${failCnt > 1 ? 's' : ''} found — resolve ${failCnt > 1 ? 'these' : 'this'} immediately to unlock significant ranking improvements.`
+              : `${warnCnt} warning${warnCnt !== 1 ? 's' : ''} to address. Fixing ${warnCnt > 1 ? 'these' : 'this'} will lift your SEO score and improve search visibility.`}
+          </p>
+
+          {failCnt > 0 && (
+            <div className="pr-recs-block">
+              <div className="pr-recs-group pr-recs-group--fail">
+                <i className="fa-solid fa-circle-xmark" /> Critical — Fix Immediately ({failCnt})
+              </div>
+              {fails.map((issue, idx) => (
+                <div key={issue.label} className="pr-rec pr-rec--fail">
+                  <div className="pr-rec-num">{idx + 1}</div>
+                  <div className="pr-rec-body">
+                    <div className="pr-rec-row">
+                      <span className="pr-rec-title">{issue.label}</span>
+                      <span className="pr-rec-cat">{issue.group}</span>
+                    </div>
+                    <p className="pr-rec-finding">{issue.detail}</p>
+                    <div className="pr-rec-fix">
+                      <span className="pr-rec-fix-label">Action: </span>{issue.fix}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {warnCnt > 0 && (
+            <div className="pr-recs-block" style={{ marginTop: failCnt > 0 ? '10pt' : 0 }}>
+              <div className="pr-recs-group pr-recs-group--warn">
+                <i className="fa-solid fa-circle-exclamation" /> Warnings — Address Next ({warnCnt})
+              </div>
+              {warns.map((issue, idx) => (
+                <div key={issue.label} className="pr-rec pr-rec--warn">
+                  <div className="pr-rec-num">{failCnt + idx + 1}</div>
+                  <div className="pr-rec-body">
+                    <div className="pr-rec-row">
+                      <span className="pr-rec-title">{issue.label}</span>
+                      <span className="pr-rec-cat">{issue.group}</span>
+                    </div>
+                    <p className="pr-rec-finding">{issue.detail}</p>
+                    <div className="pr-rec-fix">
+                      <span className="pr-rec-fix-label">Recommendation: </span>{issue.fix}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+
+      {/* CTA closer */}
+      <div className="pr-cta-closer">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/logo/rankspiders.png" alt="Rank Spiders" className="pr-cta-logo" />
+        <h3 className="pr-cta-heading">Want us to implement every fix in this report?</h3>
+        <p className="pr-cta-body">
+          Our SEO specialists resolve every issue above, build a full content &amp; backlink strategy, and get your site ranking — fast.
+        </p>
+        <div className="pr-cta-contacts">
+          <span><i className="fa-solid fa-globe" /> rankspiders.com</span>
+          <span><i className="fa-solid fa-envelope" /> hello@rankspiders.com</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ── AuditResults ───────────────────────────────────────────────────────── */
 interface AuditResultsProps {
-  result:         AuditResult;
-  checks:         Check[];
-  score:          number;
-  showPdfButton?: boolean;
-  pdfFilename?:   string;
+  result:          AuditResult;
+  checks:          Check[];
+  score:           number;
+  showPdfButton?:  boolean;
 }
 
 export default function AuditResults({
@@ -322,42 +703,31 @@ export default function AuditResults({
   checks,
   score,
   showPdfButton = false,
-  pdfFilename   = 'seo-audit-report.pdf',
 }: AuditResultsProps) {
-  const [activeGroup, setActiveGroup] = useState<Group | 'All'>('All');
-  const [pdfLoading,  setPdfLoading]  = useState(false);
-  const reportRef = useRef<HTMLDivElement>(null);
+  const [activeGroup,  setActiveGroup]  = useState<Group | 'All'>('All');
+  const [printLoading, setPrintLoading] = useState(false);
 
   const scoreColor = score >= 80 ? '#10B981' : score >= 50 ? '#F59E0B' : '#EF4444';
   const issues     = checks.filter(c => c.status !== 'pass');
   const filtered   = activeGroup === 'All' ? checks : checks.filter(c => c.group === activeGroup);
 
-  async function downloadPdf() {
-    if (!reportRef.current || pdfLoading) return;
-    setPdfLoading(true);
+  async function printReport() {
+    if (printLoading) return;
+    setPrintLoading(true);
+    const prevTitle = document.title;
     try {
-      const { default: html2canvas } = await import('html2canvas');
-      const { jsPDF }                = await import('jspdf');
-      const canvas     = await html2canvas(reportRef.current, { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
-      const imgData    = canvas.toDataURL('image/png');
-      const pdf        = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-      const pageWidth  = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const imgHeight  = (canvas.height * pageWidth) / canvas.width;
-      let yOffset = 0;
-      while (yOffset < imgHeight) {
-        if (yOffset > 0) pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, -yOffset, pageWidth, imgHeight);
-        yOffset += pageHeight;
-      }
-      pdf.save(pdfFilename);
+      const domain = (() => { try { return new URL(result.url).hostname; } catch { return result.url; } })();
+      document.title = `SEO Audit — ${domain}`;
+      window.print();
     } finally {
-      setPdfLoading(false);
+      document.title = prevTitle;
+      setPrintLoading(false);
     }
   }
 
   return (
-    <section className="tool-results-section" ref={reportRef}>
+    <>
+    <section className="tool-results-section screen-only">
       <div className="container">
 
         {/* Non-200 warning */}
@@ -400,6 +770,11 @@ export default function AuditResults({
               ))}
             </div>
           </div>
+        </MotionWrapper>
+
+        {/* Category breakdown */}
+        <MotionWrapper variant="up" delay={0.04}>
+          <CategoryBreakdown checks={checks} />
         </MotionWrapper>
 
         {/* Issues summary panel */}
@@ -491,14 +866,14 @@ export default function AuditResults({
                 <a href="/contact-us" className="btn-default">Get a Free SEO Consultation</a>
                 {showPdfButton && (
                   <button
-                    onClick={downloadPdf}
-                    disabled={pdfLoading}
+                    onClick={printReport}
+                    disabled={printLoading}
                     className="btn-default"
-                    style={{ background: 'transparent', border: '2px solid var(--accent-color)', color: 'var(--accent-color)', cursor: pdfLoading ? 'wait' : 'pointer' }}
+                    style={{ background: 'transparent', border: '2px solid var(--accent-color)', color: 'var(--accent-color)', cursor: printLoading ? 'wait' : 'pointer' }}
                   >
-                    {pdfLoading
-                      ? <><i className="fa fa-circle-notch fa-spin"></i> Generating…</>
-                      : <><i className="fa-solid fa-file-pdf"></i> Download PDF Report</>}
+                    {printLoading
+                      ? <><i className="fa fa-circle-notch fa-spin"></i> Preparing…</>
+                      : <><i className="fa-solid fa-print"></i> Print / Save as PDF</>}
                   </button>
                 )}
               </div>
@@ -507,5 +882,7 @@ export default function AuditResults({
         </MotionWrapper>
       </div>
     </section>
+    <PrintReport result={result} checks={checks} score={score} />
+    </>
   );
 }
