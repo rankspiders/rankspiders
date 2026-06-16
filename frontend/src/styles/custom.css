@@ -6623,6 +6623,14 @@ header.main-header .header-sticky.active.hide{
     border-radius: 30px;
 }
 
+.page-single-image.img-natural img,
+.page-single-image.img-natural .reveal img {
+    aspect-ratio: auto;
+    object-fit: contain;
+    height: auto;
+    width: 100%;
+}
+
 .service-entry{
     margin-bottom: 60px;
 }
@@ -12939,4 +12947,49 @@ background: rgba(82, 27, 137, 0.07);
 @media (max-width: 575px) {
   .hc-form-card { padding: 24px 18px; }
   .hc-success { padding: 40px 20px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   PRINT / SAVE AS PDF
+   Applies when user presses Ctrl+P or clicks "Print / Save as PDF"
+   ═══════════════════════════════════════════════════════ */
+@media print {
+  /* ── Hide page chrome ──────────────────────────────── */
+  header, footer,
+  .scrolling-ticker,
+  .page-header-section,
+  .tool-input-section,
+  .tool-form-section,
+  .audit-group-tabs,
+  .tool-after-cta,
+  .audit-fix-toggle { display: none !important; }
+
+  /* ── Reset backgrounds & shadows ──────────────────── */
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body, html { background: #fff !important; }
+
+  /* ── Typography ────────────────────────────────────── */
+  body { font-size: 11pt; color: #111; }
+  .audit-overview-url { font-size: 10pt; word-break: break-all; }
+
+  /* ── Force all "How to fix" sections visible ───────── */
+  .audit-fix-body { display: block !important; margin-top: 8pt; font-size: 10pt; }
+
+  /* ── Stack the multi-col grid to 1 column ───────────── */
+  .audit-checks-grid { display: block !important; }
+
+  /* ── Page-break rules ───────────────────────────────── */
+  .audit-check-card,
+  .audit-overview-card,
+  .audit-issues-panel,
+  .audit-group-section { page-break-inside: avoid; break-inside: avoid; }
+
+  .audit-check-card   { margin-bottom: 10pt; }
+  .audit-group-section { page-break-before: auto; break-before: auto; margin-top: 16pt; }
 }

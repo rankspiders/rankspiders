@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Graphic Design & YouTube Marketing | Rank Spiders",
-  description: "Elevate your brand with our professional graphic design and YouTube marketing services.",
+  title: "YouTube Marketing Services | Rank Spiders",
+  description: "Grow your brand on YouTube with expert marketing services — channel setup, video SEO, content strategy, audience growth, video promotion, and performance analytics.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

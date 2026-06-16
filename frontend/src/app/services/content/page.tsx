@@ -3,8 +3,8 @@ import PageHeader from '@/components/PageHeader';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
-  title: "Content Marketing | Your Website",
-  description: "This is the content marketing page description.",
+  title: "Content Marketing Services | Rank Spiders",
+  description: "Grow your brand with data-driven content marketing — SEO blogs, social media content, video scripts, email campaigns, and strategic content distribution that drives traffic, engagement, and conversions.",
 };
 
 export default function ContentMarketingAgency() {
@@ -25,9 +25,9 @@ export default function ContentMarketingAgency() {
             </div>
             <div className="col-lg-8">
               <div className="service-single-content">
-                <div className="page-single-image">
+                <div className="page-single-image img-natural">
                   <figure className="image-anime reveal">
-                    <img src="/images/sections/approach-image.jpg" alt="Rank Spiders strategic approach to digital marketing and business growth" />
+                    <img src="/images/services/content/content-writing.png" alt="Rank Spiders Content Marketing Services — Words that Attract, Content that Converts" />
                   </figure>
                 </div>
                 <div className="service-entry">
@@ -58,7 +58,7 @@ export default function ContentMarketingAgency() {
 
                     <div className="service-strategy-image">
                       <figure className="image-anime reveal">
-                        <img src="/images/sections/digital-advantage-img-1.jpg" alt="Rank Spiders digital marketing strategy and campaign execution" />
+                        <img src="/images/sections/work-image-1.jpg" alt="Rank Spiders content marketing team creating brand content strategy" />
                       </figure>
                     </div>
                   </div>
