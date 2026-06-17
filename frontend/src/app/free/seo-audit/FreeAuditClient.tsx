@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import MotionWrapper from '@/components/MotionWrapper';
 import AuditResults, { buildChecks, computeScore, type AuditResult } from '@/components/AuditResults';
+import PhoneCodeSelect from '@/components/PhoneCodeSelect';
 
 type Step = 'form' | 'scanning' | 'result' | 'error';
 
@@ -89,7 +90,7 @@ export default function FreeAuditClient() {
       phone:       `${countryCode} ${trimmedPhone}`,
       service:     'Free SEO Audit',
       message:     `Free audit request for ${normalizedUrl}`,
-      source:      'free_seo_audit',
+      source:      'seo_audit',
       website_url: normalizedUrl,
     });
 
@@ -107,9 +108,16 @@ export default function FreeAuditClient() {
     const savedLeadId = leadData?.lead_id ?? null;
     setLeadId(savedLeadId);
 
-    if (!auditResult || !auditResult.ok || auditResult.data.error) {
+    if (!auditResult) {
       stopProgress();
-      setError(auditResult?.data?.message || auditResult?.data?.detail || 'Audit failed. Please check the URL and try again.');
+      setError('Could not reach the audit server. Please try again in a moment.');
+      setStep('error');
+      return;
+    }
+
+    if (!auditResult.ok || auditResult.data.error) {
+      stopProgress();
+      setError(auditResult.data?.message || auditResult.data?.detail || 'Audit failed. Please check the URL and try again.');
       setStep('error');
       return;
     }
@@ -198,27 +206,10 @@ export default function FreeAuditClient() {
                     <div style={{ marginBottom: 16 }}>
                       <label className="cf-phone-label">Phone number *</label>
                       <div className="phone-group">
-                        <select
-                          className="phone-code-select"
+                        <PhoneCodeSelect
                           value={countryCode}
-                          onChange={e => setCountryCode(e.target.value)}
-                        >
-                          <option value="+91">+91 (India)</option>
-                          <option value="+1">+1 (US/CA)</option>
-                          <option value="+44">+44 (UK)</option>
-                          <option value="+61">+61 (AU)</option>
-                          <option value="+971">+971 (UAE)</option>
-                          <option value="+65">+65 (SG)</option>
-                          <option value="+60">+60 (MY)</option>
-                          <option value="+92">+92 (PK)</option>
-                          <option value="+880">+880 (BD)</option>
-                          <option value="+94">+94 (LK)</option>
-                          <option value="+49">+49 (DE)</option>
-                          <option value="+33">+33 (FR)</option>
-                          <option value="+81">+81 (JP)</option>
-                          <option value="+86">+86 (CN)</option>
-                          <option value="+55">+55 (BR)</option>
-                        </select>
+                          onChange={setCountryCode}
+                        />
                         <input
                           type="tel"
                           className="cf-input"
