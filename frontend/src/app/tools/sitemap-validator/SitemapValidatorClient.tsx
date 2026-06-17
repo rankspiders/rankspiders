@@ -64,7 +64,7 @@ export default function SitemapValidatorClient() {
               </MotionWrapper>
               <MotionWrapper variant="up" delay={0.1}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
-                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} aria-label="Website URL" aria-label="Sitemap URL" placeholder="https://yourwebsite.com or .../sitemap.xml" disabled={loading}
+                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} aria-label="Sitemap URL" placeholder="https://yourwebsite.com or .../sitemap.xml" disabled={loading}
                     style={{ flex: '1 1 300px', maxWidth: 500, padding: '15px 20px', border: '1.5px solid var(--card-border)', borderRadius: 10, background: 'var(--card-bg)', color: 'var(--text-color)', font: '1rem var(--default-font)', outline: 'none' }}
                     onFocus={e => (e.currentTarget.style.borderColor = '#8B5CF6')} onBlur={e => (e.currentTarget.style.borderColor = 'var(--card-border)')} />
                   <button onClick={run} disabled={loading || !url.trim()} style={{ padding: '15px 32px', background: loading ? 'var(--card-border)' : 'linear-gradient(135deg, #8B5CF6, #EC4899)', color: '#fff', border: 'none', borderRadius: 10, font: '600 1rem var(--default-font)', cursor: loading ? 'wait' : 'pointer', opacity: loading || !url.trim() ? 0.7 : 1, whiteSpace: 'nowrap' }}>
