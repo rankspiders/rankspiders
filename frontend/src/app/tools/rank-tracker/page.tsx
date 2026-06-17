@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Rank Spiders',
   },
-  alternates: { canonical: 'https://rankspiders.com/tools/rank-tracker' },
+  alternates: { canonical: 'https://www.rankspiders.com/tools/rank-tracker' },
 };
 
 export default function RankTrackerPage() {

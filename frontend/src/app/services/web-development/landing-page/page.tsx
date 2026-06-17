@@ -1,10 +1,10 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
-  title: "Custom Landing Page | Rank Spiders",
-  description: "This is the custom landing page page description.",
+  title: "Custom Landing Page Design & Development India | Rank Spiders",
+  description: "Get a high-converting custom landing page built for your campaign. Rank Spiders designs, develops, and optimises landing pages that turn visitors into customers.",
 };
 
 export default function CustomLandingPageAgency() {
@@ -14,7 +14,7 @@ export default function CustomLandingPageAgency() {
         title="Custom" 
         subtitle="Landing Page" 
         breadcrumbs={[
-          { label: 'Web Design & Development', href: '#' },
+          { label: 'Web Development', href: '/services/web-development' },
           { label: 'Custom Landing Page', active: true }
         ]} 
       />
@@ -32,21 +32,21 @@ export default function CustomLandingPageAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Your landing page is more than just a URL—it’s the first impression, conversion driver, and growth engine. Our SEO strategies are crafted to optimize every element, from headlines and meta descriptions to page speed, mobile responsiveness, and user experience.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">We conduct in-depth keyword research, competitor analysis, and user intent mapping to ensure your landing pages rank higher on search engines and attract qualified traffic. By integrating persuasive copy, structured data, and conversion-focused design, we turn visitors into leads, increasing engagement, trust, and ROI.</p>
+                  <p>Your landing page is more than just a URL—it’s the first impression, conversion driver, and growth engine. Our SEO strategies are crafted to optimize every element, from headlines and meta descriptions to page speed, mobile responsiveness, and user experience.</p>
+                  <p data--delay="0.2s">We conduct in-depth keyword research, competitor analysis, and user intent mapping to ensure your landing pages rank higher on search engines and attract qualified traffic. By integrating persuasive copy, structured data, and conversion-focused design, we turn visitors into leads, increasing engagement, trust, and ROI.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Landing Pages <span>Engineered for Maximum Impact</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Our custom landing pages combine sleek design, strategic messaging, and performance-focused structure to deliver an experience that turns every click into a meaningful action.</p>
+                    <h2 data--delay="0.4s">Landing Pages <span>Engineered for Maximum Impact</span></h2>
+                    <p data--delay="0.6s">Our custom landing pages combine sleek design, strategic messaging, and performance-focused structure to deliver an experience that turns every click into a meaningful action.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Precision-Built Pages for Higher Conversions</li>
                       <li>Seamless User Journey Designed for Every Device</li>
                       <li>Audience-Focused Messaging That Inspires Action</li>
                       <li>Performance Tracking That Turns Insights Into Results</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Conversion-Focused Specialists</h3>
                         <p>User-focused landing pages designed to increase revenue.</p>
@@ -65,10 +65,10 @@ export default function CustomLandingPageAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Metrics That Shape Winning Landing Pages</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We analyze how users interact with your landing page, identify what drives action, and optimize every element in real time. Our data-backed approach ensures your page evolves with user behavior—delivering stronger engagement, higher conversions, and sustainable growth.</p>
+                    <h2>Metrics That Shape Winning Landing Pages</h2>
+                    <p data--delay="0.2s">We analyze how users interact with your landing page, identify what drives action, and optimize every element in real time. Our data-backed approach ensures your page evolves with user behavior—delivering stronger engagement, higher conversions, and sustainable growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Hyper-targeted designs tailored to your conversion goals</li>
                       <li>Consistent flow and clarity across all user touchpoints</li>
                     </ul>
@@ -84,7 +84,7 @@ export default function CustomLandingPageAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Strategy Mapping</h3>
                           <p>We start by analyzing your audience, business goals, and current online behavior to create a landing page strategy that’s laser-focused on conversions and engagement.</p>
@@ -98,8 +98,8 @@ export default function CustomLandingPageAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Data-Driven Design for Maximum Conversions</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We analyze user behavior, track interactions, and optimize every element of your landing page in real time. By combining actionable insights with strategic design, we ensure each page engages visitors, drives meaningful actions, and delivers scalable growth for your brand.</p>
+                    <h2>Data-Driven Design for Maximum Conversions</h2>
+                    <p data--delay="0.2s">We analyze user behavior, track interactions, and optimize every element of your landing page in real time. By combining actionable insights with strategic design, we ensure each page engages visitors, drives meaningful actions, and delivers scalable growth for your brand.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -167,17 +167,17 @@ export default function CustomLandingPageAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Transforming Ideas Into High-Impact Landing Pages</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We create landing pages that blend strategy, creativity, and analytics to engage visitors, drive conversions, and amplify your brand’s digital impact across all platforms.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Transforming Ideas Into High-Impact Landing Pages</h2>
+                  <p data--delay="0.4s">We create landing pages that blend strategy, creativity, and analytics to engage visitors, drive conversions, and amplify your brand’s digital impact across all platforms.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>We design landing pages that engage users, spark action, and guide visitors seamlessly toward meaningful conversions for your business.</li>
                     <li>Our approach is data-driven and purpose-led, ensuring every element, layout, and CTA supports measurable growth and maximum impact.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <a href="/contact-us" className="btn-default">learn more</a>
                 </div>
               </div>
@@ -188,15 +188,6 @@ export default function CustomLandingPageAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -210,10 +201,10 @@ export default function CustomLandingPageAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
-            <div className="accordion-item wow fadeInUp">
+            <div className="accordion-item ">
               <h2 className="accordion-header" id="heading1">
                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
                   1. Why should I invest in a custom landing page?
@@ -225,7 +216,7 @@ export default function CustomLandingPageAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+            <div className="accordion-item " data--delay="0.2s">
               <h2 className="accordion-header" id="heading2">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
                   2. How do you ensure my landing page converts?
@@ -237,7 +228,7 @@ export default function CustomLandingPageAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+            <div className="accordion-item " data--delay="0.4s">
               <h2 className="accordion-header" id="heading3">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
                   3. Can custom landing pages integrate with my existing website?
@@ -249,7 +240,7 @@ export default function CustomLandingPageAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+            <div className="accordion-item " data--delay="0.6s">
               <h2 className="accordion-header" id="heading4">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
                   4. Do you optimize landing pages for mobile devices?
@@ -261,7 +252,7 @@ export default function CustomLandingPageAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+            <div className="accordion-item " data--delay="0.8s">
               <h2 className="accordion-header" id="heading5">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
                   5. How long does it take to create a custom landing page?

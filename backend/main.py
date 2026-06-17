@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import PlainTextResponse
 
 from routers.blogs import router as blogs_router
 from routers.leads import router as leads_router
@@ -29,6 +30,11 @@ app.include_router(tools_router, prefix="/api/tools", tags=["Tools"])
 @app.api_route("/", methods=["GET", "HEAD"])
 def read_root():
     return {"message": "Rank Spiders API is running"}
+
+
+@app.get("/robots.txt", response_class=PlainTextResponse, include_in_schema=False)
+def robots_txt():
+    return "User-agent: *\nDisallow: /api/\n"
 
 
 if __name__ == "__main__":

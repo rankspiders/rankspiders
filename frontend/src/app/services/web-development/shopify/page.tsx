@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -23,12 +23,12 @@ export default function ShopifyDevelopmentAgency() {
     {
       id: 3,
       question: "3. Can you migrate our existing store to Shopify?",
-      answer: "We handle full Shopify migrations from WooCommerce, Magento, BigCommerce, and custom platforms—including product data, customer records, order history, and SEO redirect mapping to protect your search rankings."
+      answer: "We handle full Shopify migrations from WooCommerce, Magento, BigCommerce, and custom platformsâ€”including product data, customer records, order history, and SEO redirect mapping to protect your search rankings."
     },
     {
       id: 4,
       question: "4. Do you develop custom Shopify apps?",
-      answer: "Yes. When the Shopify App Store doesn't have exactly what you need, we build custom apps and integrations—from custom checkout flows to ERP integrations and bespoke loyalty systems."
+      answer: "Yes. When the Shopify App Store doesn't have exactly what you need, we build custom apps and integrationsâ€”from custom checkout flows to ERP integrations and bespoke loyalty systems."
     },
     {
       id: 5,
@@ -57,17 +57,17 @@ export default function ShopifyDevelopmentAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">We build Shopify stores that sell. From custom theme development to complex integrations, every decision we make in your Shopify build is guided by one goal—maximising your revenue and making your store a pleasure to manage.</p>
+                  <p>We build Shopify stores that sell. From custom theme development to complex integrations, every decision we make in your Shopify build is guided by one goalâ€”maximising your revenue and making your store a pleasure to manage.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Shopify Stores Built <span>to Sell</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Custom Shopify development that combines brand identity with conversion science.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Shopify Stores Built <span>to Sell</span></h2>
+                    <p data--delay="0.6s">Custom Shopify development that combines brand identity with conversion science.</p>
+                    <ul data--delay="0.8s">
                       <li>Custom Liquid Theme Development</li>
                       <li>Shopify Plus & Enterprise Builds</li>
                       <li>App Development & Integration</li>
                       <li>Store Migration & SEO Preservation</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Design & Conversion</h3>
                         <p>Brand-true themes optimised for mobile checkout flows and AOV-boosting UX patterns.</p>
@@ -96,11 +96,11 @@ export default function ShopifyDevelopmentAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Your Store Should Be <span>Your Best Salesperson</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">A Shopify store that converts and scales is the single best investment a product business can make.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Your Store Should Be <span>Your Best Salesperson</span></h2>
+                  <p data--delay="0.4s">A Shopify store that converts and scales is the single best investment a product business can make.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">start your project</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function ShopifyDevelopmentAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

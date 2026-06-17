@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -41,7 +41,7 @@ export default function SmallBusinessSeoAgency() {
         title="Small" 
         subtitle="Business Seo" 
         breadcrumbs={[
-          { label: 'seo Optimization', href: '#' },
+          { label: 'SEO', href: '/services/seo' },
           { label: 'Small Business Seo', active: true }
         ]} 
       />
@@ -62,21 +62,21 @@ export default function SmallBusinessSeoAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our Small Business SEO strategies are designed to boost your online visibility, connect with your target audience, and drive meaningful engagement. From optimizing your website to managing local listings and content, we ensure your business ranks higher, attracts relevant traffic, and builds trust.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">We don’t believe in one-size-fits-all solutions. Our team analyzes your industry, competitors, and audience behavior to craft custom SEO strategies that generate measurable growth and increase conversions. With real-time performance analytics, every optimization is data-driven, precise, and designed for sustainable results.</p>
+                  <p>Our Small Business SEO strategies are designed to boost your online visibility, connect with your target audience, and drive meaningful engagement. From optimizing your website to managing local listings and content, we ensure your business ranks higher, attracts relevant traffic, and builds trust.</p>
+                  <p data--delay="0.2s">We don’t believe in one-size-fits-all solutions. Our team analyzes your industry, competitors, and audience behavior to craft custom SEO strategies that generate measurable growth and increase conversions. With real-time performance analytics, every optimization is data-driven, precise, and designed for sustainable results.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Grow Your <span> Small Business Digitally </span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We combine data-driven SEO strategies, creative optimization, and proven expertise to help your small business improve search rankings, attract the right audience, and drive measurable growth.</p>
+                    <h2 data--delay="0.4s">Grow Your <span> Small Business Digitally </span></h2>
+                    <p data--delay="0.6s">We combine data-driven SEO strategies, creative optimization, and proven expertise to help your small business improve search rankings, attract the right audience, and drive measurable growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Custom SEO Plans That Drive Local Success</li>
                       <li>Optimized Listings Across Search & Maps</li>
                       <li>Connecting Your Business With Nearby Customers</li>
                       <li>Insights That Turn Data Into Growth</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified SEO Experts</h3>
                         <p>Our team is certified in small business SEO.</p>
@@ -95,10 +95,10 @@ export default function SmallBusinessSeoAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Measurable Growth Through SEO Insights</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We leverage real-time analytics and small business data to track website performance, understand customer behavior, and refine SEO strategies. Our insight-driven approach ensures every decision improves rankings, traffic, and measurable local growth.</p>
+                    <h2>Measurable Growth Through SEO Insights</h2>
+                    <p data--delay="0.2s">We leverage real-time analytics and small business data to track website performance, understand customer behavior, and refine SEO strategies. Our insight-driven approach ensures every decision improves rankings, traffic, and measurable local growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Custom SEO strategies designed for your business growth</li>
                       <li>Ensure your brand dominates local search results consistently</li>
                     </ul>
@@ -114,7 +114,7 @@ export default function SmallBusinessSeoAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Strategic SEO Planning</h3>
                           <p>We conduct a thorough analysis of your business objectives, target audience, and current digital presence to develop customized SEO strategies that drive local visibility, qualified traffic, and measurable growth.</p>
@@ -128,8 +128,8 @@ export default function SmallBusinessSeoAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Accelerating Small Business <span>Growth Online </span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We harness data-driven insights and real-time analytics to monitor your website’s performance, understand customer behavior, and fine-tune SEO strategies. Every decision is precision-targeted, driving sustainable local visibility, traffic, and growth.</p>
+                    <h2>Accelerating Small Business <span>Growth Online </span></h2>
+                    <p data--delay="0.2s">We harness data-driven insights and real-time analytics to monitor your website’s performance, understand customer behavior, and fine-tune SEO strategies. Every decision is precision-targeted, driving sustainable local visibility, traffic, and growth.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -186,19 +186,19 @@ export default function SmallBusinessSeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Growing Small Businesses with Purpose</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We combine data-driven SEO strategies, creative optimization, and proven expertise to help your small business increase local visibility, attract nearby customers, and achieve measurable online growth.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Growing Small Businesses with Purpose</h2>
+                  <p data--delay="0.4s">We combine data-driven SEO strategies, creative optimization, and proven expertise to help your small business increase local visibility, attract nearby customers, and achieve measurable online growth.</p>
                 </div>
 
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>We craft local SEO strategies that attract, engage, and convert nearby customers, helping your small business grow in its community.</li>
                     <li>Our approach is purpose-driven, ensuring every SEO effort boosts visibility, drives traffic, and delivers measurable local business results.</li>
                   </ul>
                 </div>
 
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -210,15 +210,6 @@ export default function SmallBusinessSeoAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -232,12 +223,12 @@ export default function SmallBusinessSeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

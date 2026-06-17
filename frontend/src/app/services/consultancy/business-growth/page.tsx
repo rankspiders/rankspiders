@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function BusinessGrowthConsultancyAgency() {
     {
       id: 1,
       question: "1. What is business growth consultancy?",
-      answer: "Business growth consultancy combines digital marketing strategy with broader commercial thinking—helping you identify your highest-leverage growth opportunities, build systems that scale, and allocate resources to the channels and activities that will move the needle most."
+      answer: "Business growth consultancy combines digital marketing strategy with broader commercial thinkingâ€”helping you identify your highest-leverage growth opportunities, build systems that scale, and allocate resources to the channels and activities that will move the needle most."
     },
     {
       id: 2,
@@ -23,17 +23,17 @@ export default function BusinessGrowthConsultancyAgency() {
     {
       id: 3,
       question: "3. How do you approach growth strategy development?",
-      answer: "We start with a deep business and market analysis—understanding your current performance, competitive position, target customers, and growth constraints. We then build a prioritised growth roadmap with clear metrics, timelines, and resource requirements."
+      answer: "We start with a deep business and market analysisâ€”understanding your current performance, competitive position, target customers, and growth constraints. We then build a prioritised growth roadmap with clear metrics, timelines, and resource requirements."
     },
     {
       id: 4,
       question: "4. Do you help with both acquisition and retention growth?",
-      answer: "Yes. Sustainable growth requires both. We build strategies that cover new customer acquisition through digital channels as well as retention, lifetime value optimisation, and referral mechanics—creating compounding growth rather than linear acquisition."
+      answer: "Yes. Sustainable growth requires both. We build strategies that cover new customer acquisition through digital channels as well as retention, lifetime value optimisation, and referral mechanicsâ€”creating compounding growth rather than linear acquisition."
     },
     {
       id: 5,
       question: "5. How long does a typical business growth engagement last?",
-      answer: "Initial strategy engagements typically run 4–8 weeks and deliver a comprehensive growth roadmap. Ongoing advisory retainers run monthly and provide continuous strategic support as you execute and iterate."
+      answer: "Initial strategy engagements typically run 4â€“8 weeks and deliver a comprehensive growth roadmap. Ongoing advisory retainers run monthly and provide continuous strategic support as you execute and iterate."
     }
   ];
 
@@ -57,17 +57,17 @@ export default function BusinessGrowthConsultancyAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Business growth doesn't happen by accident. It's the result of clear strategy, disciplined execution, and the ability to identify your highest-leverage opportunities before your competitors do. We provide the strategic clarity and expert guidance to make that growth intentional and sustainable.</p>
+                  <p>Business growth doesn't happen by accident. It's the result of clear strategy, disciplined execution, and the ability to identify your highest-leverage opportunities before your competitors do. We provide the strategic clarity and expert guidance to make that growth intentional and sustainable.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Growth Strategy Built for <span>Your Business Reality</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Practical growth strategies grounded in your market, your constraints, and your goals.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Growth Strategy Built for <span>Your Business Reality</span></h2>
+                    <p data--delay="0.6s">Practical growth strategies grounded in your market, your constraints, and your goals.</p>
+                    <ul data--delay="0.8s">
                       <li>Business & Market Analysis</li>
                       <li>Growth Roadmap Development</li>
                       <li>Channel & Budget Strategy</li>
                       <li>Performance Framework Design</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Strategic Growth Planning</h3>
                         <p>A prioritised roadmap identifying your highest-ROI growth levers across acquisition and retention.</p>
@@ -96,11 +96,11 @@ export default function BusinessGrowthConsultancyAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Intentional Growth Beats <span>Accidental Success</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">The businesses that scale consistently aren't the luckiest—they're the most strategically clear. We provide that clarity.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Intentional Growth Beats <span>Accidental Success</span></h2>
+                  <p data--delay="0.4s">The businesses that scale consistently aren't the luckiestâ€”they're the most strategically clear. We provide that clarity.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">plan your growth</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function BusinessGrowthConsultancyAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollingTicker from '@/components/ScrollingTicker';
 import MotionWrapper, { MotionStagger, MotionItem } from '@/components/MotionWrapper';
 
@@ -297,7 +298,6 @@ export default function HomeClient() {
   const metricsRef = useRef<HTMLDivElement>(null);
   const [metricsVisible, setMetricsVisible] = useState(false);
   const heroSceneRef = useRef<HTMLDivElement>(null);
-  const heroSectionRef = useRef<HTMLElement>(null);
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
 
   const [hcForm, setHcForm] = useState({ fname: '', lname: '', email: '', phone: '', countryCode: '+91', service: '', message: '' });
@@ -402,7 +402,8 @@ export default function HomeClient() {
       my = e.clientY - r.top;
     };
     const onML = () => { mx = -9999; my = -9999; };
-    const parent = canvas.parentElement!;
+    const parent = canvas.parentElement;
+    if (!parent) return;
     parent.addEventListener('mousemove', onMM);
     parent.addEventListener('mouseleave', onML);
 
@@ -480,7 +481,7 @@ export default function HomeClient() {
   return (
     <>
       {/* ==================== HERO ==================== */}
-      <section className="home-hero" ref={heroSectionRef}>
+      <section className="home-hero">
         {/* Animated background orbs */}
         <div className="hero-bg-orb hero-orb-1" aria-hidden="true" />
         <div className="hero-bg-orb hero-orb-2" aria-hidden="true" />
@@ -573,7 +574,7 @@ export default function HomeClient() {
 
                   {/* Main illustration — full, uncropped */}
                   <div className="hero-img-stage">
-                    <img src="/images/sections/hero-image.png" alt="Rank Spiders – Digital Marketing Agency" />
+                    <Image src="/images/sections/hero-image.png" alt="Rank Spiders – Digital Marketing Agency" width={580} height={520} priority style={{ width: '100%', height: 'auto' }} />
                   </div>
 
                   {/* Float card 2 — bottom right */}
@@ -847,20 +848,23 @@ export default function HomeClient() {
           <MotionWrapper variant="up" delay={0.1}>
             <div className="home-compare-wrapper">
               <div className="home-compare-table" role="table" aria-label="Agency comparison">
-                <div className="home-compare-head" role="row">
-                  <div className="home-compare-cell home-compare-cell--feature" role="columnheader">Feature</div>
-                  <div className="home-compare-cell home-compare-cell--us" role="columnheader">
-                    <div className="home-compare-col-label">
-                      <i className="fa-solid fa-spider"></i> Rank Spiders
+                <div role="rowgroup" style={{ display: 'contents' }}>
+                  <div className="home-compare-head" role="row">
+                    <div className="home-compare-cell home-compare-cell--feature" role="columnheader">Feature</div>
+                    <div className="home-compare-cell home-compare-cell--us" role="columnheader">
+                      <div className="home-compare-col-label">
+                        <i className="fa-solid fa-spider"></i> Rank Spiders
+                      </div>
+                    </div>
+                    <div className="home-compare-cell home-compare-cell--alt" role="columnheader">
+                      <i className="fa-solid fa-user-tie"></i> Freelancer
+                    </div>
+                    <div className="home-compare-cell home-compare-cell--alt" role="columnheader">
+                      <i className="fa-solid fa-building-columns"></i> Big Agency
                     </div>
                   </div>
-                  <div className="home-compare-cell home-compare-cell--alt" role="columnheader">
-                    <i className="fa-solid fa-user-tie"></i> Freelancer
-                  </div>
-                  <div className="home-compare-cell home-compare-cell--alt" role="columnheader">
-                    <i className="fa-solid fa-building-columns"></i> Big Agency
-                  </div>
                 </div>
+                <div role="rowgroup" style={{ display: 'contents' }}>
                 {comparisonRows.map((row, i) => (
                   <div key={i} className="home-compare-row" role="row">
                     <div className="home-compare-cell home-compare-cell--feature" role="cell">{row.feature}</div>
@@ -884,6 +888,7 @@ export default function HomeClient() {
                     </div>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </MotionWrapper>
@@ -1156,7 +1161,7 @@ export default function HomeClient() {
                 <MotionWrapper key={b.id} delay={i * 0.1}>
                   <Link href={`/blog/${b.slug}`} className="home-blog-card">
                     {b.image_url && (
-                      <div className="home-blog-img" style={{ backgroundImage: `url(${b.image_url})` }} />
+                      <div className="home-blog-img" style={{ backgroundImage: `url(${b.image_url})` }} role="img" aria-label={b.title} />
                     )}
                     <div className="home-blog-body">
                       {b.author && (
@@ -1301,21 +1306,21 @@ export default function HomeClient() {
                   <form className="hc-form-card" onSubmit={handleHcSubmit} noValidate>
                     <div className="row g-3">
                       <div className="col-sm-6">
-                        <label className="hc-label">First name *</label>
-                        <input type="text" name="fname" className="hc-input" value={hcForm.fname} onChange={handleHcChange} required placeholder="John" />
+                        <label htmlFor="hc-fname" className="hc-label">First name *</label>
+                        <input id="hc-fname" type="text" name="fname" className="hc-input" value={hcForm.fname} onChange={handleHcChange} required placeholder="John" />
                       </div>
                       <div className="col-sm-6">
-                        <label className="hc-label">Last name</label>
-                        <input type="text" name="lname" className="hc-input" value={hcForm.lname} onChange={handleHcChange} placeholder="Doe" />
+                        <label htmlFor="hc-lname" className="hc-label">Last name</label>
+                        <input id="hc-lname" type="text" name="lname" className="hc-input" value={hcForm.lname} onChange={handleHcChange} placeholder="Doe" />
                       </div>
                       <div className="col-sm-6">
-                        <label className="hc-label">Email address *</label>
-                        <input type="email" name="email" className="hc-input" value={hcForm.email} onChange={handleHcChange} required placeholder="john@company.com" />
+                        <label htmlFor="hc-email" className="hc-label">Email address *</label>
+                        <input id="hc-email" type="email" name="email" className="hc-input" value={hcForm.email} onChange={handleHcChange} required placeholder="john@company.com" />
                       </div>
                       <div className="col-sm-6">
-                        <label className="hc-label">Phone number *</label>
+                        <label htmlFor="hc-phone" className="hc-label">Phone number *</label>
                         <div className="phone-group">
-                          <select name="countryCode" className="phone-code-select hc-select" value={hcForm.countryCode} onChange={handleHcChange}>
+                          <select aria-label="Country code" name="countryCode" className="phone-code-select hc-select" value={hcForm.countryCode} onChange={handleHcChange}>
                             <option value="+91">+91 (India)</option>
                             <option value="+1">+1 (US/CA)</option>
                             <option value="+44">+44 (UK)</option>
@@ -1332,12 +1337,12 @@ export default function HomeClient() {
                             <option value="+86">+86 (CN)</option>
                             <option value="+55">+55 (BR)</option>
                           </select>
-                          <input type="tel" name="phone" className="hc-input" value={hcForm.phone} onChange={handleHcChange} required placeholder="98765 43210" />
+                          <input id="hc-phone" type="tel" name="phone" className="hc-input" value={hcForm.phone} onChange={handleHcChange} required placeholder="98765 43210" />
                         </div>
                       </div>
                       <div className="col-12">
-                        <label className="hc-label">Service needed *</label>
-                        <select name="service" className="hc-select" value={hcForm.service} onChange={handleHcChange}>
+                        <label htmlFor="hc-service" className="hc-label">Service needed *</label>
+                        <select id="hc-service" name="service" className="hc-select" value={hcForm.service} onChange={handleHcChange}>
                           <option value="">— Select a service —</option>
                           <option value="SEO Services">SEO Services</option>
                           <option value="Web Design & Development">Web Design &amp; Development</option>
@@ -1351,8 +1356,8 @@ export default function HomeClient() {
                         </select>
                       </div>
                       <div className="col-12">
-                        <label className="hc-label">Message (optional)</label>
-                        <textarea name="message" className="hc-textarea" value={hcForm.message} onChange={handleHcChange} placeholder="Tell us about your project, goals, or any questions you have…" rows={4} />
+                        <label htmlFor="hc-message" className="hc-label">Message (optional)</label>
+                        <textarea id="hc-message" name="message" className="hc-textarea" value={hcForm.message} onChange={handleHcChange} placeholder="Tell us about your project, goals, or any questions you have…" rows={4} />
                       </div>
                       {(hcStatus === 'error' || hcErr) && (
                         <div className="col-12">
@@ -1434,7 +1439,7 @@ export default function HomeClient() {
                 <p>Get a free, no-obligation SEO audit and discover exactly what&apos;s holding your website back.</p>
               </div>
               <div className="home-cta-actions">
-                <a href="https://koalendar.com/e/meet-with-rank-spiders?month=2026-06&duration=30&date=2026-06-15" target="_blank" rel="noopener noreferrer" className="btn-default">Book a Free Consultation</a>
+                <a href="https://koalendar.com/e/meet-with-rank-spiders" target="_blank" rel="noopener noreferrer" className="btn-default">Book a Free Consultation</a>
                 <a href="tel:+919988357092" className="home-cta-phone">
                   <i className="fa-solid fa-phone"></i>
                   +91 99883-57092

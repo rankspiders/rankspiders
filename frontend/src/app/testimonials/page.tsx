@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ export default function Testimonials() {
   const testimonials = [
     {
       company: 'BrandShapers',
-      content: 'Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before — highly recommend!',
+      content: 'Outstanding team! We saw a 4x increase in leads within three months. Their SEO and paid ads strategy brought in qualified traffic like never before â€” highly recommend!',
       rating: 5
     },
     {
@@ -52,7 +52,7 @@ export default function Testimonials() {
           <div className="row">
             {testimonials.map((item, index) => (
               <div key={index} className="col-lg-4 col-md-6">
-                <div className="testimonial-item wow fadeInUp" data-wow-delay={`${index * 0.2}s`}>
+                <div className="testimonial-item " data--delay={`${index * 0.2}s`}>
                   <div className="testimonials-rating">
                     {[...Array(item.rating)].map((_, i) => (
                       <i key={i} className="fa-solid fa-star"></i>
@@ -84,26 +84,26 @@ export default function Testimonials() {
             <div className="col-lg-6">
               <div className="why-choose-content">
                 <div className="section-title">
-                  <h3 className="wow fadeInUp">Why choose us</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Reasons to choose us for <span>digital success</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We combine data-driven strategies, creative innovation, and proven expertise to help your brand grow online from SEO to social media.</p>
+                  <h3>Why choose us</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Reasons to choose us for <span>digital success</span></h2>
+                  <p data--delay="0.4s">We combine data-driven strategies, creative innovation, and proven expertise to help your brand grow online from SEO to social media.</p>
                 </div>
                 
-                <div className="why-choose-item-list wow fadeInUp" data-wow-delay="0.6s">
+                <div className="why-choose-item-list " data--delay="0.6s">
                   <div className="why-choose-item">
                     <h3>Certified Marketing Experts</h3>
                     <p>Our team is professionally certified in SEO, Google Ads, social media.</p>
                   </div>
                   <div className="why-choose-item">
                     <h3>Data-Driven Strategies</h3>
-                    <p>Our team is professionally certified in SEO, Google Ads, social media.</p>
+                    <p>Every decision is backed by analytics, audience insights, and performance data to maximise your ROI.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="col-lg-6">
-              <div className="why-choose-img wow fadeInUp" data-wow-delay="0.2s">
+              <div className="why-choose-img " data--delay="0.2s">
                 <figure>
                   <img src="/images/sections/why-choose-image.png" alt="Why choose Rank Spiders as your digital marketing agency in India" />
                 </figure>
@@ -114,7 +114,7 @@ export default function Testimonials() {
       </div>
       {/* Why Choose Us Section End */}
 
-      {/* Video Testimonials — add back when YouTube videos are ready.
+      {/* Video Testimonials â€” add back when YouTube videos are ready.
            YouTube Shorts embed fine with the same iframe format (use portrait aspect ratio: height ~500px).
            Pattern: <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" height="500" width="100%" ... />
            Add videoTestimonials array above and map it here. */}
@@ -126,12 +126,12 @@ export default function Testimonials() {
             <div className="col-lg-6">
               <div className="our-offers-content">
                 <div className="section-title">
-                  <h3 className="wow fadeInUp">what we offer</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Solution design for your <span>digital success</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We craft tailored digital marketing solutions that align with your business goals, combining creativity, strategy.</p>
+                  <h3>what we offer</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Solution design for your <span>digital success</span></h2>
+                  <p data--delay="0.4s">We craft tailored digital marketing solutions that align with your business goals, combining creativity, strategy.</p>
                 </div>
 
-                <div className="offer-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="offer-body " data--delay="0.6s">
                   <div className="offer-body-item">
                     <div className="icon-box">
                       <img src="/images/icons/icon-offer-body-1.svg" alt="Free digital marketing consultation" />
@@ -160,14 +160,14 @@ export default function Testimonials() {
                   </div>
                 </div>
 
-                <div className="offer-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="offer-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">contact us</Link>
                 </div>
               </div>
             </div>
 
             <div className="col-lg-6">
-              <div className="offer-image-box wow fadeInUp" data-wow-delay="0.2s">
+              <div className="offer-image-box " data--delay="0.2s">
                 <figure>
                   <img src="/images/sections/offer-image.png" alt="Rank Spiders free digital marketing consultation and service offers" />
                 </figure>

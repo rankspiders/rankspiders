@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import MotionWrapper from '@/components/MotionWrapper';
 
@@ -35,8 +35,19 @@ export default function PageSpeedClient() {
   const [result, setResult] = useState<SpeedResult | null>(null);
   const [error, setError] = useState('');
 
+  function isValidUrl(input: string): boolean {
+    try {
+      const u = new URL(input.startsWith('http') ? input : `https://${input}`);
+      return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(u.hostname);
+    } catch { return false; }
+  }
+
   async function run() {
     if (!url.trim()) return;
+    if (!isValidUrl(url.trim())) {
+      setError('Please enter a valid URL — e.g. https://example.com');
+      return;
+    }
     setLoading(true); setResult(null); setError('');
     try {
       const res = await fetch(`${API}/api/tools/speed?url=${encodeURIComponent(url.trim())}`);
@@ -74,7 +85,7 @@ export default function PageSpeedClient() {
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
                   <input type="text" value={url} onChange={e => setUrl(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && !loading && run()}
-                    placeholder="https://yourwebsite.com" disabled={loading}
+                    aria-label="Website URL" placeholder="https://yourwebsite.com" disabled={loading}
                     style={{ flex: '1 1 300px', maxWidth: 480, padding: '15px 20px', border: '1.5px solid var(--card-border)', borderRadius: 10, background: 'var(--card-bg)', color: 'var(--text-color)', font: '1rem var(--default-font)', outline: 'none' }}
                     onFocus={e => (e.currentTarget.style.borderColor = 'var(--accent-color)')}
                     onBlur={e => (e.currentTarget.style.borderColor = 'var(--card-border)')} />

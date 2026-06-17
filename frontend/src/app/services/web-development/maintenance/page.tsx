@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function WebsiteMaintenanceAgency() {
     {
       id: 1,
       question: "1. Why does my website need ongoing maintenance?",
-      answer: "Websites degrade over time—plugins become outdated, security vulnerabilities emerge, performance slows, and content grows stale. Regular maintenance keeps your site secure, fast, and performing at its best for both users and search engines."
+      answer: "Websites degrade over timeâ€”plugins become outdated, security vulnerabilities emerge, performance slows, and content grows stale. Regular maintenance keeps your site secure, fast, and performing at its best for both users and search engines."
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ export default function WebsiteMaintenanceAgency() {
     {
       id: 4,
       question: "4. Do you handle content updates as part of maintenance?",
-      answer: "Yes. Our maintenance plans include a content update allowance each month—whether that's adding new pages, updating service information, refreshing images, or publishing blog posts on your behalf."
+      answer: "Yes. Our maintenance plans include a content update allowance each monthâ€”whether that's adding new pages, updating service information, refreshing images, or publishing blog posts on your behalf."
     },
     {
       id: 5,
@@ -57,17 +57,17 @@ export default function WebsiteMaintenanceAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">A neglected website is a security risk, an SEO liability, and a poor brand ambassador. Our website maintenance service ensures your site stays secure, fast, and updated—so you can focus on running your business, not worrying about your website.</p>
+                  <p>A neglected website is a security risk, an SEO liability, and a poor brand ambassador. Our website maintenance service ensures your site stays secure, fast, and updatedâ€”so you can focus on running your business, not worrying about your website.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Maintenance That <span>Protects Your Investment</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Proactive care that keeps your site secure, fast, and always online.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Maintenance That <span>Protects Your Investment</span></h2>
+                    <p data--delay="0.6s">Proactive care that keeps your site secure, fast, and always online.</p>
+                    <ul data--delay="0.8s">
                       <li>Security Monitoring & Patching</li>
                       <li>CMS & Plugin Updates</li>
                       <li>Uptime Monitoring (24/7)</li>
                       <li>Performance Optimisation</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Security & Updates</h3>
                         <p>Weekly security scans, patch management, and malware removal to keep your site clean.</p>
@@ -96,11 +96,11 @@ export default function WebsiteMaintenanceAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Prevention is Cheaper <span>Than Recovery</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">One security incident or performance crash costs far more than a year of proactive maintenance. We keep that from happening.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Prevention is Cheaper <span>Than Recovery</span></h2>
+                  <p data--delay="0.4s">One security incident or performance crash costs far more than a year of proactive maintenance. We keep that from happening.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">get protected</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function WebsiteMaintenanceAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

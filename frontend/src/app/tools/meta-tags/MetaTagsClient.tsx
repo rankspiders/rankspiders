@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import MotionWrapper from '@/components/MotionWrapper';
 
@@ -92,7 +92,7 @@ export default function MetaTagsClient() {
               </MotionWrapper>
               <MotionWrapper variant="up" delay={0.1}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
-                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} placeholder="https://yourwebsite.com" disabled={loading}
+                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} aria-label="Website URL" placeholder="https://yourwebsite.com" disabled={loading}
                     style={{ flex: '1 1 300px', maxWidth: 500, padding: '15px 20px', border: '1.5px solid var(--card-border)', borderRadius: 10, background: 'var(--card-bg)', color: 'var(--text-color)', font: '1rem var(--default-font)', outline: 'none' }}
                     onFocus={e => (e.currentTarget.style.borderColor = '#EC4899')} onBlur={e => (e.currentTarget.style.borderColor = 'var(--card-border)')} />
                   <button onClick={run} disabled={loading || !url.trim()} style={{ padding: '15px 32px', background: loading ? 'var(--card-border)' : 'linear-gradient(135deg, #EC4899, #8B5CF6)', color: '#fff', border: 'none', borderRadius: 10, font: '600 1rem var(--default-font)', cursor: loading ? 'wait' : 'pointer', opacity: loading || !url.trim() ? 0.7 : 1, whiteSpace: 'nowrap' }}>

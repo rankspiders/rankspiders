@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -51,7 +51,7 @@ export default function YoutubeMarketingAgency() {
         title="YouTube"
         subtitle="Marketing"
         breadcrumbs={[
-          { label: 'social media', href: '#' },
+          { label: 'Social Media', href: '/services/social-media' },
           { label: 'YouTube Marketing', active: true }
         ]}
       />
@@ -72,14 +72,14 @@ export default function YoutubeMarketingAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">YouTube is the world's second-largest search engine and one of the most powerful platforms for building brand authority, driving organic traffic, and connecting with your audience at scale. Our YouTube marketing services help businesses grow their channel, reach the right viewers, and turn video content into a consistent source of leads and revenue.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We don't just upload videos — we build a complete YouTube growth strategy. From channel setup and video SEO to content planning, audience growth campaigns, and performance analytics, our team handles every element of YouTube marketing so your brand can grow faster with less effort on your part.</p>
+                  <p>YouTube is the world's second-largest search engine and one of the most powerful platforms for building brand authority, driving organic traffic, and connecting with your audience at scale. Our YouTube marketing services help businesses grow their channel, reach the right viewers, and turn video content into a consistent source of leads and revenue.</p>
+                  <p data--delay="0.4s">We don't just upload videos — we build a complete YouTube growth strategy. From channel setup and video SEO to content planning, audience growth campaigns, and performance analytics, our team handles every element of YouTube marketing so your brand can grow faster with less effort on your part.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Grow Your Brand. <span>Reach Millions. Get Results.</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">YouTube's 2 billion monthly users are watching, searching, and discovering new brands every day. Our data-driven YouTube marketing strategies ensure your business appears in front of the right viewers at the right time — building subscribers, driving traffic, and generating qualified leads.</p>
+                    <h2 data--delay="0.4s">Grow Your Brand. <span>Reach Millions. Get Results.</span></h2>
+                    <p data--delay="0.6s">YouTube's 2 billion monthly users are watching, searching, and discovering new brands every day. Our data-driven YouTube marketing strategies ensure your business appears in front of the right viewers at the right time — building subscribers, driving traffic, and generating qualified leads.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Professional YouTube Channel Setup & Optimization</li>
                       <li>Video SEO — Titles, Descriptions, Tags & Thumbnails</li>
                       <li>Strategic Content Planning & Publishing Schedule</li>
@@ -88,7 +88,7 @@ export default function YoutubeMarketingAgency() {
                       <li>Performance Analytics & Monthly Reporting</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified YouTube Marketing Experts</h3>
                         <p>Our certified YouTube specialists combine platform expertise, SEO knowledge, and creative strategy to grow your channel organically and through paid promotion — delivering views, subscribers, and real business results.</p>
@@ -107,8 +107,8 @@ export default function YoutubeMarketingAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Our YouTube Marketing Services</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">From channel optimization and video SEO to paid promotion and analytics, we cover every aspect of YouTube marketing to help your business grow its audience, build authority, and drive consistent results.</p>
+                    <h2>Our YouTube Marketing Services</h2>
+                    <p data--delay="0.2s">From channel optimization and video SEO to paid promotion and analytics, we cover every aspect of YouTube marketing to help your business grow its audience, build authority, and drive consistent results.</p>
 
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
@@ -121,7 +121,7 @@ export default function YoutubeMarketingAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Channel Setup & Optimization</h3>
                           <p>We create and optimize your YouTube channel with a professional banner, keyword-rich channel description, playlists, and branding elements — establishing a strong, trustworthy presence that attracts subscribers from day one.</p>
@@ -135,8 +135,8 @@ export default function YoutubeMarketingAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Content Strategy, Promotion & Analytics</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">A strong content strategy, consistent promotion, and data-driven optimization are the three pillars of YouTube success. We manage all three to ensure your channel grows faster, reaches more viewers, and delivers measurable business results.</p>
+                    <h2>Content Strategy, Promotion & Analytics</h2>
+                    <p data--delay="0.2s">A strong content strategy, consistent promotion, and data-driven optimization are the three pillars of YouTube success. We manage all three to ensure your channel grows faster, reaches more viewers, and delivers measurable business results.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -189,18 +189,18 @@ export default function YoutubeMarketingAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Let's Grow Your Business with YouTube Marketing</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Video is the most engaging content format on the internet, and YouTube is its largest stage. At Rank Spiders, we believe every business has a story worth sharing — and YouTube is the best place to tell it. Our YouTube marketing strategies are designed to build lasting audiences, drive consistent traffic, and turn viewers into customers.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Let's Grow Your Business with YouTube Marketing</h2>
+                  <p data--delay="0.4s">Video is the most engaging content format on the internet, and YouTube is its largest stage. At Rank Spiders, we believe every business has a story worth sharing — and YouTube is the best place to tell it. Our YouTube marketing strategies are designed to build lasting audiences, drive consistent traffic, and turn viewers into customers.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Build trust and authority through valuable, high-quality video content your audience loves.</li>
                     <li>Drive targeted website traffic and qualified leads from YouTube's massive, engaged user base.</li>
                     <li>Grow a loyal subscriber community that supports your brand's long-term success.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">Get Started Today</Link>
                 </div>
               </div>
@@ -212,15 +212,6 @@ export default function YoutubeMarketingAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven YouTube marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing YouTube marketing ROI by Rank Spiders" />
@@ -234,12 +225,12 @@ export default function YoutubeMarketingAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}

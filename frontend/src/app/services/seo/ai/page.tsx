@@ -61,8 +61,8 @@ export default function AiSeoAgency() {
           <div className="row">
             <div className="col-lg-12">
               <div className="page-header-box">
-                <h1 className="wow fadeInUp" data-cursor="-opaque">AI <span>Seo</span></h1>
-                <nav className="wow fadeInUp" data-wow-delay="0.2s">
+                <h1 data-cursor="-opaque">AI <span>Seo</span></h1>
+                <nav data--delay="0.2s">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link href="/">home</Link></li>
                     <li className="breadcrumb-item"><Link href="#">/ Seo Optimization</Link></li>
@@ -83,7 +83,7 @@ export default function AiSeoAgency() {
           <div className="row">
             <div className="col-lg-4">
               <div className="page-single-sidebar">
-                <div className="page-category-list wow fadeInUp">
+                <div className="page-category-list ">
                   <h3>Discover Our More Services</h3>
                   <ul>
                     <li><Link href="/free/seo-audit">Free Seo Audit</Link></li>
@@ -94,11 +94,11 @@ export default function AiSeoAgency() {
                     <li><Link href="/services/seo/b2b">B2B Seo</Link></li>
                     <li><Link href="/services/seo/wordpress">Wordpress Seo</Link></li>
                     <li><Link href="/services/seo/ecommerce">E-Commerce Seo</Link></li>
-                    <li><Link href="/niche-seo-industries-agency">Niche Seo Industries</Link></li>
+                    <li><Link href="/services/web-development/niche-industries">Niche Seo Industries</Link></li>
                   </ul>
                 </div>
 
-                <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
+                <div className="page-cta-box sidebar-cta-box " data--delay="0.2s">
                   <div className="page-cta-header">
                     <div className="review-images">
                       <div className="review-image"><img src="/images/authors/author-1.jpg" alt="Client testimonial - Rank Spiders digital marketing agency India" /></div>
@@ -143,16 +143,16 @@ export default function AiSeoAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">
+                  <p>
                     AI-Powered SEO represents the evolution of search optimization — combining machine learning, real-time data analysis, and advanced automation with proven SEO fundamentals. Instead of relying on gut instinct or outdated manual techniques, our AI-driven approach analyzes billions of search signals, user behavior patterns, and competitor movements to make smarter, faster, more accurate marketing decisions.
                   </p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">
+                  <p data--delay="0.2s">
                     At Rank Spiders, we go beyond keyword rankings. Our AI SEO services include Answer Engine Optimization (AEO) for voice search and AI assistants like ChatGPT, Generative Engine Optimization (GEO) for Google SGE and AI Overviews, and predictive content strategies that position your brand at the forefront of how search is evolving. Whether you&apos;re targeting Google, Bing, or AI-powered answer engines, we ensure your brand is the answer.
                   </p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Your Brand with <span>AI-Powered SEO</span></h2>
-                    <ul className="wow fadeInUp" data-wow-delay="0.6s">
+                    <h2 data--delay="0.4s">Boost Your Brand with <span>AI-Powered SEO</span></h2>
+                    <ul data--delay="0.6s">
                       <li><strong>Increase Online Visibility</strong> — reach more customers across traditional search engines and AI answer platforms</li>
                       <li><strong>Target the Right Audience</strong> — precision AI keyword research reveals high-intent, low-competition opportunities your competitors miss</li>
                       <li><strong>Create Better Content</strong> — AI content intelligence identifies exactly what depth, format, and angle earns top rankings</li>
@@ -163,7 +163,7 @@ export default function AiSeoAgency() {
                       <li><strong>Maximize Long-Term ROI</strong> — compound organic growth that reduces your cost-per-acquisition month over month</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="0.8s">
+                    <div className="service-strategy-body " data--delay="0.8s">
                       <div className="strategy-body-item">
                         <h3>Certified AI SEO Experts</h3>
                         <p>Professionally certified specialists combining AI intelligence with proven on-page, technical, and off-page SEO strategies for maximum organic growth and brand visibility</p>
@@ -176,13 +176,13 @@ export default function AiSeoAgency() {
                   </div>
 
                   {/* How AI SEO Works */}
-                  <div className="service-growth-box wow fadeInUp" data-wow-delay="0.2s">
+                  <div className="service-growth-box " data--delay="0.2s">
                     <h2>How Our <span>AI SEO Process Works</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">
+                    <p data--delay="0.2s">
                       Our AI SEO methodology follows a structured, four-phase process that builds compounding organic growth:
                     </p>
                     <div className="service-growth-body">
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.4s">
+                      <div className="service-growth-item-list " data--delay="0.4s">
                         {[
                           { step: "Phase 1", title: "AI-Powered Discovery & Audit", desc: "We crawl your website, analyze your current rankings, audit your content quality, and benchmark against your top 10 competitors using AI tools — identifying every gap and opportunity in under 48 hours." },
                           { step: "Phase 2", title: "Intelligent Strategy Design", desc: "We build a keyword universe, content strategy, and technical SEO roadmap informed by AI search trend predictions — targeting keywords with high intent, realistic difficulty, and strong business value." },
@@ -199,8 +199,8 @@ export default function AiSeoAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Transform Data Into <span>Business Growth</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">
+                    <h2>Transform Data Into <span>Business Growth</span></h2>
+                    <p data--delay="0.2s">
                       Harness the power of AI-powered analytics to increase organic website traffic, improve search engine rankings, build brand authority and trust, and deliver measurable, long-term results that compound over time.
                     </p>
 
@@ -215,7 +215,7 @@ export default function AiSeoAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>AI SEO Strategy</h3>
                           <p>We analyze your brand, audience behavior, search intent patterns, and digital footprint using advanced AI tools — then build a strategy around your highest-value opportunities.</p>
@@ -248,11 +248,11 @@ export default function AiSeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Powering Sustainable Growth Through <span>SEO Optimization</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We blend AI-driven insights, predictive analytics, and advanced SEO innovation to increase organic traffic, improve search engine rankings, build brand authority and trust, and deliver measurable, long-term results.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Powering Sustainable Growth Through <span>SEO Optimization</span></h2>
+                  <p data--delay="0.4s">We blend AI-driven insights, predictive analytics, and advanced SEO innovation to increase organic traffic, improve search engine rankings, build brand authority and trust, and deliver measurable, long-term results.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -269,12 +269,12 @@ export default function AiSeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -51,7 +51,7 @@ export default function MetaAdsAgency() {
         title="Meta" 
         subtitle="Ads" 
         breadcrumbs={[
-          { label: 'Ads', href: '#' },
+          { label: 'Paid Ads', href: '/services/paid-ads' },
           { label: 'Meta Ads', active: true }
         ]} 
       />
@@ -72,22 +72,22 @@ export default function MetaAdsAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Reach your audience where they spend most of their time. Our Meta Ads strategies combine AI-driven targeting, behavior insights, and creative ad formats across Facebook, Instagram, and Messenger to drive clicks, leads, and measurable ROI.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">From carousel and video ads to story placements and dynamic product ads, we craft campaigns that engage users, boost conversions, and scale your business. Continuous monitoring, real-time optimization, and competitor benchmarking ensure your ad spend is efficient and effective.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.6s">Stay ahead in a competitive social landscape with Meta Ads that deliver performance, precision, and growth.</p>
+                  <p>Reach your audience where they spend most of their time. Our Meta Ads strategies combine AI-driven targeting, behavior insights, and creative ad formats across Facebook, Instagram, and Messenger to drive clicks, leads, and measurable ROI.</p>
+                  <p data--delay="0.4s">From carousel and video ads to story placements and dynamic product ads, we craft campaigns that engage users, boost conversions, and scale your business. Continuous monitoring, real-time optimization, and competitor benchmarking ensure your ad spend is efficient and effective.</p>
+                  <p data--delay="0.6s">Stay ahead in a competitive social landscape with Meta Ads that deliver performance, precision, and growth.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Drive Conversions with <span>Targeted Meta Ads</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Reach the right audience with precision. Our Meta Ads campaigns use AI-driven targeting, creative ad formats, and data insights to boost engagement, clicks, and measurable ROI.</p>
+                    <h2 data--delay="0.4s">Drive Conversions with <span>Targeted Meta Ads</span></h2>
+                    <p data--delay="0.6s">Reach the right audience with precision. Our Meta Ads campaigns use AI-driven targeting, creative ad formats, and data insights to boost engagement, clicks, and measurable ROI.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Hyper-Targeted Campaigns for Maximum Conversions</li>
                       <li>Facebook, Instagram & Messenger Ads Management</li>
                       <li>Audience Behavior & Interest-Based Targeting</li>
                       <li>Real-Time Analytics & Performance Optimization</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified Meta Ads Experts</h3>
                         <p>Professionals creating high-performing campaigns across Facebook platforms.</p>
@@ -106,10 +106,10 @@ export default function MetaAdsAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Maximize Impact with Every Meta Ad</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Track impressions, clicks, and conversions while optimizing budgets and ad placements to deliver high-performing Meta Ads campaigns with measurable results and maximum ROI.</p>
+                    <h2>Maximize Impact with Every Meta Ad</h2>
+                    <p data--delay="0.2s">Track impressions, clicks, and conversions while optimizing budgets and ad placements to deliver high-performing Meta Ads campaigns with measurable results and maximum ROI.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Facebook, Instagram & Messenger Ad Optimization</li>
                       <li>Behavior and Interest-Based Audience Targeting</li>
                     </ul>
@@ -125,7 +125,7 @@ export default function MetaAdsAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Strategic Campaign Planning</h3>
                           <p>We analyze your business goals, audience behavior, and current digital presence to craft Meta Ads strategies that maximize reach, engagement, and conversions.</p>
@@ -139,8 +139,8 @@ export default function MetaAdsAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Optimize Campaigns with Data-Driven Insights</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Use real-time analytics and audience behavior to refine Meta Ads targeting, creatives, and budget allocation, maximizing clicks, engagement, and ROI.</p>
+                    <h2>Optimize Campaigns with Data-Driven Insights</h2>
+                    <p data--delay="0.2s">Use real-time analytics and audience behavior to refine Meta Ads targeting, creatives, and budget allocation, maximizing clicks, engagement, and ROI.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -209,19 +209,19 @@ export default function MetaAdsAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Elevate Your Brand with Smart Meta Ads</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Utilize data-driven strategies and dynamic creatives to engage your audience, boost conversions, and maximize ROI on Facebook, Instagram, and Messenger.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Elevate Your Brand with Smart Meta Ads</h2>
+                  <p data--delay="0.4s">Utilize data-driven strategies and dynamic creatives to engage your audience, boost conversions, and maximize ROI on Facebook, Instagram, and Messenger.</p>
                 </div>
 
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Create campaigns that engage audiences, spark clicks, and drive conversions.</li>
                     <li>Our strategies are purpose-driven, ensuring every Meta Ads campaign maximizes ROI and measurable growth.</li>
                   </ul>
                 </div>
 
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -233,15 +233,6 @@ export default function MetaAdsAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -255,12 +246,12 @@ export default function MetaAdsAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

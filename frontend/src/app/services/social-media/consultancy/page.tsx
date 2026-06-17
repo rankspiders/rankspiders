@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -73,7 +73,7 @@ export default function SocialMediaConsultancyAgency() {
         title="Organic Growth"
         subtitle="Consultancy"
         breadcrumbs={[
-          { label: 'social media', href: '#' },
+          { label: 'Social Media', href: '/services/social-media' },
           { label: 'Organic Growth Consultancy', active: true }
         ]}
       />
@@ -94,14 +94,14 @@ export default function SocialMediaConsultancyAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our Organic Growth Consultancy helps businesses grow naturally and sustainably by enhancing their online presence, building a strong brand, and attracting the right audience — without relying on paid ads. Through SEO, content strategy, social media, and audience building, we create lasting digital assets that drive consistent, compounding results.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We believe real, lasting business growth comes from building genuine connections with your audience. Our consultancy combines data-driven strategy with creative execution to help your business rank higher in search, grow its social following, build brand authority, and generate a steady stream of qualified leads — all organically.</p>
+                  <p>Our Organic Growth Consultancy helps businesses grow naturally and sustainably by enhancing their online presence, building a strong brand, and attracting the right audience — without relying on paid ads. Through SEO, content strategy, social media, and audience building, we create lasting digital assets that drive consistent, compounding results.</p>
+                  <p data--delay="0.4s">We believe real, lasting business growth comes from building genuine connections with your audience. Our consultancy combines data-driven strategy with creative execution to help your business rank higher in search, grow its social following, build brand authority, and generate a steady stream of qualified leads — all organically.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Real Growth. <span>Sustainable Results.</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Organic growth is the most cost-effective and sustainable form of business growth. It builds brand authority, attracts loyal customers, and creates compounding returns that paid advertising simply cannot match over the long term. Our consultancy helps you unlock this potential systematically and strategically.</p>
+                    <h2 data--delay="0.4s">Real Growth. <span>Sustainable Results.</span></h2>
+                    <p data--delay="0.6s">Organic growth is the most cost-effective and sustainable form of business growth. It builds brand authority, attracts loyal customers, and creates compounding returns that paid advertising simply cannot match over the long term. Our consultancy helps you unlock this potential systematically and strategically.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Increased Organic Traffic Without Paid Ads</li>
                       <li>Higher Engagement & Audience Conversions</li>
                       <li>Stronger Brand Visibility & Authority</li>
@@ -110,7 +110,7 @@ export default function SocialMediaConsultancyAgency() {
                       <li>Better ROI Without Dependence on Paid Ads</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified Growth Consultants</h3>
                         <p>Our experienced consultants bring expertise in SEO, content marketing, social media strategy, and audience psychology — helping you identify the fastest path to organic growth and execute it with precision.</p>
@@ -129,8 +129,8 @@ export default function SocialMediaConsultancyAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Our Organic Growth Consultancy Services</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We provide a comprehensive range of organic growth services — from strategy development and SEO to social media and brand authority building — giving your business everything it needs to grow naturally and sustainably online.</p>
+                    <h2>Our Organic Growth Consultancy Services</h2>
+                    <p data--delay="0.2s">We provide a comprehensive range of organic growth services — from strategy development and SEO to social media and brand authority building — giving your business everything it needs to grow naturally and sustainably online.</p>
 
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
@@ -143,7 +143,7 @@ export default function SocialMediaConsultancyAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Growth Strategy Development</h3>
                           <p>We analyze your current online presence, identify growth opportunities, and develop a clear, actionable organic growth roadmap — tailored to your business goals, industry, and target audience for maximum impact.</p>
@@ -157,8 +157,8 @@ export default function SocialMediaConsultancyAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Grow Organically. Succeed Naturally.</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Our six core consultancy services work together to build a powerful, self-sustaining organic growth engine for your business — one that generates traffic, builds authority, and creates customers without ongoing ad spend.</p>
+                    <h2>Grow Organically. Succeed Naturally.</h2>
+                    <p data--delay="0.2s">Our six core consultancy services work together to build a powerful, self-sustaining organic growth engine for your business — one that generates traffic, builds authority, and creates customers without ongoing ad spend.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -193,18 +193,18 @@ export default function SocialMediaConsultancyAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Powering Sustainable Growth Naturally and Sustainably</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We believe that the most valuable business growth is the kind that doesn't stop when you stop spending. At Rank Spiders, our Organic Growth Consultancy is built on the principle that consistent strategy, quality content, and genuine audience engagement create compounding results that paid advertising never can.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Powering Sustainable Growth Naturally and Sustainably</h2>
+                  <p data--delay="0.4s">We believe that the most valuable business growth is the kind that doesn't stop when you stop spending. At Rank Spiders, our Organic Growth Consultancy is built on the principle that consistent strategy, quality content, and genuine audience engagement create compounding results that paid advertising never can.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>We analyze your business and identify the most effective organic growth opportunities specific to your industry and audience.</li>
                     <li>Every strategy we develop is rooted in data, ensuring measurable improvements in traffic, engagement, leads, and long-term revenue.</li>
                     <li>Our consultancy builds lasting digital assets — not short-term wins — that continue delivering value for your business for years to come.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">Get Your Free Consultation</Link>
                 </div>
               </div>
@@ -215,15 +215,6 @@ export default function SocialMediaConsultancyAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing organic growth ROI by Rank Spiders" />
@@ -237,12 +228,12 @@ export default function SocialMediaConsultancyAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}

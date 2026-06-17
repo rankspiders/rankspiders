@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -13,12 +13,12 @@ export default function ContentWritingAgency() {
     {
       id: 1,
       question: "1. What types of content do you write?",
-      answer: "We write SEO-optimised blog posts and articles, website copy, service and landing page content, case studies, whitepapers, email sequences, product descriptions, social media captions, and press releases—covering the full content spectrum for digital marketing."
+      answer: "We write SEO-optimised blog posts and articles, website copy, service and landing page content, case studies, whitepapers, email sequences, product descriptions, social media captions, and press releasesâ€”covering the full content spectrum for digital marketing."
     },
     {
       id: 2,
       question: "2. How do you ensure the content ranks in search engines?",
-      answer: "Every piece of content we write is built on keyword research, search intent analysis, competitor content gap audits, and proper on-page SEO structure—headers, meta descriptions, internal linking, and schema where applicable."
+      answer: "Every piece of content we write is built on keyword research, search intent analysis, competitor content gap audits, and proper on-page SEO structureâ€”headers, meta descriptions, internal linking, and schema where applicable."
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ export default function ContentWritingAgency() {
     {
       id: 5,
       question: "5. How do you handle revisions?",
-      answer: "All our content packages include revision rounds. We work collaboratively until the content meets your standards. Our goal is to get it right first time—which our detailed briefing process usually achieves."
+      answer: "All our content packages include revision rounds. We work collaboratively until the content meets your standards. Our goal is to get it right first timeâ€”which our detailed briefing process usually achieves."
     }
   ];
 
@@ -57,20 +57,20 @@ export default function ContentWritingAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Content is the foundation of every digital marketing strategy. We write content that ranks, resonates, and converts—combining deep keyword research with authentic brand storytelling that engages your audience and drives them to act.</p>
+                  <p>Content is the foundation of every digital marketing strategy. We write content that ranks, resonates, and convertsâ€”combining deep keyword research with authentic brand storytelling that engages your audience and drives them to act.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Content That <span>Ranks & Converts</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">SEO-led, brand-aligned writing that builds authority and drives measurable results.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Content That <span>Ranks & Converts</span></h2>
+                    <p data--delay="0.6s">SEO-led, brand-aligned writing that builds authority and drives measurable results.</p>
+                    <ul data--delay="0.8s">
                       <li>SEO Blog Posts & Long-Form Articles</li>
                       <li>Website & Landing Page Copy</li>
                       <li>Case Studies & Whitepapers</li>
                       <li>Email & Social Media Content</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>SEO Content Strategy</h3>
-                        <p>Keyword-driven content plans built around search intent—designed to capture and convert organic traffic.</p>
+                        <p>Keyword-driven content plans built around search intentâ€”designed to capture and convert organic traffic.</p>
                       </div>
                       <div className="strategy-body-item">
                         <h3>Brand Voice & Copywriting</h3>
@@ -96,11 +96,11 @@ export default function ContentWritingAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Great Content is the <span>Best Long-Term Investment</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Content you publish today can rank, engage, and convert for years. We write content built for longevity—not just the current algorithm.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Great Content is the <span>Best Long-Term Investment</span></h2>
+                  <p data--delay="0.4s">Content you publish today can rank, engage, and convert for years. We write content built for longevityâ€”not just the current algorithm.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">start writing</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function ContentWritingAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

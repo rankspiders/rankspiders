@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ export default function SaasSeoAgency() {
         title="Saas" 
         subtitle="Seo" 
         breadcrumbs={[
-          { label: 'seo optimization', href: '#' },
+          { label: 'SEO', href: '/services/seo' },
           { label: 'Saas Seo', active: true }
         ]} 
       />
@@ -70,24 +70,24 @@ export default function SaasSeoAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <h2 className="wow fadeInUp" data-wow-delay="0.4s">Professional SaaS SEO Services<span> in India to Increase Traffic</span></h2>
-                  <p className="wow fadeInUp">We specialize in providing advanced SaaS SEO services that empower software and technology companies to achieve long-term, consistent organic growth. Our approach focuses on more than just rankings — it’s about driving meaningful results through strategic optimization, targeted keyword implementation and data-backed performance analysis. By combining on-page SEO, technical enhancements and content marketing, we help SaaS businesses enhance their visibility, attract high-intent users and convert visitors into loyal customers. Each campaign is tailored to your unique goals, ensuring measurable improvements in search presence, lead quality and overall brand authority.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">Whether you’re a fast-growing SaaS startup or a well-established enterprise, our SaaS SEO Agency in Mohali, India delivers the expertise and precision needed to dominate competitive markets. From keyword research to link-building, analytics and conversion optimization, we handle every aspect of your organic growth strategy. With a proven track record in driving results, Rank Spiders helps you build a strong online foundation that scales with your business.</p>
+                  <h2 data--delay="0.4s">Professional SaaS SEO Services<span> in India to Increase Traffic</span></h2>
+                  <p>We specialize in providing advanced SaaS SEO services that empower software and technology companies to achieve long-term, consistent organic growth. Our approach focuses on more than just rankings — it’s about driving meaningful results through strategic optimization, targeted keyword implementation and data-backed performance analysis. By combining on-page SEO, technical enhancements and content marketing, we help SaaS businesses enhance their visibility, attract high-intent users and convert visitors into loyal customers. Each campaign is tailored to your unique goals, ensuring measurable improvements in search presence, lead quality and overall brand authority.</p>
+                  <p data--delay="0.2s">Whether you’re a fast-growing SaaS startup or a well-established enterprise, our SaaS SEO Agency in Mohali, India delivers the expertise and precision needed to dominate competitive markets. From keyword research to link-building, analytics and conversion optimization, we handle every aspect of your organic growth strategy. With a proven track record in driving results, Rank Spiders helps you build a strong online foundation that scales with your business.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">What is <span>SaaS SEO?</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">SaaS SEO is the process of optimizing your software-as-a-service website to attract and convert users actively searching for solutions your product offers. Unlike traditional SEO, it requires a strategic blend of technical optimization, content marketing and conversion-focused execution tailored to the SaaS model. The goal is to boost visibility, generate qualified leads and establish long-term organic growth.</p>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Our SaaS SEO experts help software companies rank for competitive, high-intent keywords and turn organic traffic into paying customers. As one of the best SaaS SEO agencies, we understand metrics like user acquisition cost, retention rate and recurring revenue, ensuring every optimization drives measurable business impact. With the best rated SEO for SaaS, your brand gains visibility, authority and growth consistency.</p>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Importance of SaaS SEO:</p>
+                    <h2 data--delay="0.4s">What is <span>SaaS SEO?</span></h2>
+                    <p data--delay="0.6s">SaaS SEO is the process of optimizing your software-as-a-service website to attract and convert users actively searching for solutions your product offers. Unlike traditional SEO, it requires a strategic blend of technical optimization, content marketing and conversion-focused execution tailored to the SaaS model. The goal is to boost visibility, generate qualified leads and establish long-term organic growth.</p>
+                    <p data--delay="0.6s">Our SaaS SEO experts help software companies rank for competitive, high-intent keywords and turn organic traffic into paying customers. As one of the best SaaS SEO agencies, we understand metrics like user acquisition cost, retention rate and recurring revenue, ensuring every optimization drives measurable business impact. With the best rated SEO for SaaS, your brand gains visibility, authority and growth consistency.</p>
+                    <p data--delay="0.6s">Importance of SaaS SEO:</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Increases organic visibility and helps SaaS companies rank higher in competitive niches.</li>
                       <li>Drives qualified traffic by targeting users searching for software-based solutions.</li>
                       <li>Builds long-term growth through sustainable, non-paid acquisition strategies.</li>
                       <li>Improves conversions and MRR, helping SaaS brands scale efficiently with the best SEO agency for SaaS and best SEO SaaS companies.</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>SaaS SEO Specialists</h3>
                         <p>SaaS SEO strategies driving growth and conversions.</p>
@@ -106,10 +106,10 @@ export default function SaasSeoAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Our SaaS SEO Services</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">At Rank Spiders, our comprehensive Professional SaaS SEO Services are built to strengthen every stage of your growth funnel from brand awareness to customer acquisition. As a trusted SaaS SEO agency, we craft tailored strategies that align with your business goals, ensuring your software brand attracts high-intent users, improves conversions and scales organically. By combining data-driven insights with proven optimization methods, we help SaaS platforms grow sustainably in competitive markets. Whether you’re a startup or looking for enterprise SaaS SEO solutions, Rank Spiders delivers measurable results through precision, consistency and performance-focused execution.</p>
+                    <h2>Our SaaS SEO Services</h2>
+                    <p data--delay="0.2s">At Rank Spiders, our comprehensive Professional SaaS SEO Services are built to strengthen every stage of your growth funnel from brand awareness to customer acquisition. As a trusted SaaS SEO agency, we craft tailored strategies that align with your business goals, ensuring your software brand attracts high-intent users, improves conversions and scales organically. By combining data-driven insights with proven optimization methods, we help SaaS platforms grow sustainably in competitive markets. Whether you’re a startup or looking for enterprise SaaS SEO solutions, Rank Spiders delivers measurable results through precision, consistency and performance-focused execution.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Bespoke SEO Campaigns for SaaS Success</li>
                       <li>Cohesive Multi-Channel SaaS Visibility</li>
                     </ul>
@@ -125,7 +125,7 @@ export default function SaasSeoAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>SaaS SEO Audit</h3>
                           <p>A detailed website audit to uncover technical issues, improve on-page structure and enhance visibility. Our process ensures your site meets Google’s performance standards while staying optimized for both users and search engines.</p>
@@ -159,8 +159,8 @@ export default function SaasSeoAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Our SaaS SEO Process</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">At Rank Spiders, we follow a strategic and data-driven approach to ensure your SaaS business achieves long-term organic growth and visibility. Our process combines in-depth research, technical excellence and creative execution — the foundation that makes us a trusted SaaS SEO company for brands seeking measurable results. Every step is designed to enhance discoverability, attract qualified leads and strengthen your online authority through effective SaaS SEO marketing</p>
+                    <h2>Our SaaS SEO Process</h2>
+                    <p data--delay="0.2s">At Rank Spiders, we follow a strategic and data-driven approach to ensure your SaaS business achieves long-term organic growth and visibility. Our process combines in-depth research, technical excellence and creative execution — the foundation that makes us a trusted SaaS SEO company for brands seeking measurable results. Every step is designed to enhance discoverability, attract qualified leads and strengthen your online authority through effective SaaS SEO marketing</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -209,19 +209,19 @@ export default function SaasSeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Why Choose Rank Spiders for SaaS SEO</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Choosing Rank Spiders means partnering with a data-driven SEO agency for SaaS companies that understands the unique challenges of growing and scaling subscription-based businesses. We bring together technical precision, content expertise and analytics-driven execution to build strategies that deliver measurable results. As a trusted SEO agency SaaS provider, we focus on driving high-quality traffic, improving MRR (Monthly Recurring Revenue) and boosting customer acquisition through customized campaigns. Our SaaS website SEO strategies are designed to strengthen your online visibility, enhance conversions and build lasting authority. With transparent reporting, measurable ROI and consistent growth, we’re recognized as one of the best agencies offering SEO for SaaS companies in India.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Why Choose Rank Spiders for SaaS SEO</h2>
+                  <p data--delay="0.4s">Choosing Rank Spiders means partnering with a data-driven SEO agency for SaaS companies that understands the unique challenges of growing and scaling subscription-based businesses. We bring together technical precision, content expertise and analytics-driven execution to build strategies that deliver measurable results. As a trusted SEO agency SaaS provider, we focus on driving high-quality traffic, improving MRR (Monthly Recurring Revenue) and boosting customer acquisition through customized campaigns. Our SaaS website SEO strategies are designed to strengthen your online visibility, enhance conversions and build lasting authority. With transparent reporting, measurable ROI and consistent growth, we’re recognized as one of the best agencies offering SEO for SaaS companies in India.</p>
                 </div>
 
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Experienced SaaS SEO Experts with Proven B2B Results</li>
                     <li>Transparent Reporting and Growth-Focused Campaigns</li>
                   </ul>
                 </div>
 
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -233,15 +233,6 @@ export default function SaasSeoAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -255,12 +246,12 @@ export default function SaasSeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

@@ -20,5 +20,7 @@ async def get_project_by_slug(slug: str):
         if not response.data:
             raise HTTPException(status_code=404, detail="Project not found")
         return response.data[0]
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

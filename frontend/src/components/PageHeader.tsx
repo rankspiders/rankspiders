@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 
 interface BreadcrumbItem {
@@ -20,10 +20,10 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumbs })
         <div className="row">
           <div className="col-lg-12">
             <div className="page-header-box">
-              <h1 className="wow fadeInUp" data-cursor="-opaque">
+              <h1 data-cursor="-opaque">
                 {title} <span>{subtitle}</span>
               </h1>
-              <nav className="wow fadeInUp" data-wow-delay="0.2s">
+              <nav data--delay="0.2s">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
                     <Link href="/">home</Link>

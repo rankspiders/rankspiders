@@ -86,20 +86,20 @@ export default function OnlineAdvertisingNicheIndustries() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Paid advertising in a niche market is not about spending more — it's about targeting smarter. A dental clinic, a roofing company, and a law firm all advertise on Google, but the keywords, ad copy, landing pages, and bidding strategies are completely different. We build campaigns around how your specific customers search, not generic best practices.</p>
+                  <p>Paid advertising in a niche market is not about spending more — it's about targeting smarter. A dental clinic, a roofing company, and a law firm all advertise on Google, but the keywords, ad copy, landing pages, and bidding strategies are completely different. We build campaigns around how your specific customers search, not generic best practices.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Ads Built Around Your <span>Industry & Audience</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Cookie-cutter ad strategies waste budget. Our niche advertising approach starts with understanding your market — then building campaigns that speak directly to your customers' intent at every stage of the buying journey.</p>
+                    <h2 data--delay="0.4s">Ads Built Around Your <span>Industry & Audience</span></h2>
+                    <p data--delay="0.6s">Cookie-cutter ad strategies waste budget. Our niche advertising approach starts with understanding your market — then building campaigns that speak directly to your customers' intent at every stage of the buying journey.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Niche Keyword Research & Negative Keyword Strategy</li>
                       <li>Industry-Specific Ad Copy & Creative</li>
                       <li>Local & Geographic Targeting</li>
                       <li>Conversion Tracking with Real ROI Reporting</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Industry Audit & Campaign Setup</h3>
                         <p>We research your competitors' ad strategies, identify high-intent keywords your customers are using, and structure campaigns for maximum relevance and Quality Score.</p>
@@ -118,8 +118,8 @@ export default function OnlineAdvertisingNicheIndustries() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Why Niche Ad Campaigns Outperform Generic Ones</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Broad targeting reaches everyone and converts no one. When your ad copy speaks the exact language your customer uses — references their specific problem, their location, their urgency — click-through rates and conversion rates rise dramatically. That's what niche advertising does.</p>
+                    <h2>Why Niche Ad Campaigns Outperform Generic Ones</h2>
+                    <p data--delay="0.2s">Broad targeting reaches everyone and converts no one. When your ad copy speaks the exact language your customer uses — references their specific problem, their location, their urgency — click-through rates and conversion rates rise dramatically. That's what niche advertising does.</p>
 
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
@@ -132,7 +132,7 @@ export default function OnlineAdvertisingNicheIndustries() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Lower Cost Per Lead</h3>
                           <p>Industry-specific campaigns reduce wasted spend. You pay for clicks from people who are actually looking for your exact service — not broad traffic that never converts.</p>
@@ -154,7 +154,7 @@ export default function OnlineAdvertisingNicheIndustries() {
       {/* ── Industries grid ── */}
       <div className="niche-industries-section">
         <div className="container">
-          <div className="section-title text-center section-title-center wow fadeInUp">
+          <div className="section-title text-center section-title-center ">
             <h3>Who We Advertise For</h3>
             <h2>Industries We Serve with <span>Online Advertising</span></h2>
             <p>We run paid campaigns across 16+ industries. Each sector gets a custom strategy — no copy-paste ad templates.</p>
@@ -163,7 +163,7 @@ export default function OnlineAdvertisingNicheIndustries() {
           <div className="row g-3 mt-2">
             {industries.map((ind, i) => (
               <div key={i} className="col-lg-3 col-md-4 col-6">
-                <div className="niche-industry-card wow fadeInUp" data-wow-delay={`${(i % 4) * 0.1}s`}>
+                <div className="niche-industry-card " data--delay={`${(i % 4) * 0.1}s`}>
                   <div className="niche-industry-icon">
                     <i className={ind.icon}></i>
                   </div>
@@ -173,7 +173,7 @@ export default function OnlineAdvertisingNicheIndustries() {
             ))}
           </div>
 
-          <div className="text-center mt-5 wow fadeInUp">
+          <div className="text-center mt-5 ">
             <Link href="/contact-us" className="btn-default">Get a Free Advertising Audit</Link>
           </div>
         </div>
@@ -186,11 +186,11 @@ export default function OnlineAdvertisingNicheIndustries() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Every Rupee You Spend <span>Should Come Back With Interest</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We don't run ads to spend your budget — we run ads to generate returns. Every campaign we manage is measured against cost per lead and revenue generated. If the numbers don't make sense, we stop and rebuild.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Every Rupee You Spend <span>Should Come Back With Interest</span></h2>
+                  <p data--delay="0.4s">We don't run ads to spend your budget — we run ads to generate returns. Every campaign we manage is measured against cost per lead and revenue generated. If the numbers don't make sense, we stop and rebuild.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">get a free audit</Link>
                 </div>
               </div>
@@ -208,11 +208,11 @@ export default function OnlineAdvertisingNicheIndustries() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}

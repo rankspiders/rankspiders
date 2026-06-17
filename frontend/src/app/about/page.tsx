@@ -135,11 +135,11 @@ export default function About() {
             <div className="col-lg-6">
               <div className="about-content">
                 <div className="section-title">
-                  <h3 className="wow fadeInUp">About Rank Spiders</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s">
+                  <h3>About Rank Spiders</h3>
+                  <h2 data--delay="0.2s">
                     Your Partner in <span>Digital Growth</span>
                   </h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.3s">
+                  <p data--delay="0.3s">
                     Rank Spiders is a premier{' '}
                     <strong><Link href="/services/seo">SEO and digital marketing agency in India</Link></strong>{' '}
                     dedicated to helping businesses grow online. We deliver{' '}
@@ -149,12 +149,12 @@ export default function About() {
                     <strong><Link href="/services/paid-ads/google-ads">Google Ads campaigns</Link></strong>{' '}
                     — combining data-driven strategy with creative execution to build sustainable organic growth for brands across India, Australia, and the US.
                   </p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">
+                  <p data--delay="0.4s">
                     We help businesses achieve sustainable digital growth through a strategic combination of SEO, content marketing, technical optimisation, and data-driven insights. By increasing search visibility, attracting qualified traffic, and improving conversion opportunities, we turn digital challenges into measurable business success.
                   </p>
                 </div>
 
-                <ul className="about-bullet-list wow fadeInUp" data-wow-delay="0.5s">
+                <ul className="about-bullet-list " data--delay="0.5s">
                   <li>
                     <i className="fa-solid fa-check-circle"></i>
                     <span><strong>We go beyond rankings and traffic</strong> — we focus on real business outcomes that matter to your bottom line.</span>
@@ -169,7 +169,7 @@ export default function About() {
                   </li>
                 </ul>
 
-                <div className="about-btn wow fadeInUp" data-wow-delay="0.6s">
+                <div className="about-btn " data--delay="0.6s">
                   <Link href="/contact-us" className="btn-default">Work With Us</Link>
                   <Link href="/services" className="btn-outline-hero ms-3">
                     Our Services <i className="fa-solid fa-arrow-right"></i>

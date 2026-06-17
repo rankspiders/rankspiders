@@ -50,8 +50,8 @@ export default function VideoEditing() {
           <div className="row">
             <div className="col-lg-12">
               <div className="page-header-box">
-                <h1 className="wow fadeInUp" data-cursor="-opaque">Video <span>Editing</span></h1>
-                <nav className="wow fadeInUp" data-wow-delay="0.2s">
+                <h1 data-cursor="-opaque">Video <span>Editing</span></h1>
+                <nav data--delay="0.2s">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link href="/">home</Link></li>
                     <li className="breadcrumb-item"><Link href="#">/ social media</Link></li>
@@ -69,7 +69,7 @@ export default function VideoEditing() {
           <div className="row">
             <div className="col-lg-4">
               <div className="page-single-sidebar">
-                <div className="page-category-list wow fadeInUp">
+                <div className="page-category-list ">
                   <h3>Discover Our More Services</h3>
                   <ul>
                     <li><Link href="/free-social-media-audit-agency">Free Social Media Audit</Link></li>
@@ -79,11 +79,11 @@ export default function VideoEditing() {
                     <li><Link href="/services/social-media/pinterest">Pinterest Marketing</Link></li>
                     <li><Link href="/services/content/graphic-design">Graphic Deisgn</Link></li>
                     <li><Link href="/services/social-media/youtube">Youtube Marketing</Link></li>
-                    <li><Link href="/niche-industries-agency">Niche Industries</Link></li>
+                    <li><Link href="/services/web-development/niche-industries">Niche Industries</Link></li>
                   </ul>
                 </div>
 
-                <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
+                <div className="page-cta-box sidebar-cta-box " data--delay="0.2s">
                   <div className="page-cta-header">
                     <div className="review-images">
                       <div className="review-image"><img src="/images/authors/author-1.jpg" alt="Client testimonial - Rank Spiders digital marketing agency India" /></div>
@@ -123,20 +123,20 @@ export default function VideoEditing() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our video editing services transform raw clips into high-impact, trend-ready visuals that capture attention instantly. We blend storytelling with the latest industry trends—fast-paced cuts, aesthetic transitions, AI-enhanced effects, dynamic captions, and platform-optimized formats for Reels, TikTok, YouTube Shorts, and long-form content. Every edit is crafted to elevate your brand’s personality while aligning with what today’s audiences engage with most. No generic templates—only customized, performance-driven edits designed to boost reach, retention, and conversions. With real-time trend analysis and creative precision, we turn every video into a powerful asset that strengthens your digital presence and grows your brand.</p>
+                  <p>Our video editing services transform raw clips into high-impact, trend-ready visuals that capture attention instantly. We blend storytelling with the latest industry trends—fast-paced cuts, aesthetic transitions, AI-enhanced effects, dynamic captions, and platform-optimized formats for Reels, TikTok, YouTube Shorts, and long-form content. Every edit is crafted to elevate your brand’s personality while aligning with what today’s audiences engage with most. No generic templates—only customized, performance-driven edits designed to boost reach, retention, and conversions. With real-time trend analysis and creative precision, we turn every video into a powerful asset that strengthens your digital presence and grows your brand.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Your Brand With Strategic <span>Video Editing</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We blend trend-driven editing techniques, creative storytelling, and platform-focused expertise to turn your raw footage into powerful visual content. From short-form reels to high-quality brand videos, our editing approach enhances engagement, boosts viewer retention, and strengthens your brand’s digital presence.</p>
+                    <h2 data--delay="0.4s">Boost Your Brand With Strategic <span>Video Editing</span></h2>
+                    <p data--delay="0.6s">We blend trend-driven editing techniques, creative storytelling, and platform-focused expertise to turn your raw footage into powerful visual content. From short-form reels to high-quality brand videos, our editing approach enhances engagement, boosts viewer retention, and strengthens your brand’s digital presence.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Precision Edits Crafted for Maximum Impact</li>
                       <li>Platform-Optimized Videos for Every Format</li>
                       <li>Engaging Visual Stories That Hold Attention</li>
                       <li>Performance-Driven Editing Backed by Insights</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Skilled Video Editing Professionals</h3>
                         <p>Our team is trained in advanced editing techniques, motion graphics, and modern visual styles.</p>
@@ -155,10 +155,10 @@ export default function VideoEditing() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Editing Decisions Powered by Data & Trends</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We analyze viewer behavior and engagement patterns to refine each edit in real time. Our insight-driven approach ensures every frame performs better, increases retention, and delivers consistent, impactful results that strengthen your brand’s visual presence.</p>
+                    <h2>Editing Decisions Powered by Data & Trends</h2>
+                    <p data--delay="0.2s">We analyze viewer behavior and engagement patterns to refine each edit in real time. Our insight-driven approach ensures every frame performs better, increases retention, and delivers consistent, impactful results that strengthen your brand’s visual presence.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Precision Edits Tailored for Maximum Impact</li>
                       <li>Seamless Video Delivery Across All Platforms</li>
                     </ul>
@@ -174,7 +174,7 @@ export default function VideoEditing() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Creative Direction & Footage Breakdown</h3>
                           <p>We start by understanding your brand style, goals, and audience expectations. Then we analyze your raw footage to identify the strongest moments, narratives, and visual opportunities—building a clear creative direction for your video.</p>
@@ -188,8 +188,8 @@ export default function VideoEditing() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Crafting Powerful Visual Stories Through Smart Editing</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We analyze viewer behavior, engagement patterns, and real-time performance to refine every edit with precision. Our insight-led editing approach ensures each cut, transition, and visual element is backed by data—resulting in videos that captivate audiences, boost retention, and deliver consistent, scalable growth for your brand.</p>
+                    <h2>Crafting Powerful Visual Stories Through Smart Editing</h2>
+                    <p data--delay="0.2s">We analyze viewer behavior, engagement patterns, and real-time performance to refine every edit with precision. Our insight-led editing approach ensures each cut, transition, and visual element is backed by data—resulting in videos that captivate audiences, boost retention, and deliver consistent, scalable growth for your brand.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -250,17 +250,17 @@ export default function VideoEditing() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Creativity Meets Precision in Every Edit</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We combine creative storytelling, trend-focused editing, and technical expertise to transform raw footage into engaging, high-performing videos that elevate your brand, captivate audiences, and maximize digital impact.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Creativity Meets Precision in Every Edit</h2>
+                  <p data--delay="0.4s">We combine creative storytelling, trend-focused editing, and technical expertise to transform raw footage into engaging, high-performing videos that elevate your brand, captivate audiences, and maximize digital impact.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>We create videos that captivate audiences, evoke emotions, and drive engagement</li>
                     <li>Every edit is purpose-driven, ensuring your content not only looks stunning but also delivers measurable impact.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -272,15 +272,6 @@ export default function VideoEditing() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -294,12 +285,12 @@ export default function VideoEditing() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

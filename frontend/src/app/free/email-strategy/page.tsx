@@ -13,28 +13,28 @@ export default function FreeEmailStrategyAgency() {
   const faqs = [
     {
       id: 1,
-      question: "1. What types of content do you create?",
-      answer: "We develop blogs, website content, landing pages, social media copy, video scripts, articles, and long-form resources tailored to your brand and audience."
+      question: "1. What is included in the free email strategy?",
+      answer: "You receive a tailored email marketing roadmap covering audience segmentation, campaign types, send frequency, subject line frameworks, and automation sequences designed for your business goals."
     },
     {
       id: 2,
-      question: "2. How do you ensure content aligns with our brand voice?",
-      answer: "Brand guidelines, audience insights, and industry research are reviewed to maintain consistent tone, messaging, and positioning across all content assets."
+      question: "2. How do you personalise the strategy for my business?",
+      answer: "We review your current email list, business model, competitors, and target audience before crafting a strategy that fits your specific industry and conversion goals."
     },
     {
       id: 3,
-      question: "3. Is your content optimized for search engines?",
-      answer: "Yes. Content is structured with SEO best practices to improve discoverability, readability, and organic visibility without compromising quality."
+      question: "3. Which email platforms do you support?",
+      answer: "Our strategies work with all major platforms including Mailchimp, Klaviyo, HubSpot, ActiveCampaign, and Brevo — we adapt recommendations to the platform you already use."
     },
     {
       id: 4,
-      question: "4. How do you measure content performance?",
-      answer: "Engagement metrics, traffic behavior, and conversion indicators are monitored to evaluate effectiveness and guide ongoing content improvements."
+      question: "4. How quickly will I receive my email strategy?",
+      answer: "Most free email strategies are delivered within 2–3 business days after our initial discovery call or questionnaire is completed."
     },
     {
       id: 5,
-      question: "5. Can content be tailored for specific industries?",
-      answer: "Absolutely. Content strategies and messaging are customized to reflect industry-specific audiences, trends, and communication needs."
+      question: "5. Is there any commitment required after the free strategy?",
+      answer: "None at all. The strategy is yours to keep and implement independently. We simply hope the quality speaks for itself and you choose to work with us."
     }
   ];
 
@@ -45,11 +45,11 @@ export default function FreeEmailStrategyAgency() {
           <div className="row">
             <div className="col-lg-12">
               <div className="page-header-box">
-                <h1 className="wow fadeInUp" data-cursor="-opaque">Free <span> Email Strategy</span></h1>
-                <nav className="wow fadeInUp" data-wow-delay="0.2s">
+                <h1 data-cursor="-opaque">Free <span> Email Strategy</span></h1>
+                <nav data--delay="0.2s">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link href="/">home</Link></li>
-                    <li className="breadcrumb-item"><Link href="#">/ Content Writing</Link></li>
+                    <li className="breadcrumb-item"><Link href="/services/content/email-marketing">/ Email Marketing</Link></li>
                   </ol>
                 </nav>
               </div>
@@ -63,15 +63,15 @@ export default function FreeEmailStrategyAgency() {
           <div className="row">
             <div className="col-lg-4">
               <div className="page-single-sidebar">
-                <div className="page-category-list wow fadeInUp">
+                <div className="page-category-list ">
                   <h3>Discover Our More Services</h3>
                   <ul>
                     <li><Link href="/free/demo-content">Free Demo Content</Link></li>
-                    <li><Link href="/niche-industries-agency">Niche Industries</Link></li>
+                    <li><Link href="/services/web-development/niche-industries">Niche Industries</Link></li>
                   </ul>
                 </div>
 
-                <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
+                <div className="page-cta-box sidebar-cta-box " data--delay="0.2s">
                   <div className="page-cta-header">
                     <div className="review-images">
                       <div className="review-image">
@@ -123,28 +123,28 @@ export default function FreeEmailStrategyAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Effective content is more than words—it’s a bridge between your brand and your audience. Our Content Writing services craft compelling narratives across blogs, websites, social media, newsletters, and video scripts that educate, engage, and inspire action.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">By analyzing audience behavior, market trends, and competitive landscapes, we develop data-informed content strategies tailored to your brand voice. Every article, guide, or post is designed to attract the right audience, enhance credibility, and convert readers into loyal customers. From SEO optimization to storytelling techniques, we ensure your content delivers measurable engagement, amplifies visibility, and drives sustainable digital growth.</p>
+                  <p>Email remains the highest-ROI digital marketing channel — and a well-executed strategy is the difference between a list that grows revenue and one that collects dust. Our Free Email Strategy gives you a clear, actionable blueprint built around your audience, goals, and the platforms you already use.</p>
+                  <p data--delay="0.4s">We review your current email activity, subscriber behaviour, and competitive landscape to produce a personalised roadmap covering segmentation, automation, campaign cadence, and copywriting frameworks. You walk away with a strategy you can implement immediately — no lock-in, no generic templates.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Premium Content <span>Designed for Engagement</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Our content strategies combine storytelling, audience research, and SEO optimization. From articles to social posts and video scripts, every piece educates, engages, and inspires action, delivering consistent brand visibility and long-term audience loyalty.</p>
+                    <h2 data--delay="0.4s">A Complete Email Roadmap — <span>Built For Your Business</span></h2>
+                    <p data--delay="0.6s">Your free strategy covers every stage of the email funnel: list growth tactics, welcome sequences, nurture flows, promotional campaigns, and re-engagement series. Each recommendation is tied to measurable outcomes so you know exactly what success looks like.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
-                      <li>Brand-Consistent Voice & Tone</li>
-                      <li>Conversion-Focused Content Creation</li>
-                      <li>Trend-Aligned Topic Development</li>
-                      <li>Cross-Platform Content Optimization</li>
+                    <ul data--delay="0.8s">
+                      <li>Audience Segmentation & Personalisation Framework</li>
+                      <li>Automation Sequences That Convert on Autopilot</li>
+                      <li>Subject Line & Preview Text Formulas</li>
+                      <li>Send-Time & Frequency Recommendations</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
-                        <h3>Professional Content Writers Delivering Measurable Results</h3>
-                        <p>Expertly crafted content tailored for audience engagement.</p>
+                        <h3>Certified Email Marketing Specialists</h3>
+                        <p>Experts in deliverability, automation, and revenue-focused campaigns.</p>
                       </div>
                       <div className="strategy-body-item">
-                        <h3>Insight-Led Strategies Maximizing Content Performance</h3>
-                        <p>Data-backed plans driving visibility, traffic, and conversions.</p>
+                        <h3>Data-Driven Audience Intelligence</h3>
+                        <p>Segmentation and behavioural insights that drive opens, clicks, and sales.</p>
                       </div>
                     </div>
 
@@ -156,12 +156,12 @@ export default function FreeEmailStrategyAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Results-Oriented Content Performance</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Content impact is measured through engagement signals, reader behavior, and conversion patterns. These insights guide continuous refinement, ensuring every article, page, or script strengthens reach, sharpens messaging, and supports consistent brand growth.</p>
+                    <h2>Email Metrics That Drive Strategy</h2>
+                    <p data--delay="0.2s">Your strategy is built on real data — open rates, click-through rates, list churn, and revenue-per-subscriber benchmarks for your industry. This gives every recommendation a measurable baseline and a clear improvement target.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
-                      <li>Content Performance Monitoring</li>
-                      <li>Conversion-Focused Content Optimization</li>
+                    <ul data--delay="0.4s">
+                      <li>Industry Benchmarking & Gap Analysis</li>
+                      <li>Revenue Attribution & Conversion Mapping</li>
                     </ul>
 
                     <div className="service-growth-body">
@@ -175,22 +175,22 @@ export default function FreeEmailStrategyAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
-                          <h3>Strategic Messaging Framework</h3>
-                          <p>Clear, structured messaging is developed by aligning brand objectives with audience intent and market demand. This approach ensures content remains consistent, purposeful, and positioned to support long-term visibility and credibility.</p>
+                          <h3>List Segmentation Blueprint</h3>
+                          <p>Your subscriber list is divided into behavioural and demographic segments so every email reaches the right person with the right message at the right time, improving both engagement and deliverability.</p>
                         </div>
                         <div className="service-growth-item">
-                          <h3>Content Development & Impact Optimization</h3>
-                          <p>Written assets are produced with precision and adapted across platforms to maximize reach and engagement. Continuous evaluation of performance signals allows content to evolve, improve effectiveness, and consistently support business growth.</p>
+                          <h3>Automation Flow Design</h3>
+                          <p>We map out welcome sequences, abandoned-cart flows, post-purchase nurture, and win-back campaigns that run 24/7 — turning your list into a revenue engine without ongoing manual effort.</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Precision Content That Fuels Brand Momentum</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Modern content demands clarity, relevance, and purpose. Our content writing approach focuses on crafting high-impact narratives that align with audience intent and platform behavior. From long-form articles to short-form digital copy, each piece is thoughtfully structured to enhance visibility, deepen engagement, and support sustainable brand growth through consistent, measurable performance.</p>
+                    <h2>What Your Free Email Strategy Covers</h2>
+                    <p data--delay="0.2s">Our strategy document is a practical, ready-to-implement guide — not a generic slide deck. It maps out exactly how to grow your list, improve open rates, automate revenue, and keep subscribers engaged through every stage of the customer lifecycle.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -206,44 +206,44 @@ export default function FreeEmailStrategyAgency() {
                     </div>
 
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Audience-First Content Development</h3>
-                      <p>Content is crafted around audience intent, preferences, and behavior, ensuring relevance, stronger engagement, and meaningful connections across every digital touchpoint and platform.</p>
+                      <h3>Audience Segmentation Plan</h3>
+                      <p>A structured breakdown of your subscriber list into meaningful segments based on behaviour, purchase history, and engagement level so every send feels personal and relevant.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Strategic Topic & Keyword Planning</h3>
-                      <p>Topics are selected through research-driven planning to align search demand, industry trends, and brand objectives, supporting consistent visibility and long-term content performance.</p>
+                      <h3>Welcome & Onboarding Sequence</h3>
+                      <p>A multi-step welcome series designed to build trust, set expectations, and guide new subscribers toward their first conversion within days of joining your list.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Brand-Aligned Messaging Frameworks</h3>
-                      <p>Every piece maintains a consistent voice, tone, and narrative structure, reinforcing brand identity while communicating value clearly and effectively to target audiences.</p>
+                      <h3>Campaign Calendar Framework</h3>
+                      <p>A 90-day send calendar covering promotional campaigns, newsletters, seasonal moments, and nurture emails — with recommended frequency to maximise engagement without burning out subscribers.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>SEO-Optimized Content Structuring</h3>
-                      <p>Content is strategically structured with optimized headings, internal links, and formatting to improve discoverability, readability, and organic search performance.</p>
+                      <h3>Subject Line Formula Bank</h3>
+                      <p>Proven subject line structures and preview text formulas tailored to your audience and campaign type, tested to improve open rates across industries.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Conversion-Focused Writing Approach</h3>
-                      <p>Clear messaging, persuasive language, and strategic CTAs guide readers toward desired actions, supporting lead generation, engagement, and measurable business outcomes.</p>
+                      <h3>Automation Flow Map</h3>
+                      <p>Visual mapping of your core automation sequences — welcome, abandoned cart, post-purchase, re-engagement — with trigger logic, timing, and copy direction for each step.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Multi-Format Content Creation</h3>
-                      <p>Content is developed across blogs, landing pages, social copy, and scripts to ensure consistent messaging and adaptability across platforms and audience touchpoints.</p>
+                      <h3>List Growth Tactics</h3>
+                      <p>Practical lead magnet ideas, pop-up timing strategies, and landing page recommendations to grow your subscriber base with qualified, high-intent contacts.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Editorial Quality & Accuracy Control</h3>
-                      <p>Each asset undergoes quality checks for clarity, accuracy, and consistency, ensuring professional standards and credibility across all published content.</p>
+                      <h3>Deliverability Health Check</h3>
+                      <p>Review of sending domain reputation, list hygiene practices, and authentication setup (SPF, DKIM, DMARC) to ensure emails land in inboxes, not spam folders.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Performance Monitoring & Refinement</h3>
-                      <p>Engagement metrics and behavioral insights are reviewed regularly to refine content strategies, improve effectiveness, and maintain relevance over time.</p>
+                      <h3>A/B Testing Roadmap</h3>
+                      <p>A structured plan for testing subject lines, send times, CTA copy, and email layouts so your campaigns improve continuously with every send.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Trend-Aware Content Positioning</h3>
-                      <p>Content aligns with emerging topics, audience interests, and platform trends to keep brands current, competitive, and visible in evolving digital environments.</p>
+                      <h3>KPI & Success Metrics</h3>
+                      <p>Clear benchmarks for open rate, click-through rate, unsubscribe rate, and revenue-per-email so you always know whether your campaigns are performing or need adjustment.</p>
                     </div>
                     <div className="service-growth-item" style={{ paddingTop: '30px' }}>
-                      <h3>Scalable Content Growth Strategy</h3>
-                      <p>A structured content roadmap supports consistent publishing, long-term authority building, and sustainable growth without compromising quality or strategic direction.</p>
+                      <h3>Platform-Specific Recommendations</h3>
+                      <p>Tailored guidance for your chosen email platform — from automation builder tips to template design best practices — so you can execute the strategy confidently from day one.</p>
                     </div>
                   </div>
                 </div>
@@ -259,17 +259,17 @@ export default function FreeEmailStrategyAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Building Content with Purpose and Precision</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Effective content is built on clarity, relevance, and intent. Our approach focuses on shaping meaningful narratives that align with audience expectations and business objectives. From long-form editorial pieces to short-form digital content, every asset is developed to engage attention, communicate value, and support consistent brand growth through measurable outcomes.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Email That Earns Trust and Drives Revenue</h2>
+                  <p data--delay="0.4s">We believe email should be your most reliable revenue channel — not an afterthought. Great email strategy is built on understanding your audience deeply, sending the right message at the right moment, and measuring every outcome. That is exactly what your free strategy delivers.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
-                    <li>Content is crafted to align with audience intent, encourage interaction, and guide readers toward meaningful engagement across every digital touchpoint.</li>
-                    <li>Each content initiative is strategically structured to support brand objectives, strengthen credibility, and generate consistent, measurable outcomes.</li>
+                    <li>Every recommendation is grounded in data — subscriber behaviour, industry benchmarks, and conversion psychology — not guesswork.</li>
+                    <li>The strategy is designed to be implemented immediately, giving you a clear action plan that generates results from the very first campaign.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -281,15 +281,6 @@ export default function FreeEmailStrategyAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -303,12 +294,12 @@ export default function FreeEmailStrategyAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

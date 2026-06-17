@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ export default function PinterestMarketingAgency() {
         title="Pinterest"
         subtitle="Marketing"
         breadcrumbs={[
-          { label: 'social media', href: '#' },
+          { label: 'Social Media', href: '/services/social-media' },
           { label: 'Pinterest Marketing', active: true }
         ]}
       />
@@ -67,14 +67,14 @@ export default function PinterestMarketingAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our Pinterest marketing services help your brand tap into one of the world's most powerful visual discovery platforms. With over 450 million active monthly users actively searching for ideas, products, and inspiration, Pinterest offers unmatched potential to drive high-intent traffic, increase brand visibility, and generate consistent sales.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We combine strategic profile optimization, creative pin design, keyword-rich descriptions, and targeted growth campaigns to build a Pinterest presence that works around the clock for your business. Every pin we create is designed to attract the right audience, increase saves and clicks, and convert browsers into buyers.</p>
+                  <p>Our Pinterest marketing services help your brand tap into one of the world's most powerful visual discovery platforms. With over 450 million active monthly users actively searching for ideas, products, and inspiration, Pinterest offers unmatched potential to drive high-intent traffic, increase brand visibility, and generate consistent sales.</p>
+                  <p data--delay="0.4s">We combine strategic profile optimization, creative pin design, keyword-rich descriptions, and targeted growth campaigns to build a Pinterest presence that works around the clock for your business. Every pin we create is designed to attract the right audience, increase saves and clicks, and convert browsers into buyers.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Turn Inspiration into Action — <span>Grow Your Brand with Pinterest</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Pinterest is not just a social platform — it is a visual search engine. Our Pinterest marketing strategies are designed to position your brand where your ideal customers are already looking, delivering traffic and engagement that compounds over time.</p>
+                    <h2 data--delay="0.4s">Turn Inspiration into Action — <span>Grow Your Brand with Pinterest</span></h2>
+                    <p data--delay="0.6s">Pinterest is not just a social platform — it is a visual search engine. Our Pinterest marketing strategies are designed to position your brand where your ideal customers are already looking, delivering traffic and engagement that compounds over time.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Professional Pinterest Profile Optimization</li>
                       <li>Custom Pinterest Growth Strategy</li>
                       <li>Eye-Catching Pin Creation & Design</li>
@@ -83,7 +83,7 @@ export default function PinterestMarketingAgency() {
                       <li>Analytics, Reporting & Continuous Optimization</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Creative Pinterest Specialists</h3>
                         <p>Our Pinterest experts combine platform knowledge, visual creativity, and SEO strategy to build boards and pins that rank, get discovered, and consistently drive traffic to your website.</p>
@@ -102,8 +102,8 @@ export default function PinterestMarketingAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Our Pinterest Marketing Services</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">From profile setup to ongoing campaign management, we cover every element of Pinterest marketing to ensure your brand gets discovered, followed, and clicked by the right audience every single day.</p>
+                    <h2>Our Pinterest Marketing Services</h2>
+                    <p data--delay="0.2s">From profile setup to ongoing campaign management, we cover every element of Pinterest marketing to ensure your brand gets discovered, followed, and clicked by the right audience every single day.</p>
 
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
@@ -116,7 +116,7 @@ export default function PinterestMarketingAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Profile Optimization</h3>
                           <p>We create and optimize a professional Pinterest business profile that builds trust, attracts followers, and signals relevance to Pinterest's algorithm — giving your brand the best possible foundation for organic growth.</p>
@@ -130,8 +130,8 @@ export default function PinterestMarketingAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Pin Creation, Targeted Growth & Analytics</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Compelling visuals, strategic targeting, and data-backed optimization work together to grow your Pinterest presence and drive consistent, high-quality traffic to your website month after month.</p>
+                    <h2>Pin Creation, Targeted Growth & Analytics</h2>
+                    <p data--delay="0.2s">Compelling visuals, strategic targeting, and data-backed optimization work together to grow your Pinterest presence and drive consistent, high-quality traffic to your website month after month.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -184,18 +184,18 @@ export default function PinterestMarketingAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Pin Today. Grow Tomorrow.</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Pinterest rewards consistency, creativity, and strategy. At Rank Spiders, we treat every pin as an opportunity to attract your ideal customer, tell your brand story, and drive traffic that converts. Our Pinterest marketing approach is built for sustainable, compounding growth that delivers results long after each pin is published.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Pin Today. Grow Tomorrow.</h2>
+                  <p data--delay="0.4s">Pinterest rewards consistency, creativity, and strategy. At Rank Spiders, we treat every pin as an opportunity to attract your ideal customer, tell your brand story, and drive traffic that converts. Our Pinterest marketing approach is built for sustainable, compounding growth that delivers results long after each pin is published.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Increase brand visibility and reach audiences who are actively searching for what you offer.</li>
                     <li>Drive consistent, high-quality website traffic that converts into leads and sales.</li>
                     <li>Build a strong Pinterest presence that compounds and grows in value over time.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">Get Started Today</Link>
                 </div>
               </div>
@@ -207,15 +207,6 @@ export default function PinterestMarketingAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing Pinterest marketing ROI by Rank Spiders" />
@@ -229,12 +220,12 @@ export default function PinterestMarketingAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}

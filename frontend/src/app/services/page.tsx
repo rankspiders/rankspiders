@@ -8,7 +8,7 @@ import PageHeader from '@/components/PageHeader';
 function ServicesAccordion({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="accordion-item wow fadeInUp">
+    <div className="accordion-item ">
       <h2 className="accordion-header">
         <button
           className={`accordion-button ${open ? '' : 'collapsed'}`}
@@ -136,14 +136,14 @@ export default function Services() {
           <div className="row align-items-center g-5">
             <div className="col-lg-5">
               <div className="section-title">
-                <h3 className="wow fadeInUp">Digital Marketing Services India</h3>
-                <h2 className="wow fadeInUp" data-wow-delay="0.2s">
+                <h3>Digital Marketing Services India</h3>
+                <h2 data--delay="0.2s">
                   Services Built to <span>Drive Real Growth</span>
                 </h2>
-                <p className="wow fadeInUp" data-wow-delay="0.3s">
+                <p data--delay="0.3s">
                   Where SEO meets performance — we drive rankings, traffic, leads, and revenue through data-driven digital marketing strategies tailored to your business goals.
                 </p>
-                <div className="services-hero-points wow fadeInUp" data-wow-delay="0.4s">
+                <div className="services-hero-points " data--delay="0.4s">
                   <div className="services-hero-point">
                     <i className="fa-solid fa-chart-line"></i>
                     <div>
@@ -173,13 +173,13 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                <div className="wow fadeInUp" data-wow-delay="0.6s" style={{marginTop: '1.5rem'}}>
+                <div data--delay="0.6s" style={{marginTop: '1.5rem'}}>
                   <Link href="/contact-us" className="btn-default">Get a Free Strategy Session</Link>
                 </div>
               </div>
             </div>
             <div className="col-lg-7">
-              <div className="services-hero-image wow fadeInUp" data-wow-delay="0.2s">
+              <div className="services-hero-image " data--delay="0.2s">
                 <img
                   src="/images/services/seo-growth-infographic.png"
                   alt="Rank Spiders 4-pillar SEO optimization framework — AI-powered SEO, content-led optimization, performance-first technical SEO, and data-backed growth measurement for digital marketing services India"
@@ -203,7 +203,7 @@ export default function Services() {
               { value: "3X", label: "Average Traffic Growth", icon: "fa-solid fa-arrow-trend-up" },
             ].map((stat, i) => (
               <div key={i} className="col-lg-3 col-md-6">
-                <div className="services-stat-card wow fadeInUp" data-wow-delay={`${i * 0.1}s`}>
+                <div className="services-stat-card " data--delay={`${i * 0.1}s`}>
                   <i className={stat.icon}></i>
                   <h3>{stat.value}</h3>
                   <p>{stat.label}</p>
@@ -217,7 +217,7 @@ export default function Services() {
       {/* ── Growth framework ── */}
       <div className="services-framework-section">
         <div className="container">
-          <div className="section-title text-center section-title-center wow fadeInUp">
+          <div className="section-title text-center section-title-center ">
             <h3>How We Grow Your Business</h3>
             <h2>Our <span>4-Pillar Growth Framework</span></h2>
             <p>Every service we deliver is grounded in a proven methodology that connects your SEO investment to tangible business outcomes.</p>
@@ -250,7 +250,7 @@ export default function Services() {
               },
             ].map((item, i) => (
               <div key={i} className="col-lg-3 col-md-6">
-                <div className="services-framework-card wow fadeInUp" data-wow-delay={`${i * 0.1}s`}>
+                <div className="services-framework-card " data--delay={`${i * 0.1}s`}>
                   <div className="framework-icon"><i className={item.icon}></i></div>
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
@@ -269,7 +269,7 @@ export default function Services() {
       {/* ── Featured service cards ── */}
       <div className="services-featured-section">
         <div className="container">
-          <div className="section-title text-center section-title-center wow fadeInUp">
+          <div className="section-title text-center section-title-center ">
             <h3>What We Do</h3>
             <h2>Full-Service Digital Marketing <span>Under One Roof</span></h2>
             <p>From organic search to paid ads, from website builds to content strategy — we handle every channel your brand needs to grow online.</p>
@@ -278,7 +278,7 @@ export default function Services() {
           <div className="row g-4 mt-2">
             {servicesList.map((service, index) => (
               <div key={index} className="col-lg-4 col-md-6">
-                <Link href={service.link} className="services-feature-card wow fadeInUp" data-wow-delay={`${index * 0.1}s`}>
+                <Link href={service.link} className="services-feature-card " data--delay={`${index * 0.1}s`}>
                   <div className="services-feature-img">
                     <img src={service.image} alt={service.title} />
                     <div className="services-feature-icon">
@@ -302,7 +302,7 @@ export default function Services() {
       {/* ── Full service directory ── */}
       <div className="services-directory-section">
         <div className="container">
-          <div className="section-title text-center section-title-center wow fadeInUp">
+          <div className="section-title text-center section-title-center ">
             <h3>Complete Service List</h3>
             <h2>Every Service We <span>Offer</span></h2>
           </div>
@@ -310,7 +310,7 @@ export default function Services() {
           <div className="row g-4 mt-2">
             {allServices.map((group, gi) => (
               <div key={gi} className="col-lg-4 col-md-6">
-                <div className="services-dir-group wow fadeInUp" data-wow-delay={`${gi * 0.1}s`}>
+                <div className="services-dir-group " data--delay={`${gi * 0.1}s`}>
                   <h4 className="services-dir-category">{group.category}</h4>
                   <ul className="services-dir-list">
                     {group.items.map((item, ii) => (
@@ -332,7 +332,7 @@ export default function Services() {
       {/* ── Services FAQ ── */}
       <div className="container">
         <div className="page-single-faqs">
-          <div className="section-title text-center section-title-center wow fadeInUp">
+          <div className="section-title text-center section-title-center ">
             <h3>Common Questions</h3>
             <h2>Frequently Asked <span>Questions</span></h2>
           </div>
@@ -381,18 +381,18 @@ export default function Services() {
       <div className="services-cta-section">
         <div className="container">
           <div className="row align-items-center g-5">
-            <div className="col-lg-6 wow fadeInUp">
+            <div className="col-lg-6 ">
               <div className="section-title">
                 <h3>Not sure where to start?</h3>
                 <h2>Get a Free <span>Strategy Session</span></h2>
                 <p>Tell us about your business and goals. We&apos;ll recommend the right channels, set realistic expectations, and show you what growth looks like for your industry.</p>
               </div>
-              <div className="services-cta-btn wow fadeInUp" data-wow-delay="0.2s">
+              <div className="services-cta-btn " data--delay="0.2s">
                 <Link href="/contact-us" className="btn-default">Book Free Consultation</Link>
                 <Link href="/free/seo-audit" className="services-cta-secondary">Get Free SEO Audit <i className="fa-solid fa-arrow-right"></i></Link>
               </div>
             </div>
-            <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div className="col-lg-6 " data--delay="0.2s">
               <div className="services-cta-trust">
                 {[
                   { icon: "fa-solid fa-clock", title: "Response within 24 hours", desc: "Submit your enquiry and we'll get back with a tailored plan — no automated replies." },

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -66,21 +66,21 @@ export default function OrmAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Effective content is more than words—it’s a bridge between your brand and your audience. Our Content Writing services craft compelling narratives across blogs, websites, social media, newsletters, and video scripts that educate, engage, and inspire action.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">By analyzing audience behavior, market trends, and competitive landscapes, we develop data-informed content strategies tailored to your brand voice. Every article, guide, or post is designed to attract the right audience, enhance credibility, and convert readers into loyal customers. From SEO optimization to storytelling techniques, we ensure your content delivers measurable engagement, amplifies visibility, and drives sustainable digital growth.</p>
+                  <p>Effective content is more than words—it’s a bridge between your brand and your audience. Our Content Writing services craft compelling narratives across blogs, websites, social media, newsletters, and video scripts that educate, engage, and inspire action.</p>
+                  <p data--delay="0.4s">By analyzing audience behavior, market trends, and competitive landscapes, we develop data-informed content strategies tailored to your brand voice. Every article, guide, or post is designed to attract the right audience, enhance credibility, and convert readers into loyal customers. From SEO optimization to storytelling techniques, we ensure your content delivers measurable engagement, amplifies visibility, and drives sustainable digital growth.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Premium Content <span>Designed for Engagement </span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Our content strategies combine storytelling, audience research, and SEO optimization. From articles to social posts and video scripts, every piece educates, engages, and inspires action, delivering consistent brand visibility and long-term audience loyalty.</p>
+                    <h2 data--delay="0.4s">Premium Content <span>Designed for Engagement </span></h2>
+                    <p data--delay="0.6s">Our content strategies combine storytelling, audience research, and SEO optimization. From articles to social posts and video scripts, every piece educates, engages, and inspires action, delivering consistent brand visibility and long-term audience loyalty.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Brand-Consistent Voice & Tone</li>
                       <li>Conversion-Focused Content Creation</li>
                       <li>Trend-Aligned Topic Development</li>
                       <li>Cross-Platform Content Optimization</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Professional Content Writers Delivering Measurable Results</h3>
                         <p>Expertly crafted content tailored for audience engagement.</p>
@@ -99,10 +99,10 @@ export default function OrmAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Results-Oriented Content Performance</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Content impact is measured through engagement signals, reader behavior, and conversion patterns. These insights guide continuous refinement, ensuring every article, page, or script strengthens reach, sharpens messaging, and supports consistent brand growth.</p>
+                    <h2>Results-Oriented Content Performance</h2>
+                    <p data--delay="0.2s">Content impact is measured through engagement signals, reader behavior, and conversion patterns. These insights guide continuous refinement, ensuring every article, page, or script strengthens reach, sharpens messaging, and supports consistent brand growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Content Performance Monitoring</li>
                       <li>Conversion-Focused Content Optimization</li>
                     </ul>
@@ -118,7 +118,7 @@ export default function OrmAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Strategic Messaging Framework</h3>
                           <p>Clear, structured messaging is developed by aligning brand objectives with audience intent and market demand. This approach ensures content remains consistent, purposeful, and positioned to support long-term visibility and credibility.</p>
@@ -132,8 +132,8 @@ export default function OrmAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Precision Content That Fuels Brand Momentum</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Modern content demands clarity, relevance, and purpose. Our content writing approach focuses on crafting high-impact narratives that align with audience intent and platform behavior. From long-form articles to short-form digital copy, each piece is thoughtfully structured to enhance visibility, deepen engagement, and support sustainable brand growth through consistent, measurable performance.</p>
+                    <h2>Precision Content That Fuels Brand Momentum</h2>
+                    <p data--delay="0.2s">Modern content demands clarity, relevance, and purpose. Our content writing approach focuses on crafting high-impact narratives that align with audience intent and platform behavior. From long-form articles to short-form digital copy, each piece is thoughtfully structured to enhance visibility, deepen engagement, and support sustainable brand growth through consistent, measurable performance.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -202,19 +202,19 @@ export default function OrmAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Building Content with Purpose and Precision</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Effective content is built on clarity, relevance, and intent. Our approach focuses on shaping meaningful narratives that align with audience expectations and business objectives. From long-form editorial pieces to short-form digital content, every asset is developed to engage attention, communicate value, and support consistent brand growth through measurable outcomes.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Building Content with Purpose and Precision</h2>
+                  <p data--delay="0.4s">Effective content is built on clarity, relevance, and intent. Our approach focuses on shaping meaningful narratives that align with audience expectations and business objectives. From long-form editorial pieces to short-form digital content, every asset is developed to engage attention, communicate value, and support consistent brand growth through measurable outcomes.</p>
                 </div>
 
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Content is crafted to align with audience intent, encourage interaction, and guide readers toward meaningful engagement across every digital touchpoint.</li>
                     <li>Each content initiative is strategically structured to support brand objectives, strengthen credibility, and generate consistent, measurable outcomes.</li>
                   </ul>
                 </div>
 
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -226,15 +226,6 @@ export default function OrmAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -248,12 +239,12 @@ export default function OrmAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 
 const Sidebar = () => {
   return (
     <div className="page-single-sidebar">
-      <div className="page-category-list wow fadeInUp">
+      <div className="page-category-list ">
         <h3>Discover Our More Services</h3>
         <ul>
           <li><Link href="/free/seo-audit">Free Seo Audit</Link></li>
@@ -20,7 +20,7 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
+      <div className="page-cta-box sidebar-cta-box " data--delay="0.2s">
         <div className="page-cta-header">
           <div className="review-images">
             <div className="review-image">
@@ -51,7 +51,7 @@ const Sidebar = () => {
           </div>
           <div className="page-cta-btn">
             <a href="tel:+919988357092">
-              <img src="/images/icons/icon-phone-white.svg" alt="Call Rank Spiders" /> +91 99883-57092
+              <img src="/images/icons/icon-phone.svg" alt="Call Rank Spiders" /> +91 99883-57092
             </a>
           </div>
         </div>

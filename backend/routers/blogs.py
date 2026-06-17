@@ -20,5 +20,7 @@ async def get_blog_by_slug(slug: str):
         if not response.data:
             raise HTTPException(status_code=404, detail="Blog not found")
         return response.data[0]
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

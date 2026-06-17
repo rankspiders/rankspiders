@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function ShopifySeoAgency() {
     {
       id: 1,
       question: "1. Why does Shopify need specialist SEO work?",
-      answer: "Shopify has unique SEO challenges—duplicate URLs from collection/product paths, thin pagination pages, and limited control over URL structures. A Shopify SEO specialist understands these constraints and works within them to maximise ranking potential."
+      answer: "Shopify has unique SEO challengesâ€”duplicate URLs from collection/product paths, thin pagination pages, and limited control over URL structures. A Shopify SEO specialist understands these constraints and works within them to maximise ranking potential."
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ export default function ShopifySeoAgency() {
     {
       id: 3,
       question: "3. Do you optimise Shopify app-generated content?",
-      answer: "We audit all third-party app content including reviews, size guides, and FAQs—ensuring they contribute positively to SEO rather than creating bloat or duplicate signals."
+      answer: "We audit all third-party app content including reviews, size guides, and FAQsâ€”ensuring they contribute positively to SEO rather than creating bloat or duplicate signals."
     },
     {
       id: 4,
@@ -33,7 +33,7 @@ export default function ShopifySeoAgency() {
     {
       id: 5,
       question: "5. Do you provide ongoing Shopify SEO support?",
-      answer: "Yes. We offer monthly Shopify SEO retainers covering technical monitoring, content optimisation, link building, and performance reporting—keeping your store competitive as algorithms evolve."
+      answer: "Yes. We offer monthly Shopify SEO retainers covering technical monitoring, content optimisation, link building, and performance reportingâ€”keeping your store competitive as algorithms evolve."
     }
   ];
 
@@ -57,17 +57,17 @@ export default function ShopifySeoAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Shopify powers millions of stores but its default SEO settings leave significant ranking potential on the table. We specialise in unlocking that potential—fixing Shopify-specific technical issues and building a content strategy that drives sustained organic growth.</p>
+                  <p>Shopify powers millions of stores but its default SEO settings leave significant ranking potential on the table. We specialise in unlocking that potentialâ€”fixing Shopify-specific technical issues and building a content strategy that drives sustained organic growth.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Shopify SEO That <span>Compounds Growth</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Platform-specific expertise that turns Shopify limitations into competitive advantages.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Shopify SEO That <span>Compounds Growth</span></h2>
+                    <p data--delay="0.6s">Platform-specific expertise that turns Shopify limitations into competitive advantages.</p>
+                    <ul data--delay="0.8s">
                       <li>Shopify Duplicate URL Resolution</li>
                       <li>Collection & Product Page Optimisation</li>
                       <li>Core Web Vitals & Speed Optimisation</li>
                       <li>Shopify Blog & Content Strategy</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Technical Shopify SEO</h3>
                         <p>Canonical tags, crawl budget, structured data, and theme-level speed improvements.</p>
@@ -96,11 +96,11 @@ export default function ShopifySeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Platform Knowledge is <span>Ranking Power</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Generic SEO advice fails Shopify stores. Platform-specific expertise is what separates growth from stagnation.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Platform Knowledge is <span>Ranking Power</span></h2>
+                  <p data--delay="0.4s">Generic SEO advice fails Shopify stores. Platform-specific expertise is what separates growth from stagnation.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function ShopifySeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

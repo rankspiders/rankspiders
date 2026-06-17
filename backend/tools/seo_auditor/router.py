@@ -1,3 +1,5 @@
+import ipaddress
+import socket
 import time
 from urllib.parse import urlparse
 
@@ -12,6 +14,26 @@ router = APIRouter()
 
 _HEADERS = {"User-Agent": "SpiderAudit/1.0 (SEO Auditor; rankspiders.com)"}
 
+_PRIVATE_RANGES = [
+    ipaddress.ip_network("10.0.0.0/8"),
+    ipaddress.ip_network("172.16.0.0/12"),
+    ipaddress.ip_network("192.168.0.0/16"),
+    ipaddress.ip_network("127.0.0.0/8"),
+    ipaddress.ip_network("169.254.0.0/16"),  # AWS/GCP metadata
+    ipaddress.ip_network("::1/128"),           # IPv6 loopback
+    ipaddress.ip_network("fc00::/7"),          # IPv6 ULA
+]
+
+
+def _is_private_host(hostname: str) -> bool:
+    if hostname.lower() in ("localhost", "0.0.0.0"):
+        return True
+    try:
+        ip = ipaddress.ip_address(socket.gethostbyname(hostname))
+        return any(ip in net for net in _PRIVATE_RANGES)
+    except Exception:
+        return True  # block on resolution failure
+
 
 @router.get("/audit")
 async def audit(url: str = Query(..., description="Target URL to audit")):
@@ -20,8 +42,10 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
 
     parsed = urlparse(url)
     hostname = parsed.hostname or ""
-    if hostname.lower() == "localhost" or hostname.startswith("127.") or hostname.startswith("192.168.") or hostname.startswith("10."):
+    if not hostname or _is_private_host(hostname):
         return JSONResponse({"error": "invalid_url", "message": "Private or local addresses are not allowed."}, status_code=400)
+
+    _MAX_BODY_BYTES = 5 * 1024 * 1024  # 5 MB hard cap
 
     try:
         async with httpx.AsyncClient(
@@ -32,6 +56,12 @@ async def audit(url: str = Query(..., description="Target URL to audit")):
             t_start = time.perf_counter()
             response = await client.get(url)
             load_time_ms = round((time.perf_counter() - t_start) * 1000, 1)
+
+            if len(response.content) > _MAX_BODY_BYTES:
+                return JSONResponse(
+                    {"error": "too_large", "message": "Page response exceeds 5 MB — cannot audit."},
+                    status_code=413,
+                )
 
             final_parsed = urlparse(str(response.url))
             base_url = f"{final_parsed.scheme}://{final_parsed.netloc}"

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Rank Spiders',
   },
-  alternates: { canonical: 'https://rankspiders.com/tools' },
+  alternates: { canonical: 'https://www.rankspiders.com/tools' },
 };
 
 const TOOLS = [

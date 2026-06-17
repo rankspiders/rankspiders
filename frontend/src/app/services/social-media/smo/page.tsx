@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -41,7 +41,7 @@ export default function Smo() {
         title="SMO" 
         subtitle="" 
         breadcrumbs={[
-          { label: 'portfolio', href: '#' },
+          { label: 'Social Media', href: '/services/social-media' },
           { label: 'SMO', active: true }
         ]} 
       />
@@ -62,21 +62,21 @@ export default function Smo() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our social media marketing strategies are designed to amplify your brand's voice, connect with your audience on a deeper level, and spark meaningful engagement. From crafting compelling content to managing campaigns across platforms like Instagram, Facebook, LinkedIn, and X (formerly Twitter), we ensure your brand stays visible, relevant, and trusted.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">We don't believe in one-size-fits-all solutions. Our team studies your industry, competitors, and audience behavior to build customized strategies that drive growth and conversions. With performance analytics</p>
+                  <p>Our social media marketing strategies are designed to amplify your brand's voice, connect with your audience on a deeper level, and spark meaningful engagement. From crafting compelling content to managing campaigns across platforms like Instagram, Facebook, LinkedIn, and X (formerly Twitter), we ensure your brand stays visible, relevant, and trusted.</p>
+                  <p data--delay="0.2s">We don't believe in one-size-fits-all solutions. Our team studies your industry, competitors, and audience behavior to build customized strategies that drive growth and conversions. With performance analytics</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost your brand <span>with strategy</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We combine data-driven strategies, creative innovation, and proven expertise to help your brand grow online from SEO to social media.</p>
+                    <h2 data--delay="0.4s">Boost your brand <span>with strategy</span></h2>
+                    <p data--delay="0.6s">We combine data-driven strategies, creative innovation, and proven expertise to help your brand grow online from SEO to social media.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Customized Campaigns for Maximum Impact</li>
                       <li>Cross-Platform Presence with Consistency</li>
                       <li>Target Audience Engagement that Converts</li>
                       <li>Measurable Growth Through Data Insights</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified Marketing Experts</h3>
                         <p>Our team is professionally certified in SEO.</p>
@@ -95,10 +95,10 @@ export default function Smo() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Measurable growth <span>through insights</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We harness the power of data to track performance, understand user behavior, and refine strategies in real time. Our insight-driven approach ensures every decision is backed by analytics, leading to consistent  scalable growth for your brand.</p>
+                    <h2>Measurable growth <span>through insights</span></h2>
+                    <p data--delay="0.2s">We harness the power of data to track performance, understand user behavior, and refine strategies in real time. Our insight-driven approach ensures every decision is backed by analytics, leading to consistent  scalable growth for your brand.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Customized Campaigns for Maximum Impact</li>
                       <li>Cross-Platform Presence with Consistency</li>
                     </ul>
@@ -114,7 +114,7 @@ export default function Smo() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Campaign Planning</h3>
                           <p>We begin by deeply understanding your business goals, target audience & current digital footprint. This foundation allows us to craft a personalized strategy that aligns.</p>
@@ -128,8 +128,8 @@ export default function Smo() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Creating impact <span>digital innovation</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We harness the power of data to track performance, understand user behavior, and refine strategies in real time. Our insight-driven approach ensures every decision is backed by analytics, leading to consistent  scalable growth for your brand.</p>
+                    <h2>Creating impact <span>digital innovation</span></h2>
+                    <p data--delay="0.2s">We harness the power of data to track performance, understand user behavior, and refine strategies in real time. Our insight-driven approach ensures every decision is backed by analytics, leading to consistent  scalable growth for your brand.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -169,19 +169,19 @@ export default function Smo() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Building brands purpose <span>with passion</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We combine data-driven strategies, creative innovation, and proven expertise to help your brand grow online from SEO to social media.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Building brands purpose <span>with passion</span></h2>
+                  <p data--delay="0.4s">We combine data-driven strategies, creative innovation, and proven expertise to help your brand grow online from SEO to social media.</p>
                 </div>
 
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>We craft brand experiences that connect emotionally, inspire action.</li>
                     <li>Our strategies are root in purpose ensuring every digital move support.</li>
                   </ul>
                 </div>
 
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -193,15 +193,6 @@ export default function Smo() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -215,12 +206,12 @@ export default function Smo() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import MotionWrapper, { MotionCard } from '@/components/MotionWrapper';
@@ -112,7 +112,7 @@ export default function SeoAuditClient() {
                     type="text" value={url}
                     onChange={e => setUrl(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && !loading && runAudit()}
-                    placeholder="https://yourwebsite.com"
+                    aria-label="Website URL" placeholder="https://yourwebsite.com"
                     disabled={loading} className="tool-input-field" autoComplete="url"
                   />
                   <button onClick={runAudit} disabled={loading || !url.trim()} className="tool-input-btn">
@@ -135,7 +135,7 @@ export default function SeoAuditClient() {
               </div>
               <p className="tool-input-hint">
                 <i className="fa-solid fa-lock"></i>
-                Works on any public URL · 25 checks · Fix recommendations included
+                Works on any public URL · 24 checks · Fix recommendations included
               </p>
               {error && <div className="tool-error-bar"><i className="fa fa-triangle-exclamation"></i> {error}</div>}
             </div>
@@ -158,7 +158,7 @@ export default function SeoAuditClient() {
         <section className="tool-what-section">
           <div className="container">
             <MotionWrapper variant="up">
-              <h3 className="tool-what-heading">25 SEO factors · 5 categories · Fix recommendations included</h3>
+              <h3 className="tool-what-heading">24 SEO factors · 5 categories · Fix recommendations included</h3>
             </MotionWrapper>
             <div className="tool-what-grid">
               {GROUPS.map((g, i) => {

@@ -129,7 +129,8 @@ async def suggest_competitors(target_url: str, country: str = "us") -> list[str]
 
     async with httpx.AsyncClient(timeout=20.0) as client:
         resp = await client.post(SERPER_ENDPOINT, headers=headers, json=payload)
-        resp.raise_for_status()
+        if not resp.is_success:
+            raise ValueError(f"Serper API error: HTTP {resp.status_code}")
         data = resp.json()
 
     seen: set[str] = set()

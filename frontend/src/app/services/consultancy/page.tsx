@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -18,17 +18,17 @@ export default function ConsultancyAgency() {
     {
       id: 2,
       question: "2. How is consultancy different from your managed services?",
-      answer: "With consultancy, we provide strategy and guidance—you or your internal team execute. With managed services, we handle execution too. Many clients start with consultancy to build their team's capability, then retain us for ongoing execution."
+      answer: "With consultancy, we provide strategy and guidanceâ€”you or your internal team execute. With managed services, we handle execution too. Many clients start with consultancy to build their team's capability, then retain us for ongoing execution."
     },
     {
       id: 3,
       question: "3. What does a digital marketing audit involve?",
-      answer: "Our digital marketing audit covers SEO health, website performance, content quality, social media presence, paid advertising performance, email marketing, competitor positioning, and conversion rate analysis—delivered as a prioritised action report."
+      answer: "Our digital marketing audit covers SEO health, website performance, content quality, social media presence, paid advertising performance, email marketing, competitor positioning, and conversion rate analysisâ€”delivered as a prioritised action report."
     },
     {
       id: 4,
       question: "4. How do you work with in-house marketing teams?",
-      answer: "We act as an embedded strategic partner—providing direction, reviewing work, solving complex problems, and upskilling your team. We adapt to your team's structure and work at the level of involvement you need."
+      answer: "We act as an embedded strategic partnerâ€”providing direction, reviewing work, solving complex problems, and upskilling your team. We adapt to your team's structure and work at the level of involvement you need."
     },
     {
       id: 5,
@@ -57,24 +57,24 @@ export default function ConsultancyAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Strategic clarity is the difference between marketing that compounds and marketing that wastes budget. Our digital marketing consultancy provides senior expertise to help you make smarter decisions, allocate resources more effectively, and achieve growth with confidence.</p>
+                  <p>Strategic clarity is the difference between marketing that compounds and marketing that wastes budget. Our digital marketing consultancy provides senior expertise to help you make smarter decisions, allocate resources more effectively, and achieve growth with confidence.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Strategy That <span>Turns Complexity Into Clarity</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Senior digital marketing expertise applied to your specific business challenges.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Strategy That <span>Turns Complexity Into Clarity</span></h2>
+                    <p data--delay="0.6s">Senior digital marketing expertise applied to your specific business challenges.</p>
+                    <ul data--delay="0.8s">
                       <li>Comprehensive Digital Marketing Audits</li>
                       <li>Growth Strategy Development</li>
                       <li>Team Training & Capability Building</li>
                       <li>Channel Strategy & Budget Allocation</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Strategic Audit & Roadmap</h3>
                         <p>A clear picture of where you are, where you should go, and exactly how to get there.</p>
                       </div>
                       <div className="strategy-body-item">
                         <h3>Ongoing Strategic Support</h3>
-                        <p>Monthly retainer access to senior digital expertise—available when you need expert guidance.</p>
+                        <p>Monthly retainer access to senior digital expertiseâ€”available when you need expert guidance.</p>
                       </div>
                     </div>
                     <div className="service-strategy-image">
@@ -96,11 +96,11 @@ export default function ConsultancyAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Strategy Without Execution <span>is Just Theory</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We provide strategies that are practical, prioritised, and built for real-world implementation—not just impressive-looking decks.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Strategy Without Execution <span>is Just Theory</span></h2>
+                  <p data--delay="0.4s">We provide strategies that are practical, prioritised, and built for real-world implementationâ€”not just impressive-looking decks.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">book a consultation</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function ConsultancyAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

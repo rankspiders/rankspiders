@@ -295,7 +295,6 @@ html {
   --heading-font:           'Plus Jakarta Sans', sans-serif;
 }
 
-
 /************************************/
 /*** 	   02. General css		  ***/
 /************************************/
@@ -374,7 +373,12 @@ a:hover{
 
 a:focus{
 	text-decoration: none;
-	outline: 0;
+}
+
+a:focus-visible{
+	outline: 2px solid var(--accent-color);
+	outline-offset: 2px;
+	border-radius: 2px;
 }
 
 html,
@@ -749,9 +753,8 @@ header.main-header .header-sticky.active.hide{
 	margin: 0;
 }
 
-/* Old monochrome logos: force black in light, white in dark */
-.navbar-brand img:not(.site-logo),
-.footer-logo img {
+/* Navbar logo: force black in light mode only (footer logo stays as-is) */
+.navbar-brand img:not(.site-logo) {
 	filter: brightness(0);
 	transition: filter 0.3s ease;
 }
@@ -1259,27 +1262,7 @@ header.main-header .header-sticky.active.hide{
 	gap: 12px;
 }
 
-.theme-toggle {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 38px;
-	height: 38px;
-	border-radius: 50%;
-	border: 1px solid var(--divider-color);
-	background: var(--card-bg);
-	color: var(--text-color);
-	font-size: 16px;
-	cursor: pointer;
-	transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
-}
 
-.theme-toggle:hover {
-	background: var(--secondary-color);
-	border-color: var(--accent-color);
-	color: var(--accent-color);
-	transform: rotate(12deg);
-}
 
 .mobile-menu-toggle {
 	display: flex;
@@ -3239,6 +3222,11 @@ header.main-header .header-sticky.active.hide{
 
 .page-cta-btn a:hover{
 	background: var(--accent-color);
+	color: var(--bg-color);
+}
+
+.page-cta-btn a:hover img{
+	filter: brightness(0) invert(1);
 }
 
 .page-cta-btn a img{
@@ -3531,8 +3519,9 @@ header.main-header .header-sticky.active.hide{
 /************************************/
 
 .main-footer{
-	background: var(--bg-secondary);
-	border-top: 1px solid var(--divider-color);
+	background: #0f0f0f;
+	color: #b0b3ba;
+	border-top: 1px solid rgba(255,255,255,0.08);
 	padding: 60px 0 0;
 }
 
@@ -3542,7 +3531,7 @@ header.main-header .header-sticky.active.hide{
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
-	border-bottom: 1px solid var(--divider-color);
+	border-bottom: 1px solid rgba(255,255,255,0.08);
 	padding-bottom: 60px;
 	margin-bottom: 60px;
 }
@@ -3608,12 +3597,13 @@ header.main-header .header-sticky.active.hide{
 	font-size: 20px;
 	text-transform: capitalize;
 	margin-bottom: 30px;
+	color: #ffffff;
 }
 
 .footer-newsletter-form .form-group{
 	display: flex;
-	background: var(--card-bg);
-	border: 1px solid var(--card-border);
+	background: #1a1a26;
+	border: 1px solid rgba(255,255,255,0.12);
 	border-radius: 8px;
 	overflow: hidden;
 }
@@ -3633,7 +3623,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .footer-newsletter-form .form-group .form-control::placeholder{
-	color: var(--text-muted);
+	color: #5a5d6e;
 }
 
 .footer-newsletter-form .form-group .btn-default{
@@ -3648,6 +3638,7 @@ header.main-header .header-sticky.active.hide{
 
 .footer-newsletter-box p{
 	margin: 30px 0 0;
+	color: #7a7d8a;
 }
 
 .footer-links-box{
@@ -3679,12 +3670,12 @@ header.main-header .header-sticky.active.hide{
 }
 
 .footer-links ul li a{
-	color: inherit;
+	color: #b0b3ba;
 	transition: all 0.3s ease-in-out;
 }
 
 .footer-links ul li a:hover{
-	color: var(--accent-color);
+	color: var(--accent-secondary-color);
 }
 
 /* =============================
@@ -3697,17 +3688,17 @@ header.main-header .header-sticky.active.hide{
 	padding: 7px 16px;
 	font-size: 14px;
 	font-weight: 500;
-	color: var(--text-muted);
+	color: #7a7d8a;
 	background: transparent;
-	border: 1px solid var(--divider-color);
+	border: 1px solid rgba(255,255,255,0.14);
 	border-radius: 100px;
 	cursor: pointer;
 	transition: all 0.2s ease;
 }
 
 .footer-tab-btn:hover {
-	color: var(--accent-color);
-	border-color: var(--accent-color);
+	color: var(--accent-secondary-color);
+	border-color: var(--accent-secondary-color);
 }
 
 .footer-tab-btn.active {
@@ -3740,7 +3731,7 @@ header.main-header .header-sticky.active.hide{
 }
 
 .tabs-footer-links ul li a{
-  color: inherit;
+  color: #b0b3ba;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   font-size: 16px;
@@ -3768,16 +3759,24 @@ header.main-header .header-sticky.active.hide{
   }
 }
 
+.footer-services-section{
+	background: #13131d;
+	padding: 40px 0 50px;
+	border-top: 1px solid rgba(255,255,255,0.08);
+	border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
 .footer-copyright{
-	background: var(--card-bg);
-	border-top: 1px solid var(--divider-color);
+	background: #07070e;
+	border-top: none;
 	text-align: center;
 	padding: 20px 0;
-	margin-top: 60px;
+	margin-top: 0;
 }
 
 .footer-copyright-text p{
 	margin: 0;
+	color: #5a5d6e;
 }
 
 /* =====================================================
@@ -7985,6 +7984,7 @@ header.main-header .header-sticky.active.hide{
 .contact-social-list h3{
     font-size: 20px;
     text-transform: capitalize;
+    color: #ffffff;
 }
 
 .contact-social-list ul{
@@ -8004,9 +8004,9 @@ header.main-header .header-sticky.active.hide{
 }
 
 .contact-social-list ul li a{
-	color: var(--primary-color);
+	color: #b0b3ba;
 	background-color: transparent;
-    border: 1px solid var(--white-color);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -12637,18 +12637,6 @@ background: rgba(82, 27, 137, 0.07);
   );
 }
 
-/* Dark mode: bump up opacity slightly so the tint stays visible */
-[data-theme="dark"] .phone-code-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%2306B6D4' d='M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3E%3C/svg%3E");
-  background-color: rgba(79, 70, 229, 0.12);
-  border-color: var(--accent-secondary-color);
-  box-shadow: inset 3px 0 0 var(--accent-secondary-color), 0 1px 4px rgba(6, 182, 212, 0.1);
-}
-
-[data-theme="dark"] .phone-code-select:focus {
-  border-color: var(--accent-secondary-color);
-  box-shadow: inset 3px 0 0 var(--accent-secondary-color), 0 0 0 3px rgba(6, 182, 212, 0.18);
-}
 
 .cf-label--phone {
   margin-top: 6px;

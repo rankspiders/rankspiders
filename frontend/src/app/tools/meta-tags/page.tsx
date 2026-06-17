@@ -5,8 +5,8 @@ import MetaTagsClient from './MetaTagsClient';
 export const metadata: Metadata = {
   title: 'Free Meta Tag Extractor — View All Meta Tags | Rank Spiders',
   description: 'Extract every meta tag from any webpage — title, description, Open Graph, Twitter Card, JSON-LD schema, hreflang, canonical and more. Get an issues report instantly.',
-  openGraph: { title: 'Free Meta Tag Extractor | Rank Spiders', type: 'website', siteName: 'Rank Spiders' },
-  alternates: { canonical: 'https://rankspiders.com/tools/meta-tags' },
+  openGraph: { title: 'Free Meta Tag Extractor | Rank Spiders', description: 'Extract every meta tag from any webpage — title, description, Open Graph, Twitter Card, JSON-LD schema, hreflang, canonical and more.', type: 'website', siteName: 'Rank Spiders' },
+  alternates: { canonical: 'https://www.rankspiders.com/tools/meta-tags' },
 };
 
 export default function MetaTagsPage() {

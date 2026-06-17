@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -13,22 +13,22 @@ export default function LinkedinAdsAgency() {
     {
       id: 1,
       question: "1. Why use LinkedIn Ads for B2B marketing?",
-      answer: "LinkedIn Ads offer unparalleled professional targeting—by job title, seniority, company size, industry, and skills. For B2B brands targeting decision-makers, LinkedIn Ads consistently deliver higher-quality leads than any other paid social platform, despite higher CPCs."
+      answer: "LinkedIn Ads offer unparalleled professional targetingâ€”by job title, seniority, company size, industry, and skills. For B2B brands targeting decision-makers, LinkedIn Ads consistently deliver higher-quality leads than any other paid social platform, despite higher CPCs."
     },
     {
       id: 2,
       question: "2. What LinkedIn Ad formats do you use?",
-      answer: "We use Sponsored Content (single image, carousel, video), Message Ads (InMail), Conversation Ads, Text Ads, Lead Gen Forms, and Document Ads—selecting the right format for each campaign objective and testing multiple formats to identify the highest performers."
+      answer: "We use Sponsored Content (single image, carousel, video), Message Ads (InMail), Conversation Ads, Text Ads, Lead Gen Forms, and Document Adsâ€”selecting the right format for each campaign objective and testing multiple formats to identify the highest performers."
     },
     {
       id: 3,
       question: "3. What is a realistic budget for LinkedIn Ads?",
-      answer: "LinkedIn Ads have higher minimum CPCs than other platforms due to the quality of their professional audience. We recommend a minimum test budget of ₹50,000–₹100,000 per month to generate statistically significant performance data and meaningful lead volume."
+      answer: "LinkedIn Ads have higher minimum CPCs than other platforms due to the quality of their professional audience. We recommend a minimum test budget of â‚¹50,000â€“â‚¹100,000 per month to generate statistically significant performance data and meaningful lead volume."
     },
     {
       id: 4,
       question: "4. How do LinkedIn Lead Gen Forms work?",
-      answer: "LinkedIn Lead Gen Forms allow users to submit their contact information without leaving LinkedIn—pre-populated from their profile data. This dramatically reduces friction and typically delivers 3–5× higher conversion rates than click-through campaigns to landing pages."
+      answer: "LinkedIn Lead Gen Forms allow users to submit their contact information without leaving LinkedInâ€”pre-populated from their profile data. This dramatically reduces friction and typically delivers 3â€“5Ã— higher conversion rates than click-through campaigns to landing pages."
     },
     {
       id: 5,
@@ -57,17 +57,17 @@ export default function LinkedinAdsAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">LinkedIn Ads give you access to the world's most valuable professional audience with targeting precision unavailable anywhere else. We manage LinkedIn advertising campaigns that reach the right decision-makers, generate high-quality B2B leads, and build pipeline for your sales team.</p>
+                  <p>LinkedIn Ads give you access to the world's most valuable professional audience with targeting precision unavailable anywhere else. We manage LinkedIn advertising campaigns that reach the right decision-makers, generate high-quality B2B leads, and build pipeline for your sales team.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">LinkedIn Ads That <span>Reach Decision-Makers</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Professional targeting, compelling creative, and lead generation that fills your B2B pipeline.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">LinkedIn Ads That <span>Reach Decision-Makers</span></h2>
+                    <p data--delay="0.6s">Professional targeting, compelling creative, and lead generation that fills your B2B pipeline.</p>
+                    <ul data--delay="0.8s">
                       <li>Sponsored Content & Video Ads</li>
                       <li>LinkedIn Lead Gen Forms</li>
                       <li>Message & Conversation Ads</li>
                       <li>Audience Building & Retargeting</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Audience & Targeting Strategy</h3>
                         <p>Precision targeting by job title, company, industry, and seniority to reach your ideal buyers.</p>
@@ -96,11 +96,11 @@ export default function LinkedinAdsAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">B2B Advertising Needs <span>Professional Precision</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">LinkedIn's CPCs are higher because the quality of its audience is higher. Precision targeting and compelling creative make those higher costs easily justified.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">B2B Advertising Needs <span>Professional Precision</span></h2>
+                  <p data--delay="0.4s">LinkedIn's CPCs are higher because the quality of its audience is higher. Precision targeting and compelling creative make those higher costs easily justified.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">start LinkedIn Ads</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function LinkedinAdsAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

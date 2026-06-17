@@ -1,10 +1,10 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
-  title: "Email Marketing | Rank Spiders",
-  description: "This is the email marketing page description.",
+  title: "Email Marketing Services India | Campaigns That Convert | Rank Spiders",
+  description: "Rank Spiders crafts high-converting email campaigns — newsletters, drip sequences, and promotions that drive opens, clicks, and revenue for your business.",
 };
 
 export default function EmailMarketingAgency() {
@@ -14,7 +14,7 @@ export default function EmailMarketingAgency() {
         title="Email" 
         subtitle="Marketing" 
         breadcrumbs={[
-          { label: 'social media', href: '#' },
+          { label: 'Social Media', href: '/services/social-media' },
           { label: 'Email Marketing', active: true }
         ]} 
       />
@@ -32,20 +32,20 @@ export default function EmailMarketingAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our email marketing strategies turn every message into a personalized experience that engages and converts. Using AI-driven segmentation, behavioral insights, and dynamic content, we deliver emails that resonate with your audience. From automated drip campaigns to hyper-targeted newsletters, each email is crafted to nurture leads, recover abandoned carts, and drive sales while maintaining brand consistency.</p>
+                  <p>Our email marketing strategies turn every message into a personalized experience that engages and converts. Using AI-driven segmentation, behavioral insights, and dynamic content, we deliver emails that resonate with your audience. From automated drip campaigns to hyper-targeted newsletters, each email is crafted to nurture leads, recover abandoned carts, and drive sales while maintaining brand consistency.</p>
                   
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Your Brand With Smart <span>Email Campaigns</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We combine data-driven insights, creative messaging, and advanced automation to craft emails that engage, nurture, and convert. From personalized newsletters to targeted drip campaigns, our strategies help your brand grow, build loyalty, and drive measurable results.</p>
+                    <h2 data--delay="0.4s">Boost Your Brand With Smart <span>Email Campaigns</span></h2>
+                    <p data--delay="0.6s">We combine data-driven insights, creative messaging, and advanced automation to craft emails that engage, nurture, and convert. From personalized newsletters to targeted drip campaigns, our strategies help your brand grow, build loyalty, and drive measurable results.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Performance Tracking & Real-Time Optimization</li>
                       <li>Re-Engagement Strategies to Retain Customers</li>
                       <li>Dynamic Content for Maximum Relevance</li>
                       <li>Brand-Consistent Design Across All Emails</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified Email Marketing Professionals</h3>
                         <p>Certified experts in advanced email marketing strategies.</p>
@@ -64,10 +64,10 @@ export default function EmailMarketingAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Optimize Campaigns with Actionable Insights</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We use real-time data to monitor email performance, analyze subscriber behavior, and optimize campaigns for maximum impact. Our insight-driven approach ensures every email is personalized, engaging, and designed to drive measurable growth for your brand.</p>
+                    <h2>Optimize Campaigns with Actionable Insights</h2>
+                    <p data--delay="0.2s">We use real-time data to monitor email performance, analyze subscriber behavior, and optimize campaigns for maximum impact. Our insight-driven approach ensures every email is personalized, engaging, and designed to drive measurable growth for your brand.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Personalized Campaigns for Maximum Engagement</li>
                       <li>Responsive Emails Across All Devices</li>
                     </ul>
@@ -83,7 +83,7 @@ export default function EmailMarketingAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Email Campaign Strategy</h3>
                           <p>We start by analyzing your brand goals, audience segments, and past email performance. This helps us design personalized campaigns that engage subscribers and drive meaningful results.</p>
@@ -97,8 +97,8 @@ export default function EmailMarketingAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Emails That Connect, Engage, and Convert</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Real-time analytics track open rates, clicks, and subscriber behavior to optimize every email for maximum engagement. Insight-driven strategies ensure each campaign is personalized, data-backed, and drives measurable, scalable growth for your brand.</p>
+                    <h2>Emails That Connect, Engage, and Convert</h2>
+                    <p data--delay="0.2s">Real-time analytics track open rates, clicks, and subscriber behavior to optimize every email for maximum engagement. Insight-driven strategies ensure each campaign is personalized, data-backed, and drives measurable, scalable growth for your brand.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -146,17 +146,17 @@ export default function EmailMarketingAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Driving Engagement Through Strategy</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We blend data-driven insights, creative messaging, and advanced automation to craft email campaigns that engage subscribers, nurture leads, and drive measurable growth for your brand.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Driving Engagement Through Strategy</h2>
+                  <p data--delay="0.4s">We blend data-driven insights, creative messaging, and advanced automation to craft email campaigns that engage subscribers, nurture leads, and drive measurable growth for your brand.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Create email experiences that resonate with your audience, spark engagement, and inspire action.</li>
                     <li>Our campaigns are purpose-driven, ensuring every message supports your brand goals and drives measurable results.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <a href="/contact-us" className="btn-default">learn more</a>
                 </div>
               </div>
@@ -167,15 +167,6 @@ export default function EmailMarketingAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -189,10 +180,10 @@ export default function EmailMarketingAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
-            <div className="accordion-item wow fadeInUp">
+            <div className="accordion-item ">
               <h2 className="accordion-header" id="heading1">
                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
                   1. What types of emails can you create?
@@ -204,7 +195,7 @@ export default function EmailMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+            <div className="accordion-item " data--delay="0.2s">
               <h2 className="accordion-header" id="heading2">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
                   2. How do you personalize email campaigns?
@@ -216,7 +207,7 @@ export default function EmailMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+            <div className="accordion-item " data--delay="0.4s">
               <h2 className="accordion-header" id="heading3">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
                   3. What email platforms do you work with?
@@ -228,7 +219,7 @@ export default function EmailMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+            <div className="accordion-item " data--delay="0.6s">
               <h2 className="accordion-header" id="heading4">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
                   4. Can you optimize emails for mobile devices?
@@ -240,7 +231,7 @@ export default function EmailMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+            <div className="accordion-item " data--delay="0.8s">
               <h2 className="accordion-header" id="heading5">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
                   5. Do you provide performance tracking?

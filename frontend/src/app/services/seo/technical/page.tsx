@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -26,7 +26,7 @@ export default function TechnicalSeoAgency() {
     {
       id: 3,
       question: "3. What is included in Professional Technical SEO Services?",
-      answer: "Professional Technical SEO Services include a wide range of optimizations such as website audits, schema markup, page speed improvements, XML sitemap setup and mobile-first optimization. Leading technical SEO experts from agencies like WebPulse ensure every aspect of your website — from code to structure — is aligned with search engine algorithms. These services strengthen your site’s visibility and ensure sustainable ranking growth."
+      answer: "Professional Technical SEO Services include a wide range of optimizations such as website audits, schema markup, page speed improvements, XML sitemap setup and mobile-first optimization. Rank Spiders technical SEO experts ensure every aspect of your website — from code to structure — is aligned with search engine algorithms. These services strengthen your site’s visibility and ensure sustainable ranking growth."
     },
     {
       id: 4,
@@ -46,7 +46,7 @@ export default function TechnicalSeoAgency() {
         title="Technical" 
         subtitle="Seo" 
         breadcrumbs={[
-          { label: 'seo optimization', href: '#' },
+          { label: 'SEO', href: '/services/seo' },
           { label: 'Technical Seo', active: true }
         ]} 
       />
@@ -70,23 +70,23 @@ export default function TechnicalSeoAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <h4 className="wow fadeInUp" data-wow-delay="0.2s">Technical SEO Agency in India | Advanced Website Optimization by Rank Spiders</h4>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">As a leading Technical SEO Agency in India, Rank Spiders specializes in building websites that perform flawlessly and rank higher across search engines. Our technical SEO experts focus on optimizing your site’s infrastructure, improving crawlability, enhancing page speed, and strengthening search visibility to help you dominate organic results. From fixing critical technical issues to implementing structured data and mobile-first optimization, we ensure your website is fully optimized for both users and search engines.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Unlike generic SEO providers, Rank Spiders takes a strategic and data-driven approach. Our technical SEO specialists conduct in-depth website audits, analyze competitors, and evaluate user behavior to design customized optimization strategies. Whether you need technical SEO services in Mohali Punjab or nationwide support, we deliver measurable results that improve rankings, performance, and overall website health.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">With continuous monitoring, detailed analytics, and proactive issue detection, we ensure your website remains fast, secure, and search-engine-friendly. Partner with Rank Spiders, your trusted technical SEO agency, to experience advanced optimization that drives sustainable growth in today’s competitive digital landscape.</p>
+                  <h4 data--delay="0.2s">Technical SEO Agency in India | Advanced Website Optimization by Rank Spiders</h4>
+                  <p data--delay="0.4s">As a leading Technical SEO Agency in India, Rank Spiders specializes in building websites that perform flawlessly and rank higher across search engines. Our technical SEO experts focus on optimizing your site’s infrastructure, improving crawlability, enhancing page speed, and strengthening search visibility to help you dominate organic results. From fixing critical technical issues to implementing structured data and mobile-first optimization, we ensure your website is fully optimized for both users and search engines.</p>
+                  <p data--delay="0.4s">Unlike generic SEO providers, Rank Spiders takes a strategic and data-driven approach. Our technical SEO specialists conduct in-depth website audits, analyze competitors, and evaluate user behavior to design customized optimization strategies. Whether you need technical SEO services in Mohali Punjab or nationwide support, we deliver measurable results that improve rankings, performance, and overall website health.</p>
+                  <p data--delay="0.4s">With continuous monitoring, detailed analytics, and proactive issue detection, we ensure your website remains fast, secure, and search-engine-friendly. Partner with Rank Spiders, your trusted technical SEO agency, to experience advanced optimization that drives sustainable growth in today’s competitive digital landscape.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Your Website <span>Performance with Strategy </span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We combine data-driven technical SEO, innovative solutions, and proven expertise to enhance your site’s structure, speed, and visibility—ensuring sustainable organic growth and higher search rankings.</p>
+                    <h2 data--delay="0.4s">Boost Your Website <span>Performance with Strategy </span></h2>
+                    <p data--delay="0.6s">We combine data-driven technical SEO, innovative solutions, and proven expertise to enhance your site’s structure, speed, and visibility—ensuring sustainable organic growth and higher search rankings.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Tailored Technical SEO for Maximum Performance</li>
                       <li>Optimized Site Structure Across All Platforms</li>
                       <li>Enhanced User Experience That Boosts Conversions</li>
                       <li>Data-Driven Insights for Measurable SEO Growth</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>SEO Experts Certified</h3>
                         <p>Our team is certified in advanced technical SEO.</p>
@@ -105,17 +105,17 @@ export default function TechnicalSeoAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Our Core Technical SEO Services</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">At Rank Spiders, our comprehensive Professional Technical SEO Services cover every aspect of your website’s technical health and performance. As a trusted technical SEO company in India, we specialize in improving site structure, crawlability and speed to help your business achieve higher rankings and better user experience. Whether you’re a local business or a B2B tech brand, our tailored solutions ensure your website is search-engine-ready and technically flawless.</p>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Here’s what our Technical SEO consultants focus on:</p>
+                    <h2>Our Core Technical SEO Services</h2>
+                    <p data--delay="0.2s">At Rank Spiders, our comprehensive Professional Technical SEO Services cover every aspect of your website’s technical health and performance. As a trusted technical SEO company in India, we specialize in improving site structure, crawlability and speed to help your business achieve higher rankings and better user experience. Whether you’re a local business or a B2B tech brand, our tailored solutions ensure your website is search-engine-ready and technically flawless.</p>
+                    <p data--delay="0.2s">Here’s what our Technical SEO consultants focus on:</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Personalized SEO Strategies That Deliver Results</li>
                       <li>Consistent Website Performance Across All Devices</li>
                     </ul>
 
                     <div className="service-growth-body">
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Website Technical Audit</h3>
                           <p>Our team performs a deep technical audit to identify and fix issues related to indexing, crawl errors, duplicate content and slow page speed. As one of the best technical SEO agencies, we ensure your website’s backend aligns with Google’s latest standards for optimal visibility.</p>
@@ -154,8 +154,8 @@ export default function TechnicalSeoAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Our Process</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">At Rank Spiders, we follow a proven, data-driven workflow designed to deliver measurable results through precision and expertise. As a trusted Technical SEO company in India, we combine advanced tools, analytics, and best practices to ensure your website is technically sound, fully optimized, and search-engine friendly. Here’s how our Professional Technical SEO Services work step by step:</p>
+                    <h2>Our Process</h2>
+                    <p data--delay="0.2s">At Rank Spiders, we follow a proven, data-driven workflow designed to deliver measurable results through precision and expertise. As a trusted Technical SEO company in India, we combine advanced tools, analytics, and best practices to ensure your website is technically sound, fully optimized, and search-engine friendly. Here’s how our Professional Technical SEO Services work step by step:</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -204,12 +204,12 @@ export default function TechnicalSeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Why Choose Rank Spiders for Technical SEO</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Choosing Rank Spiders means partnering with a team of certified Technical SEO experts who blend experience, data, and innovation to deliver measurable results. We don’t believe in one-size-fits-all solutions — every project begins with a detailed technical audit and a custom optimization plan tailored to your website’s unique needs. As a leading Technical SEO company in India, we focus on enhancing website performance, fixing technical issues and ensuring search engines can easily crawl and index your site. Our transparent reporting, continuous performance tracking and long-term support make us a trusted choice for startups, SMBs and enterprises across industries.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Why Choose Rank Spiders for Technical SEO</h2>
+                  <p data--delay="0.4s">Choosing Rank Spiders means partnering with a team of certified Technical SEO experts who blend experience, data, and innovation to deliver measurable results. We don’t believe in one-size-fits-all solutions — every project begins with a detailed technical audit and a custom optimization plan tailored to your website’s unique needs. As a leading Technical SEO company in India, we focus on enhancing website performance, fixing technical issues and ensuring search engines can easily crawl and index your site. Our transparent reporting, continuous performance tracking and long-term support make us a trusted choice for startups, SMBs and enterprises across industries.</p>
                 </div>
 
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Proven Expertise in Technical SEO Optimization</li>
                     <p>With years of experience, our specialists have mastered the art of technical SEO optimization, delivering improved site speed, better crawlability and higher organic rankings that drive consistent growth.</p>
@@ -218,7 +218,7 @@ export default function TechnicalSeoAgency() {
                   </ul>
                 </div>
 
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -230,15 +230,6 @@ export default function TechnicalSeoAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -252,12 +243,12 @@ export default function TechnicalSeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

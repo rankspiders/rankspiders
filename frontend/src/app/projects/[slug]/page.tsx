@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import projects from '@/data/projects';
@@ -35,8 +35,8 @@ export default async function ProjectSingle({ params }: Props) {
           <div className="row">
             <div className="col-lg-12">
               <div className="page-header-box">
-                <h1 className="wow fadeInUp" data-cursor="-opaque">{project.title}</h1>
-                <nav className="wow fadeInUp" data-wow-delay="0.2s">
+                <h1 data-cursor="-opaque">{project.title}</h1>
+                <nav data--delay="0.2s">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><a href="/">home</a></li>
                     <li className="breadcrumb-item"><a href="/projects">/ projects</a></li>
@@ -54,7 +54,7 @@ export default async function ProjectSingle({ params }: Props) {
           <div className="row">
             <div className="col-lg-4">
               <div className="page-single-sidebar shadow-sm p-4 rounded bg-white">
-                <div className="page-category-list project-category-list wow fadeInUp">
+                <div className="page-category-list project-category-list ">
                   <h3 className="h5 border-bottom pb-2 mb-3">Project Details</h3>
                   <ul className="list-unstyled">
                     <li className="mb-2"><strong>Client :</strong> {project.client}</li>

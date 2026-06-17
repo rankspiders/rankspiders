@@ -10,7 +10,6 @@ const Header = () => {
   const lastScrollY = useRef(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
-
   // Sticky + hide-on-scroll-down header
   useEffect(() => {
     const handleScroll = () => {
@@ -210,7 +209,7 @@ const Header = () => {
             {/* Right actions */}
             <div className="header-actions">
               {/* CTA */}
-              <a href="https://koalendar.com/e/meet-with-rank-spiders?month=2026-06&duration=30&date=2026-06-15" target="_blank" rel="noopener noreferrer" className="btn-default d-none d-lg-inline-flex">
+              <a href="https://koalendar.com/e/meet-with-rank-spiders" target="_blank" rel="noopener noreferrer" className="btn-default d-none d-lg-inline-flex">
                 Book a Meeting
               </a>
 
@@ -265,7 +264,7 @@ const Header = () => {
               </li>
               <li><Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link></li>
               <li className="mobile-cta">
-                <a href="https://koalendar.com/e/meet-with-rank-spiders?month=2026-06&duration=30&date=2026-06-15" target="_blank" rel="noopener noreferrer" className="btn-default" onClick={() => setMobileOpen(false)}>Book a Meeting</a>
+                <a href="https://koalendar.com/e/meet-with-rank-spiders" target="_blank" rel="noopener noreferrer" className="btn-default" onClick={() => setMobileOpen(false)}>Book a Meeting</a>
               </li>
             </ul>
           </div>

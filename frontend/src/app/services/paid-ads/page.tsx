@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -18,12 +18,12 @@ export default function OnlineAdvertisingAgency() {
     {
       id: 2,
       question: "2. How do you ensure our ad budget isn't wasted?",
-      answer: "Waste in paid advertising comes from poor targeting, weak creative, and inadequate conversion tracking. We address all three—building precise audience segments, creating compelling ad creative, and implementing robust conversion tracking before spending a rupee."
+      answer: "Waste in paid advertising comes from poor targeting, weak creative, and inadequate conversion tracking. We address all threeâ€”building precise audience segments, creating compelling ad creative, and implementing robust conversion tracking before spending a rupee."
     },
     {
       id: 3,
       question: "3. What ROI can we expect from online advertising?",
-      answer: "ROI varies by industry, competition, and campaign maturity. We benchmark your industry's typical CAC and ROAS, set realistic targets, and optimise relentlessly toward them. Most clients see significant ROAS improvements within 60–90 days of us taking over management."
+      answer: "ROI varies by industry, competition, and campaign maturity. We benchmark your industry's typical CAC and ROAS, set realistic targets, and optimise relentlessly toward them. Most clients see significant ROAS improvements within 60â€“90 days of us taking over management."
     },
     {
       id: 4,
@@ -57,17 +57,17 @@ export default function OnlineAdvertisingAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Online advertising is the fastest way to put your brand in front of your ideal customers—when done right. We manage multi-channel paid advertising campaigns that maximise every rupee of your budget, driving qualified traffic, leads, and revenue with measurable precision.</p>
+                  <p>Online advertising is the fastest way to put your brand in front of your ideal customersâ€”when done right. We manage multi-channel paid advertising campaigns that maximise every rupee of your budget, driving qualified traffic, leads, and revenue with measurable precision.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Advertising That <span>Delivers Measurable ROI</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Data-driven paid advertising management across every major digital channel.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Advertising That <span>Delivers Measurable ROI</span></h2>
+                    <p data--delay="0.6s">Data-driven paid advertising management across every major digital channel.</p>
+                    <ul data--delay="0.8s">
                       <li>Google & Meta Ads Management</li>
                       <li>Audience Targeting & Segmentation</li>
                       <li>Ad Creative Development</li>
                       <li>Conversion Tracking & Attribution</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Campaign Strategy & Setup</h3>
                         <p>Audience research, campaign architecture, and conversion tracking before any budget is spent.</p>
@@ -96,11 +96,11 @@ export default function OnlineAdvertisingAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Every Ad Should <span>Pay for Itself</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We don't spend your budget to generate impressions. Every campaign we run is optimised toward revenue and measurable business outcomes.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Every Ad Should <span>Pay for Itself</span></h2>
+                  <p data--delay="0.4s">We don't spend your budget to generate impressions. Every campaign we run is optimised toward revenue and measurable business outcomes.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">start advertising</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function OnlineAdvertisingAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

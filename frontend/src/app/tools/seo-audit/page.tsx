@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: 'Rank Spiders',
   },
   alternates: {
-    canonical: 'https://rankspiders.com/tools/seo-audit',
+    canonical: 'https://www.rankspiders.com/tools/seo-audit',
   },
 };
 

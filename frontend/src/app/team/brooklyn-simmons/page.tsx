@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -11,8 +11,8 @@ export default function TeamSingle() {
           <div className="row">
             <div className="col-lg-12">
               <div className="page-header-box">
-                <h1 className="wow fadeInUp" data-cursor="-opaque">Brooklyn <span>Simmons</span></h1>
-                <nav className="wow fadeInUp" data-wow-delay="0.2s">
+                <h1 data-cursor="-opaque">Brooklyn <span>Simmons</span></h1>
+                <nav data--delay="0.2s">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link href="/">home</Link></li>
                     <li className="breadcrumb-item"><Link href="#">/ team</Link></li>
@@ -30,13 +30,13 @@ export default function TeamSingle() {
           <div className="row">
             <div className="col-lg-4">
               <div className="page-single-sidebar">
-                <div className="team-single-image wow fadeInUp">
+                <div className="team-single-image ">
                   <figure>
                     <img src="/images/team/team-2.png" alt="Brooklyn Simmons - Digital Marketing Specialist at Rank Spiders" />
                   </figure>
                 </div>
 
-                <div className="page-cta-box sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
+                <div className="page-cta-box sidebar-cta-box " data--delay="0.2s">
                   <div className="page-cta-header">
                     <div className="review-images">
                       <div className="review-image">
@@ -83,11 +83,11 @@ export default function TeamSingle() {
               <div className="team-single-content">
                 <div className="team-member-about">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp" data-cursor="-opaque">About <span>me</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">With a passion for digital innovation and a results-driven mindset, I specialize in creating impactful marketing strategies that help brands grow online. My expertise spans across SEO, social media, and performance marketing</p>
+                    <h2 data-cursor="-opaque">About <span>me</span></h2>
+                    <p data--delay="0.2s">With a passion for digital innovation and a results-driven mindset, I specialize in creating impactful marketing strategies that help brands grow online. My expertise spans across SEO, social media, and performance marketing</p>
                   </div>
 
-                  <div className="team-contact-list wow fadeInUp" data-wow-delay="0.4s">
+                  <div className="team-contact-list " data--delay="0.4s">
                     <div className="team-contact-item">
                       <div className="icon-box">
                         <img src="/images/icons/icon-mail.svg" alt="Email address" />
@@ -114,7 +114,7 @@ export default function TeamSingle() {
                       </div>
                       <div className="team-contact-content">
                         <h3>Position</h3>
-                        <p>Lead Technician</p>
+                        <p>SEO Strategist</p>
                       </div>
                     </div>
 
@@ -129,24 +129,23 @@ export default function TeamSingle() {
                     </div>
                   </div>
 
-                  <div className="member-social-list wow fadeInUp" data-wow-delay="0.6s">
+                  <div className="member-social-list " data--delay="0.6s">
                     <h3>Follow on social :</h3>
                     <ul>
-                      <li><a href="#"><i className="fa-brands fa-instagram"></i></a></li>
-                      <li><a href="#"><i className="fa-brands fa-facebook-f"></i></a></li>
-                      <li><a href="#"><i className="fa-brands fa-dribbble"></i></a></li>
-                      <li><a href="#"><i className="fa-brands fa-linkedin-in"></i></a></li>
+                      <li><a href="https://www.instagram.com/rankspiders.digital/" target="_blank" rel="noopener noreferrer" aria-label="Rank Spiders on Instagram"><i className="fa-brands fa-instagram"></i></a></li>
+                      <li><a href="https://www.facebook.com/rankspidersdigital" target="_blank" rel="noopener noreferrer" aria-label="Rank Spiders on Facebook"><i className="fa-brands fa-facebook-f"></i></a></li>
+                      <li><a href="https://www.linkedin.com/company/rankspidersdigitalagency/" target="_blank" rel="noopener noreferrer" aria-label="Rank Spiders on LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a></li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="member-professional-info">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp" data-cursor="-opaque">Personal <span>info</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Every professional journey is built on unique experiences, values, and personal insights — and mine is no different. With a strong foundation in digital marketing and a passion for helping brands grow online, I bring both creativity and strategy to every project I take on. My background, skills, and cultural understanding allow me to connect with diverse clients and audiences.</p>
+                    <h2 data-cursor="-opaque">Personal <span>info</span></h2>
+                    <p data--delay="0.2s">Every professional journey is built on unique experiences, values, and personal insights â€” and mine is no different. With a strong foundation in digital marketing and a passion for helping brands grow online, I bring both creativity and strategy to every project I take on. My background, skills, and cultural understanding allow me to connect with diverse clients and audiences.</p>
                   </div>
 
-                  <div className="member-professional-list wow fadeInUp" data-wow-delay="0.4s">
+                  <div className="member-professional-list " data--delay="0.4s">
                     <ul>
                       <li>blending local insights with a global digital perspective to create campaigns that resonate.</li>
                       <li>experience in SEO, social media strategy, and performance marketing across various industries.</li>
@@ -158,8 +157,8 @@ export default function TeamSingle() {
 
                 <div className="team-skills-box">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp" data-cursor="-opaque">My <span>skill</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Over the years, I've had the honor of supporting countless seniors and their families through some of the most important stages of life. Each experience has taught me the value of patience, active listening, and the small gestures that bring comfort and trust.</p>
+                    <h2 data-cursor="-opaque">My <span>skill</span></h2>
+                    <p data--delay="0.2s">Over the years, I've had the honor of supporting countless seniors and their families through some of the most important stages of life. Each experience has taught me the value of patience, active listening, and the small gestures that bring comfort and trust.</p>
                   </div>
 
                   <div className="team-skills-list">
@@ -188,11 +187,11 @@ export default function TeamSingle() {
 
                 <div className="contact-us-form team-contact-form">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp" data-cursor="-opaque">Send us a message</h2>
+                    <h2 data-cursor="-opaque">Send us a message</h2>
                   </div>
 
                   <div className="contact-form">
-                    <form id="contactForm" className="wow fadeInUp" data-wow-delay="0.2s">
+                    <form id="contactForm" data--delay="0.2s">
                       <div className="row">
                         <div className="form-group col-md-6 mb-4">
                           <input type="text" name="fname" className="form-control" id="fname" placeholder="First name" required />

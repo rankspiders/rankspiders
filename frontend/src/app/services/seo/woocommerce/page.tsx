@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -59,7 +59,7 @@ export default function WoocommerceSeoAgency() {
         title="Woocommerce" 
         subtitle="Seo" 
         breadcrumbs={[
-          { label: 'SEO Optimization', href: '#' },
+          { label: 'SEO', href: '/services/seo' },
           { label: 'woocommerce seo', active: true }
         ]} 
       />
@@ -83,20 +83,20 @@ export default function WoocommerceSeoAgency() {
                 </div>
                 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">We build WordPress websites that are fast, scalable, and fully customizable to match your brand’s vision. Leveraging the latest themes, plugins, and performance optimizations, we create websites that are not only visually stunning but also conversion-focused. From intuitive UX/UI design to secure backend architecture, every site is optimized for search engines, mobile devices, and user engagement. Our approach integrates analytics, A/B testing, and automation tools, ensuring your WordPress site evolves with your audience and drives measurable business growth</p>
+                  <p>We build WordPress websites that are fast, scalable, and fully customizable to match your brand’s vision. Leveraging the latest themes, plugins, and performance optimizations, we create websites that are not only visually stunning but also conversion-focused. From intuitive UX/UI design to secure backend architecture, every site is optimized for search engines, mobile devices, and user engagement. Our approach integrates analytics, A/B testing, and automation tools, ensuring your WordPress site evolves with your audience and drives measurable business growth</p>
                   
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Next-Gen WordPress <span>Websites Designed to Perform</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We design fast, responsive, and SEO-optimized WordPress sites that reflect your brand identity while driving measurable growth and higher conversions.</p>
+                    <h2 data--delay="0.4s">Next-Gen WordPress <span>Websites Designed to Perform</span></h2>
+                    <p data--delay="0.6s">We design fast, responsive, and SEO-optimized WordPress sites that reflect your brand identity while driving measurable growth and higher conversions.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Custom WordPress Sites Built for Maximum Performance</li>
                       <li>Seamless User Experience Across All Devices and Platforms</li>
                       <li>Engaging Designs That Drive Visitor Interaction and Conversions</li>
                       <li>Data-Driven Optimization for Continuous Growth and Results</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Expert WordPress Developers</h3>
                         <p>High-performing, scalable WordPress websites with custom integrations.</p>
@@ -115,10 +115,10 @@ export default function WoocommerceSeoAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Analytics-Powered WordPress Success</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Analytics and user behavior insights drive the optimization of every WordPress site element. From site speed and UX to SEO and plugin performance, this data-driven approach ensures continuous improvement, higher engagement, stronger conversions, and measurable business growth.</p>
+                    <h2>Analytics-Powered WordPress Success</h2>
+                    <p data--delay="0.2s">Analytics and user behavior insights drive the optimization of every WordPress site element. From site speed and UX to SEO and plugin performance, this data-driven approach ensures continuous improvement, higher engagement, stronger conversions, and measurable business growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Custom WordPress Solutions Designed for Peak Performance</li>
                       <li>Seamless User Experience Across Devices and Platforms</li>
                     </ul>
@@ -134,7 +134,7 @@ export default function WoocommerceSeoAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Digital Blueprint Creation</h3>
                           <p>Mapping your brand vision, audience behavior, and site objectives to craft a WordPress website strategy that drives conversions and seamless user experiences.</p>
@@ -148,8 +148,8 @@ export default function WoocommerceSeoAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Innovative WordPress Experiences That Convert</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Data-driven insights optimize every aspect of your WordPress site, from site speed and UX to SEO and plugin performance. Real-time analysis and continuous refinement ensure higher engagement, improved conversions, and sustainable growth for your digital presence.</p>
+                    <h2>Innovative WordPress Experiences That Convert</h2>
+                    <p data--delay="0.2s">Data-driven insights optimize every aspect of your WordPress site, from site speed and UX to SEO and plugin performance. Real-time analysis and continuous refinement ensure higher engagement, improved conversions, and sustainable growth for your digital presence.</p>
                     
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -184,17 +184,17 @@ export default function WoocommerceSeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Our Commitment to Powerful WordPress Experiences</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Crafting WordPress websites with purpose and precision, we merge cutting-edge design, responsive functionality, and performance optimization to help your brand engage audiences, drive conversions, and grow online effectively.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Our Commitment to Powerful WordPress Experiences</h2>
+                  <p data--delay="0.4s">Crafting WordPress websites with purpose and precision, we merge cutting-edge design, responsive functionality, and performance optimization to help your brand engage audiences, drive conversions, and grow online effectively.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>Strategies rooted in purpose, ensuring every WordPress element supports business growth.</li>
                     <li>Crafting WordPress websites that engage users emotionally and inspire meaningful action.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -211,12 +211,12 @@ export default function WoocommerceSeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ export default function Help() {
     {
       id: 3,
       question: "How long before I see results from your services?",
-      answer: "Results timelines vary by service. SEO typically shows meaningful improvements within 3–6 months. Paid advertising campaigns can generate leads within days. Social media growth builds over 2–3 months of consistent effort. We set realistic expectations at the start of every engagement."
+      answer: "Results timelines vary by service. SEO typically shows meaningful improvements within 3â€“6 months. Paid advertising campaigns can generate leads within days. Social media growth builds over 2â€“3 months of consistent effort. We set realistic expectations at the start of every engagement."
     },
     {
       id: 4,
@@ -32,7 +32,7 @@ export default function Help() {
     {
       id: 5,
       question: "What does your pricing look like?",
-      answer: "Our pricing depends on the scope of services, competition level, and your business goals. We don't publish fixed prices because every business is different—we tailor packages to your specific needs and budget. Contact us for a free proposal."
+      answer: "Our pricing depends on the scope of services, competition level, and your business goals. We don't publish fixed prices because every business is differentâ€”we tailor packages to your specific needs and budget. Contact us for a free proposal."
     },
     {
       id: 6,
@@ -64,13 +64,13 @@ export default function Help() {
           <div className="row">
             <div className="col-lg-8">
               <div className="section-title" style={{ marginBottom: '3rem' }}>
-                <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently Asked <span>Questions</span></h2>
-                <p className="wow fadeInUp" data-wow-delay="0.2s">Find answers to the most common questions about Rank Spiders services, tools, and policies.</p>
+                <h2 data-cursor="-opaque">Frequently Asked <span>Questions</span></h2>
+                <p data--delay="0.2s">Find answers to the most common questions about Rank Spiders services, tools, and policies.</p>
               </div>
 
               <div className="faq-accordion" id="accordion">
                 {faqs.map((faq) => (
-                  <div key={faq.id} className="accordion-item wow fadeInUp">
+                  <div key={faq.id} className="accordion-item ">
                     <h2 className="accordion-header">
                       <button
                         className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}

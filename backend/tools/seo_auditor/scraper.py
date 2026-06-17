@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 async def check_robots(client: httpx.AsyncClient, base_url: str, path: str) -> bool:
     try:
-        r = await client.get(f"{base_url}/robots.txt")
+        r = await client.get(f"{base_url}/robots.txt", timeout=5.0)
         rp = urllib.robotparser.RobotFileParser()
         rp.set_url(f"{base_url}/robots.txt")
         rp.parse(r.text.splitlines())
@@ -57,7 +57,7 @@ def extract_seo(soup: BeautifulSoup, base_url: str, original_url: str, html_byte
     # ── Images ─────────────────────────────────────────────────────────────
     all_images = soup.find_all("img")
     images_missing_alt_count = sum(
-        1 for img in all_images if not img.get("alt", "").strip()
+        1 for img in all_images if img.get("alt") is None  # empty alt="" is intentional/decorative
     )
     images_missing_dimensions = sum(
         1 for img in all_images if not img.get("width") and not img.get("height")
@@ -111,7 +111,7 @@ def extract_seo(soup: BeautifulSoup, base_url: str, original_url: str, html_byte
 
     # ── Favicon ────────────────────────────────────────────────────────────
     has_favicon = bool(
-        soup.find("link", rel=lambda r: r and ("icon" in r or "shortcut icon" in r))
+        soup.find("link", rel=lambda r: r and any(v in r for v in ("icon", "shortcut")))
     )
 
     # ── Structured data / Schema ───────────────────────────────────────────
@@ -126,8 +126,8 @@ def extract_seo(soup: BeautifulSoup, base_url: str, original_url: str, html_byte
                 t = item.get("@type", "")
                 if t:
                     schema_types.append(t if isinstance(t, str) else ", ".join(t))
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"JSON-LD parse error: {e}")
 
     # ── Content / word count / text-to-HTML ratio ──────────────────────────
     body = soup.find("body")

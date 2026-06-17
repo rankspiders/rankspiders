@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 
@@ -31,14 +31,14 @@ export default function ProjectFaq() {
   return (
     <div className="page-single-faqs mt-5">
       <div className="section-title">
-        <h2 className="wow fadeInUp" data-cursor="-opaque">
+        <h2 data-cursor="-opaque">
           Frequently asked <span>questions</span>
         </h2>
       </div>
 
       <div className="faq-accordion mt-4" id="accordion">
         {faqs.map((faq) => (
-          <div key={faq.id} className="accordion-item wow fadeInUp border mb-2 rounded">
+          <div key={faq.id} className="accordion-item  border mb-2 rounded">
             <h2 className="accordion-header">
               <button
                 className={`accordion-button ${openId === faq.id ? '' : 'collapsed'} py-3`}

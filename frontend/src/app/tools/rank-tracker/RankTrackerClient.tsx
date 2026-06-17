@@ -201,6 +201,13 @@ export default function RankTrackerClient() {
 
   const esRef = useRef<EventSource | null>(null);
 
+  // Close SSE connection on unmount to prevent memory leaks
+  useEffect(() => {
+    return () => {
+      esRef.current?.close();
+    };
+  }, []);
+
   // ── Step 1 → Step 2 ──────────────────────────────────────────────────────────
 
   const handleStep1Continue = async () => {
@@ -1044,8 +1051,7 @@ export default function RankTrackerClient() {
                 {' '}<strong>{keywords.find(k => k.errorMsg)?.errorMsg}</strong>
                 <br />
                 <span style={{ fontSize: 12, opacity: 0.85 }}>
-                  Debug at <a href={`${API}/api/tools/rank/debug?keyword=seo+tools&url=ahrefs.com`} target="_blank" rel="noopener noreferrer" style={{ color: '#DC2626' }}>/api/tools/rank/debug</a>
-                  {' '}· Verify your SERPER_API_KEY in <code>backend/.env</code>
+                  Verify your SERPER_API_KEY is set in <code>backend/.env</code> and the backend is running.
                 </span>
               </div>
             )}
@@ -1056,10 +1062,6 @@ export default function RankTrackerClient() {
                 <i className="fa-solid fa-lightbulb" style={{ marginRight: 6 }}></i>
                 <strong>0 rankings found.</strong> This is normal if your site isn't indexed yet, or if these keywords are very competitive.
                 {' '}To verify the tracker works, try: <strong>ahrefs.com</strong> with keyword <strong>seo tools</strong> — it should rank #1.
-                {' '}Use the{' '}
-                <a href={`${API}/api/tools/rank/debug?keyword=seo+tools&url=ahrefs.com`} target="_blank" rel="noopener noreferrer" style={{ color: '#92400E', fontWeight: 600 }}>
-                  debug endpoint
-                </a>{' '}to inspect raw Serper results.
               </div>
             )}
 

@@ -12,8 +12,8 @@ const ScrollingTicker = () => (
   <div className="our-scrolling-ticker">
     <div className="scrolling-ticker-box">
       <div className="scrolling-content">
-        {[...items, ...items].map((item, i) => (
-          <span key={i} className="ticker-item">
+        {[...items.map((item, i) => ({ item, key: `a-${i}` })), ...items.map((item, i) => ({ item, key: `b-${i}` }))].map(({ item, key }) => (
+          <span key={key} className="ticker-item">
             {item}
           </span>
         ))}

@@ -1,11 +1,15 @@
-import csv
+﻿import csv
 import io
+import ipaddress
 import json
-from datetime import date, datetime
+import socket
+from datetime import date, datetime, timezone
+from typing import Annotated, Literal
+from urllib.parse import urlparse
 
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import JSONResponse, StreamingResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sse_starlette.sse import EventSourceResponse
 
 from db import supabase
@@ -14,15 +18,39 @@ from tools.keyword_density.scraper import check_keywords
 
 router = APIRouter()
 
+_PRIVATE_NETS = [
+    ipaddress.ip_network("10.0.0.0/8"),
+    ipaddress.ip_network("172.16.0.0/12"),
+    ipaddress.ip_network("192.168.0.0/16"),
+    ipaddress.ip_network("127.0.0.0/8"),
+    ipaddress.ip_network("169.254.0.0/16"),
+    ipaddress.ip_network("::1/128"),
+    ipaddress.ip_network("fc00::/7"),
+]
+
+
+def _is_safe_url(raw: str) -> bool:
+    """Return True only if the URL resolves to a public, non-private IP."""
+    if not raw.startswith(("http://", "https://")):
+        raw = "https://" + raw
+    try:
+        hostname = urlparse(raw).hostname or ""
+        if not hostname or hostname.lower() in ("localhost", "0.0.0.0"):
+            return False
+        ip = ipaddress.ip_address(socket.gethostbyname(hostname))
+        return not any(ip in net for net in _PRIVATE_NETS)
+    except Exception:
+        return False
+
 
 # ── Request models ────────────────────────────────────────────────────────────
 
 class CreateProjectRequest(BaseModel):
     website_url: str
-    browser: str = "desktop"
-    country: str = "us"
-    country_name: str = "United States"
-    language: str = "en"
+    browser: Literal["desktop", "mobile"] = "desktop"
+    country: Annotated[str, Field(min_length=2, max_length=5, pattern=r"^[a-z]{2}$")] = "us"
+    country_name: Annotated[str, Field(max_length=60)] = "United States"
+    language: Annotated[str, Field(min_length=2, max_length=8, pattern=r"^[a-z]{2}(-[A-Z]{2})?$")] = "en"
 
 
 class AddKeywordsRequest(BaseModel):
@@ -106,7 +134,7 @@ async def create_project(body: CreateProjectRequest):
         "country_name": body.country_name,
         "language": body.language,
         "status": "pending",
-        "created_at": datetime.utcnow().isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
     res = supabase.table("rank_projects").insert(data).execute()
     if not res.data:
@@ -200,14 +228,18 @@ async def suggest_keywords_endpoint(project_id: str):
 @router.post("/projects/{project_id}/competitors")
 async def save_competitors(project_id: str, body: AddCompetitorsRequest):
     _get_project_or_404(project_id)
-    rows = [
-        {"project_id": project_id, "url": c.strip(), "created_at": datetime.utcnow().isoformat()}
-        for c in body.competitors
-        if c.strip()
-    ]
-    if rows:
-        supabase.table("rank_competitors").insert(rows).execute()
-    return {"saved": len(rows)}
+    safe, rejected = [], []
+    for c in body.competitors:
+        url = c.strip()
+        if not url:
+            continue
+        if _is_safe_url(url):
+            safe.append({"project_id": project_id, "url": url, "created_at": datetime.now(timezone.utc).isoformat()})
+        else:
+            rejected.append(url)
+    if safe:
+        supabase.table("rank_competitors").insert(safe).execute()
+    return {"saved": len(safe), "rejected": rejected}
 
 
 # ── 4. Add keywords ───────────────────────────────────────────────────────────
@@ -227,7 +259,7 @@ async def add_keywords(project_id: str, body: AddKeywordsRequest):
             seen.add(kw.lower())
             deduped.append(kw)
     rows = [
-        {"project_id": project_id, "keyword": kw, "created_at": datetime.utcnow().isoformat()}
+        {"project_id": project_id, "keyword": kw, "created_at": datetime.now(timezone.utc).isoformat()}
         for kw in deduped
     ]
     if rows:
@@ -308,7 +340,7 @@ async def stream_rankings(project_id: str):
                     "ranked_url": rank_data["ranked_url"],
                     "check_date": date.today().isoformat(),
                     "serp_features": rank_data["serp_features"],
-                    "created_at": datetime.utcnow().isoformat(),
+                    "created_at": datetime.now(timezone.utc).isoformat(),
                 }).execute()
 
             yield {
@@ -372,65 +404,3 @@ async def export_csv(project_id: str):
         media_type="text/csv",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
-
-
-# ── 8. Debug / API test ───────────────────────────────────────────────────────
-
-@router.get("/debug")
-async def debug_rank_check(
-    keyword: str = Query(..., description="Keyword to check"),
-    url: str = Query(..., description="Target website URL"),
-    country: str = Query("us"),
-):
-    """
-    Test a single keyword+URL directly against Serper.dev.
-    Returns the full result including organic_count and error fields.
-    Also returns a sample of the top 5 organic results so you can verify
-    domain matching is working.
-    """
-    from tools.rank_tracker.scraper import _bare_domain
-    import os, httpx
-
-    api_key = os.environ.get("SERPER_API_KEY", "")
-    if not api_key:
-        return JSONResponse({"error": "SERPER_API_KEY not set"}, status_code=400)
-
-    target_domain = _bare_domain(url)
-
-    # Make the raw Serper call so we can see the full response
-    headers = {"X-API-KEY": api_key, "Content-Type": "application/json"}
-    payload = {"q": keyword, "gl": country, "hl": "en", "num": 10}
-
-    try:
-        async with httpx.AsyncClient(timeout=20.0) as client:
-            resp = await client.post("https://google.serper.dev/search", headers=headers, json=payload)
-        raw = resp.json()
-    except Exception as exc:
-        return JSONResponse({"error": f"Request failed: {exc}"}, status_code=500)
-
-    if not resp.is_success:
-        return JSONResponse({"error": raw.get("message") or f"HTTP {resp.status_code}", "raw": raw}, status_code=resp.status_code)
-
-    organic = raw.get("organic", [])
-    top5 = [
-        {"position": item.get("position"), "domain": _bare_domain(item.get("link", "")), "link": item.get("link"), "title": item.get("title")}
-        for item in organic[:5]
-    ]
-
-    # Check if target domain appears in results
-    found_at = None
-    for item in organic:
-        d = _bare_domain(item.get("link", ""))
-        if d == target_domain or d.endswith("." + target_domain):
-            found_at = item.get("position")
-            break
-
-    return JSONResponse({
-        "target_domain": target_domain,
-        "keyword": keyword,
-        "country": country,
-        "organic_count": len(organic),
-        "credits_remaining": resp.headers.get("X-RateLimit-Remaining", "unknown"),
-        "target_found_at_position": found_at,
-        "top_5_results": top5,
-    })

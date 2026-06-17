@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -18,7 +18,7 @@ export default function WebDesignAgency() {
     {
       id: 2,
       question: "2. Do your websites include SEO optimisation?",
-      answer: "Yes. Every website we build includes on-page SEO foundations—clean URL structures, metadata, schema markup, compressed images, and Core Web Vitals optimisation. We deliver sites that are ready to rank from day one."
+      answer: "Yes. Every website we build includes on-page SEO foundationsâ€”clean URL structures, metadata, schema markup, compressed images, and Core Web Vitals optimisation. We deliver sites that are ready to rank from day one."
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ export default function WebDesignAgency() {
     {
       id: 4,
       question: "4. How long does a web design and development project take?",
-      answer: "A standard business website takes 4–8 weeks from brief to launch. Complex builds with custom functionality, e-commerce, or large content migrations may take 8–16 weeks. We provide a clear timeline before any engagement begins."
+      answer: "A standard business website takes 4â€“8 weeks from brief to launch. Complex builds with custom functionality, e-commerce, or large content migrations may take 8â€“16 weeks. We provide a clear timeline before any engagement begins."
     },
     {
       id: 5,
@@ -57,17 +57,17 @@ export default function WebDesignAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Your website is your most important digital asset. We design and build websites that don't just look great—they load fast, rank in search, and convert visitors into customers. Every pixel and every line of code serves your business goals.</p>
+                  <p>Your website is your most important digital asset. We design and build websites that don't just look greatâ€”they load fast, rank in search, and convert visitors into customers. Every pixel and every line of code serves your business goals.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Websites Built to <span>Perform & Convert</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Design-led, performance-first, SEO-ready—built for the modern web.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Websites Built to <span>Perform & Convert</span></h2>
+                    <p data--delay="0.6s">Design-led, performance-first, SEO-readyâ€”built for the modern web.</p>
+                    <ul data--delay="0.8s">
                       <li>Mobile-First Responsive Design</li>
                       <li>Core Web Vitals Optimised</li>
                       <li>SEO Foundations Built In</li>
                       <li>Conversion-Focused User Experience</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Design & UX</h3>
                         <p>Brand-aligned design systems that guide visitors effortlessly toward your conversion goals.</p>
@@ -96,11 +96,11 @@ export default function WebDesignAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Design Without Performance <span>is Just Art</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Beautiful websites that don't rank or convert waste your investment. We build both—and make them work together.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Design Without Performance <span>is Just Art</span></h2>
+                  <p data--delay="0.4s">Beautiful websites that don't rank or convert waste your investment. We build bothâ€”and make them work together.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">get a quote</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function WebDesignAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

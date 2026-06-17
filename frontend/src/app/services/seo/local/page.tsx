@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ export default function LocalSeoAgency() {
     {
       id: 1,
       question: "1. What is Local SEO, and why is it important for my business?",
-      answer: "Local SEO helps your business appear in nearby searches and on Google Maps, making it easier for local customers to find you. It’s essential for driving more calls, visits and leads from your area. Leading agencies like Rank Spiders and WebPulse specialize in Local SEO Services in India to improve visibility and conversions for small and local businesses."
+      answer: "Local SEO helps your business appear in nearby searches and on Google Maps, making it easier for local customers to find you. It’s essential for driving more calls, visits and leads from your area. Rank Spiders specializes in Local SEO Services in India to improve visibility and conversions for small and local businesses."
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export default function LocalSeoAgency() {
     {
       id: 3,
       question: "3. What is included in professional Local SEO Services?",
-      answer: "Comprehensive Local SEO packages include Google Business Profile optimization, local citation building, keyword research, on-page SEO and link-building strategies. Agencies such as Rank Spiders and WebPulse provide complete Local SEO Marketing Services that enhance visibility on both search engines and Google Maps."
+      answer: "Comprehensive Local SEO packages include Google Business Profile optimization, local citation building, keyword research, on-page SEO and link-building strategies. Rank Spiders provides complete Local SEO Marketing Services that enhance visibility on both search engines and Google Maps."
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ export default function LocalSeoAgency() {
     {
       id: 5,
       question: "5. How do I choose the right Local SEO company for my business?",
-      answer: "Look for an agency with proven results, transparent reporting and customized strategies. Trusted companies like Rank Spiders and WebPulse stand out as leading Local SEO companies in Mohali and India, offering data-driven solutions that deliver measurable growth for local and multi-location businesses."
+      answer: "Look for an agency with proven results, transparent reporting and customized strategies. Rank Spiders stands out as one of the leading Local SEO companies in Mohali and India, offering data-driven solutions that deliver measurable growth for local and multi-location businesses."
     }
   ];
 
@@ -46,7 +46,7 @@ export default function LocalSeoAgency() {
         title="Local" 
         subtitle="Seo" 
         breadcrumbs={[
-          { label: 'seo optimization', href: '#' },
+          { label: 'SEO', href: '/services/seo' },
           { label: 'Local Seo', active: true }
         ]} 
       />
@@ -68,22 +68,22 @@ export default function LocalSeoAgency() {
 
                 <div className="service-entry">
                   <div className="service-strategy-box">
-                    <h3 className="wow fadeInUp" data-wow-delay="0.4s">Local SEO Services in India to Grow Your Local Business</h3>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Our best local SEO services for small businesses are designed to boost your visibility in local searches, connect with nearby customers and drive meaningful engagement. From local SEO marketing services like Google Business Profile optimization to managing local SEO services near me listings, we ensure your brand is discoverable, trusted and relevant in your area.</p>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">At Rank Spiders, we don’t do one-size-fits-all solutions. Our team analyzes your local market in India, competitors and audience behavior to craft customized strategies that increase foot traffic, generate qualified leads and deliver measurable growth. With real-time performance analytics, every optimization is backed by data for maximum impact making us your reliable local SEO company India for lasting results.</p>
+                    <h3 data--delay="0.4s">Local SEO Services in India to Grow Your Local Business</h3>
+                    <p data--delay="0.6s">Our best local SEO services for small businesses are designed to boost your visibility in local searches, connect with nearby customers and drive meaningful engagement. From local SEO marketing services like Google Business Profile optimization to managing local SEO services near me listings, we ensure your brand is discoverable, trusted and relevant in your area.</p>
+                    <p data--delay="0.6s">At Rank Spiders, we don’t do one-size-fits-all solutions. Our team analyzes your local market in India, competitors and audience behavior to craft customized strategies that increase foot traffic, generate qualified leads and deliver measurable growth. With real-time performance analytics, every optimization is backed by data for maximum impact making us your reliable local SEO company India for lasting results.</p>
 
                     <div className="service-strategy-box">
-                      <h2 className="wow fadeInUp" data-wow-delay="0.4s">Why Your Business <span> Needs Local SEO </span></h2>
-                      <p className="wow fadeInUp" data-wow-delay="0.6s">We combine data-driven Local SEO Services in Mohali, creative optimization and proven expertise to help your business attract nearby customers, rank higher in local searches and drive measurable growth. Our tailored approach ensures that your business stands out in competitive markets while leveraging Local SEO Services India for broader regional reach.</p>
+                      <h2 data--delay="0.4s">Why Your Business <span> Needs Local SEO </span></h2>
+                      <p data--delay="0.6s">We combine data-driven Local SEO Services in Mohali, creative optimization and proven expertise to help your business attract nearby customers, rank higher in local searches and drive measurable growth. Our tailored approach ensures that your business stands out in competitive markets while leveraging Local SEO Services India for broader regional reach.</p>
 
-                      <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                      <ul data--delay="0.8s">
                         <li>Tailored Local SEO Campaigns for Maximum Reach</li>
                         <li>Consistent Visibility Across Maps and Listings</li>
                         <li>Engaging Nearby Audiences That Convert</li>
                         <li>Data-Driven Insights for Measurable Local Growth</li>
                       </ul>
 
-                      <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                      <div className="service-strategy-body " data--delay="1s">
                         <div className="strategy-body-item">
                           <h3>Certified Local SEO</h3>
                           <p>Our team is certified in local SEO expertise.</p>
@@ -102,9 +102,9 @@ export default function LocalSeoAgency() {
                     </div>
 
                     <div className="service-growth-box">
-                      <h2 className="wow fadeInUp">Our Local SEO Services</h2>
-                      <p className="wow fadeInUp" data-wow-delay="0.2s">At Rank Spiders, a trusted local SEO agency in Mohali, we specialize in delivering powerful local search engine optimization solutions that help your business appear where your customers are looking — on Google Maps, local listings and organic search results. Our tailored strategies are built to strengthen your online presence, increase local visibility and attract qualified leads from your area.</p>
-                      <p className="wow fadeInUp" data-wow-delay="0.4s">Here’s what our comprehensive Local SEO Services include:</p>
+                      <h2>Our Local SEO Services</h2>
+                      <p data--delay="0.2s">At Rank Spiders, a trusted local SEO agency in Mohali, we specialize in delivering powerful local search engine optimization solutions that help your business appear where your customers are looking — on Google Maps, local listings and organic search results. Our tailored strategies are built to strengthen your online presence, increase local visibility and attract qualified leads from your area.</p>
+                      <p data--delay="0.4s">Here’s what our comprehensive Local SEO Services include:</p>
 
                       <div className="service-growth-body">
                         <div className="growth-counter-box">
@@ -117,7 +117,7 @@ export default function LocalSeoAgency() {
                           </div>
                         </div>
 
-                        <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                        <div className="service-growth-item-list " data--delay="0.6s">
                           <div className="service-growth-item">
                             <h3>Google Business Profile (GMB) Optimization</h3>
                             <p>Enhance your Google listing with accurate details, engaging posts and visuals to improve visibility on Maps and local searches.</p>
@@ -155,8 +155,8 @@ export default function LocalSeoAgency() {
                     </div>
 
                     <div className="service-impact-box">
-                      <h2 className="wow fadeInUp">How Our Local <span> SEO Process Works</span></h2>
-                      <p className="wow fadeInUp" data-wow-delay="0.2s">At Rank Spiders, we follow a strategic and data-driven approach to deliver effective results through our Local SEO Services in India. Our proven process ensures your business gets maximum visibility across Google Search, Google Maps and local directories — helping you attract real customers nearby.</p>
+                      <h2>How Our Local <span> SEO Process Works</span></h2>
+                      <p data--delay="0.2s">At Rank Spiders, we follow a strategic and data-driven approach to deliver effective results through our Local SEO Services in India. Our proven process ensures your business gets maximum visibility across Google Search, Google Maps and local directories — helping you attract real customers nearby.</p>
 
                       <div className="service-impact-images">
                         <div className="service-impact-img">
@@ -218,11 +218,11 @@ export default function LocalSeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Why Choose Us for Local SEO</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">At Rank Spiders, we are a trusted local SEO agency offering data-driven strategies to help your business rank higher on Google Maps and local search results. Our experienced Local SEO experts specialize in Google Business Profile optimization, local keyword targeting and citation building to increase your visibility and leads. We follow a proven Google Maps ranking strategy that ensures consistent results and measurable growth. With transparent monthly reports, you always know how your campaign is performing. Plus, our affordable Local SEO packages are tailored to fit small and medium businesses, delivering maximum ROI. Choose Rank Spiders for reliable, result-oriented local search engine optimization that connects your brand with the right local audience</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Why Choose Us for Local SEO</h2>
+                  <p data--delay="0.4s">At Rank Spiders, we are a trusted local SEO agency offering data-driven strategies to help your business rank higher on Google Maps and local search results. Our experienced Local SEO experts specialize in Google Business Profile optimization, local keyword targeting and citation building to increase your visibility and leads. We follow a proven Google Maps ranking strategy that ensures consistent results and measurable growth. With transparent monthly reports, you always know how your campaign is performing. Plus, our affordable Local SEO packages are tailored to fit small and medium businesses, delivering maximum ROI. Choose Rank Spiders for reliable, result-oriented local search engine optimization that connects your brand with the right local audience</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -233,15 +233,6 @@ export default function LocalSeoAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -255,12 +246,12 @@ export default function LocalSeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

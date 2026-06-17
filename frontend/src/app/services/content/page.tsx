@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 import Sidebar from '@/components/Sidebar';
 
@@ -32,7 +32,7 @@ export default function ContentMarketingAgency() {
         title="Content" 
         subtitle="Marketing" 
         breadcrumbs={[
-          { label: 'Content Marketing', href: '#' }
+          { label: 'Content Marketing', href: '/services/content' }
         ]} 
       />
       <div className="page-service-single">
@@ -49,21 +49,21 @@ export default function ContentMarketingAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our content marketing strategies go beyond just creating blog posts or social updates—they build meaningful connections between your brand and your audience. From SEO-optimized articles to engaging video scripts, interactive guides, and social-first content, we craft narratives that resonate, educate, and inspire action.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We combine data-driven insights, audience behavior analysis, and trend research to deliver content that captures attention, drives engagement, and enhances brand authority. Every piece is strategically designed to attract the right audience, foster trust, and convert readers into loyal customers, ensuring measurable growth across digital channels.</p>
+                  <p>Our content marketing strategies go beyond just creating blog posts or social updates—they build meaningful connections between your brand and your audience. From SEO-optimized articles to engaging video scripts, interactive guides, and social-first content, we craft narratives that resonate, educate, and inspire action.</p>
+                  <p data--delay="0.4s">We combine data-driven insights, audience behavior analysis, and trend research to deliver content that captures attention, drives engagement, and enhances brand authority. Every piece is strategically designed to attract the right audience, foster trust, and convert readers into loyal customers, ensuring measurable growth across digital channels.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Your Brand With <span>Powerful Content </span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We combine audience insights, creative storytelling, and data-driven strategies to craft content that educates, engages, and converts. From blogs and articles to videos and interactive guides, every piece is designed to strengthen your brand presence, drive traffic, and foster long-term customer relationships.</p>
+                    <h2 data--delay="0.4s">Boost Your Brand With <span>Powerful Content </span></h2>
+                    <p data--delay="0.6s">We combine audience insights, creative storytelling, and data-driven strategies to craft content that educates, engages, and converts. From blogs and articles to videos and interactive guides, every piece is designed to strengthen your brand presence, drive traffic, and foster long-term customer relationships.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Audience-Centric Content That Drives Engagement</li>
                       <li>Data-Driven Insights to Measure Success</li>
                       <li>SEO-Optimized Content for Higher Visibility</li>
                       <li>Interactive & Trend-Driven Content Formats</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified Content Marketing Experts</h3>
                         <p>Our certified content marketers and SEO specialists craft every piece of content with a clear purpose — to attract the right audience, build authority, and convert readers into customers through compelling, strategically optimized writing.</p>
@@ -82,10 +82,10 @@ export default function ContentMarketingAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Measurable Results Through Analytics</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Real-time analytics track content performance, audience behavior, and engagement trends to refine strategies continuously. Insight-driven decisions ensure every article, post, or video delivers measurable results, stronger reach, and scalable brand growth.</p>
+                    <h2>Measurable Results Through Analytics</h2>
+                    <p data--delay="0.2s">Real-time analytics track content performance, audience behavior, and engagement trends to refine strategies continuously. Insight-driven decisions ensure every article, post, or video delivers measurable results, stronger reach, and scalable brand growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Optimized Content Across All Digital Platforms</li>
                       <li>Strategic Storytelling for Maximum Engagement</li>
                     </ul>
@@ -101,7 +101,7 @@ export default function ContentMarketingAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Content Strategy Planning</h3>
                           <p>We start by analyzing your brand goals, target audience, and existing digital presence. This insight allows us to develop a tailored content roadmap aligned with your objectives.</p>
@@ -115,8 +115,8 @@ export default function ContentMarketingAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Content Strategies That Deliver Measurable Results</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Data-driven insights track content performance, audience engagement, and trends to optimize strategies in real time. Every piece of content is crafted and refined to maximize reach, engagement, and measurable brand growth.</p>
+                    <h2>Content Strategies That Deliver Measurable Results</h2>
+                    <p data--delay="0.2s">Data-driven insights track content performance, audience engagement, and trends to optimize strategies in real time. Every piece of content is crafted and refined to maximize reach, engagement, and measurable brand growth.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -164,17 +164,17 @@ export default function ContentMarketingAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Creating Content That Connects</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Our content strategies combine creativity and performance metrics. From interactive articles to shareable videos, we craft experiences that educate, inspire, and deliver measurable results for your brand.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Creating Content That Connects</h2>
+                  <p data--delay="0.4s">Our content strategies combine creativity and performance metrics. From interactive articles to shareable videos, we craft experiences that educate, inspire, and deliver measurable results for your brand.</p>
                 </div>
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>We create content experiences that resonate with your audience, spark engagement, and inspire action.</li>
                     <li>Our strategies are purpose-driven, ensuring every article, post, or video supports your brand goals and delivers measurable impact.</li>
                   </ul>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <a href="/contact-us" className="btn-default">learn more</a>
                 </div>
               </div>
@@ -185,15 +185,6 @@ export default function ContentMarketingAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -207,10 +198,10 @@ export default function ContentMarketingAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
-            <div className="accordion-item wow fadeInUp">
+            <div className="accordion-item ">
               <h2 className="accordion-header" id="heading1">
                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
                   1. What types of content do you create?
@@ -222,7 +213,7 @@ export default function ContentMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+            <div className="accordion-item " data--delay="0.2s">
               <h2 className="accordion-header" id="heading2">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
                   2. How do you optimize content for SEO?
@@ -234,7 +225,7 @@ export default function ContentMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+            <div className="accordion-item " data--delay="0.4s">
               <h2 className="accordion-header" id="heading3">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
                   3. Can you create content for multiple platforms?
@@ -246,7 +237,7 @@ export default function ContentMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+            <div className="accordion-item " data--delay="0.6s">
               <h2 className="accordion-header" id="heading4">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
                   4. How do you ensure content engages the audience?
@@ -258,7 +249,7 @@ export default function ContentMarketingAgency() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+            <div className="accordion-item " data--delay="0.8s">
               <h2 className="accordion-header" id="heading5">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
                   5. Do you provide content calendars?

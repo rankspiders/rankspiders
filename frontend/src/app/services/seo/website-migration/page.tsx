@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function SeoWebsiteMigrationAgency() {
     {
       id: 1,
       question: "1. What is SEO website migration and why is it risky?",
-      answer: "Website migration covers any significant change to your site—domain change, platform switch, URL restructure, or HTTPS move. Without proper SEO management, migrations can cause catastrophic ranking drops that take months to recover from."
+      answer: "Website migration covers any significant change to your siteâ€”domain change, platform switch, URL restructure, or HTTPS move. Without proper SEO management, migrations can cause catastrophic ranking drops that take months to recover from."
     },
     {
       id: 2,
@@ -23,12 +23,12 @@ export default function SeoWebsiteMigrationAgency() {
     {
       id: 3,
       question: "3. Do you handle platform migrations (e.g. WordPress to Shopify)?",
-      answer: "Yes. We specialise in cross-platform migrations—including WooCommerce to Shopify, custom CMS to WordPress, and legacy platforms to modern stacks—with full SEO preservation at every step."
+      answer: "Yes. We specialise in cross-platform migrationsâ€”including WooCommerce to Shopify, custom CMS to WordPress, and legacy platforms to modern stacksâ€”with full SEO preservation at every step."
     },
     {
       id: 4,
       question: "4. How long does an SEO-safe website migration take?",
-      answer: "Depending on the size of the site, a properly managed migration takes 4–12 weeks including pre-migration audit, redirect mapping, staging testing, and post-launch monitoring. Rushing a migration is the primary cause of SEO disasters."
+      answer: "Depending on the size of the site, a properly managed migration takes 4â€“12 weeks including pre-migration audit, redirect mapping, staging testing, and post-launch monitoring. Rushing a migration is the primary cause of SEO disasters."
     },
     {
       id: 5,
@@ -57,17 +57,17 @@ export default function SeoWebsiteMigrationAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Website migrations are one of the highest-risk events in a website's lifecycle. Without expert SEO management, a migration can wipe out years of organic ranking equity overnight. We make migrations safe—meticulously planned, technically precise, and continuously monitored.</p>
+                  <p>Website migrations are one of the highest-risk events in a website's lifecycle. Without expert SEO management, a migration can wipe out years of organic ranking equity overnight. We make migrations safeâ€”meticulously planned, technically precise, and continuously monitored.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Migrate Without <span>Losing Rankings</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Every URL mapped, every redirect verified, every ranking protected.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">Migrate Without <span>Losing Rankings</span></h2>
+                    <p data--delay="0.6s">Every URL mapped, every redirect verified, every ranking protected.</p>
+                    <ul data--delay="0.8s">
                       <li>Full Pre-Migration SEO Audit</li>
                       <li>Comprehensive Redirect Mapping</li>
                       <li>Staging Environment Testing</li>
                       <li>90-Day Post-Launch Monitoring</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Pre-Migration Planning</h3>
                         <p>URL audits, redirect maps, and stakeholder alignment before a single line of code changes.</p>
@@ -96,11 +96,11 @@ export default function SeoWebsiteMigrationAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">A Migration Should Move <span>You Forward, Not Back</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Done right, a migration is an opportunity to improve your technical SEO foundation and emerge stronger than before.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">A Migration Should Move <span>You Forward, Not Back</span></h2>
+                  <p data--delay="0.4s">Done right, a migration is an opportunity to improve your technical SEO foundation and emerge stronger than before.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">plan your migration</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function SeoWebsiteMigrationAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

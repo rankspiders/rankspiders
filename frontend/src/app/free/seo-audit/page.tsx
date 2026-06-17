@@ -81,7 +81,7 @@ export default function FreeSeoAudit() {
               <div className="service-single-content">
                 <div className="service-entry">
                   {/* Banner */}
-                  <div className="service-banner-image wow fadeInUp">
+                  <div className="service-banner-image ">
                     <figure className="image-anime reveal">
                       <img
                         src="/images/free/seo-audit-banner.png"
@@ -92,19 +92,19 @@ export default function FreeSeoAudit() {
                     </figure>
                   </div>
 
-                  <h2 className="wow fadeInUp" data-wow-delay="0.1s">
+                  <h2 data--delay="0.1s">
                     Discover Hidden Growth Opportunities with a <span>Free SEO Audit</span>
                   </h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">
+                  <p data--delay="0.2s">
                     Your website could be missing valuable traffic, leads, and revenue without you even realizing it. Most websites have 15–30 fixable issues directly limiting their organic rankings. Our Free SEO Audit uncovers those hidden blockers and untapped opportunities — so you know exactly what&apos;s holding your business back from higher search rankings and sustainable growth.
                   </p>
-                  <p className="wow fadeInUp" data-wow-delay="0.3s">
+                  <p data--delay="0.3s">
                     At Rank Spiders, our SEO specialists perform a comprehensive, human-reviewed analysis of your website — not just an automated data dump. We identify technical errors, keyword gaps, content weaknesses, page speed issues, mobile usability concerns, and competitor advantages. You receive a clear, prioritized report with specific actions that actually move the needle.
                   </p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">What Your Free SEO Audit <span>Will Cover</span></h2>
-                    <ul className="wow fadeInUp" data-wow-delay="0.6s">
+                    <h2 data--delay="0.4s">What Your Free SEO Audit <span>Will Cover</span></h2>
+                    <ul data--delay="0.6s">
                       <li><strong>Technical SEO Health</strong> — crawlability, indexation errors, broken links, redirect chains, HTTPS security</li>
                       <li><strong>Page Speed & Core Web Vitals</strong> — LCP, CLS, INP scores and what&apos;s causing slowdowns</li>
                       <li><strong>On-Page Optimization</strong> — title tags, meta descriptions, H1/H2 structure, keyword density and placement</li>
@@ -117,7 +117,7 @@ export default function FreeSeoAudit() {
                       <li><strong>Competitor Visibility Snapshot</strong> — where your top 3 competitors outrank you and why</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="0.8s">
+                    <div className="service-strategy-body " data--delay="0.8s">
                       <div className="strategy-body-item">
                         <h3>Technical SEO Audit Specialists</h3>
                         <p>Certified experts analyzing site speed, crawl errors, indexation, Core Web Vitals, and structured data issues that silently block your rankings</p>
@@ -130,9 +130,9 @@ export default function FreeSeoAudit() {
                   </div>
 
                   {/* Process section */}
-                  <div className="service-growth-box wow fadeInUp" data-wow-delay="0.2s">
+                  <div className="service-growth-box " data--delay="0.2s">
                     <h2>How Our Free SEO Audit <span>Process Works</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">
+                    <p data--delay="0.2s">
                       Getting your Free SEO Audit is simple, fast, and completely commitment-free. Here&apos;s what happens when you submit your URL:
                     </p>
                     <div className="service-growth-body">
@@ -153,7 +153,7 @@ export default function FreeSeoAudit() {
                   </div>
 
                   {/* Benefits section */}
-                  <div className="service-growth-box wow fadeInUp" data-wow-delay="0.2s">
+                  <div className="service-growth-box " data--delay="0.2s">
                     <h2>6 Business Benefits of a <span>Free SEO Audit</span></h2>
                     <div className="service-growth-body">
                       <div className="service-growth-item-list">
@@ -183,12 +183,12 @@ export default function FreeSeoAudit() {
       <div className="screen-only container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}

@@ -5,8 +5,8 @@ import SitemapValidatorClient from './SitemapValidatorClient';
 export const metadata: Metadata = {
   title: 'Free Sitemap Validator — XML Sitemap Checker | Rank Spiders',
   description: 'Validate any XML sitemap instantly. Check URL count, lastmod freshness, missing priority/changefreq tags, and detect sitemap index files.',
-  openGraph: { title: 'Free Sitemap Validator | Rank Spiders', type: 'website', siteName: 'Rank Spiders' },
-  alternates: { canonical: 'https://rankspiders.com/tools/sitemap-validator' },
+  openGraph: { title: 'Free Sitemap Validator | Rank Spiders', description: 'Validate any XML sitemap instantly. Check URL count, lastmod freshness, missing priority/changefreq tags, and detect sitemap index files.', type: 'website', siteName: 'Rank Spiders' },
+  alternates: { canonical: 'https://www.rankspiders.com/tools/sitemap-validator' },
 };
 
 export default function SitemapValidatorPage() {

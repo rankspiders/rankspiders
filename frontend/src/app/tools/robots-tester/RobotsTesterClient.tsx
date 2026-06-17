@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import MotionWrapper from '@/components/MotionWrapper';
 
@@ -61,7 +61,7 @@ export default function RobotsTesterClient() {
               </MotionWrapper>
               <MotionWrapper variant="up" delay={0.1}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 12 }}>
-                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} placeholder="https://yourwebsite.com" disabled={loading}
+                  <input type="text" value={url} onChange={e => setUrl(e.target.value)} onKeyDown={e => e.key === 'Enter' && !loading && run()} aria-label="Website URL" placeholder="https://yourwebsite.com" disabled={loading}
                     style={{ flex: '1 1 300px', maxWidth: 400, padding: '15px 20px', border: '1.5px solid var(--card-border)', borderRadius: 10, background: 'var(--card-bg)', color: 'var(--text-color)', font: '1rem var(--default-font)', outline: 'none' }}
                     onFocus={e => (e.currentTarget.style.borderColor = WARN)} onBlur={e => (e.currentTarget.style.borderColor = 'var(--card-border)')} />
                   <input type="text" value={testPath} onChange={e => setTestPath(e.target.value)} placeholder="/optional-path-to-test" disabled={loading}

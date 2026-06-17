@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ export default function SeoAgencyIndia() {
     {
       id: 1,
       question: "1. What is SEO optimization and why is it important for business growth?",
-      answer: "SEO optimization improves your website’s visibility in search engines by aligning content, technical performance, and user intent. It helps businesses attract qualified organic traffic, build trust, and generate consistent leads without relying only on paid ads."
+      answer: "SEO optimization improves your websiteâ€™s visibility in search engines by aligning content, technical performance, and user intent. It helps businesses attract qualified organic traffic, build trust, and generate consistent leads without relying only on paid ads."
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ export default function SeoAgencyIndia() {
     {
       id: 5,
       question: "5. Are your SEO packages affordable and suitable for long-term growth?",
-      answer: "Yes. We offer affordable SEO packages in India designed for sustainable growth. Our plans are transparent, scalable, and aligned with business goals—making us a trusted choice among businesses looking for the best SEO services in Mohali."
+      answer: "Yes. We offer affordable SEO packages in India designed for sustainable growth. Our plans are transparent, scalable, and aligned with business goalsâ€”making us a trusted choice among businesses looking for the best SEO services in Mohali."
     }
   ];
 
@@ -64,20 +64,20 @@ export default function SeoAgencyIndia() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Modern SEO is no longer just about visibility—it’s about being chosen. Our SEO optimization framework is designed to position your brand as a credible, high-trust authority across today’s search ecosystems, not merely to chase rankings.</p>
+                  <p>Modern SEO is no longer just about visibilityâ€”itâ€™s about being chosen. Our SEO optimization framework is designed to position your brand as a credible, high-trust authority across todayâ€™s search ecosystems, not merely to chase rankings.</p>
                   
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Where SEO <span> Meets Performance </span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We engineer SEO optimization with one clear objective—real business outcomes.</p>
+                    <h2 data--delay="0.4s">Where SEO <span> Meets Performance </span></h2>
+                    <p data--delay="0.6s">We engineer SEO optimization with one clear objectiveâ€”real business outcomes.</p>
                     
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Intent-Led Optimization Framework</li>
                       <li>Performance-First Technical SEO</li>
                       <li>Authority-Driven Content Structuring</li>
                       <li>Data-Backed Growth Measurement</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>On-Page SEO Intelligence</h3>
                         <p>Our On-Page SEO framework is engineered to deliver precision, clarity and measurable ranking gains.</p>
@@ -107,11 +107,11 @@ export default function SeoAgencyIndia() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Powering Sustainable Growth <span> Through SEO Optimization</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Sustainable SEO growth is built on strategy, not shortcuts.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Powering Sustainable Growth <span> Through SEO Optimization</span></h2>
+                  <p data--delay="0.4s">Sustainable SEO growth is built on strategy, not shortcuts.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -128,12 +128,12 @@ export default function SeoAgencyIndia() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

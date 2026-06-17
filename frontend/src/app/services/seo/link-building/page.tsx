@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ export default function LinkBuildingSeoAgency() {
         title="Link Building" 
         subtitle="Seo" 
         breadcrumbs={[
-          { label: 'Seo Optimization', href: '#' },
+          { label: 'SEO', href: '/services/seo' },
           { label: 'Link Building Seo', active: true }
         ]} 
       />
@@ -67,22 +67,22 @@ export default function LinkBuildingSeoAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Our link-building strategies are designed to strengthen your website’s authority, improve rankings and attract high-intent traffic. Through strategic outreach, premium content placement and trusted publisher partnerships, we deliver SEO link building services that genuinely enhance your domain credibility. As Rank Spiders, we focus on quality-driven, relevant backlinks that support long-term growth.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">Instead of generic tactics, we analyze your industry, competitors and backlink profile to build a tailored acquisition plan. With real-time quality checks and performance tracking, our Affordable Link Building Services ensure every link adds measurable value.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">By choosing our Top Link Building Services in Mohali, you gain reliable, contextual links that elevate visibility and drive sustainable results.</p>
+                  <p>Our link-building strategies are designed to strengthen your website’s authority, improve rankings and attract high-intent traffic. Through strategic outreach, premium content placement and trusted publisher partnerships, we deliver SEO link building services that genuinely enhance your domain credibility. As Rank Spiders, we focus on quality-driven, relevant backlinks that support long-term growth.</p>
+                  <p data--delay="0.2s">Instead of generic tactics, we analyze your industry, competitors and backlink profile to build a tailored acquisition plan. With real-time quality checks and performance tracking, our Affordable Link Building Services ensure every link adds measurable value.</p>
+                  <p data--delay="0.2s">By choosing our Top Link Building Services in Mohali, you gain reliable, contextual links that elevate visibility and drive sustainable results.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Boost Domain Authority with<span> Intelligent Link Building </span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">We create power-packed backlink strategies that enhance your rankings and strengthen your digital presence in highly competitive environments.</p>
+                    <h2 data--delay="0.4s">Boost Domain Authority with<span> Intelligent Link Building </span></h2>
+                    <p data--delay="0.6s">We create power-packed backlink strategies that enhance your rankings and strengthen your digital presence in highly competitive environments.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Precision-Driven Link Acquisition for Higher Authority</li>
                       <li>Wide-Ranging Backlink Profiles for Stable, Long-Term SEO Growth</li>
                       <li>Targeted Outreach Designed to Earn High-Value, Relevant Links</li>
                       <li>Detailed Performance Monitoring to Measure Link Quality and Impact</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>DoFollow Backlinks: Powering Authority and Rankings</h3>
                         <p>DoFollow backlinks are essential signals that help search engines evaluate your website’s authority and relevance. When reputable sites link to you with a DoFollow tag, they pass on link equity, directly contributing to higher keyword rankings, stronger domain authority and long-term organic growth. As part of our SEO Link Building Service in Mohali, we focus on securing high-quality DoFollow links from authoritative, niche-relevant publishers that strengthen your overall link building in SEO strategy. These links play a critical role in building trust, improving visibility and accelerating your SEO performance.</p>
@@ -101,10 +101,10 @@ export default function LinkBuildingSeoAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Measurable Growth Through Insight</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">We leverage advanced backlink analytics, competitor authority mapping, and real-time link performance tracking to ensure every link earned strengthens your domain authority, boosts rankings, and drives consistent, measurable organic growth.</p>
+                    <h2>Measurable Growth Through Insight</h2>
+                    <p data--delay="0.2s">We leverage advanced backlink analytics, competitor authority mapping, and real-time link performance tracking to ensure every link earned strengthens your domain authority, boosts rankings, and drives consistent, measurable organic growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>High-Authority Link Strategies for Maximum Impact.</li>
                       <li>Consistent Backlink Acquisition Across Trusted Platforms.</li>
                     </ul>
@@ -120,7 +120,7 @@ export default function LinkBuildingSeoAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Strategic Link-Building Blueprint</h3>
                           <p>We begin by analyzing your industry landscape, competitor backlink profiles, and current authority gaps. This in-depth assessment helps us create a targeted link-building roadmap aligned with your ranking goals.</p>
@@ -134,8 +134,8 @@ export default function LinkBuildingSeoAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Advanced Link Acquisition Techniques for Stronger SEO Performance</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Before building authority, a website needs a balanced, diverse and strategic backlink profile. At Rank Spiders, we combine relevance, quality and smart execution to deliver SEO link building services, backlink building services and scalable outreach that strengthens rankings and long-term visibility. Below is an overview of the powerful link acquisition methods we use to elevate your SEO growth.</p>
+                    <h2>Advanced Link Acquisition Techniques for Stronger SEO Performance</h2>
+                    <p data--delay="0.2s">Before building authority, a website needs a balanced, diverse and strategic backlink profile. At Rank Spiders, we combine relevance, quality and smart execution to deliver SEO link building services, backlink building services and scalable outreach that strengthens rankings and long-term visibility. Below is an overview of the powerful link acquisition methods we use to elevate your SEO growth.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -212,12 +212,12 @@ export default function LinkBuildingSeoAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">The Rank Spiders Approach to Sustainable Organic Authority</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">At Rank Spiders, we cultivate authority through purposeful, high-impact link-building strategies. We believe that powerful brands are built on trust, credibility and meaningful digital connections. Our methodology integrates data intelligence, strategic outreach and premium editorial partnerships to strengthen your online authority and drive sustainable organic growth.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Rank Spiders builds authority-driven connections that enhance trust, influence and long-term visibility. Every strategy is rooted in relevance, ensuring each backlink meaningfully elevates your brand’s authority and positions you for consistent SEO performance.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">The Rank Spiders Approach to Sustainable Organic Authority</h2>
+                  <p data--delay="0.4s">At Rank Spiders, we cultivate authority through purposeful, high-impact link-building strategies. We believe that powerful brands are built on trust, credibility and meaningful digital connections. Our methodology integrates data intelligence, strategic outreach and premium editorial partnerships to strengthen your online authority and drive sustainable organic growth.</p>
+                  <p data--delay="0.4s">Rank Spiders builds authority-driven connections that enhance trust, influence and long-term visibility. Every strategy is rooted in relevance, ensuring each backlink meaningfully elevates your brand’s authority and positions you for consistent SEO performance.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -228,15 +228,6 @@ export default function LinkBuildingSeoAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -250,12 +241,12 @@ export default function LinkBuildingSeoAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 

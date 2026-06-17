@@ -86,20 +86,20 @@ export default function WebDesignNicheIndustries() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Every industry has its own audience expectations, trust signals, and conversion triggers. A healthcare website needs to feel clinical and reassuring; a roofing company website needs to project reliability and speed. We build websites that speak your customers' language — not generic digital placeholders.</p>
+                  <p>Every industry has its own audience expectations, trust signals, and conversion triggers. A healthcare website needs to feel clinical and reassuring; a roofing company website needs to project reliability and speed. We build websites that speak your customers' language — not generic digital placeholders.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Built for Your Industry, <span>Designed to Convert</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Our niche-specific web development process starts with understanding your industry inside and out — then building a site around how your customers actually behave online.</p>
+                    <h2 data--delay="0.4s">Built for Your Industry, <span>Designed to Convert</span></h2>
+                    <p data--delay="0.6s">Our niche-specific web development process starts with understanding your industry inside and out — then building a site around how your customers actually behave online.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Industry-Specific UX & Conversion Design</li>
                       <li>Mobile-First, Fast-Loading Architecture</li>
                       <li>SEO-Ready Structure from Day One</li>
                       <li>Compliance-Aware for Regulated Industries</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Discovery & Industry Research</h3>
                         <p>We analyse your niche, study competitor websites, and map the user journey your customers follow — before writing a single line of code.</p>
@@ -118,8 +118,8 @@ export default function WebDesignNicheIndustries() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">What Makes a Niche Website Different?</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Niche websites outperform generic ones because they are built around specific audience intent. A dental patient searching for "teeth whitening Mohali" has very different expectations than someone browsing a SaaS homepage. We match the design, tone, and structure to what your specific audience needs to see in order to trust you and enquire.</p>
+                    <h2>What Makes a Niche Website Different?</h2>
+                    <p data--delay="0.2s">Niche websites outperform generic ones because they are built around specific audience intent. A dental patient searching for "teeth whitening Mohali" has very different expectations than someone browsing a SaaS homepage. We match the design, tone, and structure to what your specific audience needs to see in order to trust you and enquire.</p>
 
                     <div className="service-growth-body">
                       <div className="growth-counter-box">
@@ -132,7 +132,7 @@ export default function WebDesignNicheIndustries() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Audience-Matched Design</h3>
                           <p>Colours, fonts, imagery, and layout are chosen based on what builds trust in your specific market — not generic design trends.</p>
@@ -154,7 +154,7 @@ export default function WebDesignNicheIndustries() {
       {/* ── Industries grid ── */}
       <div className="niche-industries-section">
         <div className="container">
-          <div className="section-title text-center section-title-center wow fadeInUp">
+          <div className="section-title text-center section-title-center ">
             <h3>Who We Build For</h3>
             <h2>Industries We Serve with <span>Web Design & Development</span></h2>
             <p>We have built high-converting websites across 16+ industries. If your sector is not listed, we still build for it — every industry has unique digital needs we are ready to meet.</p>
@@ -163,7 +163,7 @@ export default function WebDesignNicheIndustries() {
           <div className="row g-3 mt-2">
             {industries.map((ind, i) => (
               <div key={i} className="col-lg-3 col-md-4 col-6">
-                <div className="niche-industry-card wow fadeInUp" data-wow-delay={`${(i % 4) * 0.1}s`}>
+                <div className="niche-industry-card " data--delay={`${(i % 4) * 0.1}s`}>
                   <div className="niche-industry-icon">
                     <i className={ind.icon}></i>
                   </div>
@@ -173,7 +173,7 @@ export default function WebDesignNicheIndustries() {
             ))}
           </div>
 
-          <div className="text-center mt-5 wow fadeInUp">
+          <div className="text-center mt-5 ">
             <Link href="/contact-us" className="btn-default">Get a Free Website Consultation</Link>
           </div>
         </div>
@@ -186,11 +186,11 @@ export default function WebDesignNicheIndustries() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Your Website Should Work <span>As Hard As You Do</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">A website that doesn't generate enquiries is just a digital brochure. We build sites that actively convert visitors into leads — through smart design, fast performance, and industry-specific trust signals.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Your Website Should Work <span>As Hard As You Do</span></h2>
+                  <p data--delay="0.4s">A website that doesn't generate enquiries is just a digital brochure. We build sites that actively convert visitors into leads — through smart design, fast performance, and industry-specific trust signals.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">start your project</Link>
                 </div>
               </div>
@@ -208,11 +208,11 @@ export default function WebDesignNicheIndustries() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`}

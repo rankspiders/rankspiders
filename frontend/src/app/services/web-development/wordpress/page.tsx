@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -13,12 +13,12 @@ export default function WordpressDevelopmentAgency() {
     {
       id: 1,
       question: "1. Why choose WordPress for your business website?",
-      answer: "WordPress powers 40%+ of the web for good reason—it's scalable, SEO-friendly, and gives you full content control without needing a developer for every change. We build WordPress sites that grow with your business."
+      answer: "WordPress powers 40%+ of the web for good reasonâ€”it's scalable, SEO-friendly, and gives you full content control without needing a developer for every change. We build WordPress sites that grow with your business."
     },
     {
       id: 2,
       question: "2. Do you build custom WordPress themes or use pre-built ones?",
-      answer: "We build bespoke WordPress themes tailored to your brand. We avoid bloated page builders and over-engineered templates—every site we deliver is clean, fast, and purpose-built for your business goals."
+      answer: "We build bespoke WordPress themes tailored to your brand. We avoid bloated page builders and over-engineered templatesâ€”every site we deliver is clean, fast, and purpose-built for your business goals."
     },
     {
       id: 3,
@@ -28,12 +28,12 @@ export default function WordpressDevelopmentAgency() {
     {
       id: 4,
       question: "4. Do you provide WordPress training after launch?",
-      answer: "Absolutely. We provide documentation and live training sessions so your team can manage content confidently. We want you to own your website—not depend on us for every update."
+      answer: "Absolutely. We provide documentation and live training sessions so your team can manage content confidently. We want you to own your websiteâ€”not depend on us for every update."
     },
     {
       id: 5,
       question: "5. Do you integrate WooCommerce for e-commerce?",
-      answer: "Yes. We develop WooCommerce-powered stores as part of our WordPress development service—from product catalogue setup to payment gateway integration, with full SEO optimisation included."
+      answer: "Yes. We develop WooCommerce-powered stores as part of our WordPress development serviceâ€”from product catalogue setup to payment gateway integration, with full SEO optimisation included."
     }
   ];
 
@@ -57,17 +57,17 @@ export default function WordpressDevelopmentAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">We build WordPress websites that are fast, secure, and built to rank. From bespoke theme development to complex plugin integrations, our WordPress development process is engineered for performance and long-term maintainability.</p>
+                  <p>We build WordPress websites that are fast, secure, and built to rank. From bespoke theme development to complex plugin integrations, our WordPress development process is engineered for performance and long-term maintainability.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">WordPress Development <span>Done Right</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Custom builds, clean code, and zero bloat—WordPress the way it should be built.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">WordPress Development <span>Done Right</span></h2>
+                    <p data--delay="0.6s">Custom builds, clean code, and zero bloatâ€”WordPress the way it should be built.</p>
+                    <ul data--delay="0.8s">
                       <li>Custom Theme Development</li>
                       <li>Plugin Development & Integration</li>
                       <li>WordPress Speed Optimisation</li>
                       <li>Security Hardening</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Custom Theme Development</h3>
                         <p>Brand-specific, performance-optimised themes with no unnecessary code or dependencies.</p>
@@ -96,11 +96,11 @@ export default function WordpressDevelopmentAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Your Website Should Work <span>For You, Not Against You</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We build WordPress sites that your team can manage confidently and that search engines reward consistently.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Your Website Should Work <span>For You, Not Against You</span></h2>
+                  <p data--delay="0.4s">We build WordPress sites that your team can manage confidently and that search engines reward consistently.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">get started</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function WordpressDevelopmentAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

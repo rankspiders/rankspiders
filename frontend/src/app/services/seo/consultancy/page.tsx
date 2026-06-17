@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -28,12 +28,12 @@ export default function SeoConsultancyAgency() {
     {
       id: 4,
       question: "4. Can you work alongside our current SEO agency?",
-      answer: "Yes. We often work as an independent SEO advisor alongside existing agencies—reviewing their work, identifying missed opportunities, and providing an objective performance assessment. This accountability layer often dramatically improves results."
+      answer: "Yes. We often work as an independent SEO advisor alongside existing agenciesâ€”reviewing their work, identifying missed opportunities, and providing an objective performance assessment. This accountability layer often dramatically improves results."
     },
     {
       id: 5,
       question: "5. Do you provide training as part of SEO consultancy?",
-      answer: "Yes. We offer SEO training workshops for marketing teams covering technical SEO fundamentals, content optimisation, keyword research, and performance measurement—building internal capability that reduces long-term agency dependency."
+      answer: "Yes. We offer SEO training workshops for marketing teams covering technical SEO fundamentals, content optimisation, keyword research, and performance measurementâ€”building internal capability that reduces long-term agency dependency."
     }
   ];
 
@@ -57,20 +57,20 @@ export default function SeoConsultancyAgency() {
                   </figure>
                 </div>
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Sometimes you don't need an agency to run your SEO—you need an expert to tell you exactly what's wrong and what to fix. Our SEO consultancy service provides deep diagnostic expertise and clear strategic direction, empowering your team to execute with confidence.</p>
+                  <p>Sometimes you don't need an agency to run your SEOâ€”you need an expert to tell you exactly what's wrong and what to fix. Our SEO consultancy service provides deep diagnostic expertise and clear strategic direction, empowering your team to execute with confidence.</p>
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">SEO Expertise <span>On Demand</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Expert SEO diagnosis, strategy, and guidance—without the overhead of full managed services.</p>
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <h2 data--delay="0.4s">SEO Expertise <span>On Demand</span></h2>
+                    <p data--delay="0.6s">Expert SEO diagnosis, strategy, and guidanceâ€”without the overhead of full managed services.</p>
+                    <ul data--delay="0.8s">
                       <li>Comprehensive SEO Audits</li>
                       <li>Keyword & Content Strategy</li>
                       <li>Technical SEO Roadmaps</li>
                       <li>Agency & Team Advisory</li>
                     </ul>
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Diagnostic & Strategy</h3>
-                        <p>Deep audits that identify exactly why you're not ranking—and a clear plan to change it.</p>
+                        <p>Deep audits that identify exactly why you're not rankingâ€”and a clear plan to change it.</p>
                       </div>
                       <div className="strategy-body-item">
                         <h3>Training & Capability</h3>
@@ -96,11 +96,11 @@ export default function SeoConsultancyAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">The Right Diagnosis Beats <span>The Wrong Treatment</span></h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">Most SEO failures are execution failures born from strategic confusion. Clarity first—then confident execution—always wins.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">The Right Diagnosis Beats <span>The Wrong Treatment</span></h2>
+                  <p data--delay="0.4s">Most SEO failures are execution failures born from strategic confusion. Clarity firstâ€”then confident executionâ€”always wins.</p>
                 </div>
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">get expert guidance</Link>
                 </div>
               </div>
@@ -117,11 +117,11 @@ export default function SeoConsultancyAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>questions</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>questions</span></h2>
           </div>
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} type="button" onClick={() => toggleFaq(faq.id)}>
                     {faq.question}

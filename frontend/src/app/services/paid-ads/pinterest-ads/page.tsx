@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ export default function PinterestAdsAgency() {
         title="Pinterest" 
         subtitle="Ads" 
         breadcrumbs={[
-          { label: 'Online Advertising', href: '#' },
+          { label: 'Paid Ads', href: '/services/paid-ads' },
           { label: 'Pinterest Ads', active: true }
         ]} 
       />
@@ -67,22 +67,22 @@ export default function PinterestAdsAgency() {
                 </div>
 
                 <div className="service-entry">
-                  <p className="wow fadeInUp">Your brand deserves ads that don’t just appear they perform. Our Google Ads strategies combine real-time data, AI-driven bidding, and audience insights to deliver campaigns that reach the right people at the right time.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">From search ads to display, shopping, and YouTube campaigns, we craft hyper-targeted creatives designed to drive clicks, conversions, and measurable growth. Continuous optimization, trend analysis, and competitor benchmarking ensure your ad spend is fully leveraged, reducing waste and maximizing ROI.</p>
-                  <p className="wow fadeInUp" data-wow-delay="0.6s">Stay ahead in a competitive digital landscape with Google Ads campaigns that are precise, profitable, and performance-focused.</p>
+                  <p>Your brand deserves ads that don’t just appear they perform. Our Google Ads strategies combine real-time data, AI-driven bidding, and audience insights to deliver campaigns that reach the right people at the right time.</p>
+                  <p data--delay="0.4s">From search ads to display, shopping, and YouTube campaigns, we craft hyper-targeted creatives designed to drive clicks, conversions, and measurable growth. Continuous optimization, trend analysis, and competitor benchmarking ensure your ad spend is fully leveraged, reducing waste and maximizing ROI.</p>
+                  <p data--delay="0.6s">Stay ahead in a competitive digital landscape with Google Ads campaigns that are precise, profitable, and performance-focused.</p>
 
                   <div className="service-strategy-box">
-                    <h2 className="wow fadeInUp" data-wow-delay="0.4s">Drive Conversions with <span>Targeted Google Ads</span></h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.6s">Harness the power of precision advertising. Our Google Ads campaigns use audience insights, AI-driven bidding, and creative ad strategies to maximize clicks, leads, and ROI.</p>
+                    <h2 data--delay="0.4s">Drive Conversions with <span>Targeted Google Ads</span></h2>
+                    <p data--delay="0.6s">Harness the power of precision advertising. Our Google Ads campaigns use audience insights, AI-driven bidding, and creative ad strategies to maximize clicks, leads, and ROI.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.8s">
+                    <ul data--delay="0.8s">
                       <li>Hyper-Targeted Campaigns for Maximum ROI</li>
                       <li>Search, Display, Shopping & YouTube Ads Optimization</li>
                       <li>Audience Segmentation & Intent-Based Targeting</li>
                       <li>AI-Driven Bidding & Performance Tracking</li>
                     </ul>
 
-                    <div className="service-strategy-body wow fadeInUp" data-wow-delay="1s">
+                    <div className="service-strategy-body " data--delay="1s">
                       <div className="strategy-body-item">
                         <h3>Certified Google Ads Experts</h3>
                         <p>Professionals delivering high-performing, data-driven ad campaigns.</p>
@@ -101,10 +101,10 @@ export default function PinterestAdsAgency() {
                   </div>
 
                   <div className="service-growth-box">
-                    <h2 className="wow fadeInUp">Track, Analyze, and Grow Your Campaigns</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Optimize your Google Ads performance with actionable insights, audience segmentation, and trend-driven strategies that drive clicks, leads, and consistent, measurable business growth.</p>
+                    <h2>Track, Analyze, and Grow Your Campaigns</h2>
+                    <p data--delay="0.2s">Optimize your Google Ads performance with actionable insights, audience segmentation, and trend-driven strategies that drive clicks, leads, and consistent, measurable business growth.</p>
 
-                    <ul className="wow fadeInUp" data-wow-delay="0.4s">
+                    <ul data--delay="0.4s">
                       <li>Real-Time Bid & Budget Optimization</li>
                       <li>Multi-Platform Ad Campaign Management</li>
                     </ul>
@@ -120,7 +120,7 @@ export default function PinterestAdsAgency() {
                         </div>
                       </div>
 
-                      <div className="service-growth-item-list wow fadeInUp" data-wow-delay="0.6s">
+                      <div className="service-growth-item-list " data--delay="0.6s">
                         <div className="service-growth-item">
                           <h3>Certified Google Ads Experts</h3>
                           <p>Professionals delivering high-performing, data-driven ad campaigns.</p>
@@ -134,8 +134,8 @@ export default function PinterestAdsAgency() {
                   </div>
 
                   <div className="service-impact-box">
-                    <h2 className="wow fadeInUp">Transform Clicks Into Business Growth</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.2s">Track performance, optimize campaigns, and implement data-backed strategies to increase conversions, reduce wasted spend, and grow your brand online.</p>
+                    <h2>Transform Clicks Into Business Growth</h2>
+                    <p data--delay="0.2s">Track performance, optimize campaigns, and implement data-backed strategies to increase conversions, reduce wasted spend, and grow your brand online.</p>
 
                     <div className="service-impact-images">
                       <div className="service-impact-img">
@@ -204,19 +204,19 @@ export default function PinterestAdsAgency() {
             <div className="col-lg-6">
               <div className="our-belief-content">
                 <div className="section-title section-title-center">
-                  <h3 className="wow fadeInUp">Our Belief</h3>
-                  <h2 className="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Your Growth, Our Google Ads Expertise</h2>
-                  <p className="wow fadeInUp" data-wow-delay="0.4s">We leverage data-driven insights, AI-powered targeting, and innovative ad strategies to drive clicks, conversions, and measurable ROI across Search, Display, Shopping, and YouTube campaigns.</p>
+                  <h3>Our Belief</h3>
+                  <h2 data--delay="0.2s" data-cursor="-opaque">Your Growth, Our Google Ads Expertise</h2>
+                  <p data--delay="0.4s">We leverage data-driven insights, AI-powered targeting, and innovative ad strategies to drive clicks, conversions, and measurable ROI across Search, Display, Shopping, and YouTube campaigns.</p>
                 </div>
 
-                <div className="our-belief-body wow fadeInUp" data-wow-delay="0.6s">
+                <div className="our-belief-body " data--delay="0.6s">
                   <ul>
                     <li>We design ad campaigns that engage audiences, drive clicks, and convert prospects into loyal customers.</li>
                     <li>Every strategy is purpose-driven, ensuring your ad spend delivers maximum ROI and measurable growth.</li>
                   </ul>
                 </div>
 
-                <div className="our-belief-btn wow fadeInUp" data-wow-delay="0.8s">
+                <div className="our-belief-btn " data--delay="0.8s">
                   <Link href="/contact-us" className="btn-default">learn more</Link>
                 </div>
               </div>
@@ -228,15 +228,6 @@ export default function PinterestAdsAgency() {
                   <figure>
                     <img src="/images/sections/our-belief-image.png" alt="Rank Spiders core values - data-driven digital marketing agency India" />
                   </figure>
-                </div>
-                <div className="belief-fund-box">
-                  <div className="icon-box">
-                    <img src="/images/icons/icon-belief-fund.svg" alt="" />
-                  </div>
-                  <div className="belief-fund-content">
-                    <p>Total fund</p>
-                    <h3>$2412.00</h3>
-                  </div>
                 </div>
                 <div className="belief-graph-image">
                   <img src="/images/sections/belief-graph-imge.png" alt="Client business growth graph showing digital marketing ROI by Rank Spiders" />
@@ -250,12 +241,12 @@ export default function PinterestAdsAgency() {
       <div className="container">
         <div className="page-single-faqs">
           <div className="section-title">
-            <h2 className="wow fadeInUp" data-cursor="-opaque">Frequently asked <span>question</span></h2>
+            <h2 data-cursor="-opaque">Frequently asked <span>question</span></h2>
           </div>
 
           <div className="faq-accordion" id="accordion">
             {faqs.map((faq) => (
-              <div key={faq.id} className="accordion-item wow fadeInUp">
+              <div key={faq.id} className="accordion-item ">
                 <h2 className="accordion-header">
                   <button 
                     className={`accordion-button ${openFaq === faq.id ? '' : 'collapsed'}`} 
