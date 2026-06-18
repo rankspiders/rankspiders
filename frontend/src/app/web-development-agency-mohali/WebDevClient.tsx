@@ -246,12 +246,12 @@ export default function WebDevClient() {
             <div style={{ position: 'relative', background: '#0B0B12', overflow: 'hidden' }}>
               <video
                 ref={videoRef}
-                src="/images/Web-LandingPage/Testimonial.mov"
+                src="/images/Web-LandingPage/Testimonial.mp4"
                 autoPlay
                 loop
                 muted={videoMuted}
                 playsInline
-                style={{ width: '100%', display: 'block', aspectRatio: '9 / 16', objectFit: 'cover', objectPosition: 'bottom' }}
+                style={{ width: '100%', display: 'block', aspectRatio: '604 / 1016', objectFit: 'cover' }}
               />
               <button
                 type="button"
