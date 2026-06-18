@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 // ── Brand tokens ─────────────────────────────────────────────────────────────
@@ -100,8 +100,6 @@ export default function WebDevClient() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', business: '', websiteType: '', budget: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [videoMuted, setVideoMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm(f => ({ ...f, [k]: e.target.value }));
@@ -242,30 +240,15 @@ export default function WebDevClient() {
       {/* ══════════════════ ABOUT ══════════════════ */}
       <section style={{ padding: '90px 5%' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60, alignItems: 'center', maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ borderRadius: 20, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)', maxWidth: 360, margin: '0 auto' }}>
-            <div style={{ position: 'relative', background: '#0B0B12', overflow: 'hidden' }}>
-              <video
-                ref={videoRef}
-                src="/images/Web-LandingPage/Testimonial.mp4"
-                autoPlay
-                loop
-                muted={videoMuted}
-                playsInline
-                style={{ width: '100%', display: 'block', aspectRatio: '604 / 1016', objectFit: 'cover' }}
-              />
-              <button
-                type="button"
-                aria-label={videoMuted ? 'Unmute video' : 'Mute video'}
-                onClick={() => setVideoMuted(m => !m)}
-                style={{ position: 'absolute', bottom: 16, right: 16, width: 42, height: 42, borderRadius: '50%', border: 'none', background: 'rgba(17,17,17,0.65)', backdropFilter: 'blur(4px)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '1.05rem' }}
-              >
-                <i className={videoMuted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high'} />
-              </button>
-            </div>
-            <div style={{ background: `linear-gradient(135deg, ${ID}, ${IL})`, padding: '24px 20px', display: 'flex', gap: 28, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ background: `linear-gradient(135deg, ${ID}, ${IL})`, borderRadius: 20, padding: '50px 40px', textAlign: 'center', color: '#fff' }}>
+            <Image src="/images/logo/rankspiders.png" alt="Rank Spiders" width={180} height={60} style={{ height: 60, width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: 20 }} />
+            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7 }}>
+              A full-service digital agency rooted in Mohali — building websites and digital brands that compete on a global scale.
+            </p>
+            <div style={{ display: 'flex', gap: 28, marginTop: 28, justifyContent: 'center', flexWrap: 'wrap' }}>
               {[['200+', 'Clients Served'], ['1K+', 'Projects Done'], ['10+', 'Years Active']].map(([n, l]) => (
-                <div key={l} style={{ textAlign: 'center' }}>
-                  <strong style={{ display: 'block', fontSize: '1.8rem', fontWeight: 900, fontFamily: 'var(--heading-font)', color: '#fff' }}>{n}</strong>
+                <div key={l}>
+                  <strong style={{ display: 'block', fontSize: '1.8rem', fontWeight: 900, fontFamily: 'var(--heading-font)' }}>{n}</strong>
                   <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.62)' }}>{l}</span>
                 </div>
               ))}
