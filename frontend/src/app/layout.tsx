@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import PageTransition from "@/components/PageTransition";
 import LeadPopup from "@/components/LeadPopup";
+import ChatWidget from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
   title: {
@@ -67,6 +68,7 @@ export default async function RootLayout({
         </main>
         {!isLanding && <Footer />}
         <LeadPopup />
+        <ChatWidget />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
 
 from routers.blogs import router as blogs_router
+from routers.chatbot import router as chatbot_router
 from routers.leads import router as leads_router
 from routers.projects import router as projects_router
 from routers.tools import router as tools_router
@@ -25,6 +26,7 @@ app.include_router(blogs_router, prefix="/api")
 app.include_router(projects_router, prefix="/api")
 app.include_router(leads_router, prefix="/api")
 app.include_router(tools_router, prefix="/api/tools", tags=["Tools"])
+app.include_router(chatbot_router, prefix="/api", tags=["Chatbot"])
 
 
 @app.api_route("/", methods=["GET", "HEAD"])
