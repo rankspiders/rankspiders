@@ -4,6 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 
 type Message = { role: 'user' | 'assistant'; content: string };
 
+function apiBase() {
+  if (process.env.NEXT_PUBLIC_API_URL) return process.env.NEXT_PUBLIC_API_URL;
+  if (typeof window !== 'undefined') return `http://${window.location.hostname}:8000`;
+  return 'http://localhost:8000';
+}
+
 function renderBold(text: string, keyPrefix: string) {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
     part.startsWith('**') && part.endsWith('**') ? (
@@ -71,7 +77,7 @@ export default function ChatWidget() {
 
     try {
       const history = next.slice(-10).filter(m => m !== GREETING);
-      const res = await fetch('http://localhost:8000/api/chat', {
+      const res = await fetch(`${apiBase()}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: history }),
