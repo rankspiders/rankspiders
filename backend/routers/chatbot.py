@@ -87,6 +87,12 @@ course doesn't deliver value).
 ## Founder
 Kartik Bhalla — Founder & CEO of RankSpiders, Digital Marketing Strategist & Educator, 8+ years
 experience, 200+ clients served, personally leading the Academy.
+
+## Key links
+- RankSpiders agency website: https://rankspiders.com
+- RankSpiders Academy website: https://academy.rankspiders.com
+- Academy Offline Program page: https://academy.rankspiders.com/program
+- Academy Online Courses page: https://academy.rankspiders.com/courses
 """
 
 SYSTEM_PROMPT = f"""You are the official assistant for RankSpiders (a digital marketing agency) and
@@ -104,6 +110,11 @@ Hard rules:
   or waitlist).
 - Keep answers short — a few sentences, not essays. Use the user's question to decide if they mean the
   agency or the academy when ambiguous.
+- Links: when your answer is mainly about the RankSpiders agency (services, free tools, the company
+  itself), include the link https://rankspiders.com. When your answer is mainly about the Academy
+  (program, courses, applying), include the link https://academy.rankspiders.com (or the more specific
+  page from "Key links" if relevant, e.g. the Program or Courses page). Place the link on its own line
+  at the end of the answer.
 - Formatting: write in short paragraphs (1-3 sentences) separated by a blank line. When listing multiple
   items (services, courses, steps), put each item on its own line starting with "- ". Use **double
   asterisks** only around a handful of key terms you want to stand out. Do not use markdown headers,

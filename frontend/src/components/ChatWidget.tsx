@@ -11,13 +11,19 @@ function apiBase() {
 }
 
 function renderBold(text: string, keyPrefix: string) {
-  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
-    part.startsWith('**') && part.endsWith('**') ? (
-      <strong key={`${keyPrefix}-${i}`}>{part.slice(2, -2)}</strong>
-    ) : (
-      <span key={`${keyPrefix}-${i}`}>{part}</span>
-    )
-  );
+  return text.split(/(\*\*[^*]+\*\*|https?:\/\/[^\s)]+)/g).map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={`${keyPrefix}-${i}`}>{part.slice(2, -2)}</strong>;
+    }
+    if (/^https?:\/\//.test(part)) {
+      return (
+        <a key={`${keyPrefix}-${i}`} href={part} target="_blank" rel="noopener noreferrer" className="rs-chat-link">
+          {part}
+        </a>
+      );
+    }
+    return <span key={`${keyPrefix}-${i}`}>{part}</span>;
+  });
 }
 
 function renderFormatted(content: string) {
@@ -287,6 +293,7 @@ export default function ChatWidget() {
           line-height: 1.5;
         }
         .rs-chat-bubble-user { white-space: pre-wrap; }
+        .rs-chat-link { color: #8832d8; font-weight: 600; word-break: break-all; }
         .rs-chat-para { margin: 0 0 8px; }
         .rs-chat-para:last-child { margin-bottom: 0; }
         .rs-chat-list { margin: 0 0 8px; padding-left: 18px; }
